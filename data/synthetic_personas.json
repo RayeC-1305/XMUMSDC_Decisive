@@ -1,0 +1,330 @@
+{
+  "metadata": {
+    "version": "2026.10",
+    "description": "Synthetic benchmark personas, 50-person SME enterprise workforce, and 120-student TVET graduating cohort for zero-bias testing",
+    "sdg_alignment": ["SDG 4.3", "SDG 4.4", "SDG 5", "SDG 8.2", "SDG 8.5", "SDG 9", "SDG 10", "SDG 13"]
+  },
+  "individual_personas": [
+    {
+      "persona_id": "PER-01",
+      "name": "Siti Nurhaliza binti Rosli",
+      "display_title": "At-Risk BPO & Admin Coordinator",
+      "location": "Petaling Jaya, Selangor",
+      "current_role": "BPO & Operations Support Specialist",
+      "education": "Diploma in Business Administration (UiTM)",
+      "experience_years": 6,
+      "demographics": {
+        "age": 32,
+        "gender": "Female",
+        "background": "Urban Suburb (Public Diploma)",
+        "ethnicity": "Malay"
+      },
+      "avatar": "👩‍💼",
+      "summary": "Experienced in high-volume customer ticket triage, invoice matching, and manual data transcription. High automation vulnerability from agentic SQL and automated document OCR copilots.",
+      "atomic_tasks": [
+        {
+          "task_id": "task_siti_1",
+          "name": "Manual data transcription from PDF invoices into SAP ERP",
+          "category": "technical_routine",
+          "baseline_halflife_months": 11,
+          "automation_exposure": 0.88,
+          "transferable_strength": 0.40,
+          "is_at_risk": true
+        },
+        {
+          "task_id": "task_siti_2",
+          "name": "Customer order discrepancy mediation and phone support",
+          "category": "human_mediation",
+          "baseline_halflife_months": 48,
+          "automation_exposure": 0.22,
+          "transferable_strength": 0.85,
+          "is_at_risk": false
+        },
+        {
+          "task_id": "task_siti_3",
+          "name": "Vendor delivery status checking and cross-dock log verification",
+          "category": "logistics_coordination",
+          "baseline_halflife_months": 18,
+          "automation_exposure": 0.65,
+          "transferable_strength": 0.70,
+          "is_at_risk": true
+        },
+        {
+          "task_id": "task_siti_4",
+          "name": "Monthly Excel spreadsheet variance formulas and budget consolidation",
+          "category": "finance_basic",
+          "baseline_halflife_months": 14,
+          "automation_exposure": 0.75,
+          "transferable_strength": 0.60,
+          "is_at_risk": true
+        },
+        {
+          "task_id": "task_siti_5",
+          "name": "Internal employee grievance listening and team schedule mediation",
+          "category": "human_empathy",
+          "baseline_halflife_months": 60,
+          "automation_exposure": 0.15,
+          "transferable_strength": 0.90,
+          "is_at_risk": false
+        }
+      ],
+      "baseline_skills": [
+        "skill_manual_data_entry",
+        "skill_vendor_mediation",
+        "skill_excel_spreadsheets",
+        "skill_customer_triage",
+        "skill_invoice_matching"
+      ]
+    },
+    {
+      "persona_id": "PER-02",
+      "name": "Tan Wei Kiat",
+      "display_title": "Automotive Technician / TVET Switcher",
+      "location": "Shah Alam, Selangor",
+      "current_role": "Senior Automotive ICE Diagnostic Mechanic",
+      "education": "Sijil Kemahiran Malaysia (SKM Level 3 Automotive)",
+      "experience_years": 7,
+      "demographics": {
+        "age": 29,
+        "gender": "Male",
+        "background": "Semi-Urban TVET Institute",
+        "ethnicity": "Chinese"
+      },
+      "avatar": "👨‍🔧",
+      "summary": "Expert in combustion engine teardown, multi-meter diagnostics, and workshop safety protocols. Facing shrinking ICE repair volumes; eager to pivot to high-voltage EV battery telemetry and smart grid systems.",
+      "atomic_tasks": [
+        {
+          "task_id": "task_tan_1",
+          "name": "OBD-II fault code isolation and electrical harness probing",
+          "category": "technical_diagnostic",
+          "baseline_halflife_months": 36,
+          "automation_exposure": 0.35,
+          "transferable_strength": 0.90,
+          "is_at_risk": false
+        },
+        {
+          "task_id": "task_tan_2",
+          "name": "Internal combustion cylinder head overhaul & mechanical torqueing",
+          "category": "mechanical_ice",
+          "baseline_halflife_months": 16,
+          "automation_exposure": 0.78,
+          "transferable_strength": 0.35,
+          "is_at_risk": true
+        },
+        {
+          "task_id": "task_tan_3",
+          "name": "High-voltage lock-out tag-out and workshop safety protocol compliance",
+          "category": "safety_governance",
+          "baseline_halflife_months": 54,
+          "automation_exposure": 0.18,
+          "transferable_strength": 0.92,
+          "is_at_risk": false
+        },
+        {
+          "task_id": "task_tan_4",
+          "name": "Customer vehicle defect consultation and vernacular repair explanation",
+          "category": "human_consulting",
+          "baseline_halflife_months": 42,
+          "automation_exposure": 0.20,
+          "transferable_strength": 0.80,
+          "is_at_risk": false
+        },
+        {
+          "task_id": "task_tan_5",
+          "name": "12V lead-acid battery load testing and starter motor bench analysis",
+          "category": "electrical_legacy",
+          "baseline_halflife_months": 18,
+          "automation_exposure": 0.65,
+          "transferable_strength": 0.75,
+          "is_at_risk": true
+        }
+      ],
+      "baseline_skills": [
+        "skill_can_bus_diagnostics",
+        "skill_grid_safety",
+        "skill_hv_safety_governance",
+        "skill_predictive_maintenance",
+        "skill_shopfloor_ergonomics"
+      ]
+    },
+    {
+      "persona_id": "PER-03",
+      "name": "Pravin A/L Mohan",
+      "display_title": "Fresh TVET Mechatronics Graduate",
+      "location": "Batu Kawan / Bayan Lepas, Penang",
+      "current_role": "Diploma Graduate (Mechatronics Engineering)",
+      "education": "Diploma in Mechatronics (Politeknik Seberang Perai)",
+      "experience_years": 0.5,
+      "demographics": {
+        "age": 23,
+        "gender": "Male",
+        "background": "Northern Region TVET Graduate",
+        "ethnicity": "Indian"
+      },
+      "avatar": "👨‍🎓",
+      "summary": "Trained in Arduino microcontrollers, pneumatic actuators, and ladder logic. Seeks direct pathway into high-demand Northern Corridor Edge-AI, smart cleanroom robotics, or agri-drone telemetry.",
+      "atomic_tasks": [
+        {
+          "task_id": "task_pravin_1",
+          "name": "Embedded C/C++ firmware coding on ARM microcontrollers",
+          "category": "technical_firmware",
+          "baseline_halflife_months": 38,
+          "automation_exposure": 0.30,
+          "transferable_strength": 0.88,
+          "is_at_risk": false
+        },
+        {
+          "task_id": "task_pravin_2",
+          "name": "PLC ladder logic wiring and sensor relay calibration",
+          "category": "technical_automation",
+          "baseline_halflife_months": 34,
+          "automation_exposure": 0.40,
+          "transferable_strength": 0.85,
+          "is_at_risk": false
+        },
+        {
+          "task_id": "task_pravin_3",
+          "name": "Basic robotic arm pick-and-place servo path teaching",
+          "category": "robotics_basic",
+          "baseline_halflife_months": 28,
+          "automation_exposure": 0.45,
+          "transferable_strength": 0.82,
+          "is_at_risk": false
+        },
+        {
+          "task_id": "task_pravin_4",
+          "name": "Breadboard electronic circuit soldering and multimeter probing",
+          "category": "hardware_manual",
+          "baseline_halflife_months": 24,
+          "automation_exposure": 0.50,
+          "transferable_strength": 0.70,
+          "is_at_risk": false
+        },
+        {
+          "task_id": "task_pravin_5",
+          "name": "Interdisciplinary capstone project team coordination",
+          "category": "human_collaboration",
+          "baseline_halflife_months": 60,
+          "automation_exposure": 0.12,
+          "transferable_strength": 0.85,
+          "is_at_risk": false
+        }
+      ],
+      "baseline_skills": [
+        "skill_edge_ai",
+        "skill_lorawan_iot",
+        "skill_ros2_robotics",
+        "skill_plc_opcua",
+        "skill_drone_telemetry"
+      ]
+    }
+  ],
+  "sme_workforce": [
+    { "id": "EMP-01", "name": "Employee 101 (Finance Clerk)", "dept": "Finance", "role": "Junior Accounts Clerk", "tenure": 4.5, "automation_risk": 0.85, "redeployment_role": "ROLE-04 (AI Financial & ESG Analyst)", "reskill_ready": 78, "levy_alloc": 4000 },
+    { "id": "EMP-02", "name": "Employee 102 (Accounts Payable)", "dept": "Finance", "role": "AP Invoice Processor", "tenure": 6.0, "automation_risk": 0.90, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 82, "levy_alloc": 4000 },
+    { "id": "EMP-03", "name": "Employee 103 (Billing Assistant)", "dept": "Finance", "role": "Billing Assistant", "tenure": 3.0, "automation_risk": 0.82, "redeployment_role": "ROLE-04 (AI Financial & ESG Analyst)", "reskill_ready": 74, "levy_alloc": 4000 },
+    { "id": "EMP-04", "name": "Employee 104 (Senior Accountant)", "dept": "Finance", "role": "Management Accountant", "tenure": 8.0, "automation_risk": 0.45, "redeployment_role": "ROLE-04 (AI Financial & ESG Analyst)", "reskill_ready": 91, "levy_alloc": 6000 },
+    { "id": "EMP-05", "name": "Employee 105 (Payroll Officer)", "dept": "Finance", "role": "Payroll Officer", "tenure": 5.2, "automation_risk": 0.70, "redeployment_role": "ROLE-04 (AI Financial & ESG Analyst)", "reskill_ready": 80, "levy_alloc": 4000 },
+    { "id": "EMP-06", "name": "Employee 106 (Tax Assistant)", "dept": "Finance", "role": "Tax Filing Clerk", "tenure": 2.8, "automation_risk": 0.75, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 76, "levy_alloc": 4000 },
+    { "id": "EMP-07", "name": "Employee 107 (Cost Clerk)", "dept": "Finance", "role": "Costing Clerk", "tenure": 4.1, "automation_risk": 0.80, "redeployment_role": "ROLE-04 (AI Financial & ESG Analyst)", "reskill_ready": 79, "levy_alloc": 4000 },
+    { "id": "EMP-08", "name": "Employee 108 (Ledger Specialist)", "dept": "Finance", "role": "General Ledger Officer", "tenure": 7.0, "automation_risk": 0.65, "redeployment_role": "ROLE-04 (AI Financial & ESG Analyst)", "reskill_ready": 85, "levy_alloc": 5000 },
+    { "id": "EMP-09", "name": "Employee 109 (Credit Controller)", "dept": "Finance", "role": "Credit Control Clerk", "tenure": 3.5, "automation_risk": 0.68, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 75, "levy_alloc": 4000 },
+    { "id": "EMP-10", "name": "Employee 110 (Audit Junior)", "dept": "Finance", "role": "Internal Audit Assistant", "tenure": 1.8, "automation_risk": 0.60, "redeployment_role": "ROLE-04 (AI Financial & ESG Analyst)", "reskill_ready": 88, "levy_alloc": 4000 },
+    { "id": "EMP-11", "name": "Employee 111 (Treasury Clerk)", "dept": "Finance", "role": "Treasury Clerk", "tenure": 4.0, "automation_risk": 0.72, "redeployment_role": "ROLE-04 (AI Financial & ESG Analyst)", "reskill_ready": 77, "levy_alloc": 4000 },
+    { "id": "EMP-12", "name": "Employee 112 (Asset Registry)", "dept": "Finance", "role": "Fixed Asset Clerk", "tenure": 5.5, "automation_risk": 0.78, "redeployment_role": "ROLE-08 (Circular Resource Analyst)", "reskill_ready": 81, "levy_alloc": 4000 },
+    { "id": "EMP-13", "name": "Employee 113 (Finance Admin)", "dept": "Finance", "role": "Finance Secretary", "tenure": 9.0, "automation_risk": 0.84, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 72, "levy_alloc": 4000 },
+    { "id": "EMP-14", "name": "Employee 114 (Financial Analyst)", "dept": "Finance", "role": "Junior Financial Analyst", "tenure": 2.2, "automation_risk": 0.40, "redeployment_role": "ROLE-04 (AI Financial & ESG Analyst)", "reskill_ready": 94, "levy_alloc": 5000 },
+    
+    { "id": "EMP-15", "name": "Employee 201 (QA Inspector)", "dept": "QA", "role": "Visual QA Inspector", "tenure": 3.6, "automation_risk": 0.88, "redeployment_role": "ROLE-06 (Industrial Robotics Specialist)", "reskill_ready": 76, "levy_alloc": 4000 },
+    { "id": "EMP-16", "name": "Employee 202 (QA Technician)", "dept": "QA", "role": "Incoming Batch Tester", "tenure": 4.8, "automation_risk": 0.70, "redeployment_role": "ROLE-05 (EV Battery Telemetry Specialist)", "reskill_ready": 82, "levy_alloc": 4000 },
+    { "id": "EMP-17", "name": "Employee 203 (ISO Documenter)", "dept": "QA", "role": "ISO Compliance Clerk", "tenure": 5.0, "automation_risk": 0.78, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 80, "levy_alloc": 4000 },
+    { "id": "EMP-18", "name": "Employee 204 (Metrology Tech)", "dept": "QA", "role": "CMM Calibration Tech", "tenure": 6.2, "automation_risk": 0.48, "redeployment_role": "ROLE-02 (Smart Grid & Edge-AI Tech)", "reskill_ready": 87, "levy_alloc": 5000 },
+    { "id": "EMP-19", "name": "Employee 205 (Line Inspector)", "dept": "QA", "role": "Line Quality Checker", "tenure": 2.5, "automation_risk": 0.86, "redeployment_role": "ROLE-06 (Industrial Robotics Specialist)", "reskill_ready": 74, "levy_alloc": 4000 },
+    { "id": "EMP-20", "name": "Employee 206 (Packaging QA)", "dept": "QA", "role": "Packaging QA Tester", "tenure": 3.1, "automation_risk": 0.82, "redeployment_role": "ROLE-08 (Circular Resource Analyst)", "reskill_ready": 73, "levy_alloc": 4000 },
+    { "id": "EMP-21", "name": "Employee 207 (Lab Chemist Jr)", "dept": "QA", "role": "Water & Effluent Tester", "tenure": 4.0, "automation_risk": 0.35, "redeployment_role": "ROLE-08 (Circular Resource Analyst)", "reskill_ready": 92, "levy_alloc": 6000 },
+    { "id": "EMP-22", "name": "Employee 208 (Defect Logger)", "dept": "QA", "role": "Defect Log Entry Clerk", "tenure": 1.9, "automation_risk": 0.92, "redeployment_role": "ROLE-06 (Industrial Robotics Specialist)", "reskill_ready": 71, "levy_alloc": 4000 },
+    { "id": "EMP-23", "name": "Employee 209 (Reliability Tech)", "dept": "QA", "role": "Environmental Stress Tech", "tenure": 5.8, "automation_risk": 0.52, "redeployment_role": "ROLE-05 (EV Battery Telemetry Specialist)", "reskill_ready": 84, "levy_alloc": 5000 },
+    { "id": "EMP-24", "name": "Employee 210 (QA Lead Asst)", "dept": "QA", "role": "QA Shift Coordinator", "tenure": 7.4, "automation_risk": 0.42, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 89, "levy_alloc": 5000 },
+
+    { "id": "EMP-25", "name": "Employee 301 (Machine Operator)", "dept": "Operations", "role": "CNC Lathe Operator", "tenure": 6.5, "automation_risk": 0.76, "redeployment_role": "ROLE-06 (Industrial Robotics Specialist)", "reskill_ready": 79, "levy_alloc": 4000 },
+    { "id": "EMP-26", "name": "Employee 302 (Assembly Tech)", "dept": "Operations", "role": "Manual PCB Assembler", "tenure": 4.2, "automation_risk": 0.88, "redeployment_role": "ROLE-06 (Industrial Robotics Specialist)", "reskill_ready": 75, "levy_alloc": 4000 },
+    { "id": "EMP-27", "name": "Employee 303 (Facilities Tech)", "dept": "Operations", "role": "HVAC Maintenance Tech", "tenure": 8.1, "automation_risk": 0.38, "redeployment_role": "ROLE-02 (Smart Grid & Edge-AI Tech)", "reskill_ready": 90, "levy_alloc": 6000 },
+    { "id": "EMP-28", "name": "Employee 304 (Boiler Operator)", "dept": "Operations", "role": "Industrial Boiler Tech", "tenure": 9.4, "automation_risk": 0.62, "redeployment_role": "ROLE-07 (Renewable Storage Dispatcher)", "reskill_ready": 81, "levy_alloc": 5000 },
+    { "id": "EMP-29", "name": "Employee 305 (Line Feeder)", "dept": "Operations", "role": "Conveyor Material Feeder", "tenure": 2.0, "automation_risk": 0.90, "redeployment_role": "ROLE-06 (Industrial Robotics Specialist)", "reskill_ready": 70, "levy_alloc": 4000 },
+    { "id": "EMP-30", "name": "Employee 306 (Stamping Tech)", "dept": "Operations", "role": "Metal Press Operator", "tenure": 5.3, "automation_risk": 0.82, "redeployment_role": "ROLE-06 (Industrial Robotics Specialist)", "reskill_ready": 77, "levy_alloc": 4000 },
+    { "id": "EMP-31", "name": "Employee 307 (Electrician Jr)", "dept": "Operations", "role": "Plant Electrician Assistant", "tenure": 3.7, "automation_risk": 0.45, "redeployment_role": "ROLE-02 (Smart Grid & Edge-AI Tech)", "reskill_ready": 88, "levy_alloc": 5000 },
+    { "id": "EMP-32", "name": "Employee 308 (Welder)", "dept": "Operations", "role": "TIG/MIG Fabricator", "tenure": 7.0, "automation_risk": 0.58, "redeployment_role": "ROLE-06 (Industrial Robotics Specialist)", "reskill_ready": 80, "levy_alloc": 5000 },
+    { "id": "EMP-33", "name": "Employee 309 (Paint Tech)", "dept": "Operations", "role": "Powder Coating Tech", "tenure": 4.6, "automation_risk": 0.74, "redeployment_role": "ROLE-08 (Circular Resource Analyst)", "reskill_ready": 76, "levy_alloc": 4000 },
+    { "id": "EMP-34", "name": "Employee 310 (Tool & Die)", "dept": "Operations", "role": "Tool Maker Apprentice", "tenure": 2.8, "automation_risk": 0.50, "redeployment_role": "ROLE-06 (Industrial Robotics Specialist)", "reskill_ready": 86, "levy_alloc": 5000 },
+    { "id": "EMP-35", "name": "Employee 311 (Production Clerk)", "dept": "Operations", "role": "Shift Output Recorder", "tenure": 3.4, "automation_risk": 0.89, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 72, "levy_alloc": 4000 },
+    { "id": "EMP-36", "name": "Employee 312 (Safety Assistant)", "dept": "Operations", "role": "EHS Safety Assistant", "tenure": 5.9, "automation_risk": 0.32, "redeployment_role": "ROLE-02 (Smart Grid & Edge-AI Tech)", "reskill_ready": 93, "levy_alloc": 6000 },
+    { "id": "EMP-37", "name": "Employee 313 (Plastics Molder)", "dept": "Operations", "role": "Injection Mold Tech", "tenure": 6.8, "automation_risk": 0.72, "redeployment_role": "ROLE-08 (Circular Resource Analyst)", "reskill_ready": 78, "levy_alloc": 4000 },
+    { "id": "EMP-38", "name": "Employee 314 (Pneumatics Tech)", "dept": "Operations", "role": "Pneumatic Line Tech", "tenure": 4.4, "automation_risk": 0.49, "redeployment_role": "ROLE-02 (Smart Grid & Edge-AI Tech)", "reskill_ready": 85, "levy_alloc": 5000 },
+    { "id": "EMP-39", "name": "Employee 315 (Shift Foreman)", "dept": "Operations", "role": "Junior Shift Foreman", "tenure": 8.5, "automation_risk": 0.36, "redeployment_role": "ROLE-06 (Industrial Robotics Specialist)", "reskill_ready": 91, "levy_alloc": 6000 },
+    { "id": "EMP-40", "name": "Employee 316 (Chemical Handler)", "dept": "Operations", "role": "Solvent & Hazardous Handler", "tenure": 3.9, "automation_risk": 0.65, "redeployment_role": "ROLE-08 (Circular Resource Analyst)", "reskill_ready": 80, "levy_alloc": 4000 },
+
+    { "id": "EMP-41", "name": "Employee 401 (Forklift Driver)", "dept": "Logistics", "role": "Warehouse Forklift Operator", "tenure": 5.1, "automation_risk": 0.79, "redeployment_role": "ROLE-03 (Precision Agri-Drone Specialist)", "reskill_ready": 75, "levy_alloc": 4000 },
+    { "id": "EMP-42", "name": "Employee 402 (Inventory Clerk)", "dept": "Logistics", "role": "Stock Count Clerk", "tenure": 3.2, "automation_risk": 0.91, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 73, "levy_alloc": 4000 },
+    { "id": "EMP-43", "name": "Employee 403 (Dispatch Scheduler)", "dept": "Logistics", "role": "Lorry Route Dispatcher", "tenure": 6.4, "automation_risk": 0.81, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 82, "levy_alloc": 5000 },
+    { "id": "EMP-44", "name": "Employee 404 (Customs Clerk)", "dept": "Logistics", "role": "Import/Export Customs Clerk", "tenure": 7.3, "automation_risk": 0.77, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 84, "levy_alloc": 5000 },
+    { "id": "EMP-45", "name": "Employee 405 (Packer)", "dept": "Logistics", "role": "Manual Carton Packer", "tenure": 1.5, "automation_risk": 0.93, "redeployment_role": "ROLE-06 (Industrial Robotics Specialist)", "reskill_ready": 69, "levy_alloc": 4000 },
+    { "id": "EMP-46", "name": "Employee 406 (Fleet Mechanic)", "dept": "Logistics", "role": "Diesel Truck Mechanic", "tenure": 8.0, "automation_risk": 0.68, "redeployment_role": "ROLE-05 (EV Battery Telemetry Specialist)", "reskill_ready": 85, "levy_alloc": 5000 },
+    { "id": "EMP-47", "name": "Employee 407 (Receiving Clerk)", "dept": "Logistics", "role": "Dock Receiving Checker", "tenure": 4.1, "automation_risk": 0.86, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 76, "levy_alloc": 4000 },
+    { "id": "EMP-48", "name": "Employee 408 (Cold Chain Tech)", "dept": "Logistics", "role": "Refrigeration Logger", "tenure": 5.7, "automation_risk": 0.54, "redeployment_role": "ROLE-02 (Smart Grid & Edge-AI Tech)", "reskill_ready": 86, "levy_alloc": 5000 },
+    { "id": "EMP-49", "name": "Employee 409 (Return Goods Clerk)", "dept": "Logistics", "role": "RMA Return Goods Clerk", "tenure": 2.9, "automation_risk": 0.84, "redeployment_role": "ROLE-08 (Circular Resource Analyst)", "reskill_ready": 74, "levy_alloc": 4000 },
+    { "id": "EMP-50", "name": "Employee 410 (Warehouse Lead)", "dept": "Logistics", "role": "Warehouse Floor Assistant", "tenure": 9.2, "automation_risk": 0.44, "redeployment_role": "ROLE-01 (Scope 3 Supply Chain Auditor)", "reskill_ready": 90, "levy_alloc": 6000 }
+  ],
+  "tvet_graduating_cohort": {
+    "total_students": 120,
+    "institution": "National TVET & Applied Polytechnic Network (Selangor, Penang, Johor)",
+    "tracks": [
+      {
+        "track_name": "Diploma in Mechatronics Engineering",
+        "student_count": 35,
+        "primary_curriculum": ["PLC Programming", "Pneumatics", "Microcontrollers (C)", "Basic Sensors"],
+        "emerging_blindspots": ["TinyML Edge-AI Inference", "ROS 2 Cobot Kinematics", "Modbus/LoRaWAN Telemetry"],
+        "baseline_market_demand_velocity": 1.18,
+        "market_demand_velocity": 1.18,
+        "cohort_mastery_pct": 14,
+        "status": "STABLE"
+      },
+      {
+        "track_name": "Diploma in Automotive & EV Technology",
+        "student_count": 35,
+        "primary_curriculum": ["ICE Mechanics", "Chassis & Brake Systems", "12V Auto Electrics"],
+        "emerging_blindspots": ["800V High-Voltage Safety LOTO", "CAN Bus Decoding", "Battery Impedance Spectroscopy"],
+        "baseline_market_demand_velocity": 1.15,
+        "market_demand_velocity": 1.15,
+        "cohort_mastery_pct": 12,
+        "status": "STABLE"
+      },
+      {
+        "track_name": "Diploma in Computer Science & Data Systems",
+        "student_count": 30,
+        "primary_curriculum": ["Relational SQL", "Java / Python OOP", "Web Frontend", "Networking"],
+        "emerging_blindspots": ["Agentic SQL Reconciliation", "Multi-modal OCR Pipelines", "ESG Taxonomy Tagging"],
+        "baseline_market_demand_velocity": 1.22,
+        "market_demand_velocity": 1.22,
+        "cohort_mastery_pct": 21,
+        "status": "WATCHLIST"
+      },
+      {
+        "track_name": "Diploma in Supply Chain & Operations",
+        "student_count": 20,
+        "primary_curriculum": ["ERP Data Entry", "Warehouse Safety", "Standard Procurement", "Inventory Counting"],
+        "emerging_blindspots": ["Scope 3 GHG Protocol", "Reverse Logistics Route Carbon Optimization", "Vendor ESG Mediation"],
+        "baseline_market_demand_velocity": 1.12,
+        "market_demand_velocity": 1.12,
+        "cohort_mastery_pct": 8,
+        "status": "STABLE"
+      }
+    ],
+    "sdg_readiness": [
+      { "target": "SDG 9.4 (Retrofit & Sustainable Infrastructure)", "ready_pct": 68, "in_training_pct": 24, "unprepared_pct": 8 },
+      { "target": "SDG 8.2 (High-Value Economic Productivity)", "ready_pct": 62, "in_training_pct": 28, "unprepared_pct": 10 },
+      { "target": "SDG 13.1 (Climate Resilience & Adaptation)", "ready_pct": 54, "in_training_pct": 32, "unprepared_pct": 14 },
+      { "target": "SDG 4.4 (Technical Skills for Decent Jobs)", "ready_pct": 74, "in_training_pct": 19, "unprepared_pct": 7 },
+      { "target": "SDG 10.2 (Equal Economic Opportunity & Fairness)", "ready_pct": 88, "in_training_pct": 12, "unprepared_pct": 0 }
+    ]
+  }
+}

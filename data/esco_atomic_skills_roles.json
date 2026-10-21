@@ -1,0 +1,522 @@
+{
+  "metadata": {
+    "taxonomy": "ESCO European Skills, Competences, Qualifications and Occupations (v1.2) + Green-AI Adaptation Malaysia 2026",
+    "updated_at": "2026-10-21T08:00:00+08:00",
+    "total_roles": 8,
+    "framework": "Tri-Party Green & AI Synchronizer (Worker, HR, TVET)"
+  },
+  "roles": [
+    {
+      "role_id": "ROLE-01",
+      "title": "AI-Augmented Supply Chain & Scope 3 Auditor",
+      "department": "ESG, Sustainability & Procurement",
+      "overview": "Audits cross-tier supply chain greenhouse gas emissions using autonomous multi-modal agentic extraction and verifies Scope 3 compliance under Bursa Malaysia and EU CBAM mandates.",
+      "sdg_targets": ["SDG 8.2", "SDG 12.6", "SDG 13.2"],
+      "baseline_skill_halflife_months": 28,
+      "growth_projection_pct": 58,
+      "median_salary_myr": 7200,
+      "atomic_human_tasks": [
+        "Cross-tier vendor conflict mediation and fair-transition dialogue",
+        "Supplier ethical compliance audit verification and onsite interviews",
+        "Scope 3 emissions board-level policy governance and audit defense",
+        "Contingency supplier onboarding negotiation during climate shocks"
+      ],
+      "atomic_technical_tasks": [
+        "Scope 3 GHG Protocol formula modeling (Categories 1-15)",
+        "Automated multi-modal supplier invoice OCR parsing pipelines",
+        "Python carbon footprint lifecycle assessment data engineering",
+        "ERP integration via REST/GraphQL for carbon emission ledgers"
+      ],
+      "required_skills": [
+        {
+          "skill_id": "skill_scope3_carbon",
+          "name": "Scope 3 Carbon Accounting & GHG Protocol",
+          "category": "green_ai",
+          "base_weight": 0.28,
+          "baseline_velocity": 1.45,
+          "description": "GHG Protocol Corporate Value Chain calculation, ISO 14064, and CBAM cross-border adjustment rules."
+        },
+        {
+          "skill_id": "skill_supply_chain_telemetry",
+          "name": "Supply Chain Telemetry & Sensor Tracking",
+          "category": "technical",
+          "base_weight": 0.20,
+          "baseline_velocity": 1.25,
+          "description": "Logistics sensor data ingestion, cold-chain temperature and fuel consumption telemetry."
+        },
+        {
+          "skill_id": "skill_vendor_mediation",
+          "name": "Vendor ESG Mediation & Ethical Dialogue",
+          "category": "human",
+          "base_weight": 0.22,
+          "baseline_velocity": 1.10,
+          "description": "Facilitating fair supplier transitions, resolving supplier non-compliance disputes constructively."
+        },
+        {
+          "skill_id": "skill_multimodal_ocr",
+          "name": "Multi-Modal Document Extraction & Agentic Verification",
+          "category": "technical",
+          "base_weight": 0.18,
+          "baseline_velocity": 1.35,
+          "description": "Extracting unstructured supply receipts, invoices, and certificates via agentic LLM pipelines."
+        },
+        {
+          "skill_id": "skill_esg_governance",
+          "name": "Bursa Malaysia ESG Reporting & Regulatory Compliance",
+          "category": "green_ai",
+          "base_weight": 0.12,
+          "baseline_velocity": 1.30,
+          "description": "Aligning carbon ledgers with Bursa Malaysia Sustainability Reporting Guide 3rd Edition."
+        }
+      ]
+    },
+    {
+      "role_id": "ROLE-02",
+      "title": "Smart Grid IoT & Edge-AI Technician",
+      "department": "Clean Energy & Grid Infrastructure",
+      "overview": "Deploys, monitors, and repairs embedded TinyML edge models and LoRaWAN/Modbus telemetry gateways on distribution transformers and smart grid substations across peninsular Malaysia.",
+      "sdg_targets": ["SDG 7.2", "SDG 9.4", "SDG 13.1"],
+      "baseline_skill_halflife_months": 32,
+      "growth_projection_pct": 64,
+      "median_salary_myr": 5800,
+      "atomic_human_tasks": [
+        "Substation emergency protocol coordination with Tenaga Nasional field teams",
+        "Hazard containment and live-line technician safety mentorship",
+        "Community engagement during residential smart meter rollouts",
+        "Cross-functional fault escalation and root cause debriefs"
+      ],
+      "atomic_technical_tasks": [
+        "TinyML edge inference sensor calibration on ARM Cortex-M microcontrollers",
+        "Substation LoRaWAN and Modbus gateway RF diagnostics and packet sniffing",
+        "Predictive transformer harmonic vibration and temperature curve validation",
+        "Battery Energy Storage System (BESS) state-of-charge firmware flashing"
+      ],
+      "required_skills": [
+        {
+          "skill_id": "skill_edge_ai",
+          "name": "TinyML & Edge-AI Sensor Calibration",
+          "category": "green_ai",
+          "base_weight": 0.26,
+          "baseline_velocity": 1.50,
+          "description": "Quantized neural network deployment on edge microcontrollers for real-time anomaly detection."
+        },
+        {
+          "skill_id": "skill_lorawan_iot",
+          "name": "Industrial IoT Telemetry (Modbus / LoRaWAN)",
+          "category": "technical",
+          "base_weight": 0.22,
+          "baseline_velocity": 1.28,
+          "description": "Substation fieldbus networking, long-range wireless telemetry, and gateway edge routing."
+        },
+        {
+          "skill_id": "skill_grid_safety",
+          "name": "High-Voltage Field Safety & Hazard Mediation",
+          "category": "human",
+          "base_weight": 0.20,
+          "baseline_velocity": 1.05,
+          "description": "Energy Commission (ST) high-voltage lockout-tagout (LOTO) protocols and hazard containment."
+        },
+        {
+          "skill_id": "skill_predictive_maintenance",
+          "name": "Predictive Transformer Vibration Diagnostics",
+          "category": "technical",
+          "base_weight": 0.18,
+          "baseline_velocity": 1.32,
+          "description": "Fast Fourier Transform (FFT) vibration spectral analysis for motor and transformer fault isolation."
+        },
+        {
+          "skill_id": "skill_renewable_storage",
+          "name": "Battery Energy Storage System (BESS) Telemetry",
+          "category": "green_ai",
+          "base_weight": 0.14,
+          "baseline_velocity": 1.40,
+          "description": "Lithium iron phosphate (LFP) cell monitoring, thermal runaway telemetry, and cycling health."
+        }
+      ]
+    },
+    {
+      "role_id": "ROLE-03",
+      "title": "Precision Agriculture Drone Telemetry Specialist",
+      "department": "Smart Agriculture & Food Resilience",
+      "overview": "Operates RTK autonomous drone swarms capturing multispectral NDVI imagery to calculate variable-rate bio-fertilizer and micro-irrigation for oil palm, paddy, and durian agro-estates.",
+      "sdg_targets": ["SDG 2.4", "SDG 8.2", "SDG 9.5", "SDG 13.1"],
+      "baseline_skill_halflife_months": 24,
+      "growth_projection_pct": 52,
+      "median_salary_myr": 5400,
+      "atomic_human_tasks": [
+        "Smallholder farmer trust building and vernacular language training",
+        "Agri-cooperative resource sharing negotiation",
+        "Civil Aviation Authority of Malaysia (CAAM) drone airspace compliance",
+        "Biodiversity buffer zone stewardship and chemical runoff mitigation"
+      ],
+      "atomic_technical_tasks": [
+        "Multispectral vegetation index (NDVI/NDRE) computer vision classification",
+        "Autonomous RTK waypoint flight mission planning and obstacle bypass",
+        "LoRa soil moisture and canopy micro-climate telemetry fusion",
+        "Variable-rate prescription map generation (GeoTIFF/Shapefile) for sprayers"
+      ],
+      "required_skills": [
+        {
+          "skill_id": "skill_drone_telemetry",
+          "name": "RTK Drone Flight Mission Planning & CAAM Telemetry",
+          "category": "technical",
+          "base_weight": 0.24,
+          "baseline_velocity": 1.30,
+          "description": "Centimeter-accurate Real-Time Kinematic flight pathing, photogrammetry, and aviation safety."
+        },
+        {
+          "skill_id": "skill_multispectral_ai",
+          "name": "Multispectral NDVI Aerial Vision Models",
+          "category": "green_ai",
+          "base_weight": 0.26,
+          "baseline_velocity": 1.48,
+          "description": "Computer vision models trained on multispectral crop reflectance for early pest and drought triage."
+        },
+        {
+          "skill_id": "skill_farmer_engagement",
+          "name": "Rural Community Engagement & Vernacular Advisory",
+          "category": "human",
+          "base_weight": 0.20,
+          "baseline_velocity": 1.05,
+          "description": "Communicating complex precision agriculture data in local dialects (BM, Tamil, Hokkien) to farmers."
+        },
+        {
+          "skill_id": "skill_variable_fertilizer",
+          "name": "Precision Nutrient Variable-Rate Mapping",
+          "category": "green_ai",
+          "base_weight": 0.16,
+          "baseline_velocity": 1.35,
+          "description": "Calculating spatial nitrogen and potassium application to reduce chemical runoff by up to 35%."
+        },
+        {
+          "skill_id": "skill_iot_soil_telemetry",
+          "name": "Soil Moisture & Canopy Telemetry Fusion",
+          "category": "technical",
+          "base_weight": 0.14,
+          "baseline_velocity": 1.25,
+          "description": "Fusing underground moisture capacitive sensors with aerial drone thermography."
+        }
+      ]
+    },
+    {
+      "role_id": "ROLE-04",
+      "title": "AI Financial Audit & ESG Compliance Analyst",
+      "department": "Governance, Risk & Sustainable Finance",
+      "overview": "Synthesizes corporate financial transaction logs with green taxonomy benchmarks using agentic SQL and forensic pattern recognition to prevent greenwashing and financial irregularities.",
+      "sdg_targets": ["SDG 8.5", "SDG 10.2", "SDG 12.6", "SDG 13.2"],
+      "baseline_skill_halflife_months": 20,
+      "growth_projection_pct": 61,
+      "median_salary_myr": 6800,
+      "atomic_human_tasks": [
+        "Executive board ESG materiality dispute resolution and mediation",
+        "Forensic whistleblower triage and ethical investigation interviews",
+        "Audit committee defense against adversarial sustainability pushback",
+        "Fair labor and human rights supply chain grievance investigation"
+      ],
+      "atomic_technical_tasks": [
+        "Agentic SQL anomaly pattern recognition across general ledgers",
+        "Automated Bursa Malaysia ESG Taxonomy classification and tagging",
+        "Double materiality climate transition scenario risk quantification",
+        "Continuous transaction stream verification against bank settlement APIs"
+      ],
+      "required_skills": [
+        {
+          "skill_id": "skill_agentic_sql",
+          "name": "Agentic SQL & Autonomous Ledger Reconciliation",
+          "category": "technical",
+          "base_weight": 0.25,
+          "baseline_velocity": 1.60,
+          "description": "Autonomous query agents inspecting general ledgers and journal entries for statistical anomalies."
+        },
+        {
+          "skill_id": "skill_esg_taxonomy",
+          "name": "Bursa Malaysia ESG Taxonomy & ISSB Standards",
+          "category": "green_ai",
+          "base_weight": 0.25,
+          "baseline_velocity": 1.42,
+          "description": "Aligning corporate disclosures with Bank Negara Climate Change and Principle-based Taxonomy (CCPT)."
+        },
+        {
+          "skill_id": "skill_ethical_investigation",
+          "name": "Forensic Fraud & Greenwashing Cross-Examination",
+          "category": "human",
+          "base_weight": 0.22,
+          "baseline_velocity": 1.12,
+          "description": "Conducting sensitive fraud interviews, detecting deceptive environmental claims, whistleblower rights."
+        },
+        {
+          "skill_id": "skill_anomaly_detection",
+          "name": "Machine Learning Financial Anomaly Detection",
+          "category": "technical",
+          "base_weight": 0.16,
+          "baseline_velocity": 1.38,
+          "description": "Isolation forests and clustering algorithms for detecting atypical high-risk journal entries."
+        },
+        {
+          "skill_id": "skill_materiality_scoring",
+          "name": "Double Materiality & Climate Scenario Quantification",
+          "category": "green_ai",
+          "base_weight": 0.12,
+          "baseline_velocity": 1.34,
+          "description": "Quantifying financial risks of physical climate events vs environmental impacts on enterprise value."
+        }
+      ]
+    },
+    {
+      "role_id": "ROLE-05",
+      "title": "EV Battery Telemetry & AI Triage Specialist",
+      "department": "Sustainable Mobility & Automotive EV",
+      "overview": "Performs non-destructive State-of-Health (SoH) diagnostics, CAN bus telematics analysis, and second-life energy storage triage for electric vehicle battery packs.",
+      "sdg_targets": ["SDG 9.4", "SDG 11.2", "SDG 12.5", "SDG 13.2"],
+      "baseline_skill_halflife_months": 30,
+      "growth_projection_pct": 72,
+      "median_salary_myr": 6200,
+      "atomic_human_tasks": [
+        "Post-collision high-voltage rescue protocol management with Bomba",
+        "Customer warranty dispute arbitration on battery degradation claims",
+        "Junior EV technician high-voltage safety mentorship",
+        "Ethical recycling vendor audit and end-of-life battery chain of custody"
+      ],
+      "atomic_technical_tasks": [
+        "State of Health (SoH) electrochemical impedance spectroscopy parsing",
+        "CAN bus high-speed telematics decoding and cell voltage differential analysis",
+        "Thermal runaway predictive telemetry triage with edge inference",
+        "Second-life grid storage degradation curve modeling and capacity binning"
+      ],
+      "required_skills": [
+        {
+          "skill_id": "skill_ev_battery_triage",
+          "name": "State of Health (SoH) Telemetry & Impedance Triage",
+          "category": "green_ai",
+          "base_weight": 0.28,
+          "baseline_velocity": 1.55,
+          "description": "Electrochemical impedance spectroscopy and pulse discharge analysis for rapid cell classification."
+        },
+        {
+          "skill_id": "skill_can_bus_diagnostics",
+          "name": "CAN Bus Diagnostic Protocol & Telematics Decoding",
+          "category": "technical",
+          "base_weight": 0.22,
+          "baseline_velocity": 1.25,
+          "description": "OBD-II, UDS, and CAN-FD reverse-engineering for live EV telemetry ingestion."
+        },
+        {
+          "skill_id": "skill_hv_safety_governance",
+          "name": "High-Voltage Safety Mentorship & Emergency Protocol",
+          "category": "human",
+          "base_weight": 0.20,
+          "baseline_velocity": 1.05,
+          "description": "Live 800V EV battery isolation, NFPA 70E compliance, and hazardous thermal event response."
+        },
+        {
+          "skill_id": "skill_thermal_runaway_ai",
+          "name": "Thermal Runaway Predictive Early Warning Models",
+          "category": "technical",
+          "base_weight": 0.16,
+          "baseline_velocity": 1.45,
+          "description": "Detecting micro-dendrite internal shorts and vent gas anomalies 30 minutes before thermal onset."
+        },
+        {
+          "skill_id": "skill_second_life_circular",
+          "name": "Second-Life BESS Storage Repurposing",
+          "category": "green_ai",
+          "base_weight": 0.14,
+          "baseline_velocity": 1.36,
+          "description": "Re-architecting retired automotive battery packs for stationary residential solar storage."
+        }
+      ]
+    },
+    {
+      "role_id": "ROLE-06",
+      "title": "Industrial Robotics & Clean Automation Specialist",
+      "department": "Advanced Green Manufacturing",
+      "overview": "Programs collaborative robots (cobots) and energy-optimal motion controllers in cleanrooms and solar panel manufacturing plants across Penang, Batu Kawan, and Kulim Hi-Tech Park.",
+      "sdg_targets": ["SDG 8.2", "SDG 9.2", "SDG 12.4"],
+      "baseline_skill_halflife_months": 26,
+      "growth_projection_pct": 55,
+      "median_salary_myr": 6500,
+      "atomic_human_tasks": [
+        "Human-robot collaborative safety protocol design with factory workers",
+        "Shopfloor technician ergonomic advocacy and clean energy upskilling",
+        "Inter-departmental automation change management and anxiety mitigation",
+        "Cleanroom ISO 14644 contamination protocol enforcement"
+      ],
+      "atomic_technical_tasks": [
+        "ROS 2 industrial robotic arm trajectory planning and kinematic tuning",
+        "Energy-optimal motion cycle programming reducing peak factory kWh",
+        "Computer vision guided robotic sorting for electronic scrap and wafers",
+        "Industrial PLC ladder logic and OPC UA telemetry pipeline integration"
+      ],
+      "required_skills": [
+        {
+          "skill_id": "skill_ros2_robotics",
+          "name": "ROS 2 Collaborative Robotics Programming",
+          "category": "technical",
+          "base_weight": 0.26,
+          "baseline_velocity": 1.40,
+          "description": "Robot Operating System 2 nodes, trajectory smoothing, kinematics, and safety stop barriers."
+        },
+        {
+          "skill_id": "skill_clean_automation",
+          "name": "Energy-Optimal Kinematics & Cleanroom Operations",
+          "category": "green_ai",
+          "base_weight": 0.22,
+          "baseline_velocity": 1.35,
+          "description": "Minimizing regenerative energy loss and harmonic waste in multi-axis servo drives."
+        },
+        {
+          "skill_id": "skill_shopfloor_ergonomics",
+          "name": "Ergonomics Safety Advocacy & Transition Coaching",
+          "category": "human",
+          "base_weight": 0.20,
+          "baseline_velocity": 1.08,
+          "description": "Co-designing safe human-cobot workflows to eliminate repetitive strain injuries."
+        },
+        {
+          "skill_id": "skill_vision_guided_sorting",
+          "name": "Computer Vision E-Waste Scrap Sorting",
+          "category": "green_ai",
+          "base_weight": 0.18,
+          "baseline_velocity": 1.42,
+          "description": "Edge vision systems classifying solder alloys and copper busbars for automated circular recovery."
+        },
+        {
+          "skill_id": "skill_plc_opcua",
+          "name": "Industrial PLC & OPC UA Ingestion",
+          "category": "technical",
+          "base_weight": 0.14,
+          "baseline_velocity": 1.20,
+          "description": "Siemens S7/Beckhoff PLC programming and industrial OPC UA protocol pub-sub bridges."
+        }
+      ]
+    },
+    {
+      "role_id": "ROLE-07",
+      "title": "Renewable Microgrid & Energy Storage Dispatcher",
+      "department": "Distributed Clean Utilities",
+      "overview": "Coordinates decentralized rural and industrial microgrids combining rooftop solar, mini-hydro, and battery storage to balance grid frequency and maximize green power penetration.",
+      "sdg_targets": ["SDG 7.1", "SDG 7.2", "SDG 9.4", "SDG 13.1"],
+      "baseline_skill_halflife_months": 34,
+      "growth_projection_pct": 68,
+      "median_salary_myr": 6900,
+      "atomic_human_tasks": [
+        "Islanded community power outage crisis coordination and communication",
+        "Tariff equity negotiation with rural indigenous community councils",
+        "Utility interconnection regulatory alignment with the Energy Commission",
+        "Extreme monsoon storm contingency leadership for distributed power lines"
+      ],
+      "atomic_technical_tasks": [
+        "SCADA real-time solar-wind-BESS dispatch optimization algorithms",
+        "Short-term solar irradiance deep learning forecasting using cloud satellite feeds",
+        "Frequency droop response and synthetic inertia inverter tuning",
+        "Corporate Green Power Programme (CGPP) virtual PPA settlement tracking"
+      ],
+      "required_skills": [
+        {
+          "skill_id": "skill_microgrid_scada",
+          "name": "SCADA Renewable Dispatch & Storage Optimization",
+          "category": "green_ai",
+          "base_weight": 0.28,
+          "baseline_velocity": 1.50,
+          "description": "Real-time supervisory control of inverters, battery charge states, and spinning reserves."
+        },
+        {
+          "skill_id": "skill_solar_forecasting",
+          "name": "Short-term Irradiance Deep Learning Forecasting",
+          "category": "technical",
+          "base_weight": 0.22,
+          "baseline_velocity": 1.42,
+          "description": "15-minute ahead solar ramp forecasting using sky camera feeds and neural time-series."
+        },
+        {
+          "skill_id": "skill_crisis_coordination",
+          "name": "Remote Outage Crisis Coordination & Tariff Negotiation",
+          "category": "human",
+          "base_weight": 0.20,
+          "baseline_velocity": 1.10,
+          "description": "Managing blackout recovery priorities and negotiating fair mini-grid community tariffs."
+        },
+        {
+          "skill_id": "skill_bess_arbitrage",
+          "name": "Green Energy Arbitrage & Ancillary Grid Services",
+          "category": "green_ai",
+          "base_weight": 0.16,
+          "baseline_velocity": 1.38,
+          "description": "Automated energy dispatch targeting peak tariff windows and spinning reserve markets."
+        },
+        {
+          "skill_id": "skill_frequency_droop",
+          "name": "Microgrid Islanding & Frequency Droop Tuning",
+          "category": "technical",
+          "base_weight": 0.14,
+          "baseline_velocity": 1.25,
+          "description": "Inverter-based grid-forming algorithms maintaining 50Hz stability during islanding transitions."
+        }
+      ]
+    },
+    {
+      "role_id": "ROLE-08",
+      "title": "Circular Economy Resource & Waste Telemetry Analyst",
+      "department": "Circular Economy & Resource Recovery",
+      "overview": "Tracks industrial solid waste, plastics, and e-waste material streams using hyperspectral sensors, blockchain digital product passports, and dynamic material flow mass balancing.",
+      "sdg_targets": ["SDG 11.6", "SDG 12.2", "SDG 12.5", "SDG 14.1"],
+      "baseline_skill_halflife_months": 26,
+      "growth_projection_pct": 50,
+      "median_salary_myr": 5600,
+      "atomic_human_tasks": [
+        "Cross-municipality waste concessionaire compliance audits",
+        "Informal recycling community formalization and living wage advocacy",
+        "Zero-waste circular procurement stakeholder alignment meetings",
+        "Public awareness campaigns on single-use plastics and Extended Producer Responsibility"
+      ],
+      "atomic_technical_tasks": [
+        "Hyperspectral plastic polymer sorting vision model calibration",
+        "Reverse logistics GPS routing carbon minimization optimization",
+        "Digital product passport (DPP) traceability ledger integration",
+        "Dynamic Material Flow Analysis (MFA) mass balance modeling"
+      ],
+      "required_skills": [
+        {
+          "skill_id": "skill_hyperspectral_sorting",
+          "name": "Hyperspectral Polymer Classification & Optical Sorting",
+          "category": "green_ai",
+          "base_weight": 0.26,
+          "baseline_velocity": 1.45,
+          "description": "Near-infrared and hyperspectral imaging for high-speed automated sorting of PET, HDPE, and PP."
+        },
+        {
+          "skill_id": "skill_reverse_logistics_opt",
+          "name": "Reverse Logistics Carbon & Route Optimization",
+          "category": "technical",
+          "base_weight": 0.22,
+          "baseline_velocity": 1.30,
+          "description": "Vehicle routing algorithms (VRP) minimizing diesel emissions for municipal scrap recovery."
+        },
+        {
+          "skill_id": "skill_community_formalization",
+          "name": "Informal Recycler Wage & Safety Advocacy",
+          "category": "human",
+          "base_weight": 0.20,
+          "baseline_velocity": 1.05,
+          "description": "Integrating informal waste pickers into formalized cooperatives with healthcare and PPE."
+        },
+        {
+          "skill_id": "skill_digital_product_passport",
+          "name": "Digital Product Passport (DPP) & Traceability",
+          "category": "technical",
+          "base_weight": 0.18,
+          "baseline_velocity": 1.38,
+          "description": "End-to-end QR/NFC product lifecycle tracking verifying recycled content percentages."
+        },
+        {
+          "skill_id": "skill_circular_mfa",
+          "name": "Dynamic Material Flow Analysis (MFA) Mass Balancing",
+          "category": "green_ai",
+          "base_weight": 0.14,
+          "baseline_velocity": 1.32,
+          "description": "Quantifying industrial inputs, residual slag, and recycled outputs to achieve zero landfill."
+        }
+      ]
+    }
+  ]
+}
