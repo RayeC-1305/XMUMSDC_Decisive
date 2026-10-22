@@ -57,12 +57,12 @@ export default function GlobalControlBar({
             title="Click to view Domain 1 AI Model Card & Architecture"
           >
             <Cpu className="w-3 h-3 text-emerald-400" />
-            <span>Model: BAAI/bge-m3 + Llama-3-8B-Instruct on RunPod GPU</span>
+            <span>{t.model_stack_badge || "Model: BAAI/bge-m3 + Llama-3-8B-Instruct on RunPod GPU"}</span>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           </button>
           <span className="hidden md:inline text-slate-500">|</span>
           <span className="hidden md:inline text-slate-400">
-            XMUM SDC Hackathon 2026 • Domain 1: Aiversecity
+            {t.xmum_sdc_badge || "XMUM SDC Hackathon 2026 • Domain 1: Aiversecity"}
           </span>
         </div>
 
@@ -71,7 +71,7 @@ export default function GlobalControlBar({
           <div className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-800 text-[10px] font-mono border border-slate-700">
             <span className={`w-2 h-2 rounded-full ${isWsConnected ? "bg-emerald-400 animate-pulse" : "bg-amber-400"}`} />
             <span className={isWsConnected ? "text-emerald-300 font-bold" : "text-slate-400"}>
-              {isWsConnected ? `WebSocket Live (${wsClientCount} connected)` : "Polling Sync"}
+              {isWsConnected ? `${t.websocket_live || "WebSocket Live"} (${wsClientCount})` : (t.polling_sync || "Polling Sync")}
             </span>
           </div>
 
@@ -79,10 +79,10 @@ export default function GlobalControlBar({
           {activeInjectedSignals.length > 0 ? (
             <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-950 border border-emerald-500 text-emerald-300 font-bold text-[10px] animate-pulse">
               <Zap className="w-3 h-3 text-emerald-400" />
-              <span>{activeInjectedSignals.length} Live Signal(s) Injected</span>
+              <span>{activeInjectedSignals.length} {t.live_signals_injected || "Live Signal(s) Injected"}</span>
             </div>
           ) : (
-            <span className="text-slate-500 text-[10px]">Baseline Signals Active (Sept–Oct 2026)</span>
+            <span className="text-slate-500 text-[10px]">{t.baseline_signals_active || "Baseline Signals Active (Sept–Oct 2026)"}</span>
           )}
 
           {/* Language Switcher */}
@@ -132,7 +132,7 @@ export default function GlobalControlBar({
             title="Return to Stakeholder Selection Portal"
           >
             <Home className="w-3.5 h-3.5" />
-            <span>🏠 Home</span>
+            <span>🏠 {t.home_btn || "Home"}</span>
           </button>
 
           {/* Brand Logo */}
@@ -164,7 +164,7 @@ export default function GlobalControlBar({
                     : "text-slate-400 hover:text-slate-200"
                 }`}
               >
-                <span>👤 Worker</span>
+                <span>👤 {t.worker_tab || "Worker"}</span>
               </button>
               <button
                 onClick={() => onViewChange("hr")}
@@ -174,7 +174,7 @@ export default function GlobalControlBar({
                     : "text-slate-400 hover:text-slate-200"
                 }`}
               >
-                <span>🏢 HR</span>
+                <span>🏢 {t.hr_tab || "HR"}</span>
               </button>
               <button
                 onClick={() => onViewChange("tvet")}
@@ -184,7 +184,7 @@ export default function GlobalControlBar({
                     : "text-slate-400 hover:text-slate-200"
                 }`}
               >
-                <span>🎓 TVET</span>
+                <span>🎓 {t.tvet_tab || "TVET"}</span>
               </button>
             </div>
           )}
@@ -265,7 +265,7 @@ export default function GlobalControlBar({
                   className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-indigo-600 hover:from-emerald-500 hover:to-indigo-500 text-white text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer border border-emerald-400/40"
                 >
                   <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-                  <span>🔄 Ingest Live AI Trends (arXiv / Open Data)</span>
+                  <span>{t.fetch_live_btn || "🔄 Ingest Live AI Trends (arXiv / Open Data)"}</span>
                 </button>
 
                 <div className="space-y-2 max-h-72 overflow-y-auto">

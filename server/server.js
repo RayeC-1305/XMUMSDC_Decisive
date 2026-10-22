@@ -24,6 +24,7 @@ import {
   calculateDynamicWorkforce,
   calculateDynamicCohort,
   deconstructCVTextToAtomicTasks,
+  generatePersonalizedReskillingPathway,
   UNCERTAINTY_SCENARIOS
 } from "../services/scoring_engine.js";
 
@@ -408,6 +409,29 @@ app.get("/api/courses", async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ error: "Failed to load verified courses", details: err.message });
+  }
+});
+
+// 6b. Personalized Reskilling Pathway Generator (Smart Differentiated Curriculum)
+app.post("/api/reskilling-pathway", async (req, res) => {
+  try {
+    const { persona, target_role, is_green_pivot = false } = req.body;
+    const trendsData = await loadDataFile("trend_signals_oct2026.json");
+    const allActive = [...trendsData.baseline_signals, ...activeInjectedSignals];
+
+    const pathway = generatePersonalizedReskillingPathway(
+      persona,
+      target_role,
+      allActive,
+      is_green_pivot
+    );
+
+    res.json({
+      success: true,
+      pathway
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to generate personalized reskilling pathway", details: err.message });
   }
 });
 

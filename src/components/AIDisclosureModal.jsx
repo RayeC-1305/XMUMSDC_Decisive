@@ -1,7 +1,7 @@
 import React from "react";
 import { X, Cpu, Server, ShieldCheck, Zap, Layers, CheckCircle } from "lucide-react";
 
-export default function AIDisclosureModal({ isOpen, onClose, runtimeMetadata }) {
+export default function AIDisclosureModal({ isOpen, onClose, runtimeMetadata, t }) {
   if (!isOpen) return null;
 
   return (
@@ -14,7 +14,7 @@ export default function AIDisclosureModal({ isOpen, onClose, runtimeMetadata }) 
           <div>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
               <ShieldCheck className="w-3.5 h-3.5" />
-              Domain 1 AI Model Disclosure & Transparency Card
+              {t?.view_ai_card || "Domain 1 AI Model Disclosure & Transparency Card"}
             </div>
             <h3 className="text-xl font-bold text-slate-100 mt-1">
               Hybrid RunPod GPU & Deterministic Fallback Architecture

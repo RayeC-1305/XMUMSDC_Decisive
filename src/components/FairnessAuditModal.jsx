@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { X, Scale, CheckCircle2, AlertCircle, RefreshCw, UserCheck, HeartHandshake } from "lucide-react";
 
-export default function FairnessAuditModal({ isOpen, onClose, currentPersona, currentRoleMatch }) {
+export default function FairnessAuditModal({ isOpen, onClose, currentPersona, currentRoleMatch, t }) {
   if (!isOpen) return null;
 
   // Counterfactual state toggles
@@ -58,7 +58,7 @@ export default function FairnessAuditModal({ isOpen, onClose, currentPersona, cu
           <div>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
               <Scale className="w-3.5 h-3.5" />
-              Domain 1 AI Fairness & Non-Discrimination Audit
+              {t?.run_fairness_audit || "Domain 1 AI Fairness & Non-Discrimination Audit"}
             </div>
             <h3 className="text-xl font-bold text-slate-100 mt-1">
               Counterfactual Demographic Invariance Engine

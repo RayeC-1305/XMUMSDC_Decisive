@@ -1,7 +1,7 @@
 import React from "react";
 import { X, ExternalLink, ShieldCheck, Calendar, Database, Sparkles } from "lucide-react";
 
-export default function SignalInspectorModal({ signal, isOpen, onClose }) {
+export default function SignalInspectorModal({ signal, isOpen, onClose, t }) {
   if (!isOpen || !signal) return null;
 
   return (
@@ -15,7 +15,7 @@ export default function SignalInspectorModal({ signal, isOpen, onClose }) {
           <div className="space-y-1">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
               <ShieldCheck className="w-3.5 h-3.5" />
-              Zero-Hallucination Verified Source
+              {t?.inspect_signal || "Zero-Hallucination Verified Source"}
             </div>
             <h3 className="text-lg font-bold text-slate-100">{signal.title}</h3>
           </div>

@@ -12,6 +12,12 @@ import LiteModeView from "./components/LiteModeView";
 import { translations } from "./translations";
 import { Sparkles } from "lucide-react";
 
+// Initial Synthetic & ESCO Data Fallbacks (Guarantees zero blank-screen / offline resilience)
+import syntheticPersonasData from "../data/synthetic_personas.json";
+import escoRolesData from "../data/esco_atomic_skills_roles.json";
+import trendSignalsData from "../data/trend_signals_oct2026.json";
+import verifiedCoursesData from "../data/verified_courses_my.json";
+
 export default function App() {
   // Global View & Settings State: default to "landing" portal as requested!
   const [activeView, setActiveView] = useState("landing"); // "landing" | "worker" | "hr" | "tvet"
@@ -26,17 +32,24 @@ export default function App() {
   const [wsClientCount, setWsClientCount] = useState(1);
   const socketRef = useRef(null);
 
-  // Data Store
-  const [roles, setRoles] = useState([]);
-  const [personas, setPersonas] = useState([]);
-  const [currentPersona, setCurrentPersona] = useState(null);
-  const [baselineSignals, setBaselineSignals] = useState([]);
-  const [injectableSignals, setInjectableSignals] = useState([]);
+  // Data Store initialized with verified synthetic and ESCO data
+  const [roles, setRoles] = useState(escoRolesData.roles || []);
+  const [personas, setPersonas] = useState(syntheticPersonasData.individual_personas || []);
+  const [currentPersona, setCurrentPersona] = useState(syntheticPersonasData.individual_personas?.[0] || null);
+  const [baselineSignals, setBaselineSignals] = useState(trendSignalsData.baseline_signals || []);
+  const [injectableSignals, setInjectableSignals] = useState(trendSignalsData.injectable_signals || []);
   const [activeInjectedSignals, setActiveInjectedSignals] = useState([]);
-  const [courses, setCourses] = useState([]);
-  const [smeWorkforce, setSmeWorkforce] = useState([]);
-  const [workforceSummary, setWorkforceSummary] = useState(null);
-  const [tvetCohort, setTvetCohort] = useState(null);
+  const [courses, setCourses] = useState(verifiedCoursesData.courses || []);
+  const [smeWorkforce, setSmeWorkforce] = useState(syntheticPersonasData.sme_workforce || []);
+  const [workforceSummary, setWorkforceSummary] = useState({
+    total_employees: 50,
+    high_risk_count: 18,
+    moderate_risk_count: 22,
+    low_risk_count: 10,
+    avg_automation_risk_pct: 66,
+    total_levy_pool_myr: 240000
+  });
+  const [tvetCohort, setTvetCohort] = useState(syntheticPersonasData.tvet_graduating_cohort || null);
   const [hrBroadcasts, setHrBroadcasts] = useState([]);
 
   // Green-AI Resilience Arbitrage State
@@ -481,6 +494,7 @@ export default function App() {
         signal={inspectedSignal}
         isOpen={Boolean(inspectedSignal)}
         onClose={() => setInspectedSignal(null)}
+        t={t}
       />
 
       <FairnessAuditModal
@@ -488,12 +502,14 @@ export default function App() {
         onClose={() => setIsFairnessModalOpen(false)}
         currentPersona={currentPersona}
         currentRoleMatch={roleMatches[0]}
+        t={t}
       />
 
       <AIDisclosureModal
         isOpen={isAIDisclosureOpen}
         onClose={() => setIsAIDisclosureOpen(false)}
         runtimeMetadata={runtimeMetadata}
+        t={t}
       />
 
       {/* Persistent Footer */}

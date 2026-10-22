@@ -15,7 +15,7 @@ export default function LiteModeView({
       <div className="p-4 bg-emerald-950 border-2 border-emerald-500 rounded-lg text-emerald-200">
         <div className="flex items-center gap-2 font-bold text-base">
           <Zap className="w-5 h-5 text-emerald-400" />
-          <span>⚡ LITE / LOW-BANDWIDTH TEXT-FIRST MODE ACTIVE</span>
+          <span>{t?.lite_mode_on || "⚡ LITE / LOW-BANDWIDTH TEXT-FIRST MODE ACTIVE"}</span>
         </div>
         <p className="text-xs text-emerald-300 mt-1">
           SVG charts, animations, and heavy canvas assets have been stripped. Optimized for rural TVET workshops, 2G/3G connectivity, and screen readers.
