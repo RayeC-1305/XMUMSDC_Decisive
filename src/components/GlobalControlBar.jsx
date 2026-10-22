@@ -7,6 +7,7 @@ import {
   Globe2,
   SlidersHorizontal,
   RotateCcw,
+  RefreshCw,
   Sparkles,
   Info,
   CheckCircle,
@@ -29,6 +30,7 @@ export default function GlobalControlBar({
   activeInjectedSignals = [],
   onInjectSignal,
   onResetSignals,
+  onFetchLiveTrend,
   onOpenAIDisclosure,
   isRippling,
   isWsConnected = false,
@@ -253,6 +255,18 @@ export default function GlobalControlBar({
                     ✕
                   </button>
                 </div>
+
+                {/* Live ML Agent Ingestion Button */}
+                <button
+                  onClick={async () => {
+                    if (onFetchLiveTrend) await onFetchLiveTrend();
+                    setIsInjectDropdownOpen(false);
+                  }}
+                  className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-indigo-600 hover:from-emerald-500 hover:to-indigo-500 text-white text-xs font-bold transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer border border-emerald-400/40"
+                >
+                  <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                  <span>🔄 Ingest Live AI Trends (arXiv / Open Data)</span>
+                </button>
 
                 <div className="space-y-2 max-h-72 overflow-y-auto">
                   {injectableSignals.map(signal => {

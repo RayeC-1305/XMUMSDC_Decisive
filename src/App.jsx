@@ -213,6 +213,46 @@ export default function App() {
     }
   };
 
+  // 3b. ML Agent 2: Ingest Live AI Trends (arXiv / Open Data Stream)
+  const handleFetchLiveTrend = async () => {
+    try {
+      setIsRippling(true);
+      setTimeout(() => setIsRippling(false), 1400);
+
+      const response = await fetch("/api/trends/fetch-live", {
+        method: "POST"
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setActiveInjectedSignals(data.active_injected_signals || []);
+        if (data.dynamic_workforce) setSmeWorkforce(data.dynamic_workforce);
+        if (data.workforce_summary) setWorkforceSummary(data.workforce_summary);
+        if (data.dynamic_cohort) setTvetCohort(data.dynamic_cohort);
+        triggerToast(data.message || "Live arXiv AI research signal ingested!");
+
+        // Refresh trends list to include new signal in dropdown
+        const trendsRes = await fetch("/api/trends").then(r => r.json());
+        if (trendsRes.injectable_signals) setInjectableSignals(trendsRes.injectable_signals);
+
+        // Fetch refreshed personas
+        const personasRes = await fetch("/api/personas").then(r => r.json());
+        if (personasRes.individual_personas) {
+          setPersonas(personasRes.individual_personas);
+          const updatedCurrent = personasRes.individual_personas.find(
+            p => p.persona_id === (currentPersona?.persona_id || "PER-01")
+          );
+          if (updatedCurrent) {
+            setCurrentPersona(updatedCurrent);
+            recalculateMatches(updatedCurrent, macroScenario, isGreenPivotActive);
+          }
+        }
+      }
+    } catch (err) {
+      console.error("Failed to fetch live trend", err);
+    }
+  };
+
   // 4. Reset Signals to Baseline
   const handleResetSignals = async () => {
     try {
@@ -349,6 +389,7 @@ export default function App() {
         activeInjectedSignals={activeInjectedSignals}
         onInjectSignal={handleInjectSignal}
         onResetSignals={handleResetSignals}
+        onFetchLiveTrend={handleFetchLiveTrend}
         onOpenAIDisclosure={() => setIsAIDisclosureOpen(true)}
         isRippling={isRippling}
         isWsConnected={isWsConnected}

@@ -38,7 +38,8 @@ graph TD
         S2["Socket.IO Duplex WebSocket Server<br/>(tri_party_sync broadcasts)"]
         S3["Scoring & Risk Engine (/services/scoring_engine.js)"]
         S4["RunPod GPU Integration Layer (/services/runpod_client.js)<br/>• BAAI/bge-m3 Embeddings<br/>• AuroraSDGs Classifier<br/>• Deterministic Zero-Lag Fallback"]
-        S5["Automated CV Parsing Engine<br/>• Multer + pdf-parse + NLP Deconstruction"]
+        S5["ML Agent 1: CV Scanning & Skill Extraction (/services/cv_agent.js)<br/>• NLP Action Chunking & Semantic ESCO Mapping"]
+        S6["ML Agent 2: AI Trend Signal & Risk Forecasting (/services/trend_agent.js)<br/>• Live arXiv & Open Dataset Ingestion"]
     end
 
     subgraph Frontend ["Frontend Ecosystem (React + Vite + Tailwind)"]
@@ -226,6 +227,8 @@ Always visible at the top of the interface:
 ├── services/                             # Hybrid AI Engine & Fallback Layer
 │   ├── runpod_client.py                  # Python RunPod SDK integration (BAAI/bge-m3 + Fallback)
 │   ├── runpod_client.js                  # Node/Express RunPod client & deterministic math fallback
+│   ├── cv_agent.js                       # ML Agent 1: CV Scanning & Granular Skill Deconstruction
+│   ├── trend_agent.js                    # ML Agent 2: AI Trend Signal Ingestion & Risk Learning Agent
 │   └── scoring_engine.js                 # Explainable matching, dynamic half-lives, workforce & TVET math
 ├── server/
 │   └── server.js                         # Node Express server + Socket.IO WebSockets (Port 3001)
@@ -233,7 +236,7 @@ Always visible at the top of the interface:
 │   ├── components/
 │   │   ├── LandingPortal.jsx             # Stakeholder welcome portal with audience cards
 │   │   ├── GlobalControlBar.jsx          # Top persistent bar: Signal injector, scenarios, lang, lite
-│   │   ├── WorkerView.jsx                # 4-stage worker reskilling pipeline & Green Pivot
+│   │   ├── WorkerView.jsx                # 4-stage worker reskilling pipeline, Skills Gap Analysis & Green Pivot
 │   │   ├── HRManagerView.jsx             # 3-slide HR command centre, heatmap & ROI calculator
 │   │   ├── TVETAdvisorView.jsx           # 3-slide TVET observatory, blindspot radar & endorsement
 │   │   ├── SignalInspectorModal.jsx      # Zero-hallucination signal evidence proof drawer
@@ -245,6 +248,7 @@ Always visible at the top of the interface:
 │   ├── App.jsx                           # Master application state & Socket.IO listener
 │   ├── main.jsx                          # React DOM entrypoint
 │   └── index.css                         # Tailwind CSS styling, glassmorphism & ripple animations
+├── .replit                               # 1-Click Replit Hosting Configuration
 ├── .env.example                          # Environment template
 ├── LICENSE                               # Apache License 2.0
 ├── package.json                          # Project dependencies, scripts & watch mode

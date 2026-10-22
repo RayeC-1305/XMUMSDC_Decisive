@@ -14,6 +14,8 @@ import multer from "multer";
 import { PDFParse } from "pdf-parse";
 import { fileURLToPath } from "url";
 import { runpodClient, MODEL_DISCLOSURE } from "../services/runpod_client.js";
+import { cvAgent } from "../services/cv_agent.js";
+import { trendSignalAgent } from "../services/trend_agent.js";
 import {
   matchWorkerToRoles,
   runCounterfactualFairnessAudit,
@@ -166,8 +168,10 @@ app.get("/api/roles", async (req, res) => {
 app.get("/api/trends", async (req, res) => {
   try {
     const trendsData = await loadDataFile("trend_signals_oct2026.json");
+    const combinedInjectable = [...trendSignalAgent.ingestedSignals, ...trendsData.injectable_signals];
     res.json({
       ...trendsData,
+      injectable_signals: combinedInjectable,
       active_injected_signal_ids: activeInjectedSignals.map(s => s.id),
       active_injected_signals: activeInjectedSignals,
       all_active_signals: [...trendsData.baseline_signals, ...activeInjectedSignals]
@@ -201,7 +205,8 @@ app.post("/api/trends/inject", async (req, res) => {
       });
     }
 
-    const candidate = trendsData.injectable_signals.find(s => s.id === signal_id);
+    const candidate = trendsData.injectable_signals.find(s => s.id === signal_id) ||
+      trendSignalAgent.ingestedSignals.find(s => s.id === signal_id);
     if (!candidate) {
       return res.status(404).json({ error: `Signal ID ${signal_id} not found among injectable signals.` });
     }
@@ -245,6 +250,81 @@ app.post("/api/trends/inject", async (req, res) => {
   }
 });
 
+// 4b. Live ML Ingestion from arXiv API / Open Dataset Stream
+app.post("/api/trends/fetch-live", async (req, res) => {
+  try {
+    const newSignal = await trendSignalAgent.fetchLiveOrDatasetSignal();
+    const personasData = await loadDataFile("synthetic_personas.json");
+    const trendsData = await loadDataFile("trend_signals_oct2026.json");
+
+    // Add to active signals
+    const existingIdx = activeInjectedSignals.findIndex(s => s.id === newSignal.id);
+    if (existingIdx >= 0) {
+      activeInjectedSignals.splice(existingIdx, 1);
+    }
+    activeInjectedSignals.unshift(newSignal);
+
+    const allActive = [...trendsData.baseline_signals, ...activeInjectedSignals];
+    const dynamicWorkforce = calculateDynamicWorkforce(personasData.sme_workforce, allActive, activeMacroScenario, hrDemandBroadcasts);
+    const dynamicCohort = calculateDynamicCohort(personasData.tvet_graduating_cohort, allActive, activeMacroScenario, hrDemandBroadcasts);
+
+    const rippleMsg = `ML Agent Ingested: "${newSignal.title}" (${newSignal.source_name}). Recalculated live skill velocities, employee exposure & curriculum risk!`;
+
+    await broadcastTriPartySync("SIGNAL_INJECTED", {
+      signal_id: newSignal.id,
+      signal_title: newSignal.title,
+      is_added: true,
+      is_live_ingested: true
+    });
+
+    res.json({
+      success: true,
+      message: rippleMsg,
+      signal: newSignal,
+      active_injected_signals: activeInjectedSignals,
+      dynamic_workforce: dynamicWorkforce.employees,
+      workforce_summary: dynamicWorkforce.summary,
+      dynamic_cohort: dynamicCohort
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch live trend signal", details: err.message });
+  }
+});
+
+// 4c. Custom Ingestion Endpoint
+app.post("/api/trends/ingest-custom", async (req, res) => {
+  try {
+    const newSignal = await trendSignalAgent.ingestCustomSignal(req.body);
+    const personasData = await loadDataFile("synthetic_personas.json");
+    const trendsData = await loadDataFile("trend_signals_oct2026.json");
+
+    activeInjectedSignals.unshift(newSignal);
+
+    const allActive = [...trendsData.baseline_signals, ...activeInjectedSignals];
+    const dynamicWorkforce = calculateDynamicWorkforce(personasData.sme_workforce, allActive, activeMacroScenario, hrDemandBroadcasts);
+    const dynamicCohort = calculateDynamicCohort(personasData.tvet_graduating_cohort, allActive, activeMacroScenario, hrDemandBroadcasts);
+
+    await broadcastTriPartySync("SIGNAL_INJECTED", {
+      signal_id: newSignal.id,
+      signal_title: newSignal.title,
+      is_added: true,
+      is_custom: true
+    });
+
+    res.json({
+      success: true,
+      message: `Custom market trend signal "${newSignal.title}" ingested & broadcasted across all devices.`,
+      signal: newSignal,
+      active_injected_signals: activeInjectedSignals,
+      dynamic_workforce: dynamicWorkforce.employees,
+      workforce_summary: dynamicWorkforce.summary,
+      dynamic_cohort: dynamicCohort
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to ingest custom signal", details: err.message });
+  }
+});
+
 // 5. Automated PDF & Document CV Parsing Engine
 app.post("/api/parse-cv", upload.single("cv_file"), async (req, res) => {
   try {
@@ -256,14 +336,36 @@ app.post("/api/parse-cv", upload.single("cv_file"), async (req, res) => {
 
       if (mime === "application/pdf" || fileName.endsWith(".pdf")) {
         try {
-          const parser = new PDFParse(req.file.buffer);
+          const parser = new PDFParse({ data: req.file.buffer });
           const pdfRes = await parser.getText();
           extractedText = typeof pdfRes === "string" ? pdfRes : (pdfRes?.text || "");
+          await parser.destroy();
         } catch (pdfErr) {
-          extractedText = req.file.buffer.toString("utf-8");
+          console.error("PDF Parsing primary error:", pdfErr.message);
+          // If the buffer is actually plain text
+          const rawStr = req.file.buffer.toString("utf-8");
+          if (!rawStr.startsWith("%PDF-")) {
+            extractedText = rawStr;
+          } else {
+            // Attempt secondary extraction from text operators
+            const matches = [...rawStr.matchAll(/\(([^)]{3,})\)\s*Tj/g)].map(m => m[1]);
+            extractedText = matches.join(" ");
+          }
         }
       } else {
         extractedText = req.file.buffer.toString("utf-8");
+      }
+
+      // Guard against binary garbage / image-only PDFs
+      if (
+        !extractedText ||
+        extractedText.trim().length < 25 ||
+        extractedText.startsWith("%PDF-") ||
+        /[\u0000-\u0008\u000E-\u001F]/.test(extractedText.slice(0, 100))
+      ) {
+        return res.status(400).json({
+          error: "Unable to extract readable text from this PDF file. The document may be an image-only scan or encrypted. Please upload a text-searchable PDF or TXT file."
+        });
       }
     } else if (req.body.cv_text) {
       extractedText = req.body.cv_text;
@@ -275,8 +377,8 @@ app.post("/api/parse-cv", upload.single("cv_file"), async (req, res) => {
     const trendsData = await loadDataFile("trend_signals_oct2026.json");
     const allActive = [...trendsData.baseline_signals, ...activeInjectedSignals];
 
-    // Deconstruct text into atomic human & technical capabilities
-    const parsedPersona = deconstructCVTextToAtomicTasks(extractedText, rolesData.roles);
+    // Use ML Agent 1 (CVAgent) to deconstruct resume into atomic human & technical capabilities
+    const parsedPersona = await cvAgent.analyzeResume(extractedText, rolesData.roles);
     const dynamicPersona = calculateDynamicPersonaTasks(parsedPersona, allActive, activeMacroScenario);
 
     customUploadedPersonas.unshift(dynamicPersona);

@@ -41,19 +41,17 @@ export const UNCERTAINTY_SCENARIOS = {
 export function calculateDynamicSkillHalfLife(baseHalfLifeMonths, skillId, activeSignals = [], scenarioId = "moderate") {
   const scenario = UNCERTAINTY_SCENARIOS[scenarioId] || UNCERTAINTY_SCENARIOS.moderate;
   
-  // Filter for INJECTED live market signals (signals starting with INJ-)
-  const injectedSignals = (activeSignals || []).filter(s => s && s.id && s.id.startsWith("INJ"));
-  
+  // Aggregate live market signals and open dataset streams that carry ML learned velocity impacts
   let aggregateMultiplier = 1.0;
-  for (const signal of injectedSignals) {
-    if (signal.skill_velocity_impacts && signal.skill_velocity_impacts[skillId]) {
+  for (const signal of activeSignals || []) {
+    if (signal && signal.skill_velocity_impacts && signal.skill_velocity_impacts[skillId]) {
       aggregateMultiplier *= signal.skill_velocity_impacts[skillId];
     }
   }
 
-  // Factor in scenario deviation from moderate
+  // Factor in macro scenario deviation
   if (scenarioId === "rapid_agentic") {
-    if (skillId === "skill_manual_data_entry" || skillId === "skill_invoice_matching" || skillId === "technical_routine") {
+    if (skillId === "skill_manual_data_entry" || skillId === "skill_invoice_matching" || skillId.includes("routine")) {
       aggregateMultiplier *= scenario.agenticDecay;
     } else {
       aggregateMultiplier *= scenario.velocityMultiplier;
@@ -64,19 +62,24 @@ export function calculateDynamicSkillHalfLife(baseHalfLifeMonths, skillId, activ
       skillId.includes("scope3") ||
       skillId.includes("microgrid") ||
       skillId.includes("battery") ||
-      skillId.includes("esg")
+      skillId.includes("esg") ||
+      skillId.includes("formalization")
     ) {
       aggregateMultiplier *= scenario.greenBoost;
     }
   }
 
   let dynamicMonths = baseHalfLifeMonths;
-  if (aggregateMultiplier < 0.98) {
-    // Decaying / automating skill under live injection or rapid agentic
+  // If task is automating / decaying (e.g. routine clerical), runway shrinks with higher velocity
+  if (skillId === "skill_manual_data_entry" || skillId.includes("routine")) {
+    if (aggregateMultiplier < 0.98 || scenarioId === "rapid_agentic") {
+      const decayScale = aggregateMultiplier > 1 ? (1 / aggregateMultiplier) : aggregateMultiplier;
+      dynamicMonths = Math.max(3, Math.round(baseHalfLifeMonths * decayScale));
+    }
+  } else if (aggregateMultiplier < 0.98) {
     dynamicMonths = Math.max(3, Math.round(baseHalfLifeMonths * aggregateMultiplier));
   } else if (aggregateMultiplier > 1.02) {
-    // Resilient or surging skill under live injection or green boom
-    dynamicMonths = Math.round(baseHalfLifeMonths * (1 + (aggregateMultiplier - 1.0) * 0.75));
+    dynamicMonths = Math.round(baseHalfLifeMonths * (1 + (aggregateMultiplier - 1.0) * 0.65));
   }
 
   const deltaMonths = dynamicMonths - baseHalfLifeMonths;
@@ -86,27 +89,42 @@ export function calculateDynamicSkillHalfLife(baseHalfLifeMonths, skillId, activ
     dynamicMonths,
     deltaMonths,
     aggregateMultiplier: Math.round(aggregateMultiplier * 100) / 100,
-    isDecaying: aggregateMultiplier < 0.95,
-    isAccelerating: aggregateMultiplier > 1.05
+    isDecaying: deltaMonths < 0,
+    isAccelerating: deltaMonths > 0
   };
 }
 
 /**
- * Dynamically updates worker persona tasks with live half-lives and delta indicators.
+ * Dynamically updates worker persona tasks with live half-lives, runway, transferability,
+ * and delta indicators calculated from ML Model 2 (AI Trend Signals).
  */
 export function calculateDynamicPersonaTasks(persona, activeSignals = [], scenarioId = "moderate") {
   if (!persona || !persona.atomic_tasks) return persona;
 
   const updatedTasks = persona.atomic_tasks.map(task => {
-    let skillKey = "default";
-    if (task.category.includes("routine") || task.category.includes("data") || task.is_at_risk) {
-      skillKey = "skill_manual_data_entry";
-    } else if (task.category.includes("mediation") || task.category.includes("empathy")) {
-      skillKey = "skill_vendor_mediation";
-    } else if (task.category.includes("diagnostic") || task.category.includes("troubleshoot")) {
-      skillKey = "skill_predictive_maintenance";
-    } else if (task.category.includes("firmware") || task.category.includes("automation")) {
-      skillKey = "skill_edge_ai";
+    let skillKey = task.skill_id;
+    if (!skillKey || skillKey === "default") {
+      if (task.category.includes("routine") || task.category.includes("data") || task.is_at_risk) {
+        skillKey = "skill_manual_data_entry";
+      } else if (task.category.includes("pedagogy") || task.category.includes("equity")) {
+        skillKey = "skill_community_formalization";
+      } else if (task.category.includes("mediation") || task.category.includes("empathy")) {
+        skillKey = "skill_vendor_mediation";
+      } else if (task.category.includes("accounting") || task.category.includes("database")) {
+        skillKey = "skill_agentic_sql";
+      } else if (task.category.includes("software") || task.category.includes("edtech")) {
+        skillKey = "skill_multimodal_ocr";
+      } else if (task.category.includes("diagnostic") || task.category.includes("troubleshoot")) {
+        skillKey = "skill_predictive_maintenance";
+      } else if (task.category.includes("firmware") || task.category.includes("automation")) {
+        skillKey = "skill_edge_ai";
+      } else if (task.category.includes("sustainability") || task.category.includes("carbon")) {
+        skillKey = "skill_scope3_carbon";
+      } else if (task.category.includes("safety")) {
+        skillKey = "skill_grid_safety";
+      } else {
+        skillKey = "skill_vendor_mediation";
+      }
     }
 
     const halfLifeInfo = calculateDynamicSkillHalfLife(
@@ -116,12 +134,33 @@ export function calculateDynamicPersonaTasks(persona, activeSignals = [], scenar
       scenarioId
     );
 
+    // Dynamic Transferability calculated from ML Model 2's trend impacts
+    const baseTransfer = task.baseline_transferability || task.transferable_strength || 0.80;
+    let dynamicTransferability = baseTransfer;
+
+    if (halfLifeInfo.deltaMonths < 0 || task.is_at_risk || skillKey === "skill_manual_data_entry") {
+      // Depreciating task loses cross-sector transferability as employers automate routine clerical workflows
+      const decayFactor = halfLifeInfo.aggregateMultiplier > 1 ? (1 / halfLifeInfo.aggregateMultiplier) : halfLifeInfo.aggregateMultiplier;
+      dynamicTransferability = Math.max(0.18, Math.round(baseTransfer * decayFactor * 100) / 100);
+    } else if (halfLifeInfo.deltaMonths > 0) {
+      // High-demand green/human/technical skills gain enhanced transferability across adjacent industries
+      dynamicTransferability = Math.min(0.99, Math.round(baseTransfer * (1 + (halfLifeInfo.aggregateMultiplier - 1.0) * 0.35) * 100) / 100);
+    }
+
     return {
       ...task,
+      skill_id: skillKey,
       dynamic_halflife_months: halfLifeInfo.dynamicMonths,
+      runway_months: halfLifeInfo.dynamicMonths,
       delta_months: halfLifeInfo.deltaMonths,
       multiplier: halfLifeInfo.aggregateMultiplier,
-      is_severely_decaying: halfLifeInfo.dynamicMonths < 10
+      transferable_strength: dynamicTransferability,
+      dynamic_transferability: dynamicTransferability,
+      baseline_transferability: baseTransfer,
+      is_severely_decaying: halfLifeInfo.dynamicMonths < 10,
+      ai_trend_impact: halfLifeInfo.deltaMonths < 0
+        ? "ACCELERATED_DECAY"
+        : (halfLifeInfo.deltaMonths > 0 ? "RESILIENT_EXPANSION" : "STABLE")
     };
   });
 
@@ -272,7 +311,9 @@ export async function matchWorkerToRoles(argsOrWorker, maybeRoles, maybeActiveSi
         skill_id: s.skill_id,
         name: s.name,
         category: s.category,
-        velocity: s.baseline_velocity
+        velocity: s.baseline_velocity,
+        sdg_targets: s.sdg_targets || ["SDG 8.2"],
+        description: s.description || ""
       }));
 
     roleMatches.push({

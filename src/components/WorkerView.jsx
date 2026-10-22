@@ -313,8 +313,8 @@ export default function WorkerView({
               {currentPersona?.atomic_tasks?.map(task => {
                 const isChecked = task.is_checked !== false;
                 const isAtRisk = task.is_at_risk;
-                const hasInjectedSignals = activeSignals.some(s => s && s.id && s.id.startsWith("INJ")) || macroScenario !== "moderate";
-                const displayMonths = hasInjectedSignals ? (task.dynamic_halflife_months || task.baseline_halflife_months) : task.baseline_halflife_months;
+                const hasInjectedSignals = activeSignals.some(s => s && (s.skill_velocity_impacts || s.is_live_ingested || (s.id && (s.id.startsWith("INJ") || s.id.startsWith("ARXIV") || s.id.startsWith("STREAM"))))) || macroScenario !== "moderate";
+                const displayMonths = hasInjectedSignals ? (task.dynamic_halflife_months || task.runway_months || task.baseline_halflife_months) : task.baseline_halflife_months;
                 const deltaMonths = hasInjectedSignals ? (task.delta_months || 0) : 0;
 
                 return (
@@ -339,8 +339,20 @@ export default function WorkerView({
                         <div className={`text-xs font-semibold ${isChecked ? "text-slate-100" : "text-slate-500 line-through"}`}>
                           {task.name}
                         </div>
-                        <div className="text-[10px] text-slate-500 uppercase tracking-wider font-mono mt-0.5">
-                          Category: {task.category} • Transferability: {Math.round(task.transferable_strength * 100)}%
+                        {task.source_evidence && task.source_evidence !== task.name && (
+                          <div className="text-[10px] text-slate-400 italic font-sans mt-0.5 line-clamp-2">
+                            Evidence: "{task.source_evidence}"
+                          </div>
+                        )}
+                        <div className="text-[10px] text-slate-500 uppercase tracking-wider font-mono mt-1 flex flex-wrap items-center gap-2">
+                          <span>Category: {task.category}</span>
+                          <span>•</span>
+                          <span>Transferability: {Math.round(task.transferable_strength * 100)}%</span>
+                          {task.baseline_transferability && Math.round(task.transferable_strength * 100) !== Math.round(task.baseline_transferability * 100) && (
+                            <span className={task.transferable_strength > task.baseline_transferability ? "text-emerald-400 font-bold" : "text-rose-400 font-bold"}>
+                              ({task.transferable_strength > task.baseline_transferability ? "+" : ""}{Math.round((task.transferable_strength - task.baseline_transferability) * 100)}% ML Trend Shift)
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -642,6 +654,132 @@ export default function WorkerView({
               );
             })}
           </div>
+
+          {/* Detailed Skills Gap Analysis & Capability Bridge for Active Selected Role */}
+          {activeRole && (
+            <div className="glass-panel rounded-2xl p-6 border border-slate-800 space-y-4 animate-fadeIn">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
+                <div>
+                  <div className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Granular Skills Gap Analysis & Transferable Strengths</span>
+                  </div>
+                  <h3 className="text-base font-bold text-white mt-0.5 flex items-center gap-2">
+                    <span>Target Role: {activeRole.title}</span>
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-mono font-normal">
+                      {activeRole.department}
+                    </span>
+                  </h3>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <div className="text-right">
+                    <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Match Score:</span>
+                    <span className="text-lg font-black text-emerald-400 font-mono">{activeRole.match_score_pct}%</span>
+                  </div>
+                  <div className="px-2.5 py-1 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono text-slate-400">
+                    CI: {activeRole.confidence_interval}
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Column 1: Verified Transferable Capabilities (Strengths) */}
+                <div className="p-4 rounded-xl bg-slate-950/70 border border-emerald-900/40 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-xs font-bold text-emerald-300 uppercase tracking-wider flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                      <span>Verified Transferable Capabilities ({activeRole.matched_tasks?.length || 0})</span>
+                    </h4>
+                    <span className="text-[10px] font-mono text-emerald-400/80">Covered</span>
+                  </div>
+                  <p className="text-[11px] text-slate-400">
+                    Capabilities from your daily experience that directly transfer to this role:
+                  </p>
+                  <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
+                    {activeRole.matched_tasks && activeRole.matched_tasks.length > 0 ? (
+                      activeRole.matched_tasks.map((item, idx) => (
+                        <div key={idx} className="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800/80 text-xs flex items-start justify-between gap-2">
+                          <div>
+                            <div className="text-slate-200 font-medium line-clamp-1">• {item.workerTask}</div>
+                            {item.matchedRoleTask && (
+                              <div className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">
+                                Maps to: <em>{item.matchedRoleTask}</em>
+                              </div>
+                            )}
+                          </div>
+                          <span className="font-mono text-emerald-400 font-bold text-[10px] shrink-0 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-800/50">
+                            {Math.round(item.similarity * 100)}% match
+                          </span>
+                        </div>
+                      ))
+                    ) : (
+                      <div className="text-xs text-slate-500 italic p-2">Standard foundational capabilities mapped.</div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Column 2: Identified Skills Gaps (Deficits to Bridge) */}
+                <div className="p-4 rounded-xl bg-slate-950/70 border border-rose-900/40 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-xs font-bold text-rose-300 uppercase tracking-wider flex items-center gap-1.5">
+                      <AlertTriangle className="w-4 h-4 text-rose-400" />
+                      <span>Identified Skills Gaps to Bridge ({activeRole.missing_skill_gaps?.length || 0})</span>
+                    </h4>
+                    <span className="text-[10px] font-mono text-rose-400/80">Action Needed</span>
+                  </div>
+                  <p className="text-[11px] text-slate-400">
+                    High-velocity competencies required for this role not yet verified in your profile:
+                  </p>
+                  <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
+                    {activeRole.missing_skill_gaps && activeRole.missing_skill_gaps.length > 0 ? (
+                      activeRole.missing_skill_gaps.map((gap, idx) => (
+                        <div key={idx} className="p-2.5 rounded-lg bg-slate-900/80 border border-rose-950/60 text-xs flex flex-col gap-1">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-slate-100 font-semibold">• {gap.name}</span>
+                            <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-rose-950/80 text-rose-300 border border-rose-800/60 shrink-0 font-bold">
+                              Velocity: {gap.velocity}x
+                            </span>
+                          </div>
+                          {gap.description && (
+                            <div className="text-[10px] text-slate-400 line-clamp-1">{gap.description}</div>
+                          )}
+                          <div className="flex items-center gap-1.5 mt-0.5">
+                            <span className="text-[9px] uppercase font-mono text-slate-500">Category: {gap.category}</span>
+                            {gap.sdg_targets?.map(sdg => (
+                              <span key={sdg} className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/40">
+                                {sdg}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))
+                    ) : (
+                      <div className="text-xs text-emerald-400 p-2 bg-emerald-950/40 rounded-lg border border-emerald-800/40">
+                        ✓ All core competencies covered! Candidate is ready for direct placement.
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Pathway Bridge Action Footer */}
+              <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs bg-slate-950/40 p-3 rounded-xl border border-slate-800/60">
+                <div className="flex items-center gap-2 text-slate-400">
+                  <Info className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>
+                    These {activeRole.missing_skill_gaps?.length || 0} identified gaps are directly bridged by the verified courses in Step 4.
+                  </span>
+                </div>
+                <button
+                  onClick={() => setActiveStage(4)}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-md shadow-emerald-600/20 transition-all cursor-pointer shrink-0"
+                >
+                  <span>View Step-by-Step Bridge in Step 4</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Slide Navigation Footer */}
           <div className="pt-4 flex items-center justify-between">

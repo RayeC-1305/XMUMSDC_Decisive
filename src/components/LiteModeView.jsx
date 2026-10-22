@@ -34,16 +34,25 @@ export default function LiteModeView({
         <div className="space-y-2 mt-2">
           <div className="text-xs font-bold uppercase text-slate-400">Atomic Tasks & Skill Half-Life:</div>
           <ul className="divide-y divide-slate-800 text-xs">
-            {persona?.atomic_tasks?.map(task => (
-              <li key={task.task_id} className="py-2 flex items-center justify-between gap-4">
-                <span className="text-slate-200">{task.name}</span>
-                <span className={`font-mono font-bold px-2 py-0.5 rounded ${
-                  task.is_at_risk ? "bg-rose-950 text-rose-300 border border-rose-700" : "bg-emerald-950 text-emerald-300 border border-emerald-700"
-                }`}>
-                  {task.baseline_halflife_months} mos runway ({task.is_at_risk ? "Automating Fast" : "Resilient"})
-                </span>
-              </li>
-            ))}
+            {persona?.atomic_tasks?.map(task => {
+              const displayMonths = task.dynamic_halflife_months || task.runway_months || task.baseline_halflife_months;
+              const deltaMonths = task.delta_months || 0;
+              return (
+                <li key={task.task_id} className="py-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800/80">
+                  <div>
+                    <span className="text-slate-100 font-semibold">{task.name}</span>
+                    {task.source_evidence && task.source_evidence !== task.name && (
+                      <div className="text-[11px] text-slate-400 italic">Evidence: "{task.source_evidence}"</div>
+                    )}
+                  </div>
+                  <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded shrink-0 self-start sm:self-auto border ${
+                    task.is_at_risk ? "bg-rose-950/60 text-rose-300 border-rose-800" : "bg-emerald-950/60 text-emerald-300 border-emerald-800"
+                  }`}>
+                    {displayMonths} mos runway {deltaMonths !== 0 && `(${deltaMonths > 0 ? "+" : ""}${deltaMonths} mos ⚡)`} • {Math.round(task.transferable_strength * 100)}% transfer
+                  </span>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
@@ -79,6 +88,37 @@ export default function LiteModeView({
             </tbody>
           </table>
         </div>
+
+        {/* Top Role Skills Gap Analysis in Text Mode */}
+        {roleMatches?.[0] && (
+          <div className="mt-3 p-3 bg-slate-950 border border-slate-800 rounded space-y-2 text-xs">
+            <div className="font-bold text-emerald-400">
+              Top Role Skills Gap Analysis: {roleMatches[0].title} ({roleMatches[0].match_score_pct}% Fit)
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div>
+                <span className="text-slate-400 font-bold block">✓ Verified Transferable Capabilities:</span>
+                <ul className="list-disc list-inside text-slate-300 mt-1 space-y-0.5">
+                  {roleMatches[0].matched_tasks?.slice(0, 3).map((m, i) => (
+                    <li key={i}>{m.workerTask} ({Math.round(m.similarity * 100)}% match)</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <span className="text-rose-400 font-bold block">⚠ Missing Skills Deficits to Bridge:</span>
+                <ul className="list-disc list-inside text-slate-300 mt-1 space-y-0.5">
+                  {roleMatches[0].missing_skill_gaps && roleMatches[0].missing_skill_gaps.length > 0 ? (
+                    roleMatches[0].missing_skill_gaps.map((gap, i) => (
+                      <li key={i}>{gap.name} (Velocity: {gap.velocity}x, {gap.sdg_targets?.join(", ")})</li>
+                    ))
+                  ) : (
+                    <li className="text-emerald-400">All required competencies covered!</li>
+                  )}
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Section 3: Verified Free / HRD Corp Reskilling Modules */}

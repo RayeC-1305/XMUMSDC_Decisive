@@ -30,7 +30,11 @@ export const translations = {
     tvet_sub: "Detect curriculum blindspots across 120 graduating students and endorse industry micro-credentials.",
     inspect_signal: "Inspect Signal Proof",
     run_fairness_audit: "Run Demographic Fairness Audit",
-    view_ai_card: "AI Model Disclosure"
+    view_ai_card: "AI Model Disclosure",
+    fetch_live_btn: "🔄 Ingest Live AI Trends (arXiv / Open Data)",
+    skills_gap_title: "Granular Skills Gap Analysis & Transferable Strengths",
+    transferable_capabilities: "Verified Transferable Capabilities",
+    skills_gaps_to_bridge: "Identified Skills Gaps to Bridge"
   },
   ms: {
     app_title: "NexusTalent 360",
@@ -63,7 +67,11 @@ export const translations = {
     tvet_sub: "Kesan titik buta kurikulum dalam kalangan 120 pelajar tamat pengajian dan sokong kelayakan mikro industri.",
     inspect_signal: "Semak Bukti Isyarat",
     run_fairness_audit: "Jalankan Audit Keadilan Demografi",
-    view_ai_card: "Pendedahan Model AI"
+    view_ai_card: "Pendedahan Model AI",
+    fetch_live_btn: "🔄 Ambil Isyarat AI Langsung (arXiv / Data Terbuka)",
+    skills_gap_title: "Analisis Jurang Kemahiran & Kekuatan Boleh Pindah",
+    transferable_capabilities: "Keupayaan Boleh Pindah Disahkan",
+    skills_gaps_to_bridge: "Jurang Kemahiran Dikenalpasti untuk Dijambatani"
   },
   zh: {
     app_title: "NexusTalent 360",
@@ -96,6 +104,10 @@ export const translations = {
     tvet_sub: "逆向比对 120 名应届毕业生的课程盲区，一键向学员端推送行业微凭证背书认证。",
     inspect_signal: "查看信号源真实依据",
     run_fairness_audit: "运行反事实人口公平性审计",
-    view_ai_card: "AI 模型合规披露信息"
+    view_ai_card: "AI 模型合规披露信息",
+    fetch_live_btn: "🔄 实时摄入最新 AI 趋势动态 (arXiv / 开放数据集)",
+    skills_gap_title: "细颗粒度技能缺口分析与可迁移优势比对",
+    transferable_capabilities: "已验证可迁移经验优势",
+    skills_gaps_to_bridge: "待弥合的关键技能缺口"
   }
 };

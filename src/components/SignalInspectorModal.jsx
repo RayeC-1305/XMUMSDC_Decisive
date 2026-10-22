@@ -84,6 +84,34 @@ export default function SignalInspectorModal({ signal, isOpen, onClose }) {
             </div>
           )}
 
+          {/* ML Learned Risk Telemetry */}
+          {signal.learned_risk_telemetry && (
+            <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+              <label className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
+                <span>ML Agent Learned Risk Forecast & Curriculum Impacts:</span>
+              </label>
+              <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
+                <div className="p-2 rounded bg-slate-900 border border-slate-800">
+                  <span className="text-slate-400 block">Peak Demand Surge:</span>
+                  <span className="text-emerald-400 font-bold">{signal.learned_risk_telemetry.max_velocity_surge}x Multiplier</span>
+                </div>
+                <div className="p-2 rounded bg-slate-900 border border-slate-800">
+                  <span className="text-slate-400 block">Obsolescence Velocity:</span>
+                  <span className="text-rose-400 font-bold">{signal.learned_risk_telemetry.min_velocity_decay}x Multiplier</span>
+                </div>
+              </div>
+              <div className="text-[10px] text-slate-400 flex items-center justify-between pt-1">
+                <span>Confidence Band: {signal.learned_risk_telemetry.confidence_interval}</span>
+                {signal.ml_provenance && (
+                  <span className="text-slate-500">
+                    Source: {signal.ml_provenance.ingestion_source_type} ({signal.ml_provenance.processing_latency_ms}ms)
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+
           {/* Source Link */}
           {signal.source_url && (
             <div className="pt-2 flex justify-between items-center text-xs text-slate-400">
