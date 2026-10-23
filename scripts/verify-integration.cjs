@@ -1,0 +1,133 @@
+const { chromium } = require("playwright");
+const assert = require("node:assert/strict");
+const fs = require("node:fs/promises");
+const path = require("node:path");
+
+const base = process.env.NEXUS_TEST_URL || "http://127.0.0.1:3001";
+const output = path.resolve("output/playwright/integration");
+const storageKey = "nexus-workspace-v2";
+
+(async () => {
+  await fs.mkdir(output, { recursive: true });
+  const browser = await chromium.launch({ headless: true, ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE } : {}) });
+  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: "reduce", acceptDownloads: true });
+  const page = await context.newPage();
+  const errors = [];
+  const requests = [];
+  const report = {};
+  page.on("pageerror", error => errors.push(error.message));
+  page.on("request", request => requests.push({ url: request.url(), method: request.method() }));
+  const state = () => page.evaluate(key => JSON.parse(localStorage.getItem(key)), storageKey);
+  const ready = () => page.locator(".c-api-receipt").waitFor();
+  async function nav(name) {
+    const menu = page.getByRole("button", { name: "Open navigation", exact: true });
+    if (await menu.isVisible()) await menu.click();
+    await page.getByRole("link", { name: new RegExp(`^${name}`) }).click();
+  }
+  async function changed(action, predicate = () => true) {
+    const response = page.waitForResponse(response => response.url().endsWith("/api/transition") && response.request().method() === "POST" && predicate(response.request().postDataJSON()));
+    await action();
+    const result = await (await response).json();
+    assert.equal(result.success, true, JSON.stringify(result));
+    await ready();
+    return result;
+  }
+  async function screenshot(name) {
+    await page.screenshot({ path: path.join(output, `${name}.png`), fullPage: true });
+  }
+  try {
+    await page.goto(`${base}/#import`);
+    await page.getByRole("button", { name: "Paste experience", exact: true }).click();
+    await page.getByLabel("Paste a sample CV or describe your experience").fill("Jordan Test\nOperations coordinator\n6 years of experience\nSkills: Excel, stakeholder communication, operations coordination\n- Coordinate suppliers and maintain invoice records in spreadsheets.\n- Prepare customer reports and document data processing tasks.\nSynthetic CV for integration verification only.");
+    const intake = page.waitForResponse(response => response.url().endsWith("/api/intake") && response.request().postDataJSON()?.cv_text);
+    await page.getByRole("button", { name: "Review my experience", exact: true }).click();
+    assert.equal((await intake).status(), 200);
+    await page.getByRole("button", { name: "Looks right, continue", exact: true }).click();
+    let result = await changed(() => page.getByRole("button", { name: "Create my career workspace", exact: true }).click());
+    await nav("Future roles");
+    const scores = await page.locator(".c-role-list-item").evaluateAll(items => items.map(item => ({ title: item.querySelector("h2").textContent, score: Number(item.querySelector(".c-role-score").firstChild.textContent) })));
+    assert.deepEqual(scores, result.matches.map(role => ({ title: role.title, score: role.score })));
+    assert.equal(result.pathways.financial.coveredGapIds.length, result.matches.find(role => role.id === "financial").gaps.length);
+    report.serverRanking = scores;
+    await screenshot("roles-desktop");
+    await page.locator(".c-role-select").filter({ hasText: "Financial data analyst" }).click();
+    await nav("Learning plan");
+    assert.equal(await page.locator(".c-learning-step").count(), result.pathways.financial.steps.length);
+    result = await changed(() => page.getByRole("button", { name: "Mark step complete", exact: true }).first().click(), body => body.completedStepIds.length > 0);
+    assert.equal(await page.locator(".c-learning-step.complete").count(), 1);
+    assert.equal(result.pathways.financial.preservedCompletedStepIds.length, 1);
+    const expectedWeeks = result.pathways.financial.estimatedWeeks;
+    assert.ok((await page.locator(".c-plan-banner").innerText()).includes(`About ${expectedWeeks} weeks remaining`));
+    await page.getByRole("button", { name: "Save my plan", exact: true }).click();
+    await page.getByRole("dialog", { name: "Your next chapter, ready to discuss." }).waitFor();
+    await page.keyboard.press("Escape");
+    assert.equal((await state()).saved.length, 1);
+    const download = page.waitForEvent("download");
+    await page.getByRole("button", { name: "Export plan", exact: true }).click();
+    const brief = await download;
+    const file = path.join(output, brief.suggestedFilename());
+    await brief.saveAs(file);
+    const content = await fs.readFile(file, "utf8");
+    assert.ok(content.includes("connected career API"));
+    assert.ok(content.includes("Score explanation"));
+    assert.ok(!content.includes("no AI backend is connected"));
+    result = await changed(() => page.getByRole("button", { name: "Faster AI adoption", exact: true }).click(), body => body.scenarioId === "rapid");
+    await page.getByRole("button", { name: "Review changes", exact: true }).click();
+    await page.getByRole("button", { name: "Accept & update my plan", exact: true }).click();
+    const rapid = (await state()).scenario;
+    await changed(() => page.getByRole("button", { name: "Green transition", exact: true }).click(), body => body.scenarioId === "green");
+    await page.getByRole("button", { name: "Review changes", exact: true }).click();
+    await changed(() => page.getByRole("button", { name: "Keep previous view", exact: true }).click(), body => body.scenarioId === rapid);
+    assert.equal((await state()).scenario, "rapid");
+    assert.equal(await page.locator(".c-learning-step.complete").count(), 1);
+    report.progressPreserved = true;
+    report.scenarioComparison = result.scenarios;
+    await screenshot("learning-desktop");
+    await nav("Skills radar");
+    const refresh = page.waitForResponse(response => response.url().endsWith("/api/trends/refresh"));
+    await page.getByRole("button", { name: "Refresh live evidence", exact: true }).click();
+    const evidence = await (await refresh).json();
+    await ready();
+    assert.ok(evidence.sources.length, "A real public source or its dated cache must be available for this live check.");
+    assert.ok(evidence.sources.every(source => source.doi && source.date && source.retrievedAt));
+    report.evidence = { status: evidence.status, count: evidence.sources.length, retrievedAt: evidence.retrievedAt, revision: evidence.revision, lastError: evidence.lastError };
+    result = await changed(() => page.getByRole("button", { name: "Preview a signal update", exact: true }).click(), body => body.simulations.length > 0);
+    assert.equal(result.simulationInputs.length, 1);
+    assert.ok(result.evidence.sources.every(source => source.type !== "Simulation"));
+    await page.getByRole("button", { name: "Review changes", exact: true }).click();
+    await page.getByRole("button", { name: "Accept & update my plan", exact: true }).click();
+    await page.locator(".c-evidence-row").filter({ hasText: "Research" }).first().click();
+    await page.getByRole("dialog", { name: "Behind the recommendation" }).waitFor();
+    assert.ok((await page.locator(".c-evidence-mappings").innerText()).includes("Matched:"));
+    await page.keyboard.press("Escape");
+    await screenshot("research-desktop");
+    await page.reload();
+    await ready();
+    assert.equal((await state()).saved.length, 1);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await nav("Learning plan");
+    await screenshot("learning-mobile");
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+    await page.route("**/api/transition", route => route.abort("failed"));
+    await page.reload();
+    await page.getByRole("heading", { name: "Your career plan needs a connection." }).waitFor();
+    assert.equal(await page.locator(".c-role-list-item").count(), 0);
+    assert.equal(await page.getByRole("button", { name: "Export plan", exact: true }).isEnabled(), false);
+    await page.unroute("**/api/transition");
+    await changed(() => page.getByRole("button", { name: "Try again", exact: true }).click());
+    assert.equal(await page.locator(".c-learning-step.complete").count(), 1);
+    report.recovery = "Visible failure and retry; no local-score fallback; completion preserved.";
+    assert.ok(requests.some(r => r.url.endsWith("/api/intake")));
+    assert.ok(requests.some(r => r.url.endsWith("/api/transition")));
+    assert.ok(!requests.some(r => r.url.includes("api.crossref.org")), "Only the server should call the research publisher.");
+    assert.deepEqual(errors, []);
+    report.apiRequests = requests.filter(r => r.url.includes("/api/")).length;
+    report.consoleErrors = errors;
+    await fs.writeFile(path.join(output, "report.json"), JSON.stringify(report, null, 2));
+    console.log(JSON.stringify({ passed: true, evidence: report.evidence, apiRequests: report.apiRequests, output }, null, 2));
+  } catch (error) {
+    console.error("Browser errors:", errors);
+    await screenshot("failure").catch(() => {});
+    throw error;
+  } finally { await browser.close(); }
+})().catch(error => { console.error(error); process.exitCode = 1; });

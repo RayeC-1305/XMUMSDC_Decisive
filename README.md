@@ -1,333 +1,234 @@
-# NexusTalent 360: The National Tri-Party Green & AI Skills Synchronizer
-### XMUM SDC Hackathon 2026 — Domain 1: The Aiversecity Future-Ready Workforce Domain
-**Repository License:** Apache-2.0  
-**AI Model Disclosure:** `Model: BAAI/bge-m3 + Llama-3-8B-Instruct on RunPod GPU` (Hybrid Serverless with Deterministic Local Mathematical Fallback Engine)
+# NexusTalent — Decisive
 
----
+> NexusTalent helps workers and career advisers turn existing experience and changing AI evidence into a practical, reviewable reskilling decision.
 
-## 🌟 Executive Summary & Domain 1 Vision
+**Plans evolve. Progress stays.** SDC Hackathon 2026 · Domain 1: Aiversecity Future-Ready Workforce.
 
-**NexusTalent 360** is a full-stack, real-time web application built for the **XMUM SDC Hackathon 2026 (Domain 1: The Aiversecity Future-Ready Workforce Domain)**. It bridges Malaysia's widening green-technology and artificial intelligence talent divide through a **live, synchronized tri-party architecture connecting Workers (Supply), Enterprise HR Leaders (Demand), and TVET/University Career Centres (Advisors)**.
+This README follows the [official submission template](https://github.com/michaelzhngg/SDC_Hackathon_Submission_Template). Official forms are available in the [submission documents folder](https://drive.google.com/drive/folders/1xw7c2aN8N-at8hPEULzkcU76e_FFb0Ef). Unprovided submission details are marked **TBD** rather than presented as completed.
 
-Traditional workforce models rely on static, obsolete job titles (e.g., "Accountant", "Mechanic") and black-box matching algorithms. **NexusTalent 360** replaces static matching with a dynamic, explainable intelligence engine powered by dated labor market signals, granular atomic task deconstruction, and real-time state synchronization across devices.
+## Team Information
 
-### The 5 Core Pillars:
-1. **Atomic Task Deconstruction:** Breaks jobs into atomic human + technical capabilities with dynamic half-life runway badges instead of static job titles.
-2. **Live Dated Labor & AI Signals:** Feeds dated market velocity signals from **arXiv AI research, data.gov.my, and MyFutureJobs** into matching and risk algorithms.
-3. **The Ripple Effect (Core Demo Hero):** Injecting a single live market signal (e.g., Johor Green-AI DC Surge, Autonomous Agentic SQL Release) visibly recalculates role fit, skill half-lives, HR workforce automation exposure, and TVET curriculum blindspots across all 3 views simultaneously in real time via WebSockets.
-4. **Counterfactual Algorithmic Fairness Audit:** Live mathematical proof of **0.00% Demographic Score Variance** across age, gender, and regional background, fulfilling **UN SDG 5 (Gender Equality)** and **SDG 10 (Reduced Inequalities)**.
-5. **Green-AI Resilience Arbitrage (3.2x Career Runway):** Demonstrates how coupling technical capabilities with a sustainability credential extends career runway from **14 to 45 months** while eliminating layoff liabilities through Malaysia's **HRD Corp Levy**.
+| Field | Details |
+| --- | --- |
+| Team Name | **Decisive** |
+| Team Domain | **Domain 1 — Aiversecity Future-Ready Workforce** |
+| SDG Track (1–17) | Proposed primary: **SDG 8 — Decent Work and Economic Growth**; supporting SDG 4 — Quality Education. Final track confirmation: TBD. |
+| Team Leader | **Raye Chan Jun Foong** |
+| University | TBD |
+| Number of Members | Three named members; additional members and final count: TBD |
 
----
+## Links
 
-## 🏛️ System Architecture & Real-Time Tri-Party Sync
+| Resource | Link / status |
+| --- | --- |
+| GitHub Repository | [RayeC-1305/XMUMSDC_Decisive](https://github.com/RayeC-1305/XMUMSDC_Decisive) |
+| Replit Project | TBD — no completed Replit usage or proof is claimed |
+| Live Demo | Public deployment: **TBD**. Local: [frontend development](http://localhost:5173), [built full-stack app](http://127.0.0.1:3001) |
+| RunPod Endpoint | Not used by the active application; no GPU endpoint is required |
+| Slide Deck | TBD |
+| Demo Video | TBD — Liew Jicson |
+| Submission Documents | [Required-file manifest](submission/README.md); final signed PDFs: TBD |
 
-NexusTalent 360 implements a hybrid cloud architecture combining **RunPod Serverless GPU inference**, a stateful **Node.js Express + Socket.IO server**, and a responsive **React (Vite) + Tailwind CSS** frontend:
+## Overview
+
+### Problem
+
+An operations or administrative worker deciding whether to reskill has limited learning time and an uncertain view of how AI will change familiar tasks. A list of job titles does not explain which existing strengths transfer, which gaps matter, or what evidence would justify changing direction. Career advisers need a decision they can review with the worker before either commits time and money.
+
+### Solution
+
+NexusTalent connects a React workspace to an Express career API. The service validates a skills profile, retrieves dated public AI/workforce research, maps metadata into small and explicit skill-priority assumptions, compares future role directions under several scenarios, and builds ordered learning plans. The worker can inspect score contributions and sources, accept or revert a proposed revision, and keep completed learning.
+
+The active baseline uses **explainable rules**, not a generative model or claimed GPU inference. Research metadata indicates a topic worth reviewing; it does not establish Malaysian hiring demand, job growth or the quality of a paper. Role profiles and scenario factors are authored planning material, and scores are indices rather than probabilities of employment.
+
+### Key Features
+
+1. **Skills profile intake** — Import a text-based PDF, DOCX or TXT CV, paste experience, or explore fictional samples. Files are read in the browser; extracted text and the reviewed form are processed by the API in memory. Skills, tasks, interests, goals and weekly learning time remain editable.
+2. **Updatable AI-trend signals** — The backend retrieves public Crossref research metadata, checks relevance and publication dates, deduplicates DOIs, and returns source links, date precision, retrieval times and mapping rationales. A failed refresh preserves dated cached evidence with an explicit stale status; a cold offline start uses neutral research weights.
+3. **Explainable future-role matching** — Six authored role profiles are ranked using 45% declared required-skill coverage, 30% transferable strengths and 25% research/scenario context. Every score includes component values, weighted points, matched strengths, all gaps and its difference from a no-research baseline.
+4. **Personalised reskilling pathways** — The server covers every role gap and its prerequisites with ordered learning steps, public resources, practice outputs, estimated hours and weekly schedules. Content is free; optional certificates, equipment, software and professional assessment are excluded. HRD Corp eligibility is not assumed.
+5. **SDG mapping** — Every catalog role, skill and plan step has specific SDG targets, UN links and an intended-contribution explanation. Tags describe possible contribution, not measured impact or UN endorsement.
+6. **Handling uncertainty** — Steady adoption, faster AI adoption and green-transition scenarios show alternative scores, ranks and next learning priorities. Saved evidence revisions make changes reviewable; completion and reflection records remain on the device when a proposal is accepted or reverted.
+
+### Tech Stack
+
+| Layer | Technology |
+| --- | --- |
+| Frontend | React 18, Vite 6, Tailwind CSS, Lucide; existing Sora/DM Sans/IBM Plex Mono identity |
+| Backend | Node.js 22.16+, Express 4, validated stateless JSON API, bounded PDF upload support |
+| Data / persistence | Shared authored role/skill catalog; public research revision cache on disk; browser local storage for reviewed profiles, saved decisions, notes and progress |
+| AI / compute | CPU rules baseline and public AI/workforce research; no active LLM, learned embedding model or GPU workload |
+| CV extraction | Browser PDF.js and fflate; backend keyword intake and pdf-parse for direct PDF API uploads |
+| Evidence | [Crossref REST API](https://www.crossref.org/documentation/retrieve-metadata/rest-api/) |
+| Tests | Node test runner and Playwright/Chromium |
+| Hosting / dev | Local Node/Vite workflow; public hosting TBD |
+| AI-assisted development | OpenAI Codex; design provenance and limitations are recorded in `docs/` |
+
+## Project Structure
+
+```text
+.
+├── src/
+│   ├── components/career/       # Integrated intake, roles, radar and learning UI
+│   ├── data/careerCatalog.js    # Shared role and skill IDs; illustrative pitch data
+│   └── utils/
+│       ├── careerApi.js        # API contract and response adapter
+│       ├── useCareerBackend.js # Request cancellation, loading, failure and retry
+│       └── careerDemo.js       # Browser storage/export and labelled landing preview
+├── server/
+│   ├── server.js               # HTTP startup and graceful shutdown
+│   └── app.js                  # Active Express routes
+├── services/
+│   ├── profile_intake.js       # Validated CV/form intake
+│   ├── evidence_service.js     # Public feed, provenance and revision cache
+│   ├── career_engine.js        # Explainable matching, scenarios and pathways
+│   └── career_catalog.js       # Curated learning resources and SDG contributions
+├── public/                     # Brand assets
+├── docs/                       # API, integration, verification and design notes
+├── design-system/              # Existing interface specification
+├── submission/                 # Required-document manifest; final PDFs pending
+├── scripts/
+│   ├── demo-backend.js          # Real HTTP/evidence demonstration
+│   └── verify-integration.cjs   # Browser-to-API verification
+├── tests/backend.test.js       # Offline unit and HTTP integration tests
+├── .env.example
+├── .gitignore
+├── .replit                     # Optional compatibility config; not proof of use
+├── package.json
+├── package-lock.json
+├── LICENSE
+└── README.md
+```
+
+Old HR/TVET components, RunPod adapters and legacy datasets remain outside the active application. Legacy mutation routes return 410; they are not a second source of production evidence. See the [API contract](docs/BACKEND.md).
+
+### Architecture
 
 ```mermaid
-graph TD
-    subgraph DataLayer ["Ground-Truth Data Layer (/data)"]
-        D1["ESCO Green-AI Roles & Tasks<br/>(esco_atomic_skills_roles.json)"]
-        D2["Dated Sept–Oct 2026 Signals<br/>(trend_signals_oct2026.json)"]
-        D3["Verified MY Courses (HRD Corp / MDEC)<br/>(verified_courses_my.json)"]
-        D4["Synthetic Personas, Workforce & Cohort<br/>(synthetic_personas.json)"]
-    end
-
-    subgraph Backend ["Backend & Compute Layer (/server & /services)"]
-        S1["Express REST API (Port 3001)"]
-        S2["Socket.IO Duplex WebSocket Server<br/>(tri_party_sync broadcasts)"]
-        S3["Scoring & Risk Engine (/services/scoring_engine.js)"]
-        S4["RunPod GPU Integration Layer (/services/runpod_client.js)<br/>• BAAI/bge-m3 Embeddings<br/>• AuroraSDGs Classifier<br/>• Deterministic Zero-Lag Fallback"]
-        S5["ML Agent 1: CV Scanning & Skill Extraction (/services/cv_agent.js)<br/>• NLP Action Chunking & Semantic ESCO Mapping"]
-        S6["ML Agent 2: AI Trend Signal & Risk Forecasting (/services/trend_agent.js)<br/>• Live arXiv & Open Dataset Ingestion"]
-    end
-
-    subgraph Frontend ["Frontend Ecosystem (React + Vite + Tailwind)"]
-        LP["🏠 Landing Portal (Audience Selector)"]
-        GCB["⚡ Global Persistent Control Bar<br/>• WebSocket Status • Signal Injector<br/>• Macro Scenario Slider • Trilingual • Lite Mode"]
-        
-        subgraph StakeholderViews ["Isolated Slide-by-Slide Stakeholder Journeys"]
-            V1["👤 Worker / Career Switcher View (4 Slides)<br/>1. Atomic Task Intake & CV Upload<br/>2. Future Skills Radar & Signal Proof<br/>3. Explainable Role Matching & Fairness Audit<br/>4. Reskilling Pathway & 3.2x Green Pivot"]
-            V2["🏢 Enterprise HR Manager View (3 Slides)<br/>1. 50-Employee Automation Heatmap<br/>2. HRD Corp Levy RM 0 ROI Calculator<br/>3. Q1 2027 Project Demand Broadcaster"]
-            V3["🎓 TVET Career Advisor View (3 Slides)<br/>1. Reverse Curriculum Blindspot Radar<br/>2. 1-Click Micro-Credential Endorsement<br/>3. Regional SDG Funnel & JSON Export"]
-        end
-    end
-
-    DataLayer --> Backend
-    Backend <-->|Socket.IO (sub-50ms) + REST| Frontend
-    S2 -->|Broadcasts Injected Ripple| V1
-    S2 -->|Broadcasts Injected Ripple| V2
-    S2 -->|Broadcasts Injected Ripple| V3
+flowchart LR
+  W[Worker and career adviser] --> UI[React career workspace]
+  UI -->|CV text / reviewed profile / scenario| API[Express career API]
+  API --> P[Validated profile and task potential]
+  API --> E[Dated evidence and revision cache]
+  E -->|Fixed public query| C[Crossref research metadata]
+  P --> M[Explainable rules matcher]
+  E --> M
+  M --> L[Gap and prerequisite pathway]
+  L -->|Roles / sources / SDGs / scenario comparison| UI
+  UI --> S[Device-local plans and completion]
 ```
 
----
+The active workspace takes its scores, forecasts and learning steps from the server. A separate local preview on the pitch page is labelled illustrative. Browser requests go to `/api`; only the server contacts Crossref. Public evidence is the only server-side disk cache. Raw files stay in the browser in the normal UI flow; extracted CV text and reviewed profiles are sent to the backend without being persisted or forwarded to an AI provider.
 
-## ⚡ The Ripple Effect: Live Signal Injection (Core Demo Hero)
+## How to Run
 
-The application includes **7 timestamped injectable market signals** representing real-world Malaysian green and digital transformations dated September–October 2026:
+### Option 1 — Run Locally
 
-| Signal ID | Date | Signal Title & Market Driver | Direct Ripple Effect across Ecosystem |
-| :--- | :---: | :--- | :--- |
-| **`INJ-2026-1021-JOHOR`** | Oct 21, 2026 | **Johor Green-AI Data Center & Smart Grid Surge** (+62% Edge-AI & Carbon Telemetry) | • **TVET:** Mechatronics velocity jumps to **1.62x (+44% Surge ⚡)**, flipping track to 🚨 **`CRITICAL_BLINDSPOT` (75% risk)** with driver badge.<br>• **Worker:** Edge-AI and Smart Grid roles gain explainable match boosts.<br>• **HR:** Technicians absorb into smart grid clean utilities (-6% risk). |
-| **`INJ-2026-1020-AGENTIC`** | Oct 20, 2026 | **Autonomous Agentic SQL & BPO Workflow Release** (-45% manual data entry half-life) | • **Worker:** Task "Manual data transcription" half-life drops from **11 mos to 6 mos (`-5 mos ⚡`)**.<br>• **HR:** 14 Finance & Admin staff risk surges by +14% (Clerk 101 leaps from 85% to 97%), tagged with **`+14% ⚡ Agentic SQL Surge`**.<br>• **TVET:** CS track obsolescence jumps to **87%**. |
-| **`INJ-2026-1023-PENANG-COBOT`** | Oct 23, 2026 | **Penang Semiconductor Cobots & Machine Vision** (+58% cobot demand) | • **HR:** QA line checkers gain tag **`+12% ⚡ Cobot Vision`**.<br>• **TVET:** Mechatronics cobot kinematics flagged. |
-| **`INJ-2026-1024-BNM-STRESS`** | Oct 24, 2026 | **Bank Negara Malaysia Scope 3 Climate Stress-Testing** (+65% auditor demand) | • **Worker:** AI Scope 3 Auditor role fit surges.<br>• **TVET:** Supply chain curriculum risk jumps to 88%. |
-| **`INJ-2026-1025-KLANG-EV`** | Oct 25, 2026 | **Klang Valley Electric Bus Fleet Conversion** (+60% battery triage demand) | • **Worker:** Automotive mechanic persona gains EV battery triage resilience (+16 pts).<br>• **TVET:** Automotive Engineering velocity surges to 1.60x. |
-| **`INJ-2026-1022-SARAWAK-H2`** | Oct 22, 2026 | **Sarawak Clean Hydrogen & Telemetry Corridor** (+70% telemetry demand) | • **Worker:** Green energy telemetry roles surge.<br>• **TVET:** Mechatronics velocity reaches 1.70x. |
-| **`INJ-2026-1019-MDEC-AGRI`** | Oct 19, 2026 | **MDEC Precision Agriculture Drone Deployment** (+50% drone telemetry demand) | • **Worker:** Precision Agri-Drone Specialist rank advances.<br>• **HR:** Logistics forklift drivers gain agritech redeployment pathways. |
+Requirements: **Node.js 22.16+** and npm. No API key, GPU, account or external database is required.
 
----
-
-## 🔬 Mathematical Formulas & Calculation Logic
-
-NexusTalent 360 adheres to a strict **Zero Black-Box standard**. All rankings, runway metrics, and risk scores are derived from transparent, verifiable mathematical equations:
-
-### 1. Explainable Future-Role Matching Equation
-$$\text{Match Score} = (0.45 \times \text{Atomic Task Overlap}) + (0.30 \times \text{Adjacent Transferability}) + (0.25 \times \text{Live Trend Velocity Boost})$$
-
-- **Atomic Task Overlap ($0.45$):**
-  $$\text{Overlap} = \frac{1}{|W|} \sum_{w \in W} \max_{r \in R} \cos(\mathbf{e}_w, \mathbf{e}_r)$$
-  Where $\mathbf{e}_w$ and $\mathbf{e}_r$ are 1024-dimensional normalized vector embeddings generated by `BAAI/bge-m3` for worker capabilities and ESCO target role tasks.
-- **Adjacent Transferability ($0.30$):**
-  $$\text{Transferability} = \min\left(0.95, \frac{|\text{Shared Skills}|}{|\text{Role Skills}|} \times 0.60 + 0.35\right)$$
-  Accounts for cross-functional human capabilities (ethical dispute mediation, customer consultation, workshop safety governance). When **Path B Green Pivot** is active, transfers an additional $+0.18$ sustainability credential baseline.
-- **Live Trend Velocity Boost ($0.25$):**
-  $$\text{Trend Boost} = \min\left(1.0, \frac{\text{Velocity Multiplier} - 0.70}{1.30}\right) + (\text{Regional Demand Boost} \times 0.05)$$
-  Calculated dynamically from active timestamped market signals matching required role competencies.
-
-### 2. Dynamic Skill Half-Life Runway Equation
-Calculates the remaining viable runway (in months) for atomic human and technical capabilities under current market velocity:
-$$H_{\text{dynamic}} = \begin{cases} 
-\max(3, \text{round}(H_{\text{baseline}} \times M)) & \text{if } M < 0.98 \quad (\text{Automating / Decaying}) \\
-\text{round}(H_{\text{baseline}} \times (1 + (M - 1.0) \times 0.75)) & \text{if } M > 1.02 \quad (\text{Resilient / Surging}) \\
-H_{\text{baseline}} & \text{otherwise (Baseline Standard)}
-\end{cases}$$
-Where $M$ is the compound velocity multiplier of all active injected signals impacting that skill domain.
-- *Path A (Standard Tech):* Routine software entry hits a **14-month ceiling**.
-- *Path B (Green-AI SDG Pivot):* Triples career runway to **45 months (3.2x Resilience Multiplier)**.
-
-### 3. Enterprise HR Automation Exposure & Layoff Liability
-$$\text{Dynamic Risk} = \text{clamp}(0.18, 0.99, \text{round}(\text{Baseline Risk} \times \text{Risk Multiplier}))$$
-$$\Delta \text{Risk \%} = (\text{Dynamic Risk} - \text{Baseline Risk}) \times 100\%$$
-- When Agentic SQL is injected, Finance clerks incur a $+14\%$ risk surge multiplier.
-- **Layoff Cost Liability:**
-  $$\text{Layoff Exposure (MYR)} = \text{High Risk Headcount} \times \text{RM } 18,000 \quad (\text{Severance + Re-hiring})$$
-- **HRD Corp Reskilling Savings:**
-  $$\text{Net Out-of-Pocket Cost} = \text{RM } 0.00 \quad (100\% \text{ funded via employer HRD Corp Levy})$$
-
-### 4. TVET Curriculum Obsolescence Risk Equation
-Mathematically models syllabus misalignment against real-world industry demand surges (aligned with the **World Economic Forum Future of Jobs** and **MDEC Digital Skills Framework**):
-$$\text{Curriculum Risk \%} = \text{clamp}\left(25\%, 95\%, (\Delta \text{Velocity \%} \times 0.65) + (\text{Cohort Mastery Deficit \%} \times 0.40)\right)$$
-Where $\text{Mastery Deficit \%} = 100\% - \text{Cohort Syllabus Mastery \%}$.
-- **Alert Trigger:** If $\text{Velocity} \ge 1.45$ and $\text{Mastery} < 20\%$, the track status automatically flips to 🚨 **`CRITICAL_BLINDSPOT`**.
-
-### 5. Counterfactual Demographic Fairness Guarantee
-The engine executes a counterfactual perturbation test across 4 demographic variants (Urban University vs Rural TVET, Age 21 vs 54, Female vs Male, Non-binary):
-$$\text{Demographic Score Variance} = \max_{v \in V} |S_{\text{baseline}} - S_v| = 0.00\% \quad (\text{Role Ranking Invariant})$$
-Proves zero algorithmic bias, directly advancing **SDG 5 (Gender Equality)** and **SDG 10 (Reduced Inequalities)**.
-
----
-
-## 👤 Feature Walkthrough: The 3 Stakeholder Views
-
-### 1. 👤 Worker / Career Switcher View (4 Isolated Slides)
-
-```
-[Slide 1: Intake] ──> [Slide 2: Radar & Signals] ──> [Slide 3: Explainable Matching] ──> [Slide 4: Reskilling & Green Pivot]
-```
-
-- **Slide 1: Atomic Task Profile Intake & Automated CV Parser:**
-  - Choose from 3 pre-built synthetic personas (*Siti Nurhaliza: At-Risk BPO Coordinator*, *Tan Wei Kiat: Automotive TVET Mechanic*, *Pravin Mohan: Fresh Mechatronics Graduate*).
-  - **Automated Resume Upload (`.pdf`, `.txt`, `.json`):** Upload any resume to trigger server-side NLP parsing via `pdf-parse`, extracting capabilities directly into atomic human + technical tasks.
-  - **Dynamic Half-Life Badges:** Displays real-time runway (e.g. *Manual report entry: 11 mos runway*) with live delta indicators (`-5 mos ⚡` under Agentic SQL).
-  - Interactive check/uncheck toggles to customize active daily duties.
-- **Slide 2: Future Skills Radar & Signal Verification Drawer:**
-  - **Recharts Radar Chart:** Compares the worker's current profile against the Green-AI target benchmark across 6 competency axes (*Edge-AI, Scope 3 Carbon, Agentic SQL, Multi-Modal OCR, IoT Telemetry, Ethical Mediation*).
-  - **Active Trend Signals Feed:** Displays all active dated signals from arXiv, data.gov.my, and MyFutureJobs.
-  - **Zero-Hallucination Signal Verification Drawer:** Clicking any signal opens a slide-over panel displaying the exact publication date, source organization, clickable URL, and raw excerpt proving zero hallucination.
-- **Slide 3: Explainable Future-Role Matching & Fairness Audit:**
-  - Displays top Green-AI roles ranked by the transparent 3-part formula.
-  - Each role card provides a complete point contribution breakdown (*Task Overlap $0.45$, Transferability $0.30$, Trend Velocity $0.25$*), salary benchmarks, and UN SDG badges.
-  - **1-Click Counterfactual Fairness Modal:** Renders interactive perturbation tests confirming **0.00% demographic bias**.
-- **Slide 4: No-Regret Reskilling Pathway & Path B Green Pivot:**
-  - Week-by-week curriculum built exclusively from 15 verified Malaysian courses from **HRD Corp, MDEC, SEDA, MARii, and edX**.
-  - **⭐ Gold "No-Regret Core" Highlighter:** Highlights courses that remain indispensable across all 3 macro uncertainty scenarios.
-  - **⚡ Path B Green-AI Pivot Toggle:** 
-    - Demonstrates the **Resilience Arbitrage**: switches from Path A standard tech (14-mo ceiling) to Path B Green-AI (45-mo runway / 3.2x multiplier).
-    - Features an interactive comparative runway meter, $+14.8\%$ match score boost, and $+15\%$ green wage premium.
-    - Checkable learner badges to track credential completion.
-
----
-
-### 2. 🏢 Enterprise HR & L&D Manager View (3 Isolated Slides)
-
-```
-[Slide 1: 50-Employee Heatmap] ──> [Slide 2: HRD Corp ROI Calculator] ──> [Slide 3: Demand Broadcaster]
-```
-
-- **Slide 1: 50-Employee Workforce Heatmap:**
-  - Anonymized SME workforce dataset across Finance, QA, Operations, and Logistics.
-  - Live filtering by department and risk tier (*Critical $\ge 70\%$, Moderate $40-69\%$, Resilient $<40\%$*).
-  - Displays live risk percentages with dynamic delta tags (e.g. `97% (+12%⚡)`) and surge tags (`+14% ⚡ Agentic SQL Surge`).
-  - Summarizes average company automation exposure and total retrenchment liability.
-- **Slide 2: HRD Corp Levy & Layoff-Prevention ROI Calculator:**
-  - Interactive financial sliders for severance per head, external recruitment costs, and internal reskilling costs.
-  - Mathematically demonstrates how utilizing the **HRD Corp Levy** eliminates out-of-pocket retraining expenses (**RM 0 net cost**), saving hundreds of thousands of ringgit in severance penalties while retaining institutional knowledge.
-- **Slide 3: Live Q1 2027 Project Demand Broadcaster & SDG Ledger:**
-  - Allows HR leaders to broadcast urgent hiring needs (e.g., 8x *Scope 3 Carbon Auditors* in Johor).
-  - Broadcasting immediately increments the **Regional Demand Boost** across connected worker and TVET dashboards via WebSockets.
-  - Displays the enterprise SDG Impact Ledger advancing **SDG 8.2, SDG 8.5, and SDG 12.6**.
-
----
-
-### 3. 🎓 TVET & University Career Advisor View (3 Isolated Slides)
-
-```
-[Slide 1: Blindspot Radar] ──> [Slide 2: Endorsement Hub] ──> [Slide 3: SDG Funnel & Export]
-```
-
-- **Slide 1: Reverse-Triggered Curriculum Blindspot Radar:**
-  - Monitors 120 graduating students across 4 diploma tracks (*Mechatronics, Automotive/EV, Computer Science, Supply Chain*).
-  - Automatically flags curriculum gaps when market velocity surges past syllabus mastery (e.g., Mechatronics surging to $1.62\times$ triggers 🚨 **`CRITICAL_BLINDSPOT` (75% risk)**).
-  - Displays active market drivers (e.g. `Active Market Driver: Johor Green-AI DC (+62%)`).
-- **Slide 2: 1-Click Micro-Credential Endorsement Hub:**
-  - Career advisors review accredited industry courses from MDEC and HRD Corp.
-  - Clicking **"Endorse Course"** pins the micro-credential to all connected worker dashboards with a verified **"📌 Endorsed by TVET Career Centre"** badge in real time via WebSockets.
-- **Slide 3: Regional SDG Readiness Funnel & Cohort Export:**
-  - Visual breakdown of graduating students categorized by SDG readiness (*Ready, In Training, Unprepared*).
-  - **1-Click JSON Report Exporter:** Downloads a timestamped audit report (`NexusTalent360_TVET_Cohort_Report_YYYY-MM-DD.json`) for institutional accreditation and ministry compliance.
-
----
-
-## 🎛️ Persistent Global Control Bar
-
-Always visible at the top of the interface:
-1. **🏠 Home Button:** Universal return to the Stakeholder Landing Portal.
-2. **Tri-Party Persona Switcher:** Instant navigation between `👤 Worker`, `🏢 HR Manager`, and `🎓 TVET Advisor`.
-3. **⚡ Live Trend Signal Injector (Demo Hero):** Dropdown to toggle live dated Oct 2026 signals, triggering the visual pulse animation and real-time ripple recalculation across all 3 views.
-4. **Macro Uncertainty Horizon Slider:** 3-state toggle:
-   - `Moderate AI Adoption (3-Yr Horizon, ±4.5% CI)`
-   - `Rapid Agentic Disruption (12-Mo Horizon, ±8.8% CI)`
-   - `Malaysia Green-Policy Boom (Policy Surge, ±6.2% CI)`
-5. **Multi-Device WebSocket Live Indicator:** Real-time connection badge (`● WebSocket Live (N Connected)`).
-6. **Trilingual Localization (`EN | BM | 中文`):** Live dictionary switching across English, Bahasa Melayu, and Mandarin Chinese.
-7. **⚡ Lite / Low-Bandwidth Mode:** Strips heavy SVGs and charts into an ultra-fast, high-contrast text interface designed for rural TVET workshops, 2G/3G connectivity, and screen readers.
-8. **AI Model Disclosure Modal:** Full transparency regarding models (`BAAI/bge-m3`, `Llama-3-8B-Instruct`), RunPod GPU endpoints, and deterministic fallback mechanics.
-
----
-
-## 📂 Repository File Structure
-
-```
-├── data/                                 # Zero-Hallucination Ground-Truth Data Layer
-│   ├── esco_atomic_skills_roles.json     # 8 Green-AI roles, ESCO atomic tasks, half-lives, SDGs
-│   ├── trend_signals_oct2026.json        # 6 baseline + 7 injectable dated signals
-│   ├── verified_courses_my.json          # 15 real Malaysian courses (HRD Corp, MDEC, edX)
-│   └── synthetic_personas.json           # 3 personas, 50 SME employees, 120 TVET students
-├── services/                             # Hybrid AI Engine & Fallback Layer
-│   ├── runpod_client.py                  # Python RunPod SDK integration (BAAI/bge-m3 + Fallback)
-│   ├── runpod_client.js                  # Node/Express RunPod client & deterministic math fallback
-│   ├── cv_agent.js                       # ML Agent 1: CV Scanning & Granular Skill Deconstruction
-│   ├── trend_agent.js                    # ML Agent 2: AI Trend Signal Ingestion & Risk Learning Agent
-│   └── scoring_engine.js                 # Explainable matching, dynamic half-lives, workforce & TVET math
-├── server/
-│   └── server.js                         # Node Express server + Socket.IO WebSockets (Port 3001)
-├── src/
-│   ├── components/
-│   │   ├── LandingPortal.jsx             # Stakeholder welcome portal with audience cards
-│   │   ├── GlobalControlBar.jsx          # Top persistent bar: Signal injector, scenarios, lang, lite
-│   │   ├── WorkerView.jsx                # 4-stage worker reskilling pipeline, Skills Gap Analysis & Green Pivot
-│   │   ├── HRManagerView.jsx             # 3-slide HR command centre, heatmap & ROI calculator
-│   │   ├── TVETAdvisorView.jsx           # 3-slide TVET observatory, blindspot radar & endorsement
-│   │   ├── SignalInspectorModal.jsx      # Zero-hallucination signal evidence proof drawer
-│   │   ├── FairnessAuditModal.jsx        # Live counterfactual demographic invariance audit
-│   │   ├── AIDisclosureModal.jsx         # Domain 1 AI model card & RunPod architecture modal
-│   │   └── LiteModeView.jsx              # Accessible, high-contrast text-first rural interface
-│   ├── translations/
-│   │   └── index.js                      # Multi-lingual localization dictionary (EN, BM, 中文)
-│   ├── App.jsx                           # Master application state & Socket.IO listener
-│   ├── main.jsx                          # React DOM entrypoint
-│   └── index.css                         # Tailwind CSS styling, glassmorphism & ripple animations
-├── .replit                               # 1-Click Replit Hosting Configuration
-├── .env.example                          # Environment template
-├── LICENSE                               # Apache License 2.0
-├── package.json                          # Project dependencies, scripts & watch mode
-├── tailwind.config.js                    # Tailwind configuration
-└── vite.config.js                        # Vite build configuration with API & WebSocket proxy
-```
-
----
-
-## 🚀 Quickstart & Local Installation
-
-### Prerequisites
-- Node.js (v18 or higher; v20/v24 recommended)
-- npm (v9 or higher)
-
-### 1. Clone & Install
-```bash
+```sh
 git clone https://github.com/RayeC-1305/XMUMSDC_Decisive.git
 cd XMUMSDC_Decisive
-npm install
-```
-
-### 2. Configure Environment Variables
-```bash
-cp .env.example .env
-```
-*(The application is pre-configured with a **Deterministic Local Mathematical Fallback Engine**, ensuring 100% functionality and sub-5ms latency even if no external RunPod GPU key is configured).*
-
-### 3. Run Development Server
-```bash
+npm ci
 npm run dev
 ```
-- **Frontend Application:** `http://localhost:5173`
-- **Backend API & WebSockets:** `http://localhost:3001`
-*(The server runs with Node native `--watch` mode; edits to server and scoring files automatically hot-reload).*
 
-### 4. Build for Production / Replit Deployment
-```bash
+`npm run dev` starts Express and Vite together. Open the Vite URL, normally [localhost:5173](http://localhost:5173). The API normally runs at [127.0.0.1:3001](http://127.0.0.1:3001/api/health). If 3001 is occupied, copy `.env.example` to `.env` and change `PORT`; Vite uses that port for its proxy. `VITE_API_URL` should normally remain blank for same-origin requests. `VITE_PROXY_TARGET` can select a separately running API.
+
+To run the built full-stack app:
+
+```sh
 npm run build
 npm start
 ```
 
----
+Open [127.0.0.1:3001](http://127.0.0.1:3001). Express serves the frontend and API from the same origin. `npm run client` starts Vite alone; `npm run server` starts only the API. `npm run preview` serves the build through a Vite proxy and requires a running API. A static frontend alone displays a connection/retry state instead of inventing local server results.
 
-## 🎯 3-Minute Hackathon Judge Demo Script
+The server refreshes research at startup. Internet access is needed for new public evidence; cached records retain their original dates. `TREND_AUTO_REFRESH=false` disables startup refresh. Browser requests from a separate deployment need that origin in `CORS_ORIGINS`. Set `HOST=0.0.0.0` when intentionally exposing the server through a hosting platform.
 
-1. **Step 1: Multi-Device Real-Time Sync Setup**
-   - Open two browser tabs side-by-side (Tab A on `http://localhost:5173`, Tab B on `http://localhost:5173`).
-   - In Tab A, select **"Enter HR Command Centre"** (Demand).
-   - In Tab B, select **"Enter Worker Portal"** (Supply).
-   - Point out the **`● WebSocket Live (2 connected)`** status pill in the top control bar.
-2. **Step 2: Resume Intake & Dynamic Half-Life Badges (Tab B: Worker Slide 1)**
-   - View *Siti Nurhaliza*'s atomic tasks.
-   - Point out that capability half-lives are dynamic: *Manual data transcription: 11 mos runway*, while *Customer mediation: 48 mos runway*.
-   - Demonstrate the **Upload Custom Resume** feature by uploading a PDF/text CV to show automated atomic task extraction.
-3. **Step 3: The Core Demo Hero — Triggering The Ripple Effect**
-   - In the top bar of Tab A, click **"⚡ Inject Live Oct 2026 Signal"** and select **"Agentic SQL Release"**.
-   - **Watch both tabs react simultaneously without refreshing:**
-     - **Tab A (HR):** Accounts Clerk 101 automation exposure leaps from 85% to 97% with tag **`+14% ⚡ Agentic SQL Surge`**; total workforce risk rises.
-     - **Tab B (Worker):** Siti's manual data transcription half-life compresses from 11 mos down to **6 mos (`-5 mos ⚡`)**; AI Financial Auditor fit surges by **`+6.7% ⚡`**.
-   - Now select **"Johor Green-AI DC Surge"**:
-     - Switch to TVET View: Mechatronics demand velocity jumps to **1.62x**, and the track flips to 🚨 **`CRITICAL_BLINDSPOT` (75% risk)** with driver pill `Johor Green-AI DC (+62%)`.
-4. **Step 4: Counterfactual Demographic Fairness Audit (Worker Slide 3)**
-   - Click **"Run Demographic Fairness Audit"**.
-   - Show judges the live mutation across 4 demographic profiles confirming **0.00% Demographic Score Variance** (advancing SDG 5 & SDG 10).
-5. **Step 5: Path B Green-AI Resilience Arbitrage (Worker Slide 4)**
-   - Click the **Path B Green Pivot toggle**.
-   - Demonstrate how the visual comparative runway bar extends career runway from **14 to 45 months (3.2x multiplier)**, unlocks a $+14.8\%$ match boost, and displays verified HRD Corp claimable green micro-credentials.
+### Option 2 — Replit / Hosted Environment
 
----
+Public hosting and Replit project links are **TBD**. The repository includes an optional Node configuration, but its presence does not prove a Replit deployment or sponsor usage. The team currently intends Replit for slide generation; no usage or proof has been supplied. Do not treat localhost links as an accessible submission deployment.
 
-## 🛡️ Hackathon Domain 1 & Ethical AI Compliance
+### Run Tests
 
-- **Domain:** XMUM SDC Hackathon 2026 — Domain 1: The Aiversecity Future-Ready Workforce Domain.
-- **AI Disclosure:** Clearly declared in header, footer, and dedicated modal: `Model: BAAI/bge-m3 + Llama-3-8B-Instruct on RunPod GPU`.
-- **Zero Hallucination:** 100% of courses, links, and signals cite authentic Malaysian bodies (**HRD Corp, MDEC Digital Skills Directory, SEDA, MARii, data.gov.my, MyFutureJobs, arXiv**).
-- **Human-in-the-Loop Governance:** Explicit copilot disclaimer stating AI provides scenario decision support while final career and training decisions rest with human users.
-- **License:** Licensed under the permissive **Apache-2.0 License**.
+```sh
+npm run test:backend
+npm run build
+npx playwright install chromium
+# Keep the built app running in a separate terminal: npm start
+npm run test:integration
+# Optional real feed / API demonstration:
+npm run demo:backend
+```
 
----
+Backend tests use explicitly synthetic fixtures and local HTTP; they need no internet. The integration test exercises real intake, server ranking and plan equality, progress preservation, scenario accept/revert, research refresh, export, mobile layout, and visible connection failure/retry. A public feed or a previously retrieved cache is required for its evidence check. Set `NEXUS_TEST_URL` / `NEXUS_API_URL` for another running port. Browser artifacts are written to ignored `output/playwright/integration/`; the API demo writes `output/backend/live-demo.json`.
 
-*NexusTalent 360 • Developed for the XMUM SDC Hackathon 2026 • Building Malaysia's Future-Ready, Green-AI Resilient Workforce.*
+### Demo Walkthrough
+
+1. Open the app and use a fictional CV or paste synthetic experience; review skills and learning preferences.
+2. Open **Future roles**. Inspect a role's exact score contributions and full skills gap.
+3. Open **Skills radar**, refresh dated evidence, and inspect the source receipt and metadata mapping.
+4. Compare **Steady adoption**, **Faster AI adoption** and **Green transition**. Review and accept or revert the proposal.
+5. Open the ordered **Learning plan**, inspect public resources and SDG links, record a completion, then change the scenario and show that progress remains.
+6. Save and download the brief with sources, score explanations, estimates and decision history.
+
+## How We Use Replit (Required Template Section)
+
+**Status: TBD — no completed usage is claimed.** The intended use recorded by the team is slide generation, not application hosting. Add the actual project link and proof-of-use PDF after that work is completed. Optional repository configuration is not evidence of sponsor usage.
+
+Planned proof filename: `submission/SDC2026_Decisive_Replit_POU.pdf` (not yet supplied).
+
+## How We Use RunPod (Required Template Section)
+
+**Status: not used in the active implementation.** Matching, metadata mapping and pathways run on the CPU. No BAAI/Llama inference or GPU endpoint is claimed. Legacy adapters are preserved outside the active server, and no mock credential is required by the app. The team must reconcile any sponsor requirements with the current event rules before submission; no proof-of-use document has been fabricated.
+
+Proof of use: not supplied. A future actual workload would require its own verified declaration and `submission/SDC2026_Decisive_Runpod_POU.pdf`.
+
+## Challenges & Learnings
+
+- **Evidence integrity:** research refresh must not silently become synthetic data. We retain DOI/publication/retrieval records and explicit stale or unavailable states, and bound metadata effects rather than multiplying repeated papers.
+- **Decision stability:** updated evidence can change priorities without invalidating useful learning. Evidence revisions, per-request simulations and stable learning-step IDs let a worker compare and revert decisions.
+- **Honest explanations:** missing profile skills are unknown, not proven deficits. A research trend is not a Malaysian vacancy count; introductory reading is not a qualification; SDG tags are not measured impact.
+- **Connected failure behavior:** loading, cancelled requests and retry are explicit. Server failures do not fall back to apparently live browser-generated rankings.
+
+The hardest remaining risk is matching quality and local demand relevance. The next evaluation should compare synthetic worker/role pairs with adviser judgements and an appropriate public or licensed job-posting source. The current engineering tests do not establish forecast accuracy or general fairness.
+
+## Future Improvements
+
+- [ ] Validate role/skill matching with advisers and diverse synthetic profiles.
+- [ ] Add an appropriate public/licensed Malaysian job-demand source alongside research.
+- [ ] Validate learning-resource depth, availability and prerequisite coverage with instructors.
+- [ ] Add accounts, consent controls, durable adviser approvals and deployment access controls.
+- [ ] Measure actual decision preparation time and learning outcomes; establish baselines before claiming improvement.
+- [ ] Complete public deployment, slides, demo video, official forms and verified sponsor declarations.
+
+## Team
+
+| Name | Role | GitHub |
+| --- | --- | --- |
+| Raye Chan Jun Foong | Team Leader | [@RayeC-1305](https://github.com/RayeC-1305) |
+| Teo Zheng Xi | Tech Lead | [@iztzx](https://github.com/iztzx) |
+| Liew Jicson | Video | TBD |
+| Additional members | TBD | TBD |
+
+## Submission Checklist
+
+- [x] Team name and Domain 1 stated
+- [ ] Final SDG track, university and team count confirmed
+- [ ] Public live-demo link added
+- [ ] Slide deck link added
+- [ ] Demo video link added
+- [ ] Actual Replit usage and proof documented
+- [ ] RunPod requirement reconciled with actual usage and event rules
+- [ ] Preliminary proposal completed: `SDC2026_Decisive_Preliminary.pdf`
+- [ ] Technology declaration completed: `SDC2026_Decisive_TechDeclaration.pdf`
+- [ ] Final submission documents placed in `submission/`
+- [x] Local run instructions and automated verification provided
+- [x] Secrets and generated caches excluded from version control
+
+See [backend details](docs/BACKEND.md), [integration notes](docs/INTEGRATION.md), [verification](docs/VERIFICATION.md), and [brand guidelines](docs/brand-guidelines.md).
+
+## License
+
+Licensed under the [Apache License 2.0](LICENSE). Third-party documentation, research and assets retain their own terms. The README structure is adapted from the [SDC Hackathon Submission Template](https://github.com/michaelzhngg/SDC_Hackathon_Submission_Template); it does not replace the official proposal or declaration forms.

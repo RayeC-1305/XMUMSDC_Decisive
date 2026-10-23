@@ -1,32 +1,11 @@
-# NexusTalent 360 - Replit Deployment Configuration
-# XMUM SDC Hackathon 2026 - Domain 1: The Aiversecity Future-Ready Workforce Domain
-
+# Optional Replit compatibility configuration. Deployment and proof of use are TBD.
 entrypoint = "server/server.js"
-modules = ["nodejs-20"]
-
-[nix]
-channel = "stable-24_05"
+modules = ["nodejs-22"]
+run = "npm run dev"
 
 [env]
+HOST = "0.0.0.0"
 PORT = "3001"
-VITE_API_URL = "http://localhost:3001"
-RUNPOD_API_KEY = "mock_runpod_sdc_key_2026"
-RUNPOD_ENDPOINT_URL = "https://api.runpod.ai/v2/aurora-sdg-bge-m3/runsync"
-RUNPOD_FALLBACK_MODE = "auto"
-DOMAIN_ID = "domain-1-aiversecity"
-EVENT_NAME = "XMUM SDC Hackathon 2026"
-
-[workflows]
-runButton = "Start Full-Stack Synchronizer"
-
-[[workflows.workflow]]
-name = "Start Full-Stack Synchronizer"
-mode = "parallel"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run dev"
 
 [deployment]
 run = ["sh", "-c", "npm run build && npm start"]
