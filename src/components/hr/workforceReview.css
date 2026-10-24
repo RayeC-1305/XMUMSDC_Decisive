@@ -1,0 +1,23 @@
+.hr-demo .hr-map-guide { display:flex; align-items:start; gap:12px; background:var(--hr-indigo-pale); padding:18px; border-radius:10px; margin-bottom:20px; }
+.hr-demo .hr-map-filters { display:flex; flex-wrap:wrap; gap:10px; }
+.hr-demo .hr-map-filters button[aria-pressed="true"] { background:var(--hr-indigo); color:white; }
+.hr-demo .hr-map-count { margin:16px 0; font-size:13px; }
+.hr-demo .hr-skill-choice { background:none; border:0; color:var(--hr-indigo-dark); text-align:left; padding:4px 0; font-weight:600; text-decoration:underline; }
+.hr-demo .hr-heatmap th small { display:block; margin-top:6px; font-weight:400; }
+.hr-demo button.hr-cell { width:100%; min-width:100px; border:1px solid transparent; cursor:pointer; }
+.hr-demo button.hr-cell:hover { border-color:var(--hr-indigo); }
+.hr-demo .hr-cell.unknown,.hr-demo .hr-legend .unknown { background:#e9edf3; color:#536078; }
+.hr-demo .hr-legend .strong { background:#dcece2; }.hr-demo .hr-legend .moderate { background:#f6e8c9; }.hr-demo .hr-legend .critical { background:#f0d9d5; }.hr-demo .hr-legend .declining { background:#e9ddf1; }
+.hr-demo .hr-map-detail { border:1px solid var(--hr-line); border-radius:12px; padding:22px; margin:20px 0; display:grid; gap:12px; }
+.hr-demo .hr-map-detail a { color:var(--hr-indigo-dark); text-decoration:underline; }
+.hr-demo .hr-map-detail .hr-btn { justify-self:start; }
+.hr-demo .hr-review-workspace { display:grid; gap:24px; margin-bottom:28px; }
+.hr-demo .hr-review-priorities { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:18px 0; }
+.hr-demo .hr-review-priorities article { background:#f5f7fc; border:1px solid var(--hr-line); border-radius:10px; padding:18px; }
+.hr-demo .hr-review-priorities h3 { font-size:16px; margin-bottom:8px; }
+.hr-demo .hr-review-checks { display:grid; gap:14px; margin-bottom:22px; }
+.hr-demo .hr-review-checks label { display:flex; gap:12px; align-items:start; }
+.hr-demo .hr-review-checks input { width:19px; height:19px; flex-shrink:0; accent-color:var(--hr-indigo); margin-top:2px; }
+.hr-demo .hr-review-workspace .hr-actions { margin-top:20px; }
+.hr-demo .hr-review-workspace [role="status"] { margin-top:12px; font-size:13px; }
+@media(max-width:700px) { .hr-demo .hr-review-priorities { grid-template-columns:1fr; } }

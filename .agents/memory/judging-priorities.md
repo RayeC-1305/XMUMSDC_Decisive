@@ -20,3 +20,9 @@ For HR demo styling, closely match each individual demo page's fonts, sizes, car
 **Why:** The user emphatically repeated that the individual demo is the styling reference; a separate small-text dashboard interpretation does not meet their expectation.
 
 **How to apply:** Inspect the actual individual workspace components and computed typography before restyling HR. Preserve readability and spacing across every step, not just the first screen.
+
+Preserve the approved individual-style HR demo appearance; improve practical skills-to-reskilling features without moving away from the core direction.
+
+**Why:** The user confirmed the demo UI looks much better and explicitly asked that feature upgrades stay close to the core direction.
+
+**How to apply:** Prefer clearer skill evidence, relevant learning actions and useful human-review outputs over unrelated HR administration features.

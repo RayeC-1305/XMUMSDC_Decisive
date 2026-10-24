@@ -10,6 +10,8 @@ import {
   SYNTHETIC_NOTICE,
 } from "./hrShared";
 import SurveyPage from "./SurveyPage";
+import CapabilityHeatmap from "./CapabilityHeatmap";
+import ReviewTogether from "./ReviewTogether";
 import SkillRadar from "./DemoSkillRadar";
 import { CohortPlanner, EmployeeReview } from "./WorkforceActions";
 import "./hrDemo.css";
@@ -35,7 +37,7 @@ const DEMO_STEPS = [
   { id: "skills", label: "Understand skills", title: "Read the signals with care", purpose: "Explore the radar, heatmap and employee pathways.", outcome: "Declared skills—not performance." },
   { id: "scenarios", label: "Compare futures", title: "Compare planning assumptions", purpose: "Change a scenario or refresh sources. Inspect what changed.", outcome: "A planning revision—not a forecast." },
   { id: "plan", label: "Learning plan", title: "Turn priorities into learning", purpose: "Review ordered cohorts, resources and estimated time.", outcome: "A plan to review together." },
-  { id: "impact", label: "Review together", title: "Review outcomes together", purpose: "Explore SDG mappings, fairness and scenario records.", outcome: "A human-reviewed picture." },
+  { id: "impact", label: "Review together", title: "Review outcomes together", purpose: "Confirm priorities, prepare discussion notes and download a team brief.", outcome: "A practical human-review conversation." },
 ];
 const STEP_ICONS = { setup: Building2, invite: Mail, respond: MessageSquare, skills: Radio, scenarios: Compass, plan: Route, impact: Leaf };
 const toInt = (value, fallback = 0) => Number.isFinite(Number(value)) ? Number(value) : fallback;
@@ -219,6 +221,7 @@ export default function HRPortal() {
   const requestVersion = useRef(0);
   const dashboardRef = useRef(dashboard);
   const stepHeadingRef = useRef(null);
+  const journeyRef = useRef(null);
   const stepHasMounted = useRef(false);
   dashboardRef.current = dashboard;
 
@@ -242,6 +245,23 @@ export default function HRPortal() {
     if (!DEMO_STEPS.some((step) => step.id === id)) return;
     window.location.hash = id;
   }
+
+  useEffect(() => {
+    const nav = journeyRef.current;
+    if (!nav) return;
+    const followStep = () => {
+      const current = nav.querySelector('[aria-current="step"]');
+      if (!current) return;
+      const frame = nav.getBoundingClientRect();
+      const item = current.getBoundingClientRect();
+      nav.scrollTo({ left: nav.scrollLeft + item.left - frame.left - (frame.width - item.width) / 2,
+        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+    };
+    followStep();
+    const observer = new ResizeObserver(followStep);
+    observer.observe(nav);
+    return () => observer.disconnect();
+  }, [activeStep]);
 
   const loadCampaigns = useCallback(async () => {
     setCampaignLoading(true);
@@ -316,17 +336,6 @@ export default function HRPortal() {
     ...(catalog?.sampleProfiles || []).map((profile) => profile.department),
     ...campaigns.map((campaign) => campaign.department),
   ].filter(Boolean))], [catalog, campaigns]);
-  const heatmapRows = useMemo(() => {
-    const map = new Map();
-    for (const person of employees) {
-      for (const cell of person.heatmap || []) {
-        const id = cell.skillId || cell.id;
-        if (!map.has(id)) map.set(id, { name: cell.name || skillList.find((skill) => skill.id === id)?.name || id, values: [] });
-        map.get(id).values.push({ person, cell });
-      }
-    }
-    return [...map.entries()].map(([id, row]) => ({ id, ...row })).slice(0, 18);
-  }, [employees, skillList]);
   const sdgRecords = dashboard?.sdgs || [];
   const sdgByNumber = useMemo(() => {
     const records = new Map();
@@ -476,7 +485,7 @@ export default function HRPortal() {
             <button className="hr-btn" type="button" disabled={currentStepIndex === DEMO_STEPS.length - 1} onClick={() => goToStep(DEMO_STEPS[currentStepIndex + 1]?.id)}>Next <ArrowRight size={14} /></button>
           </div>
         </div>
-        <nav className="hr-demo-step-nav" aria-label="Demo steps">
+        <nav ref={journeyRef} className="hr-demo-step-nav" aria-label="Demo steps">
           {DEMO_STEPS.map((step, index) => {
             const StepIcon = STEP_ICONS[step.id];
             return <button key={step.id} type="button" aria-label={`Step ${index + 1}: ${step.label}`} aria-current={step.id === activeStep ? "step" : undefined} onClick={() => goToStep(step.id)}><span>{String(index + 1).padStart(2, "0")}</span><StepIcon size={17} aria-hidden="true" /><span>{step.label}</span></button>;
@@ -558,20 +567,7 @@ export default function HRPortal() {
 
           <section className="hr-panel" data-demo-slide="skills" data-demo-view="heatmap" role="region" aria-label="Capability heatmap view">
             <div className="hr-panel-head"><div><span className="hr-eyebrow">Skill signals</span><h2><Activity aria-hidden="true" />Capability heatmap</h2><p>Declared proficiency and planning urgency by person. A declining weight is not employee performance.</p></div><span className="hr-panel-kicker">{employees.length} profiles</span></div>
-            {loading && !dashboard ? <div className="hr-skeleton" /> : heatmapRows.length ? <>
-              <div className="hr-heatmap-scroll" role="region" aria-label="Scrollable workforce capability heatmap" tabIndex="0">
-                <table className="hr-heatmap"><thead><tr><th scope="col">Skill / trend</th>{employees.map((person) => <th scope="col" key={person.id}>{person.alias || "Synthetic"}</th>)}</tr></thead>
-                  <tbody>{heatmapRows.map((row) => <tr key={row.id}><td>{row.name}<small style={{ display: "block" }}>{skillList.find(skill => skill.id === row.id)?.direction} · {skillList.find(skill => skill.id === row.id)?.weight}× priority</small></td>{employees.map((person) => {
-                    const entry = (person.heatmap || []).find((cell) => (cell.skillId || cell.id) === row.id);
-                    const state = String(entry?.status || "").toLowerCase();
-                    const kind = state.includes("critical") ? "critical" : state.includes("moderate") ? "moderate" : state.includes("declin") ? "declining" : state.includes("strong") ? "strong" : "";
-                    return <td key={`${row.id}-${person.id}`}><span className={`hr-cell ${kind}`} title={`${row.name}: ${entry?.status || "No status"} · urgency ${entry?.urgency} · ${entry?.direction}`} aria-label={`${person.alias}, ${row.name}: ${entry?.status}, proficiency ${entry?.proficiency}, urgency ${entry?.urgency}`}>{entry?.proficiency ?? "—"}<small>U {entry?.urgency ?? "—"}</small></span></td>;
-                  })}</tr>)}</tbody>
-                </table>
-              </div>
-              <div className="hr-legend"><span><i style={{ background: "#dcece2" }} /> Strong coverage</span><span><i style={{ background: "#f6e8c9" }} /> Moderate gap</span><span><i style={{ background: "#f0d9d5" }} /> Critical skill deficit</span><span><i style={{ background: "#e9ddf1" }} /> Declining / at-risk skill</span></div>
-              <p style={{ marginTop: 16 }}>Cell: self-rating 0–5 (0 = unknown) and U = scenario urgency index. {dashboard?.riskMethodology}</p>
-            </> : <div className="hr-empty"><strong>Waiting for survey responses</strong><p>Heatmap cells appear after employees submit their synthetic profile.</p></div>}
+            <CapabilityHeatmap employees={employees} skills={skillList} cohorts={dashboard?.cohorts || []} onInspect={setSelectedEmployee} onPlan={() => goToStep("plan")} />
           </section>
 
           <section className="hr-panel" data-demo-slide="skills" data-demo-view="people" role="region" aria-label="Employee review view">
@@ -616,6 +612,7 @@ export default function HRPortal() {
           </section>
 
           <section className="hr-demo-page" data-demo-slide="impact">
+            <ReviewTogether key={`${campaignFilter}:${scenario}:${dashboard?.simulationActive}`} dashboard={dashboard} scope={campaignFilter} onNavigate={goToStep} />
             <div className="hr-panel-head"><div><span className="hr-eyebrow">07 / Shared outcomes</span><h2><Leaf aria-hidden="true" />All 17 SDGs</h2><p>Open a mapped target to inspect its contribution note. Mappings are not measured impact.</p></div></div>
             <div className="hr-sdgs">{GOALS.map((name, index) => {
               const number = index + 1;

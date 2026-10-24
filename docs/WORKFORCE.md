@@ -6,6 +6,14 @@ The app remains a single React 18 / Vite 6 frontend and Node 22 / Express 4 back
 
 ## Guided employer experience
 
+The journey navigation automatically scrolls horizontally to keep the active step visible, including deep links, Previous/Next and viewport resizing. It respects reduced motion and does not scroll the document vertically.
+
+The capability map ranks skills by average scenario urgency and filters for declared critical gaps, unknown proficiency, or declining skills. Unknown values are shown separately rather than described as confirmed deficits. Skill selection shows the recommended cohort and learning source; cells open employee pathways.
+
+Review together prepares a discussion, not a personnel decision. It shows top priorities, keeps synthetic discussion notes in session storage per campaign scope, and downloads a cited Markdown discussion brief after three preparation checks. Changes to evidence, scenario or employee analysis invalidate those checks. Checks are not employee consent, approval, or training assignment. Existing SDG, fairness and simulation views remain available.
+
+The landing includes an independent four-stage local exploration of fictional profiles, declared skills, role choices, learning time and review preparation. Its unsaved examples do not alter or carry into department campaigns.
+
 The employer landing page explains the complete workflow before inviting users into **Explore the guided demo**. Its synthetic scenario preview uses the same local catalog/ranking/pathway functions as the individual introduction, and is explicitly separate from the API-backed department results. Scroll reveals, chapter navigation and reduced-motion support make the introduction explorable. The demo shows one chapter at a time:
 
 1. `#setup` — choose a seeded department and optionally load the idempotent demo set;

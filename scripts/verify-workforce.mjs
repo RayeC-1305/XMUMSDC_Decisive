@@ -41,6 +41,19 @@ try {
   const previewBefore = await preview.locator(".hrl-preview-result").innerText();
   await preview.getByRole("button", { name: "Faster AI", exact: true }).click();
   assert.notEqual(await preview.locator(".hrl-preview-result").innerText(), previewBefore);
+  const explorerNav = page.getByRole("group", { name: "Explore the skills-to-review journey" });
+  const skillsChoice = page.getByRole("group", { name: "Edit the sample declared skills" }).getByRole("button").first();
+  await skillsChoice.click();
+  assert.equal(await skillsChoice.getAttribute("aria-pressed"), "false");
+  await explorerNav.getByRole("button", { name: /Explore priorities/ }).click();
+  await page.getByRole("group", { name: "Choose a sample learning direction" }).getByRole("button").nth(1).click();
+  await explorerNav.getByRole("button", { name: /Shape learning/ }).click();
+  await page.getByLabel("Illustrative weekly learning time").selectOption("6");
+  assert.ok(await page.locator(".hrl-lab-learning a").count() > 0);
+  await explorerNav.getByRole("button", { name: /Prepare a review/ }).click();
+  await page.getByRole("region", { name: "Prepare a review" }).getByRole("checkbox").first().check();
+  await page.getByRole("button", { name: "Reset exploration" }).click();
+  assert.equal(await skillsChoice.getAttribute("aria-pressed"), "true");
   await page.getByRole("navigation", { name: "Employer journey chapters" }).getByRole("button").nth(4).click();
   assert.ok(await page.locator("#hrl-scenarios").isVisible());
   assert.equal(await page.getByRole("button", { name: "New campaign", exact: true }).count(), 0);
@@ -67,6 +80,13 @@ try {
   await step("skills");
   await page.getByRole("button", { name: "Capability map", exact: true }).click();
   await page.getByRole("heading", { name: "Capability heatmap" }).waitFor();
+  await page.getByRole("group", { name: "Filter capability skills" }).getByRole("button", { name: "Not declared", exact: true }).click();
+  await page.getByRole("group", { name: "Filter capability skills" }).getByRole("button", { name: "All skills", exact: true }).click();
+  await page.locator(".hr-skill-choice").first().click();
+  await page.getByRole("region", { name: "Selected skill learning priority" }).waitFor();
+  await page.locator("button.hr-cell").first().click();
+  await page.getByRole("dialog").waitFor();
+  await page.keyboard.press("Escape");
   await page.getByRole("button", { name: "Employee review", exact: true }).click();
   await page.locator(".hr-person").first().waitFor();
   assert.equal(await page.locator('[data-demo-slide="skills"] .hr-person').count(), 8);
@@ -159,12 +179,24 @@ try {
   assert.ok(content.includes("not measured impact"));
   if (cohortCount > 1) assert.ok(!content.match(/^### \d+\..+$/gm).some(line => line.endsWith(excludedTitle)));
   await step("impact");
+  const discussionDownload = page.getByRole("button", { name: "Download discussion brief", exact: true });
+  assert.equal(await discussionDownload.isDisabled(), true);
+  await page.getByLabel("Discussion notes · synthetic details only", { exact: true }).fill("Confirm protected learning time with the fictional team.");
+  for (const check of await page.locator(".hr-review-checks input").all()) await check.check();
+  const discussionEvent = page.waitForEvent("download");
+  await discussionDownload.click();
+  const discussion = await discussionEvent;
+  await discussion.saveAs(path.join(output, discussion.suggestedFilename()));
+  const discussionText = await fs.readFile(path.join(output, discussion.suggestedFilename()), "utf8");
+  assert.ok(discussionText.includes("Confirm protected learning time"));
+  assert.ok(discussionText.includes("No plan has been automatically approved"));
   assert.equal(await page.locator('[data-demo-slide="impact"] .hr-sdg').count(), 17);
   assert.ok(await page.getByText("Simulated accelerated AI workflow adoption", { exact: true }).isVisible());
   await page.goBack();
   await page.getByRole("heading", { name: "Turn priorities into learning", exact: true }).waitFor();
   await page.goForward();
   await page.getByRole("heading", { name: "Review outcomes together", exact: true }).waitFor();
+  assert.equal(await page.getByLabel("Discussion notes · synthetic details only", { exact: true }).inputValue(), "Confirm protected learning time with the fictional team.");
   await employee.reload();
   await employee.getByRole("heading", { name: "Survey link unavailable" }).waitFor();
   await step("invite");
@@ -196,6 +228,11 @@ try {
   for (const id of stepIds) {
     await step(id);
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), `${id} should fit a phone viewport`);
+    await page.waitForFunction(() => {
+      const nav = document.querySelector(".hr-demo-step-nav").getBoundingClientRect();
+      const item = document.querySelector('.hr-demo-step-nav [aria-current="step"]').getBoundingClientRect();
+      return item.left >= nav.left - 2 && item.right <= nav.right + 2;
+    });
     await page.screenshot({ path: path.join(output, `step-${id}-mobile.png`), fullPage: true });
   }
   await page.goto(`${base}/hr`);
