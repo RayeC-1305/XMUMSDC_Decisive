@@ -51,3 +51,7 @@ node scripts/build-pitch.mjs
 `scripts/capture-pitch.cjs` can capture another fictional demonstration against port 3201. It overwrites the frozen capture and brief; rebuilding afterwards can change the pitch's reference values. `scripts/prepare-pitch-assets.mjs` downloads fonts again and requires internet. Neither command is needed to open the submitted HTML.
 
 The submission folder contains the preliminary proposal, technology declaration and Replit proof PDFs. The HTML deck and its matching PDF include the employer workflow and hosted demo links.
+
+## Standalone video presentation
+
+[SDC2026_Decisive_DemoVideo.html](../submission/SDC2026_Decisive_DemoVideo.html) opens directly after downloading; no localhost server is required. It embeds presentation code, fonts and the real career brief. Both live demo audiences use the Replit deployment. Press P for silent playback. Final voice and MP4 recording remain pending.

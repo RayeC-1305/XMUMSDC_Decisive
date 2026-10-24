@@ -4,7 +4,8 @@
 > **Source:** the reviewed screenshot-free deck remains the visual backbone. This is a scene-based adaptation, not ten animated slide captures.
 > **Theme:** established custom Nexus identity; Sora / DM Sans / IBM Plex Mono, supplied cobalt/cyan/violet/neutral tokens. One midnight stage surface throughout, with restrained pale evidence areas.
 > **Stage:** 1920 × 1080, proportionally scaled; 80px minimum safe margin; no deck headers, footers, folios or persistent brand bars.
-> **Deliverable target:** a recordable web presentation and a seven-minute 1080p MP4. No final video or narration audio has been produced.
+> **Web presentation:** open ../submission/SDC2026_Decisive_DemoVideo.html directly; no localhost is required. Live worker/employer demos always use Replit.
+> **Deliverable target:** a recordable web presentation and a seven-minute 1080p MP4. No final MP4 or narration audio has been produced.
 > **Current phase:** Web chapters complete — audio checkpoint. Plan approval: approved. First-chapter review: accepted — user: continue; slower continuous motion requested. Audio choice: pending.
 
 ## Chapter timing

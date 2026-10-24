@@ -1,16 +1,16 @@
 # Nexus seven-minute web presentation
 
-Ten chapters, 66 narration beats, 420 seconds of planned playback. All seven font faces are local. The fixed 1920 × 1080 stage scales proportionally; recording scenes have no persistent deck chrome. The deck and video now include both worker and employer workflows.
+Ten chapters, 66 narration beats, 420 seconds of planned playback. The standalone export embeds all seven font faces. The fixed 1920 × 1080 stage scales proportionally; recording scenes have no persistent deck chrome. The deck and video now include both worker and employer workflows.
 
-Preview: <http://127.0.0.1:5186/?chapter=opening&step=0>
+Open [SDC2026_Decisive_DemoVideo.html](../../submission/SDC2026_Decisive_DemoVideo.html) directly in your browser. No local server is required. From GitHub, download the raw HTML file first; the GitHub file viewer displays source. Fonts, JavaScript, styles and the career-brief download are embedded.
 
 - P restarts the seven-minute silent preview; Escape stops it.
 - Click empty stage space, Space or → advances; ← returns. Home/End select the first/last beat.
 - Keys 1–9, then 0, select chapters. Hidden bottom controls also select chapters and show narration (N).
 - ?chapter=working-prototype&step=2&clean=1 opens a focused beat without controls. ?preview=1&clean=1 starts silent playback after fonts load.
-- The actual live product is embedded only in chapter 06. It opens https://NexusTalent-Decisive.replit.app/#pathway for nine worker beats, then /hr for four employer beats in the same frame. Add &demoBase=http%3A%2F%2F127.0.0.1%3A3202 for an isolated local rehearsal. Actual demo actions must be operated and recorded to the thirteen narration beats; silent playback changes cues, not app state.
+- The actual live product is embedded only in chapter 06. It opens https://NexusTalent-Decisive.replit.app/#pathway for nine worker beats, then /hr for four employer beats in the same frame. The demo origin is fixed to Replit; query parameters cannot replace it with localhost. Actual demo actions must be operated and recorded to the thirteen narration beats; silent playback changes cues, not app state.
 
-Run npm run dev, npm run build, or npm run extract-narrations from this project directory.
+Run npm ci, then npm run build from this project directory to regenerate ../../submission/SDC2026_Decisive_DemoVideo.html. The build also writes a self-contained dist/index.html suitable for static hosting. npm run dev is an optional authoring workflow, not required for viewing.
 
 Each chapter’s narrations.ts is the implementation source of truth. From the repository root, node scripts/prepare-nexus-video.mjs synchronizes script, outline and plan. The seven-minute schedule includes demonstration dwell. Final voice duration and recording synchronization still require verification at export.
 

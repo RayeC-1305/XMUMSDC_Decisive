@@ -11,7 +11,7 @@ This folder follows the document naming in the [official SDC Hackathon submissio
 | Pitch deck | [PDF](SDC26_Decisive_PitchDeck.pdf) · [interactive HTML](SDC26_Decisive_PitchDeck.html) | Updated for employer workflows and Replit hosting |
 | Live worker application | [NexusTalent](https://NexusTalent-Decisive.replit.app) | Hosted on Replit |
 | Live employer application | [HR & Employers](https://NexusTalent-Decisive.replit.app/hr) | Synthetic-only public prototype |
-| Demo video | [Recordable presentation source](../nexus-video/presentation/README.md) · [narration](../nexus-video/script.md) | Final audio, recording/export and shareable video URL pending |
+| Demo video | [Standalone HTML](SDC2026_Decisive_DemoVideo.html) · [Source](../nexus-video/presentation/README.md) · [Narration](../nexus-video/script.md) | HTML opens directly without localhost; live demos use Replit. Final recorded MP4 pending |
 
 The three supplied forms are preserved as received. This index records their presence, not organizer acceptance or independent validation of every declaration. A web presentation and its source are not a finished demo video. No RunPod proof or sponsor exemption has been invented.
 

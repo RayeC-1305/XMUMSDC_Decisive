@@ -897,5 +897,12 @@
         }
       ]
     }
-  ]
+  ],
+  "webPresentation": {
+    "path": "submission/SDC2026_Decisive_DemoVideo.html",
+    "selfContained": true,
+    "localServerRequired": false,
+    "demoOrigin": "https://NexusTalent-Decisive.replit.app",
+    "rebuild": "npm run build --prefix nexus-video/presentation"
+  }
 }

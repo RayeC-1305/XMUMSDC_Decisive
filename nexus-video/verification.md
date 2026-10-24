@@ -33,3 +33,7 @@ The earlier opening-motion-preview.mp4 is a superseded experiment. Diagnostic sc
 - The isolated fictional app was then prepared for the recording's first beat through reversible UI actions: reopened the data-quality demo step and accepted Steady adoption. It now has 0/4 completed, 48 estimated hours and 12 weeks. Existing revision history was preserved; no reset or deletion occurred. The exported brief remains the genuine accepted-faster-AI preflight artifact.
 
 Pending at the required audio checkpoint: voice choice and synthesis (if selected), actual operation/recording of the nine demo beats, audio synchronization, final 1920 × 1080 export and FFprobe duration verification. No finished seven-minute MP4 is claimed. The existing 20-second silent motion study is only a review clip.
+
+## Standalone HTML export
+
+The submission now includes SDC2026_Decisive_DemoVideo.html with embedded script, styles, seven fonts, favicon and the exact career brief. Browser verification opened it through file://, advanced all 66 beats and downloaded the matching brief with zero runtime errors, localhost requests or external local-file dependencies. The employer iframe loaded from Replit even when a demoBase=localhost query override was supplied; overrides have been removed. Both demo audiences always use Replit. Report: ../output/playwright/nexus-video-standalone/report.json. Internet is needed for the live Replit demos, but no local server is needed for the presentation.
