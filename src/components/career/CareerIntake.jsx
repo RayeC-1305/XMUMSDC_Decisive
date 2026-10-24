@@ -26,7 +26,11 @@ import {
 } from "../../data/careerCatalog";
 import { extractCv, downloadText } from "../../utils/careerDemo";
 import { parseCvWithApi } from "../../utils/careerApi";
-import { Icon, SdgTags, CareerJourneyArt } from "./CareerPrimitives";
+import { Icon, SdgTags } from "./CareerPrimitives";
+import {
+  afterInterfaceUpdate,
+  transitionInterface,
+} from "../../utils/interfaceMotion";
 
 export default function CareerIntake({
   profile,
@@ -47,9 +51,11 @@ export default function CareerIntake({
   const fileInput = useRef(null);
   const heading = useRef(null);
   const advance = (next) => {
-    setError("");
-    setStep(next);
-    requestAnimationFrame(() => {
+    const transition = transitionInterface(() => {
+      setError("");
+      setStep(next);
+    }, "intake");
+    afterInterfaceUpdate(transition, () => {
       heading.current?.focus();
       window.scrollTo(0, 0);
     });
@@ -95,10 +101,14 @@ export default function CareerIntake({
   }
 
   return (
-    <div className={`c-intake ${step === 0 ? "c-intake-welcome" : ""}`}>
+    <div
+      className={`c-intake ${step === 0 ? "c-intake-welcome" : ""}`}
+      data-step={step}
+    >
       <div className="c-intake-top">
         <span className="c-back-label">
-          <Icon as={ShieldCheck} size={15} /> Your original file stays on this device
+          <Icon as={ShieldCheck} size={15} /> Your original file stays on this
+          device
         </span>
         <button className="c-text-button" onClick={onExplore}>
           {editing ? "Back to workspace" : "Explore a sample workspace"}
@@ -137,7 +147,6 @@ export default function CareerIntake({
             }
           </p>
         </div>
-        {step === 0 && <CareerJourneyArt />}
       </div>
       <ol className="c-intake-steps" aria-label="Profile setup progress">
         {["Import your CV", "Review your profile", "Set your direction"].map(
@@ -252,9 +261,14 @@ export default function CareerIntake({
                   }
                   setBusy(true);
                   setError("");
-                  try { setDraft(await parseCvWithApi(paste)); advance(1); }
-                  catch (failure) { setError(failure.message); }
-                  finally { setBusy(false); }
+                  try {
+                    setDraft(await parseCvWithApi(paste));
+                    advance(1);
+                  } catch (failure) {
+                    setError(failure.message);
+                  } finally {
+                    setBusy(false);
+                  }
                 }}
               >
                 <label htmlFor="cv-text">
@@ -274,7 +288,11 @@ export default function CareerIntake({
                   <span>
                     {paste.length.toLocaleString()} / 30,000 characters
                   </span>
-                  <button className="c-button primary" type="submit" disabled={busy}>
+                  <button
+                    className="c-button primary"
+                    type="submit"
+                    disabled={busy}
+                  >
                     {busy ? "Reviewing experience…" : "Review my experience"}
                     <Icon as={ArrowRight} size={16} />
                   </button>
@@ -500,8 +518,8 @@ export default function CareerIntake({
             <div className="c-review-callout">
               <Icon as={Sparkles} size={17} />
               <p>
-                This is a keyword-based extraction. Reviewing it keeps you
-                in control.
+                This is a keyword-based extraction. Reviewing it keeps you in
+                control.
               </p>
             </div>
           </aside>
@@ -529,20 +547,29 @@ export default function CareerIntake({
             event.preventDefault();
             setBusy(true);
             setError("");
-            try { await onComplete(
-              {
-                ...draft,
-                name: draft.name.trim(),
-                role: draft.role.trim(),
-                tasks: draft.tasks.filter((task) => task.trim()),
-              },
-              prefs,
-            ); } catch (failure) { setError(failure.message); }
-            finally { setBusy(false); }
+            try {
+              await onComplete(
+                {
+                  ...draft,
+                  name: draft.name.trim(),
+                  role: draft.role.trim(),
+                  tasks: draft.tasks.filter((task) => task.trim()),
+                },
+                prefs,
+              );
+            } catch (failure) {
+              setError(failure.message);
+            } finally {
+              setBusy(false);
+            }
           }}
         >
           <section className="c-preference-form">
-            {error && <p className="c-inline-error" role="alert">{error}</p>}
+            {error && (
+              <p className="c-inline-error" role="alert">
+                {error}
+              </p>
+            )}
             <h2>What would a good next chapter look like?</h2>
             <label>
               Your main goal

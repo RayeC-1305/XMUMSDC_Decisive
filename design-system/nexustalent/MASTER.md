@@ -8,11 +8,15 @@ UI/UX Pro Max Brand and UI Styling guide the identity, visual hierarchy, respons
 
 ## Tokens and composition
 
-Implemented in `src/career.css` with existing `--c-*` tokens; `src/brand.css` handles the workspace and `src/landing.css` the pitch and motion. Canvas `#f4f6fb`, white surfaces, ink `#202b46`, muted `#606c85`, lines `#dfe4f0`, cobalt action `#4355e7`, midnight `#111a34`, ice `#e3e8ff` and cyan `#83f0e7`. Cyan takes dark text. Existing token sources were updated without adding a parallel generated theme.
+Implemented in `src/career.css` with existing `--c-*` tokens; `src/brand.css` handles the workspace, `src/landing.css` pitch composition, and `src/motion.css` shared motion. Canvas `#f5f6f8`, white surfaces, ink `#202738`, muted `#626d81`, lines `#dce1ea`, cobalt action `#4355e7`, midnight `#111a34` and cyan `#83f0e7`. The approved Patensify-inspired landing ground is `#0b0d13`; the working rail is `#10141e`. Cyan takes dark text. Existing token sources were updated without adding a generated theme.
 
-Sora headings, DM Sans body/controls and IBM Plex Mono wordmark with system fallbacks. Body and controls use 14–16px; captions generally use 12px. Decorative artwork is hidden from assistive technology. Hero entrances, drawn connections, one-time scroll reveals, scenario revision highlights and a short demo handoff provide motion; reduced-motion mode shows everything immediately. No continuous animation or bitmap dependency.
+Sora headings, DM Sans body/controls and IBM Plex Mono wordmark with system fallbacks. Body and controls use 14–16px; small diagram annotations are subordinate to the main readable narrative. Decorative geometry is hidden from assistive technology. The pitch leads with a centred kinetic statement and an animated career map, then scroll-linked experience/evidence/role chapters, a scenario revision, six capabilities, the rubric and the actual demo. No bitmap or new motion-library dependency.
+
+Pitch motion is deliberately strong (8/10), with travelling signal packets, drifting skill nodes, a controlled 4.8-second sample-role cycle, a moving process ribbon, document extraction, ranked-role entrances and a masked proposal transition. Completed learning stays anchored. Working UI motion is restrained (4/10): navigation and scenario indicators slide, view/intake transitions preserve continuity, disclosures open quickly and progress fills smoothly. Pause, reduced-motion, offscreen and hidden-tab behavior are required contracts, not optional polish. Detailed motion rules and evidence live in `brand-spec.md` and `docs/VERIFICATION.md`.
 
 Desktop: fixed 244px rail, 76px top bar, bounded content, 42px gutters. Overview combines a transition banner with actionable panels. Intake uses three steps. Roles combine filters, list, explanation and comparison tray. Learning uses an ordered accordion timeline with a pace/impact aside.
+
+The intake's decorative journey artwork is removed so the actual upload, paste and sample entry lead. Evidence state is a concise disclosure; dates remain immediately visible and technical service details remain inspectable. Programmatic navigation focus uses `preventScroll` so mobile navigation stays visible.
 
 Breakpoints: 1250, 1080, 900, 720 and 480px. At 900px the rail becomes an off-canvas dialog; below 720px panels stack; phones use 18px gutters. Comparisons become stacked columns. Print styling removes navigation and exposes learning content or the review brief.
 

@@ -8,6 +8,17 @@ dist/
 build/
 output/playwright/
 output/backend/
+# Preserve only the pitch sources needed to reproduce the submitted HTML deck.
+output/*
+!output/pitch/
+output/pitch/*
+!output/pitch/demo-proof.json
+!output/pitch/pitch-data.json
+!output/pitch/siti-career-brief.md
+!output/pitch/live-demo.md
+!output/pitch/font-sources.json
+!output/pitch/fonts.css
+!output/pitch/font-*.ttf
 data/cache/
 .playwright-cli/
 

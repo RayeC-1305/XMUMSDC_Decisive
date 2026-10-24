@@ -1,13 +1,13 @@
 :root {
   font-family: "DM Sans", system-ui, sans-serif;
-  background: #f4f6fb;
-  color: #202b46;
+  background: #f5f6f8;
+  color: #202738;
   font-synthesis: none;
-  --c-canvas: #f4f6fb;
+  --c-canvas: #f5f6f8;
   --c-white: #fff;
-  --c-ink: #202b46;
-  --c-muted: #606c85;
-  --c-line: #dfe4f0;
+  --c-ink: #202738;
+  --c-muted: #626d81;
+  --c-line: #dce1ea;
   --c-green: #4b5fe2;
   --c-green-dark: #111a34;
   --c-green-soft: #edf0ff;
@@ -5265,11 +5265,40 @@ button {
 }
 
 /* Connected service states share the workspace's existing typography and surfaces. */
-.c-api-state { padding: 32px; margin-top: 16px; }
-.c-api-state h1 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 12px; }
-.c-api-state p { max-width: 65ch; color: var(--c-muted); margin-bottom: 20px; }
-.c-api-state > div { display: flex; flex-wrap: wrap; gap: 10px; }
-.c-api-receipt { color: var(--c-muted); font-size: 12px; line-height: 1.6; margin: 0 0 16px; overflow-wrap: anywhere; }
-.c-score-reasons { margin: 14px 0 24px; font-size: 13px; line-height: 1.7; color: var(--c-muted); }
-.c-score-reasons p + p { margin-top: 10px; }
-.c-score-reasons strong { color: var(--c-ink); }
+.c-api-state {
+  padding: 32px;
+  margin-top: 16px;
+}
+.c-api-state h1 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 12px;
+}
+.c-api-state p {
+  max-width: 65ch;
+  color: var(--c-muted);
+  margin-bottom: 20px;
+}
+.c-api-state > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.c-api-receipt {
+  color: var(--c-muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  overflow-wrap: anywhere;
+}
+.c-score-reasons {
+  margin: 14px 0 24px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--c-muted);
+}
+.c-score-reasons p + p {
+  margin-top: 10px;
+}
+.c-score-reasons strong {
+  color: var(--c-ink);
+}

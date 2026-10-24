@@ -1,0 +1,42 @@
+{
+  "cssUrl": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@600;700&display=swap",
+  "downloadedAt": "2026-10-24T01:54:53.262Z",
+  "externalRuntimeDependency": false,
+  "sources": [
+    {
+      "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxhTg.ttf",
+      "file": "font-0.ttf",
+      "bytes": 48280
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAkJxhTg.ttf",
+      "file": "font-1.ttf",
+      "bytes": 48308
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwARZthTg.ttf",
+      "file": "font-2.ttf",
+      "bytes": 48200
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n5ig.ttf",
+      "file": "font-3.ttf",
+      "bytes": 128812
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJ8lc.ttf",
+      "file": "font-4.ttf",
+      "bytes": 129916
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/sora/v17/xMQOuFFYT72X5wkB_18qmnndmSeMmX-K.ttf",
+      "file": "font-5.ttf",
+      "bytes": 46216
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/sora/v17/xMQOuFFYT72X5wkB_18qmnndmSe1mX-K.ttf",
+      "file": "font-6.ttf",
+      "bytes": 46152
+    }
+  ]
+}

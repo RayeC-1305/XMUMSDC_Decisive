@@ -1,0 +1,2489 @@
+{
+  "presentationVersion": 4,
+  "composition": {
+    "version": 4,
+    "mode": "Redesign · Preserve Nexus identity",
+    "concept": "The worker’s decision, the evidence behind it, and the learning that survives it.",
+    "typeRoles": {
+      "hero": 72,
+      "headline": 54,
+      "subheading": 28,
+      "body": 24,
+      "supporting": 20,
+      "metadata": 13,
+      "source": 12
+    },
+    "grid": {
+      "width": 1280,
+      "height": 720,
+      "margin": 48,
+      "rhythm": 8,
+      "footerY": 664
+    },
+    "visualTreatment": "Native typography and diagrams. No product screenshots. Exactly one live iframe on slide 6; captured API values remain labelled historical evidence."
+  },
+  "title": "Nexus — Plans evolve. Progress stays.",
+  "createdOn": "2026-10-24",
+  "timezone": "Asia/Kuala_Lumpur",
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "ratio": "16:9",
+    "safeMargin": 48
+  },
+  "durationSeconds": 360,
+  "spokenWords": 724,
+  "slides": [
+    {
+      "id": "opening",
+      "title": "Plans evolve. Progress stays.",
+      "seconds": 15,
+      "beats": [
+        "Plans evolve. Progress stays. Nexus is a reviewable reskilling workspace for workers and career advisers.",
+        "It helps you choose what to learn next, and see what would make that decision change."
+      ],
+      "steps": [
+        "The Nexus wordmark and core message share the stage with native typography about changing priorities and retained progress.",
+        "The changed priority and retained completion establish the decision the story will explain."
+      ],
+      "durations": [
+        7,
+        8
+      ],
+      "refs": [
+        "R01",
+        "R07",
+        "D01"
+      ],
+      "assets": [
+        "demo-proof"
+      ],
+      "pool": [
+        "Identity: NexusTalent is branded nexus; Team Decisive, SDC Hackathon 2026, Domain 1 — article §1.",
+        "Purpose: review a reskilling decision with a worker and adviser — article §1.",
+        "Proof: one completed learning step survives the accepted scenario revision — article §3."
+      ],
+      "section": "Opening",
+      "slideId": "slide-01-opening",
+      "number": 1,
+      "beatStart": 1,
+      "beatEnd": 2
+    },
+    {
+      "id": "workers-decision",
+      "title": "The problem is choosing what to learn next",
+      "seconds": 30,
+      "beats": [
+        "The problem is choosing a worthwhile next learning step when time is limited and the assumptions behind a career direction can change.",
+        "Siti is our fictional operations coordinator. She brings spreadsheet reporting, supplier coordination and document processing, with four learning hours a week for this demo.",
+        "Which strengths transfer, which gaps matter, and what would justify a different choice?"
+      ],
+      "steps": [
+        "The problem headline connects a finite learning budget to changing career-planning assumptions.",
+        "Siti’s fictional operations tasks connect to reviewed skills and the four-hours/week demo preference.",
+        "The worker’s decision isolates transferable strengths, gaps and a reason to reconsider."
+      ],
+      "durations": [
+        11,
+        11,
+        8
+      ],
+      "refs": [
+        "R04",
+        "D01"
+      ],
+      "assets": [
+        "demo-proof"
+      ],
+      "pool": [
+        "Problem framing: choosing a worthwhile next step under a limited learning budget and changing assumptions — article §0.",
+        "Fictional input: Siti’s five catalog skills and three tasks are unchanged from the sample — article §2.",
+        "Preference: four hours/week and Explore a new direction are demo choices — article §2.",
+        "Decision: missing skill declarations require review rather than an inability judgement — article §2."
+      ],
+      "section": "Problem",
+      "slideId": "slide-02-workers-decision",
+      "number": 2,
+      "beatStart": 3,
+      "beatEnd": 5
+    },
+    {
+      "id": "product-loop",
+      "title": "A reviewable reskilling workspace",
+      "seconds": 30,
+      "beats": [
+        "Our solution begins with Siti’s reviewed experience and six authored role directions.",
+        "She can inspect the dated evidence and turn selected gaps into an ordered learning plan.",
+        "When assumptions change, Nexus proposes a revision she can inspect and accept, or revert.",
+        "Her completed learning remains recorded. The result is a decision she can discuss with an adviser and revisit."
+      ],
+      "steps": [
+        "Reviewed profile and six role directions form the first part of the connected journey.",
+        "The source receipt connects to the ordered gap-and-prerequisite learning plan.",
+        "Native diagram labels connect reviewable revisions to Accept & update my plan and Keep previous view.",
+        "The stable data-quality step ID connects retained completion back to the next decision."
+      ],
+      "durations": [
+        5,
+        8,
+        8,
+        9
+      ],
+      "refs": [
+        "R03",
+        "R05",
+        "D01"
+      ],
+      "assets": [
+        "demo-proof"
+      ],
+      "pool": [
+        "Outputs: reviewed profile, ranked roles, provenance, pathway, revision and completion record — article §1.",
+        "Choice: accept and keep-previous-view actions exist in the active application — article §3.",
+        "Continuity: skill:dataQuality is a stable completion ID — article §3."
+      ],
+      "section": "Proposed solution",
+      "slideId": "slide-03-product-loop",
+      "number": 3,
+      "beatStart": 6,
+      "beatEnd": 9
+    },
+    {
+      "id": "explainable-directions",
+      "title": "Every match has a reason",
+      "seconds": 45,
+      "beats": [
+        "We select Financial data analyst, one direction for discussion. It ranks third in this captured steady-adoption result, with a match index of sixty point six eight.",
+        "The explanation shows two of five required skills declared: spreadsheets and stakeholder communication.",
+        "The scoring weights begin with forty-five percent for declared required-skill coverage.",
+        "Thirty percent comes from transferable strengths.",
+        "Twenty-five percent comes from research and scenario context.",
+        "They contribute eighteen, thirty and twelve point six eight index points here.",
+        "The match result is an index, not an employment probability. Missing skills are prompts for review, not proof of inability."
+      ],
+      "steps": [
+        "A native typographic result identifies Financial data analyst, historical captured rank 3 and index 60.68/100.",
+        "The reviewed skills connect to two required matches and the three remaining gaps.",
+        "The model composition isolates the 45% weight for declared required-skill coverage.",
+        "The 30% weight connects to transferable strengths.",
+        "The 25% weight connects to research and scenario context.",
+        "Component values 40, 100 and 50.7 connect to weighted points 18 + 30 + 12.68 = 60.68.",
+        "The score remains labelled an index and the unconfirmed gaps remain review prompts."
+      ],
+      "durations": [
+        12,
+        7,
+        5,
+        3,
+        4,
+        6,
+        8
+      ],
+      "refs": [
+        "R02",
+        "R04",
+        "D01"
+      ],
+      "assets": [
+        "demo-proof"
+      ],
+      "pool": [
+        "Captured result: Financial data analyst ranks 3, score 60.68 — article §2.",
+        "Model structure: 45%/30%/25%; component values 40/100/50.7; points 18/30/12.68 — article §2.",
+        "Gaps: data quality, analytics and SQL; bridge skills include declared document processing — article §2."
+      ],
+      "section": "Proposed solution",
+      "slideId": "slide-04-explainable-directions",
+      "number": 4,
+      "beatStart": 10,
+      "beatEnd": 16
+    },
+    {
+      "id": "evidence-and-assumptions",
+      "title": "The source behind the signal",
+      "seconds": 40,
+      "beats": [
+        "In Skills radar, this receipt identifies the title, publisher, publication date and retrieval time for an actual source in the same evidence revision.",
+        "The cache is stale. Its original dates stay visible.",
+        "Nexus maps a metadata keyword to a small planning weight, and shows that rationale separately.",
+        "That mapping is our assumption. It is not a finding published by the paper, and research context does not establish Malaysian hiring demand.",
+        "A refresh can return the same inputs and leave the ranking unchanged."
+      ],
+      "steps": [
+        "A native bibliographic record shows the OUP title, publisher and publication date retrieved through Crossref.",
+        "The stale-cache label and retrieval time 24 October 2026, 00:03:29 MYT stay beside the receipt.",
+        "The matched metadata term validat connects to the authored data-quality factor 1.04×.",
+        "Retrieved metadata and the Nexus mapping assumption occupy distinct labelled areas.",
+        "An unchanged revision remains unchanged rather than implying every refresh creates a new signal."
+      ],
+      "durations": [
+        11,
+        4,
+        7,
+        12,
+        6
+      ],
+      "refs": [
+        "R06",
+        "D01",
+        "X01",
+        "X02"
+      ],
+      "assets": [
+        "demo-proof"
+      ],
+      "pool": [
+        "Record: Towards Responsible Artificial Intelligence (AI): An Analysis of AI Policies in Selected Low- and Middle-Income Countries; OUP; 2026-10-23 — article §4.",
+        "Receipt: revision 947afd1b22fcbef5; retrieved 2026-10-23T16:03:29.729Z; stale at capture — article §4.",
+        "Assumption: metadata term validat maps to dataQuality 1.04; no research-quality or local-demand verification — article §4."
+      ],
+      "section": "Proposed solution",
+      "slideId": "slide-05-evidence-and-assumptions",
+      "number": 5,
+      "beatStart": 17,
+      "beatEnd": 21
+    },
+    {
+      "id": "reviewable-change",
+      "title": "A new direction. Your learning stays.",
+      "seconds": 55,
+      "beats": [
+        "Here is the change we verified. Siti starts with a plan whose first priority is data quality and validation.",
+        "We mark that step complete as a self-reported demo state. No actual study is claimed.",
+        "Now we compare Faster AI adoption, an authored scenario rather than a published forecast.",
+        "The proposed priority becomes SQL and data querying. The index changes from sixty point six eight to sixty-three point zero eight.",
+        "The review shows four existing steps kept and one completion preserved.",
+        "We accept the proposal. Data quality remains complete after reload.",
+        "We also test Keep previous view on a separate green-transition proposal. It restores the accepted view and retains that completion."
+      ],
+      "steps": [
+        "The steady-adoption plan starts with Practise Data quality & validation before analytics and SQL.",
+        "The real Mark step complete action records skill:dataQuality as a demo completion.",
+        "The Faster AI adoption control proposes an authored scenario using the same profile, role and evidence revision.",
+        "The actual review comparison shows 60.68 → 63.08 and Data quality & validation → SQL & data querying.",
+        "The review proof isolates four retained steps and the unchanged completed step ID.",
+        "The accepted plan and a browser reload both display the same completed data-quality step.",
+        "The separate Green transition proposal’s Keep previous view action returns to Faster AI adoption with completion retained."
+      ],
+      "durations": [
+        9,
+        6,
+        8,
+        10,
+        7,
+        5,
+        10
+      ],
+      "refs": [
+        "R03",
+        "R05",
+        "D01"
+      ],
+      "assets": [
+        "live-demo",
+        "demo-proof"
+      ],
+      "pool": [
+        "Initial order: dataQuality → analytics → sql → portfolio:financial; total 48 estimated hours — article §3.",
+        "Scenario: steady → rapid, fixed public revision and no personal simulation inputs — article §3.",
+        "Verified: accept, reload and separate proposal revert all preserve the self-reported completion — article §3."
+      ],
+      "section": "Proposed solution",
+      "slideId": "slide-06-reviewable-change",
+      "number": 6,
+      "beatStart": 22,
+      "beatEnd": 28
+    },
+    {
+      "id": "practical-next-step",
+      "title": "A plan you can act on",
+      "seconds": 45,
+      "beats": [
+        "The next step is concrete: practise SQL and data querying.",
+        "Siti’s declared spreadsheet experience satisfies the authored prerequisite. Microsoft Learn is the public resource.",
+        "The practice output is queries, joins and checks on synthetic tables. Nexus estimates sixteen hours including practice, scheduled across four weeks.",
+        "After the demo completion, the whole plan has forty estimated hours remaining, across ten weeks.",
+        "She can download the actual career brief for discussion. SDG links describe intended contribution.",
+        "Public resource content is free. Optional costs may apply, and introductory practice does not establish professional qualification."
+      ],
+      "steps": [
+        "Native typography identifies the SQL learning step, with a direct link to its public resource.",
+        "Declared spreadsheet experience satisfies the catalog prerequisite and connects to the Microsoft Learn resource.",
+        "The exact practice output and the 16-hour planning estimate connect four hours/week to weeks 1–4.",
+        "The accepted schedule continues with analytics in weeks 5–8 and work-sample review in weeks 9–10.",
+        "The real exported Markdown brief carries the scenario, sources, completed step and intended SDG contribution.",
+        "The resource-cost and qualification disclosures remain beside the public-resource action."
+      ],
+      "durations": [
+        4,
+        8,
+        11,
+        7,
+        6,
+        9
+      ],
+      "refs": [
+        "R02",
+        "R04",
+        "D01",
+        "X03",
+        "X04",
+        "X05"
+      ],
+      "assets": [
+        "siti-career-brief",
+        "demo-proof"
+      ],
+      "pool": [
+        "SQL: 16 estimated hours, spreadsheets prerequisite already met, public Microsoft Learn path — article §5.",
+        "Remaining schedule: 40 hours, 10 weeks at 4h/week after one 8-hour demo completion — article §5.",
+        "SDG 4.4 and 8.2 are intended contributions; content excludes optional costs; completion is self-reported — article §5."
+      ],
+      "section": "Proposed solution",
+      "slideId": "slide-07-practical-next-step",
+      "number": 7,
+      "beatStart": 29,
+      "beatEnd": 34
+    },
+    {
+      "id": "working-prototype",
+      "title": "From CV to decision, with explainable rules",
+      "seconds": 30,
+      "beats": [
+        "This prototype links a React workspace to an Express career API.",
+        "CPU rules rank directions; public Crossref metadata is held in a revision cache.",
+        "Original CV files stay in the browser. Extracted text and reviewed profiles are processed by the API in memory.",
+        "Saved decisions and progress stay on this device. No LLM or GPU is active.",
+        "Engineering checks do not validate forecasts, fairness or employment outcomes."
+      ],
+      "steps": [
+        "A single architecture view connects the React/Vite browser workspace to the Express career API.",
+        "The CPU rules and public Crossref research cache explain where roles, evidence and pathways come from.",
+        "Original CV bytes remain in the browser while extracted text and the reviewed profile cross the API boundary.",
+        "Saved decisions and progress remain in device-local storage, with no active LLM or GPU.",
+        "The working flow remains distinct from next validation of forecast accuracy, fairness and outcomes."
+      ],
+      "durations": [
+        4,
+        6,
+        9,
+        6,
+        5
+      ],
+      "refs": [
+        "R01",
+        "R02",
+        "R03",
+        "R05",
+        "R06"
+      ],
+      "assets": [
+        "demo-proof"
+      ],
+      "pool": [
+        "Implemented: React/Vite, Express API, CPU rules, public cache and browser local storage — article §1.",
+        "Privacy boundary: UI files in browser; extracted text/profile in API memory; no cloud workspace — article §1.",
+        "Validation boundary: working engineering flow does not prove forecasting accuracy, fairness or employment outcomes — article §6."
+      ],
+      "section": "Technical approach",
+      "slideId": "slide-08-working-prototype",
+      "number": 8,
+      "beatStart": 35,
+      "beatEnd": 39
+    },
+    {
+      "id": "buyer-and-pilot",
+      "title": "Expected impact, measured in a pilot",
+      "seconds": 40,
+      "beats": [
+        "We expect Nexus to support clearer choices, reviewable advice and continuity of learning.",
+        "Those benefits need testing with workers and advisers.",
+        "A proposed pilot would measure time to an adviser-agreed next action.",
+        "It would check the sources used.",
+        "It would test whether revisions help.",
+        "And it would review completed work samples.",
+        "Malaysian career centres and reskilling providers are our buyer hypothesis; subscription pricing remains unvalidated.",
+        "These are intended benefits, not measured outcomes. Baselines are pending."
+      ],
+      "steps": [
+        "The expected-impact headline connects clearer choices, reviewable advice and retained progress as intended benefits.",
+        "Workers and advisers are identified beside the proposed one-team, two-session pilot scope.",
+        "Clearer next steps connect to time until an adviser-agreed action.",
+        "Traceable advice connects to checking the validity of each source used.",
+        "Useful revisions connect to reasons for accepting or reverting a change.",
+        "Visible learning connects to an adviser reviewing a completed practice work sample.",
+        "The initial Malaysian career-centre/provider buyer hypothesis and unvalidated subscription model remain subordinate.",
+        "The expected-benefit limitation stays visible: baselines pending and no measured employment or impact results."
+      ],
+      "durations": [
+        6,
+        4,
+        6,
+        4,
+        4,
+        4,
+        7,
+        5
+      ],
+      "refs": [
+        "R01",
+        "R07",
+        "P01"
+      ],
+      "assets": [
+        "demo-proof"
+      ],
+      "pool": [
+        "Expected impact: intended clearer next actions, traceable advice, useful revisions and reviewable learning — article §6.",
+        "Buyer/model: hypothesis only, organisational subscription per active advised learner, price unvalidated — article §6.",
+        "Measurement: time to agreed action, source validity, revision usefulness and completed work samples — article §6.",
+        "Proposed scope: one adviser team, two review sessions; baselines pending, no customers or outcomes claimed — article §6."
+      ],
+      "section": "Expected impact",
+      "slideId": "slide-09-buyer-and-pilot",
+      "number": 9,
+      "beatStart": 40,
+      "beatEnd": 47
+    },
+    {
+      "id": "team-and-invitation",
+      "title": "Make the next learning decision reviewable",
+      "seconds": 30,
+      "beats": [
+        "We are Team Decisive. Raye Chan Jun Foong is our team leader.",
+        "Teo Zheng Xi is our tech lead.",
+        "Liew Jicson handles video.",
+        "We invite one adviser team to help validate this workflow. Bring a sample transition decision, and review Siti’s changing plan with us.",
+        "Local prototype available for demonstration. Plans evolve. Progress stays."
+      ],
+      "steps": [
+        "Raye Chan Jun Foong appears with the verified role Team leader.",
+        "Teo Zheng Xi appears with the verified role Tech lead.",
+        "Liew Jicson appears with the verified role Video.",
+        "The actual exported brief carries the completed data-quality step into the adviser-review invitation.",
+        "The core message closes beside Local prototype available for demonstration."
+      ],
+      "durations": [
+        6,
+        3,
+        3,
+        12,
+        6
+      ],
+      "refs": [
+        "R01",
+        "R07",
+        "D01",
+        "P01"
+      ],
+      "assets": [
+        "nexus-mark",
+        "siti-career-brief"
+      ],
+      "pool": [
+        "Team: names and roles are verified in README.md — article §7.",
+        "Deployment: repository lists public demo TBD; no verified public URL or QR is supplied — article §7.",
+        "Invitation: validate a sample transition decision with an adviser team, carrying the completed step into the real brief — article §3, §5–7."
+      ],
+      "section": "Invitation",
+      "slideId": "slide-10-team-and-invitation",
+      "number": 10,
+      "beatStart": 48,
+      "beatEnd": 52
+    }
+  ],
+  "sources": [
+    {
+      "id": "R01",
+      "title": "README — active product, limitations and verified team",
+      "url": "README.md",
+      "kind": "repository",
+      "path": "README.md"
+    },
+    {
+      "id": "R02",
+      "title": "Career engine — scoring and ordered pathways",
+      "url": "services/career_engine.js",
+      "kind": "repository",
+      "path": "services/career_engine.js"
+    },
+    {
+      "id": "R03",
+      "title": "Backend and integration contracts",
+      "url": "docs/INTEGRATION.md",
+      "kind": "repository",
+      "path": "docs/INTEGRATION.md",
+      "also": [
+        "docs/BACKEND.md"
+      ]
+    },
+    {
+      "id": "R04",
+      "title": "Authored sample, role and learning catalogs",
+      "url": "src/data/careerCatalog.js",
+      "kind": "repository",
+      "path": "src/data/careerCatalog.js",
+      "also": [
+        "services/career_catalog.js"
+      ]
+    },
+    {
+      "id": "R05",
+      "title": "Active workspace and learning components",
+      "url": "src/components/career/CareerApplication.jsx",
+      "kind": "repository",
+      "path": "src/components/career/CareerApplication.jsx",
+      "also": [
+        "src/components/career/LearningWorkspace.jsx",
+        "src/components/career/CareerViews.jsx",
+        "src/utils/careerApi.js",
+        "src/utils/careerDemo.js"
+      ]
+    },
+    {
+      "id": "R06",
+      "title": "Public evidence retrieval, mappings and stale status",
+      "url": "services/evidence_service.js",
+      "kind": "repository",
+      "path": "services/evidence_service.js"
+    },
+    {
+      "id": "R07",
+      "title": "Nexus brand preservation contract",
+      "url": "docs/brand-guidelines.md",
+      "kind": "repository",
+      "path": "docs/brand-guidelines.md",
+      "also": [
+        "brand-spec.md",
+        "src/career.css",
+        "src/landing.css",
+        "src/components/career/CareerPrimitives.jsx",
+        "public/nexus-mark.svg"
+      ]
+    },
+    {
+      "id": "D01",
+      "title": "Verified Siti browser/API capture and export",
+      "url": "output/pitch/demo-proof.json",
+      "kind": "capture",
+      "path": "output/pitch/demo-proof.json",
+      "capturedAt": "2026-10-24T02:10:38.463Z",
+      "evidenceRevision": "947afd1b22fcbef5",
+      "status": "stale"
+    },
+    {
+      "id": "X01",
+      "title": "Crossref REST API documentation",
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/",
+      "kind": "external",
+      "accessedOn": "2026-10-24"
+    },
+    {
+      "id": "X02",
+      "title": "Towards Responsible Artificial Intelligence (AI): An Analysis of AI Policies in Selected Low- and Middle-Income Countries",
+      "url": "https://doi.org/10.1093%2Fhaschl%2Fqxag295",
+      "kind": "retrieved_metadata",
+      "publisher": "Oxford University Press (OUP)",
+      "publishedOn": "2026-10-23",
+      "retrievedAt": "2026-10-23T16:03:29.729Z",
+      "datePrecision": "day",
+      "doi": "10.1093/haschl/qxag295",
+      "mappings": [
+        {
+          "skillId": "aiLiteracy",
+          "factor": 1.04,
+          "matchedTerms": "AI and workforce/skills terms",
+          "rationale": "Review AI literacy in the context of work."
+        },
+        {
+          "skillId": "dataQuality",
+          "factor": 1.04,
+          "matchedTerms": "validat",
+          "rationale": "Review data reliability and human validation."
+        },
+        {
+          "skillId": "sustainability",
+          "factor": 1.04,
+          "matchedTerms": "environmental",
+          "rationale": "Explore sustainability capability."
+        }
+      ],
+      "reviewStatus": "metadata_only_unreviewed",
+      "statusAtCapture": "stale",
+      "independentPublisherPageVerification": "Not available; described only as the actual cached metadata record, not as a validated paper finding."
+    },
+    {
+      "id": "X03",
+      "title": "Microsoft Learn — Query and modify data with Transact-SQL",
+      "url": "https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/",
+      "kind": "external",
+      "accessedOn": "2026-10-24"
+    },
+    {
+      "id": "X04",
+      "title": "United Nations — SDG 4 targets",
+      "url": "https://sdgs.un.org/goals/goal4",
+      "kind": "external",
+      "accessedOn": "2026-10-24"
+    },
+    {
+      "id": "X05",
+      "title": "UK Government — The Government Data Quality Framework",
+      "url": "https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework",
+      "kind": "external",
+      "accessedOn": "2026-10-24"
+    },
+    {
+      "id": "P01",
+      "title": "Expected benefits, proposed pilot and buyer model",
+      "kind": "proposal",
+      "note": "Intended benefits and pilot proposals based on the user brief and README; no buyer, partnership, price or measured outcome is asserted."
+    }
+  ],
+  "assets": {
+    "nexus-mark": {
+      "id": "nexus-mark",
+      "path": "public/nexus-mark.svg",
+      "mime": "image/svg+xml",
+      "sha256": "a033044886f6df8483af90ff775ab079aa530a1f090b2d682a9ae74e08ea4eb9"
+    },
+    "siti-career-brief": {
+      "id": "siti-career-brief",
+      "path": "output/pitch/siti-career-brief.md",
+      "mime": "text/markdown",
+      "sha256": "ac652e1a98c65c056ea2495daaac1593f79e4913337cb038873dabed15f7b262"
+    },
+    "demo-proof": {
+      "id": "demo-proof",
+      "path": "output/pitch/demo-proof.json",
+      "mime": "application/json"
+    },
+    "live-demo": {
+      "id": "live-demo",
+      "path": "http://127.0.0.1:3201/#import",
+      "url": "http://127.0.0.1:3201/#import",
+      "mime": "text/html",
+      "kind": "local_application",
+      "note": "The sole product embed is on slide 6. Requires the local frontend/API server; this is not a public deployment."
+    }
+  },
+  "fontSources": {
+    "cssUrl": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Sora:wght@600;700&display=swap",
+    "downloadedAt": "2026-10-24T01:54:53.262Z",
+    "externalRuntimeDependency": false,
+    "sources": [
+      {
+        "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxhTg.ttf",
+        "file": "font-0.ttf",
+        "bytes": 48280
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAkJxhTg.ttf",
+        "file": "font-1.ttf",
+        "bytes": 48308
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwARZthTg.ttf",
+        "file": "font-2.ttf",
+        "bytes": 48200
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n5ig.ttf",
+        "file": "font-3.ttf",
+        "bytes": 128812
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJ8lc.ttf",
+        "file": "font-4.ttf",
+        "bytes": 129916
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/sora/v17/xMQOuFFYT72X5wkB_18qmnndmSeMmX-K.ttf",
+        "file": "font-5.ttf",
+        "bytes": 46216
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/sora/v17/xMQOuFFYT72X5wkB_18qmnndmSe1mX-K.ttf",
+        "file": "font-6.ttf",
+        "bytes": 46152
+      }
+    ]
+  },
+  "demo": {
+    "fictional": true,
+    "profile": {
+      "id": "siti",
+      "name": "Siti Rosli",
+      "role": "Operations coordinator",
+      "location": "Petaling Jaya, Selangor",
+      "years": 6,
+      "skills": [
+        "excel",
+        "dataEntry",
+        "communication",
+        "coordination",
+        "problemSolving"
+      ],
+      "tasks": [
+        "Reconcile supplier invoices and maintain Excel reports",
+        "Coordinate deliveries and resolve customer enquiries",
+        "Prepare monthly operations summaries"
+      ],
+      "interests": [],
+      "goal": "Explore a new direction",
+      "hoursPerWeek": 4,
+      "reviewed": true,
+      "synthetic": true
+    },
+    "roleId": "financial",
+    "roleTitle": "Financial data analyst",
+    "evidence": {
+      "revision": "947afd1b22fcbef5",
+      "status": "stale",
+      "retrievedAt": "2026-10-23T16:03:29.729Z",
+      "sourceCount": 12
+    },
+    "initialRole": {
+      "id": "financial",
+      "title": "Financial data analyst",
+      "sector": "Data & operations",
+      "description": "Combine your attention to detail with data tools that make financial decisions clearer.",
+      "skills": [
+        "excel",
+        "sql",
+        "analytics",
+        "dataQuality",
+        "communication"
+      ],
+      "bridges": [
+        "excel",
+        "dataEntry",
+        "communication"
+      ],
+      "targets": [
+        "4.4",
+        "8.2",
+        "9.5"
+      ],
+      "sourceId": "research-llm",
+      "resourceId": "analytics",
+      "project": "Turn a fictional invoice dataset into a dashboard with a short quality-review note.",
+      "catalogStatus": "authored_role_profile_not_a_vacancy",
+      "sdgs": [
+        {
+          "target": "4.4",
+          "goal": 4,
+          "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+          "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+          "status": "intended_contribution_not_measured_impact"
+        },
+        {
+          "target": "8.2",
+          "goal": 8,
+          "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+          "contribution": "Improve productive work through responsible use of technology and better processes.",
+          "status": "intended_contribution_not_measured_impact"
+        },
+        {
+          "target": "9.5",
+          "goal": 9,
+          "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+          "contribution": "Build practical capability to investigate and improve technical processes.",
+          "status": "intended_contribution_not_measured_impact"
+        }
+      ],
+      "score": 60.68,
+      "components": [
+        {
+          "id": "required_skills",
+          "label": "Declared required skills",
+          "weight": 0.45,
+          "value": 40,
+          "points": 18,
+          "explanation": "2 of 5 required skills are declared. No proficiency is inferred."
+        },
+        {
+          "id": "transferability",
+          "label": "Transferable strengths and potential",
+          "weight": 0.3,
+          "value": 100,
+          "points": 30,
+          "explanation": "Bridge skills earn 1 credit when declared, 0.6 for an experience-task keyword, and 0 otherwise.",
+          "bridges": [
+            {
+              "skillId": "excel",
+              "basis": "declared_skill",
+              "credit": 1
+            },
+            {
+              "skillId": "dataEntry",
+              "basis": "declared_skill",
+              "credit": 1
+            },
+            {
+              "skillId": "communication",
+              "basis": "declared_skill",
+              "credit": 1
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "label": "Research and scenario context",
+          "weight": 0.25,
+          "value": 50.7,
+          "points": 12.68,
+          "explanation": "50 is neutral. Each 1.0 increase in the mean required-skill weight adds 50 before clamping to 0–100. Sources affect a bounded metadata proxy, not employer demand."
+        }
+      ],
+      "known": [
+        "excel",
+        "communication"
+      ],
+      "matchedSkills": [
+        {
+          "id": "excel",
+          "name": "Spreadsheets & reporting",
+          "category": "Technical",
+          "targets": [
+            "4.4",
+            "8.2"
+          ],
+          "keywords": [
+            "excel",
+            "spreadsheet",
+            "google sheets",
+            "pivot table"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ]
+        },
+        {
+          "id": "communication",
+          "name": "Stakeholder communication",
+          "category": "Human",
+          "targets": [
+            "8.5",
+            "10.2"
+          ],
+          "keywords": [
+            "communication",
+            "customer",
+            "stakeholder",
+            "vendor",
+            "mediation"
+          ],
+          "sdgs": [
+            {
+              "target": "8.5",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Support an informed transition toward productive employment and decent work.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "10.2",
+              "goal": 10,
+              "url": "https://sdgs.un.org/goals/goal10#targets_and_indicators",
+              "contribution": "Use inclusive stakeholder communication and participation.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ]
+        }
+      ],
+      "gaps": [
+        {
+          "id": "dataQuality",
+          "name": "Data quality & validation",
+          "category": "Technical",
+          "targets": [
+            "8.2",
+            "12.6"
+          ],
+          "keywords": [
+            "validation",
+            "data quality",
+            "reconciliation",
+            "quality assurance",
+            "audit"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "12.6",
+              "goal": 12,
+              "url": "https://sdgs.un.org/goals/goal12#targets_and_indicators",
+              "contribution": "Support accountable organisational sustainability reporting and practices.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1.04,
+          "researchFactor": 1.04,
+          "scenarioFactor": 1,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "rising",
+          "evidenceSourceIds": [
+            "crossref:10.1093/haschl/qxag295",
+            "crossref:10.17665/1676-4285.20267206",
+            "crossref:10.5430/ijhe.v15n5p73"
+          ],
+          "basis": "research_metadata_and_scenario_assumptions",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage.",
+          "interested": false,
+          "reason": "Required by the authored role profile; not declared in the reviewed skills list."
+        },
+        {
+          "id": "analytics",
+          "name": "Data analysis & visualisation",
+          "category": "Technical",
+          "targets": [
+            "8.2",
+            "9.5"
+          ],
+          "keywords": [
+            "analytics",
+            "data analysis",
+            "power bi",
+            "tableau",
+            "visualisation",
+            "visualization"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "9.5",
+              "goal": 9,
+              "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+              "contribution": "Build practical capability to investigate and improve technical processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1,
+          "researchFactor": 1,
+          "scenarioFactor": 1,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "stable",
+          "evidenceSourceIds": [],
+          "basis": "scenario_assumptions_only",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage.",
+          "interested": false,
+          "reason": "Required by the authored role profile; not declared in the reviewed skills list."
+        },
+        {
+          "id": "sql",
+          "name": "SQL & data querying",
+          "category": "Technical",
+          "targets": [
+            "4.4",
+            "8.2"
+          ],
+          "keywords": [
+            "sql",
+            "database",
+            "query"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1,
+          "researchFactor": 1,
+          "scenarioFactor": 1,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "stable",
+          "evidenceSourceIds": [],
+          "basis": "scenario_assumptions_only",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage.",
+          "interested": false,
+          "reason": "Required by the authored role profile; not declared in the reviewed skills list."
+        }
+      ],
+      "evidenceSourceIds": [
+        "crossref:10.1093/haschl/qxag295",
+        "crossref:10.17665/1676-4285.20267206",
+        "crossref:10.5430/ijhe.v15n5p73",
+        "crossref:10.30546/2523-4331.2026.10.2.74",
+        "crossref:10.65521/ijrdmr.v15i2.4736",
+        "crossref:10.1186/s12909-026-10592-1"
+      ],
+      "skillForecasts": [
+        {
+          "id": "excel",
+          "name": "Spreadsheets & reporting",
+          "category": "Technical",
+          "targets": [
+            "4.4",
+            "8.2"
+          ],
+          "keywords": [
+            "excel",
+            "spreadsheet",
+            "google sheets",
+            "pivot table"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1,
+          "researchFactor": 1,
+          "scenarioFactor": 1,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "stable",
+          "evidenceSourceIds": [],
+          "basis": "scenario_assumptions_only",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage."
+        },
+        {
+          "id": "sql",
+          "name": "SQL & data querying",
+          "category": "Technical",
+          "targets": [
+            "4.4",
+            "8.2"
+          ],
+          "keywords": [
+            "sql",
+            "database",
+            "query"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1,
+          "researchFactor": 1,
+          "scenarioFactor": 1,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "stable",
+          "evidenceSourceIds": [],
+          "basis": "scenario_assumptions_only",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage."
+        },
+        {
+          "id": "analytics",
+          "name": "Data analysis & visualisation",
+          "category": "Technical",
+          "targets": [
+            "8.2",
+            "9.5"
+          ],
+          "keywords": [
+            "analytics",
+            "data analysis",
+            "power bi",
+            "tableau",
+            "visualisation",
+            "visualization"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "9.5",
+              "goal": 9,
+              "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+              "contribution": "Build practical capability to investigate and improve technical processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1,
+          "researchFactor": 1,
+          "scenarioFactor": 1,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "stable",
+          "evidenceSourceIds": [],
+          "basis": "scenario_assumptions_only",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage."
+        },
+        {
+          "id": "dataQuality",
+          "name": "Data quality & validation",
+          "category": "Technical",
+          "targets": [
+            "8.2",
+            "12.6"
+          ],
+          "keywords": [
+            "validation",
+            "data quality",
+            "reconciliation",
+            "quality assurance",
+            "audit"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "12.6",
+              "goal": 12,
+              "url": "https://sdgs.un.org/goals/goal12#targets_and_indicators",
+              "contribution": "Support accountable organisational sustainability reporting and practices.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1.04,
+          "researchFactor": 1.04,
+          "scenarioFactor": 1,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "rising",
+          "evidenceSourceIds": [
+            "crossref:10.1093/haschl/qxag295",
+            "crossref:10.17665/1676-4285.20267206",
+            "crossref:10.5430/ijhe.v15n5p73"
+          ],
+          "basis": "research_metadata_and_scenario_assumptions",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage."
+        },
+        {
+          "id": "communication",
+          "name": "Stakeholder communication",
+          "category": "Human",
+          "targets": [
+            "8.5",
+            "10.2"
+          ],
+          "keywords": [
+            "communication",
+            "customer",
+            "stakeholder",
+            "vendor",
+            "mediation"
+          ],
+          "sdgs": [
+            {
+              "target": "8.5",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Support an informed transition toward productive employment and decent work.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "10.2",
+              "goal": 10,
+              "url": "https://sdgs.un.org/goals/goal10#targets_and_indicators",
+              "contribution": "Use inclusive stakeholder communication and participation.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1.03,
+          "researchFactor": 1.03,
+          "scenarioFactor": 1,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "rising",
+          "evidenceSourceIds": [
+            "crossref:10.30546/2523-4331.2026.10.2.74",
+            "crossref:10.65521/ijrdmr.v15i2.4736",
+            "crossref:10.1186/s12909-026-10592-1",
+            "crossref:10.5430/ijhe.v15n5p73"
+          ],
+          "basis": "research_metadata_and_scenario_assumptions",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage."
+        }
+      ],
+      "nextLearningPriority": "dataQuality",
+      "explanation": "2/5 required skills declared; 3/3 transferable bridges supported. 3 role skill gaps remain.",
+      "rank": 3,
+      "evidenceImpact": {
+        "scoreWithoutEvidence": 60.5,
+        "scoreDelta": 0.18,
+        "priorityWithoutEvidence": "analytics",
+        "priorityChanged": true
+      }
+    },
+    "rapidRole": {
+      "id": "financial",
+      "title": "Financial data analyst",
+      "sector": "Data & operations",
+      "description": "Combine your attention to detail with data tools that make financial decisions clearer.",
+      "skills": [
+        "excel",
+        "sql",
+        "analytics",
+        "dataQuality",
+        "communication"
+      ],
+      "bridges": [
+        "excel",
+        "dataEntry",
+        "communication"
+      ],
+      "targets": [
+        "4.4",
+        "8.2",
+        "9.5"
+      ],
+      "sourceId": "research-llm",
+      "resourceId": "analytics",
+      "project": "Turn a fictional invoice dataset into a dashboard with a short quality-review note.",
+      "catalogStatus": "authored_role_profile_not_a_vacancy",
+      "sdgs": [
+        {
+          "target": "4.4",
+          "goal": 4,
+          "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+          "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+          "status": "intended_contribution_not_measured_impact"
+        },
+        {
+          "target": "8.2",
+          "goal": 8,
+          "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+          "contribution": "Improve productive work through responsible use of technology and better processes.",
+          "status": "intended_contribution_not_measured_impact"
+        },
+        {
+          "target": "9.5",
+          "goal": 9,
+          "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+          "contribution": "Build practical capability to investigate and improve technical processes.",
+          "status": "intended_contribution_not_measured_impact"
+        }
+      ],
+      "score": 63.08,
+      "components": [
+        {
+          "id": "required_skills",
+          "label": "Declared required skills",
+          "weight": 0.45,
+          "value": 40,
+          "points": 18,
+          "explanation": "2 of 5 required skills are declared. No proficiency is inferred."
+        },
+        {
+          "id": "transferability",
+          "label": "Transferable strengths and potential",
+          "weight": 0.3,
+          "value": 100,
+          "points": 30,
+          "explanation": "Bridge skills earn 1 credit when declared, 0.6 for an experience-task keyword, and 0 otherwise.",
+          "bridges": [
+            {
+              "skillId": "excel",
+              "basis": "declared_skill",
+              "credit": 1
+            },
+            {
+              "skillId": "dataEntry",
+              "basis": "declared_skill",
+              "credit": 1
+            },
+            {
+              "skillId": "communication",
+              "basis": "declared_skill",
+              "credit": 1
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "label": "Research and scenario context",
+          "weight": 0.25,
+          "value": 60.3,
+          "points": 15.08,
+          "explanation": "50 is neutral. Each 1.0 increase in the mean required-skill weight adds 50 before clamping to 0–100. Sources affect a bounded metadata proxy, not employer demand."
+        }
+      ],
+      "known": [
+        "excel",
+        "communication"
+      ],
+      "matchedSkills": [
+        {
+          "id": "excel",
+          "name": "Spreadsheets & reporting",
+          "category": "Technical",
+          "targets": [
+            "4.4",
+            "8.2"
+          ],
+          "keywords": [
+            "excel",
+            "spreadsheet",
+            "google sheets",
+            "pivot table"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ]
+        },
+        {
+          "id": "communication",
+          "name": "Stakeholder communication",
+          "category": "Human",
+          "targets": [
+            "8.5",
+            "10.2"
+          ],
+          "keywords": [
+            "communication",
+            "customer",
+            "stakeholder",
+            "vendor",
+            "mediation"
+          ],
+          "sdgs": [
+            {
+              "target": "8.5",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Support an informed transition toward productive employment and decent work.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "10.2",
+              "goal": 10,
+              "url": "https://sdgs.un.org/goals/goal10#targets_and_indicators",
+              "contribution": "Use inclusive stakeholder communication and participation.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ]
+        }
+      ],
+      "gaps": [
+        {
+          "id": "sql",
+          "name": "SQL & data querying",
+          "category": "Technical",
+          "targets": [
+            "4.4",
+            "8.2"
+          ],
+          "keywords": [
+            "sql",
+            "database",
+            "query"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1.4,
+          "researchFactor": 1,
+          "scenarioFactor": 1.4,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "rising",
+          "evidenceSourceIds": [],
+          "basis": "scenario_assumptions_only",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage.",
+          "interested": false,
+          "reason": "Required by the authored role profile; not declared in the reviewed skills list."
+        },
+        {
+          "id": "analytics",
+          "name": "Data analysis & visualisation",
+          "category": "Technical",
+          "targets": [
+            "8.2",
+            "9.5"
+          ],
+          "keywords": [
+            "analytics",
+            "data analysis",
+            "power bi",
+            "tableau",
+            "visualisation",
+            "visualization"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "9.5",
+              "goal": 9,
+              "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+              "contribution": "Build practical capability to investigate and improve technical processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1.3,
+          "researchFactor": 1,
+          "scenarioFactor": 1.3,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "rising",
+          "evidenceSourceIds": [],
+          "basis": "scenario_assumptions_only",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage.",
+          "interested": false,
+          "reason": "Required by the authored role profile; not declared in the reviewed skills list."
+        },
+        {
+          "id": "dataQuality",
+          "name": "Data quality & validation",
+          "category": "Technical",
+          "targets": [
+            "8.2",
+            "12.6"
+          ],
+          "keywords": [
+            "validation",
+            "data quality",
+            "reconciliation",
+            "quality assurance",
+            "audit"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "12.6",
+              "goal": 12,
+              "url": "https://sdgs.un.org/goals/goal12#targets_and_indicators",
+              "contribution": "Support accountable organisational sustainability reporting and practices.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1.3,
+          "researchFactor": 1.04,
+          "scenarioFactor": 1.25,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "rising",
+          "evidenceSourceIds": [
+            "crossref:10.1093/haschl/qxag295",
+            "crossref:10.17665/1676-4285.20267206",
+            "crossref:10.5430/ijhe.v15n5p73"
+          ],
+          "basis": "research_metadata_and_scenario_assumptions",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage.",
+          "interested": false,
+          "reason": "Required by the authored role profile; not declared in the reviewed skills list."
+        }
+      ],
+      "evidenceSourceIds": [
+        "crossref:10.1093/haschl/qxag295",
+        "crossref:10.17665/1676-4285.20267206",
+        "crossref:10.5430/ijhe.v15n5p73",
+        "crossref:10.30546/2523-4331.2026.10.2.74",
+        "crossref:10.65521/ijrdmr.v15i2.4736",
+        "crossref:10.1186/s12909-026-10592-1"
+      ],
+      "skillForecasts": [
+        {
+          "id": "excel",
+          "name": "Spreadsheets & reporting",
+          "category": "Technical",
+          "targets": [
+            "4.4",
+            "8.2"
+          ],
+          "keywords": [
+            "excel",
+            "spreadsheet",
+            "google sheets",
+            "pivot table"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1,
+          "researchFactor": 1,
+          "scenarioFactor": 1,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "stable",
+          "evidenceSourceIds": [],
+          "basis": "scenario_assumptions_only",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage."
+        },
+        {
+          "id": "sql",
+          "name": "SQL & data querying",
+          "category": "Technical",
+          "targets": [
+            "4.4",
+            "8.2"
+          ],
+          "keywords": [
+            "sql",
+            "database",
+            "query"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1.4,
+          "researchFactor": 1,
+          "scenarioFactor": 1.4,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "rising",
+          "evidenceSourceIds": [],
+          "basis": "scenario_assumptions_only",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage."
+        },
+        {
+          "id": "analytics",
+          "name": "Data analysis & visualisation",
+          "category": "Technical",
+          "targets": [
+            "8.2",
+            "9.5"
+          ],
+          "keywords": [
+            "analytics",
+            "data analysis",
+            "power bi",
+            "tableau",
+            "visualisation",
+            "visualization"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "9.5",
+              "goal": 9,
+              "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+              "contribution": "Build practical capability to investigate and improve technical processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1.3,
+          "researchFactor": 1,
+          "scenarioFactor": 1.3,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "rising",
+          "evidenceSourceIds": [],
+          "basis": "scenario_assumptions_only",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage."
+        },
+        {
+          "id": "dataQuality",
+          "name": "Data quality & validation",
+          "category": "Technical",
+          "targets": [
+            "8.2",
+            "12.6"
+          ],
+          "keywords": [
+            "validation",
+            "data quality",
+            "reconciliation",
+            "quality assurance",
+            "audit"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "12.6",
+              "goal": 12,
+              "url": "https://sdgs.un.org/goals/goal12#targets_and_indicators",
+              "contribution": "Support accountable organisational sustainability reporting and practices.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1.3,
+          "researchFactor": 1.04,
+          "scenarioFactor": 1.25,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "rising",
+          "evidenceSourceIds": [
+            "crossref:10.1093/haschl/qxag295",
+            "crossref:10.17665/1676-4285.20267206",
+            "crossref:10.5430/ijhe.v15n5p73"
+          ],
+          "basis": "research_metadata_and_scenario_assumptions",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage."
+        },
+        {
+          "id": "communication",
+          "name": "Stakeholder communication",
+          "category": "Human",
+          "targets": [
+            "8.5",
+            "10.2"
+          ],
+          "keywords": [
+            "communication",
+            "customer",
+            "stakeholder",
+            "vendor",
+            "mediation"
+          ],
+          "sdgs": [
+            {
+              "target": "8.5",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Support an informed transition toward productive employment and decent work.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "10.2",
+              "goal": 10,
+              "url": "https://sdgs.un.org/goals/goal10#targets_and_indicators",
+              "contribution": "Use inclusive stakeholder communication and participation.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "weight": 1.03,
+          "researchFactor": 1.03,
+          "scenarioFactor": 1,
+          "simulationFactor": 1,
+          "simulationSourceIds": [],
+          "direction": "rising",
+          "evidenceSourceIds": [
+            "crossref:10.30546/2523-4331.2026.10.2.74",
+            "crossref:10.65521/ijrdmr.v15i2.4736",
+            "crossref:10.1186/s12909-026-10592-1",
+            "crossref:10.5430/ijhe.v15n5p73"
+          ],
+          "basis": "research_metadata_and_scenario_assumptions",
+          "interpretation": "Relative learning priority estimate; not observed skill demand or a growth percentage."
+        }
+      ],
+      "nextLearningPriority": "sql",
+      "explanation": "2/5 required skills declared; 3/3 transferable bridges supported. 3 role skill gaps remain.",
+      "rank": 2,
+      "evidenceImpact": {
+        "scoreWithoutEvidence": 62.88,
+        "scoreDelta": 0.2,
+        "priorityWithoutEvidence": "sql",
+        "priorityChanged": false
+      }
+    },
+    "initialPlan": {
+      "roleId": "financial",
+      "scenarioId": "steady",
+      "goal": "Explore a new direction",
+      "hoursPerWeek": 4,
+      "steps": [
+        {
+          "id": "skill:dataQuality",
+          "title": "Practise Data quality & validation",
+          "kind": "role_skill_gap",
+          "skillIds": [
+            "dataQuality"
+          ],
+          "hours": 8,
+          "prerequisiteStepIds": [],
+          "resource": {
+            "title": "The Government Data Quality Framework",
+            "provider": "UK Government",
+            "url": "https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework",
+            "note": "Free public reading and project practice; no qualification or certificate is implied.",
+            "cost": {
+              "amount": 0,
+              "currency": "MYR",
+              "scope": "Public content only; optional certificates, hardware and software subscriptions excluded."
+            },
+            "hrdCorpClaimable": "not_verified",
+            "cataloguedOn": "2026-10-23",
+            "availability": "not_checked_at_request_time"
+          },
+          "output": "Audit a synthetic dataset for completeness, validity and consistency.",
+          "targets": [
+            "8.2",
+            "12.6"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "12.6",
+              "goal": 12,
+              "url": "https://sdgs.un.org/goals/goal12#targets_and_indicators",
+              "contribution": "Support accountable organisational sustainability reporting and practices.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "rationale": "Covers a missing role skill, ordered by scenario priority after prerequisites.",
+          "order": 1,
+          "completed": false,
+          "startWeek": 1,
+          "endWeek": 2,
+          "estimatedHourRange": {
+            "min": 6,
+            "max": 12
+          }
+        },
+        {
+          "id": "skill:analytics",
+          "title": "Practise Data analysis & visualisation",
+          "kind": "role_skill_gap",
+          "skillIds": [
+            "analytics"
+          ],
+          "hours": 16,
+          "prerequisiteStepIds": [
+            "skill:dataQuality"
+          ],
+          "resource": {
+            "title": "Get started with Microsoft data analytics",
+            "provider": "Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/",
+            "note": "Free public learning material; optional certificates and cloud usage are excluded.",
+            "cost": {
+              "amount": 0,
+              "currency": "MYR",
+              "scope": "Public content only; optional certificates, hardware and software subscriptions excluded."
+            },
+            "hrdCorpClaimable": "not_verified",
+            "cataloguedOn": "2026-10-23",
+            "availability": "not_checked_at_request_time"
+          },
+          "output": "Build a chart from synthetic data with limitations and a decision note.",
+          "targets": [
+            "8.2",
+            "9.5"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "9.5",
+              "goal": 9,
+              "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+              "contribution": "Build practical capability to investigate and improve technical processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "rationale": "Covers a missing role skill, ordered by scenario priority after prerequisites.",
+          "order": 2,
+          "completed": false,
+          "startWeek": 3,
+          "endWeek": 6,
+          "estimatedHourRange": {
+            "min": 12,
+            "max": 24
+          }
+        },
+        {
+          "id": "skill:sql",
+          "title": "Practise SQL & data querying",
+          "kind": "role_skill_gap",
+          "skillIds": [
+            "sql"
+          ],
+          "hours": 16,
+          "prerequisiteStepIds": [],
+          "resource": {
+            "title": "Query and modify data with Transact-SQL",
+            "provider": "Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/",
+            "note": "Free public learning material; optional certificates and cloud usage are excluded.",
+            "cost": {
+              "amount": 0,
+              "currency": "MYR",
+              "scope": "Public content only; optional certificates, hardware and software subscriptions excluded."
+            },
+            "hrdCorpClaimable": "not_verified",
+            "cataloguedOn": "2026-10-23",
+            "availability": "not_checked_at_request_time"
+          },
+          "output": "Write and explain queries, joins and checks on synthetic tables.",
+          "targets": [
+            "4.4",
+            "8.2"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "rationale": "Covers a missing role skill, ordered by scenario priority after prerequisites.",
+          "order": 3,
+          "completed": false,
+          "startWeek": 7,
+          "endWeek": 10,
+          "estimatedHourRange": {
+            "min": 12,
+            "max": 24
+          }
+        },
+        {
+          "id": "portfolio:financial",
+          "title": "Build a financial data analyst work sample",
+          "kind": "portfolio_and_adviser_review",
+          "skillIds": [
+            "excel",
+            "sql",
+            "analytics",
+            "dataQuality",
+            "communication"
+          ],
+          "hours": 8,
+          "prerequisiteStepIds": [
+            "skill:dataQuality",
+            "skill:analytics",
+            "skill:sql"
+          ],
+          "resource": null,
+          "output": "Turn a fictional invoice dataset into a dashboard with a short quality-review note. Ask an adviser to review the result, your assumptions and your chosen next step.",
+          "targets": [
+            "4.4",
+            "8.2",
+            "9.5"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "9.5",
+              "goal": 9,
+              "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+              "contribution": "Build practical capability to investigate and improve technical processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "rationale": "Connect the work sample to your goal: Explore a new direction.",
+          "order": 4,
+          "completed": false,
+          "startWeek": 11,
+          "endWeek": 12,
+          "estimatedHourRange": {
+            "min": 6,
+            "max": 12
+          }
+        }
+      ],
+      "totalHours": 48,
+      "remainingHours": 48,
+      "estimatedWeeks": 12,
+      "coveredGapIds": [
+        "dataQuality",
+        "analytics",
+        "sql"
+      ],
+      "prerequisiteSkillIds": [],
+      "preservedCompletedStepIds": [],
+      "otherCompletedStepIds": [],
+      "costs": {
+        "publicContentTotal": 0,
+        "currency": "MYR",
+        "excludes": "Optional certificates, software, hardware, professional assessment and qualifications.",
+        "hrdCorpEligibility": "Not verified or assumed."
+      },
+      "sdgs": [
+        {
+          "target": "4.4",
+          "goal": 4,
+          "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+          "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+          "status": "intended_contribution_not_measured_impact"
+        },
+        {
+          "target": "8.2",
+          "goal": 8,
+          "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+          "contribution": "Improve productive work through responsible use of technology and better processes.",
+          "status": "intended_contribution_not_measured_impact"
+        },
+        {
+          "target": "9.5",
+          "goal": 9,
+          "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+          "contribution": "Build practical capability to investigate and improve technical processes.",
+          "status": "intended_contribution_not_measured_impact"
+        }
+      ],
+      "limitations": "Introductory reading and authored practice, not a complete professional qualification. Hours and ranges are planning estimates. Completion is self-reported and does not establish proficiency; technical work needs qualified supervision.",
+      "decisionStatus": "proposal_for_worker_and_adviser_review"
+    },
+    "acceptedPlan": {
+      "roleId": "financial",
+      "scenarioId": "rapid",
+      "goal": "Explore a new direction",
+      "hoursPerWeek": 4,
+      "steps": [
+        {
+          "id": "skill:sql",
+          "title": "Practise SQL & data querying",
+          "kind": "role_skill_gap",
+          "skillIds": [
+            "sql"
+          ],
+          "hours": 16,
+          "prerequisiteStepIds": [],
+          "resource": {
+            "title": "Query and modify data with Transact-SQL",
+            "provider": "Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/",
+            "note": "Free public learning material; optional certificates and cloud usage are excluded.",
+            "cost": {
+              "amount": 0,
+              "currency": "MYR",
+              "scope": "Public content only; optional certificates, hardware and software subscriptions excluded."
+            },
+            "hrdCorpClaimable": "not_verified",
+            "cataloguedOn": "2026-10-23",
+            "availability": "not_checked_at_request_time"
+          },
+          "output": "Write and explain queries, joins and checks on synthetic tables.",
+          "targets": [
+            "4.4",
+            "8.2"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "rationale": "Covers a missing role skill, ordered by scenario priority after prerequisites.",
+          "order": 1,
+          "completed": false,
+          "startWeek": 1,
+          "endWeek": 4,
+          "estimatedHourRange": {
+            "min": 12,
+            "max": 24
+          }
+        },
+        {
+          "id": "skill:dataQuality",
+          "title": "Practise Data quality & validation",
+          "kind": "role_skill_gap",
+          "skillIds": [
+            "dataQuality"
+          ],
+          "hours": 8,
+          "prerequisiteStepIds": [],
+          "resource": {
+            "title": "The Government Data Quality Framework",
+            "provider": "UK Government",
+            "url": "https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework",
+            "note": "Free public reading and project practice; no qualification or certificate is implied.",
+            "cost": {
+              "amount": 0,
+              "currency": "MYR",
+              "scope": "Public content only; optional certificates, hardware and software subscriptions excluded."
+            },
+            "hrdCorpClaimable": "not_verified",
+            "cataloguedOn": "2026-10-23",
+            "availability": "not_checked_at_request_time"
+          },
+          "output": "Audit a synthetic dataset for completeness, validity and consistency.",
+          "targets": [
+            "8.2",
+            "12.6"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "12.6",
+              "goal": 12,
+              "url": "https://sdgs.un.org/goals/goal12#targets_and_indicators",
+              "contribution": "Support accountable organisational sustainability reporting and practices.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "rationale": "Covers a missing role skill, ordered by scenario priority after prerequisites.",
+          "order": 2,
+          "completed": true,
+          "startWeek": null,
+          "endWeek": null,
+          "estimatedHourRange": {
+            "min": 6,
+            "max": 12
+          }
+        },
+        {
+          "id": "skill:analytics",
+          "title": "Practise Data analysis & visualisation",
+          "kind": "role_skill_gap",
+          "skillIds": [
+            "analytics"
+          ],
+          "hours": 16,
+          "prerequisiteStepIds": [
+            "skill:dataQuality"
+          ],
+          "resource": {
+            "title": "Get started with Microsoft data analytics",
+            "provider": "Microsoft Learn",
+            "url": "https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/",
+            "note": "Free public learning material; optional certificates and cloud usage are excluded.",
+            "cost": {
+              "amount": 0,
+              "currency": "MYR",
+              "scope": "Public content only; optional certificates, hardware and software subscriptions excluded."
+            },
+            "hrdCorpClaimable": "not_verified",
+            "cataloguedOn": "2026-10-23",
+            "availability": "not_checked_at_request_time"
+          },
+          "output": "Build a chart from synthetic data with limitations and a decision note.",
+          "targets": [
+            "8.2",
+            "9.5"
+          ],
+          "sdgs": [
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "9.5",
+              "goal": 9,
+              "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+              "contribution": "Build practical capability to investigate and improve technical processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "rationale": "Covers a missing role skill, ordered by scenario priority after prerequisites.",
+          "order": 3,
+          "completed": false,
+          "startWeek": 5,
+          "endWeek": 8,
+          "estimatedHourRange": {
+            "min": 12,
+            "max": 24
+          }
+        },
+        {
+          "id": "portfolio:financial",
+          "title": "Build a financial data analyst work sample",
+          "kind": "portfolio_and_adviser_review",
+          "skillIds": [
+            "excel",
+            "sql",
+            "analytics",
+            "dataQuality",
+            "communication"
+          ],
+          "hours": 8,
+          "prerequisiteStepIds": [
+            "skill:sql",
+            "skill:dataQuality",
+            "skill:analytics"
+          ],
+          "resource": null,
+          "output": "Turn a fictional invoice dataset into a dashboard with a short quality-review note. Ask an adviser to review the result, your assumptions and your chosen next step.",
+          "targets": [
+            "4.4",
+            "8.2",
+            "9.5"
+          ],
+          "sdgs": [
+            {
+              "target": "4.4",
+              "goal": 4,
+              "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+              "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "8.2",
+              "goal": 8,
+              "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+              "contribution": "Improve productive work through responsible use of technology and better processes.",
+              "status": "intended_contribution_not_measured_impact"
+            },
+            {
+              "target": "9.5",
+              "goal": 9,
+              "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+              "contribution": "Build practical capability to investigate and improve technical processes.",
+              "status": "intended_contribution_not_measured_impact"
+            }
+          ],
+          "rationale": "Connect the work sample to your goal: Explore a new direction.",
+          "order": 4,
+          "completed": false,
+          "startWeek": 9,
+          "endWeek": 10,
+          "estimatedHourRange": {
+            "min": 6,
+            "max": 12
+          }
+        }
+      ],
+      "totalHours": 48,
+      "remainingHours": 40,
+      "estimatedWeeks": 10,
+      "coveredGapIds": [
+        "sql",
+        "analytics",
+        "dataQuality"
+      ],
+      "prerequisiteSkillIds": [],
+      "preservedCompletedStepIds": [
+        "skill:dataQuality"
+      ],
+      "otherCompletedStepIds": [],
+      "costs": {
+        "publicContentTotal": 0,
+        "currency": "MYR",
+        "excludes": "Optional certificates, software, hardware, professional assessment and qualifications.",
+        "hrdCorpEligibility": "Not verified or assumed."
+      },
+      "sdgs": [
+        {
+          "target": "4.4",
+          "goal": 4,
+          "url": "https://sdgs.un.org/goals/goal4#targets_and_indicators",
+          "contribution": "Develop relevant technical and vocational skills through reviewed practice.",
+          "status": "intended_contribution_not_measured_impact"
+        },
+        {
+          "target": "8.2",
+          "goal": 8,
+          "url": "https://sdgs.un.org/goals/goal8#targets_and_indicators",
+          "contribution": "Improve productive work through responsible use of technology and better processes.",
+          "status": "intended_contribution_not_measured_impact"
+        },
+        {
+          "target": "9.5",
+          "goal": 9,
+          "url": "https://sdgs.un.org/goals/goal9#targets_and_indicators",
+          "contribution": "Build practical capability to investigate and improve technical processes.",
+          "status": "intended_contribution_not_measured_impact"
+        }
+      ],
+      "limitations": "Introductory reading and authored practice, not a complete professional qualification. Hours and ranges are planning estimates. Completion is self-reported and does not establish proficiency; technical work needs qualified supervision.",
+      "decisionStatus": "proposal_for_worker_and_adviser_review"
+    },
+    "checks": {
+      "acceptPreserved": true,
+      "reloadPreserved": true,
+      "revertPreserved": true
+    },
+    "careerBrief": "# Siti Rosli — career transition plan\n\nCurrent role: Operations coordinator\nDirection: Financial data analyst\nGoal: Explore a new direction\nLearning focus: Build on my experience\nScenario: Faster AI adoption\nWeekly pace: 4 hours\n\nPrototype match index: 63.08/100. Illustrative scenario output, not a probability of employment.\n\n## 1. Practise SQL & data querying\n16 estimated hours · Week 1–4\nCovers a missing role skill, ordered by scenario priority after prerequisites.\n\nOutput: Write and explain queries, joins and checks on synthetic tables.\nResource: Query and modify data with Transact-SQL — https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/\nFree public learning material; optional certificates and cloud usage are excluded.\nSDG targets: 4.4, 8.2\nSelf-reported completion: pending\n\n## 2. Practise Data quality & validation\n8 estimated hours · Completed\nCovers a missing role skill, ordered by scenario priority after prerequisites.\n\nOutput: Audit a synthetic dataset for completeness, validity and consistency.\nResource: The Government Data Quality Framework — https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework\nFree public reading and project practice; no qualification or certificate is implied.\nSDG targets: 8.2, 12.6\nSelf-reported completion: complete\n\n## 3. Practise Data analysis & visualisation\n16 estimated hours · Week 5–8\nCovers a missing role skill, ordered by scenario priority after prerequisites.\n\nOutput: Build a chart from synthetic data with limitations and a decision note.\nResource: Get started with Microsoft data analytics — https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/\nFree public learning material; optional certificates and cloud usage are excluded.\nSDG targets: 8.2, 9.5\nSelf-reported completion: pending\n\n## 4. Build a financial data analyst work sample\n8 estimated hours · Week 9–10\nConnect the work sample to your goal: Explore a new direction.\n\nOutput: Turn a fictional invoice dataset into a dashboard with a short quality-review note. Ask an adviser to review the result, your assumptions and your chosen next step.\nWork sample and adviser review; no additional course required.\nSDG targets: 4.4, 8.2, 9.5\nSelf-reported completion: pending\n\n## Evidence & assumptions\n\nHow and When Artificial Intelligence Awareness Fosters Proactive Career Behaviors: The Role of Workplace Impostor Thoughts and Future Work Self Salience | SAGE Publications | 2026-10-23 | https://doi.org/10.1177%2F10690727261499377\nDrawing on self-discrepancy theory, this study examined how and when artificial intelligence (AI) awareness promotes proactive career behaviors. We collected three-wave, time-lagged data from 329 full-time employees in the United Kingdom. Results showed that AI awareness was positively related to proactive career behaviors. The indirect effect of AI awareness on proactive career behaviors through workplace impostor thoughts was significant when future work self salience was high but not when it was low. Future work self salience also strengthened both the relationship between AI awareness and workplace impostor t\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nThe strategic transformation of Human Resource Management through generative Artificial Intelligence: A bibliometric analysis (2023–2025) | Global Cooperation and Analytical Research Center Public Union | 2026-10-23 | https://doi.org/10.30546%2F2523-4331.2026.10.2.74\nNo abstract supplied. Open the DOI to inspect the source.\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nTransforming Global Early Childhood Education Through Artificial Intelligence: Addressing Teacher Shortages, Inequality, and Quality Gaps in Early Learning Systems | Scholar Cave | 2026-10-23 | https://doi.org/10.63539%2Fisrn.2026027\nThis study examines the potential of artificial intelligence (AI) to support early childhood education (ECE) in addressing workforce pressures, inequality, and quality-related challenges, while identifying the organisational, pedagogical, and ethical conditions required for responsible AI use. An interpretivist qualitative design was used with 22 participants (8 head teachers and 14 early childhood teachers) from ECE institutions in Sydney, Australia, who took part in semi-structured face-to-face interviews. Six interconnected themes emerged from inductive thematic analysis: workforce and operational challenges; \nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nTowards Responsible Artificial Intelligence (AI): An Analysis of AI Policies in Selected Low- and Middle-Income Countries | Oxford University Press (OUP) | 2026-10-23 | https://doi.org/10.1093%2Fhaschl%2Fqxag295\nAbstract Introduction: This study examines artificial intelligence (AI) policies in low- and middle-income countries (LMICs) and their implications for health systems and public health. Methods: We searched and reviewed 59 official AI-related policies from 27 Asian and African LMICs issued up to December 2025. An inductive codebook was developed to analyze policy patterns. Results: Policy development has accelerated since 2020, yet healthcare-specific AI regulation remains rare, with most policy documents emphasizing the general AI governance. Across regions, policies consistently prioritize data, ethics, institu\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nThe Role of Artificial Intelligence in Modern Business Management: A Conceptual Study of Opportunities and Challenges | Researcher Connect Innovation and Impact Private Limited and MRI | 2026-10-23 | https://doi.org/10.65521%2Fijrdmr.v15i2.4736\nArtificial intelligence (AI) has moved from the periphery of experimental computing to the centre of managerial practice, reshaping how organisations make decisions, allocate resources, engage customers and manage people. Despite the rapid growth of scholarship on the subject, the literature remains fragmented across functional silos, and the opportunities and risks of AI are frequently examined in isolation from one another. This conceptual study synthesises existing literature to examine the role of AI in modern business management and to articulate an integrated understanding of its opportunities and challenge\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nEthical Labor and Workforce Transformation in the Age of AI | IGI Global Scientific Publishing | 2026-10-23 | https://doi.org/10.4018%2F979-8-2600-4609-8\nNo abstract supplied. Open the DOI to inspect the source.\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nVirtual education and artificial intelligence in public health and health professions training: a scoping review | Springer Science and Business Media LLC | 2026-10-23 | https://doi.org/10.1186%2Fs12909-026-10592-1\nAbstract Introduction: In recent decades, information and communication technology (ICT) has significantly impacted the health sector, necessitating constant evolution in the way knowledge is taught and imparted through these platforms. This implementation includes virtual simulations, virtual campuses, and chatbots, among others. However, there is uncertainty about how public health is being taught using technology. Objective: To map and describe the available evidence on virtual education and artificial intelligence-enabled tools in public health and health professions, with emphasis on their educational uses, \nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nPemanfaatan Artificial Intelligence untuk Penguatan Branding Digital UMKM dalam Meningkatkan Daya Saing Produk Lokal | PT. Riset Press International | 2026-10-23 | https://doi.org/10.59653%2Fjcsse.v4i03.2977\nMicro, Small and Medium Enterprises (MSMEs) are the main pillars of the Indonesian economy, but most micro-scale business actors face limited resources in managing their businesses. The main problem faced by the service partners, namely Sahabat Genggam Teman Indonesia (GTI), which facilitates MSME administrators in Bekasi City, is low literacy. Branding is digital, with less-than-optimal brand identity elements, minimal use of Artificial Intelligence (AI), and limited resources to obtain professional assistance. This Community Service (PKM) activity aims to improve partners' literacy and skills in using AI techno\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nGeospatial AI, Workforce Displacement, and CSR in India's Public Sector | IGI Global Scientific Publishing | 2026-10-23 | https://doi.org/10.4018%2F979-8-2600-4609-8.ch011\nThis chapter examines how rapid integration of artificial intelligence and automation into geospatial technology workflows is reshaping employment structures across India's public sector, while highlighting that existing corporate social responsibility (CSR) frameworks remain unprepared to address these shifts. Drawing on practitioner evidence from four key sectors—urban governance, defence and national mapping, utilities, and environmental management—the chapter offers three contributions. First, a Sector-wise AI Displacement Risk Diagnostic maps workforce vulnerability across GIS roles. Second, the GEAR-CSR Fra\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nInteligência artificial generativa na graduação em enfermagem: um relato de inovação andragógica | Escola de Enfoermagem Aurora de Afonso Costa | 2026-10-23 | https://doi.org/10.17665%2F1676-4285.20267206\nObjective: To report the experience of integrating Generative Artificial Intelligence (GenAI) as an instructional design strategy in the Diversity, Equity, and Health Care (DEHC) course of an undergraduate nursing program, focusing on the development of structural clinical competence and culturally sensitive care for populations historically affected by oppressive ideologies. Method: A descriptive experience report on the implementation of a “GenAI Laboratory,” built on the Playlab.ai platform through prompt engineering, with a virtual assistant (“Iaiá”) based on a persona and clinical case files. The laboratory \nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nStudent Perceptions of Artificial Intelligence and Metaverse-Enabled Remote Learning in New Zealand Tertiary Education | Sciedu Press | 2026-10-23 | https://doi.org/10.5430%2Fijhe.v15n5p73\nThe increasing development of emerging digital technologies is creating new possibilities for remote tertiary education. Artificial Intelligence and Metaverse technologies offer potential for personalised learning, intelligent support, immersive interaction, and collaboration; however, their educational value depends partly on how students perceive their usefulness, accessibility, supporting conditions, and motivational potential. This study examined New Zealand tertiary students’ perceptions of prospective Artificial Intelligence- and Metaverse-enabled remote learning environments and investigated whether select\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nEducation in the era of artificial intelligence from a cross-border perspective regarding student perceptions, meta-competences and institutional integration | Emerald | 2026-10-23 | https://doi.org/10.1108%2Fk-12-2025-3180\nPurpose The accelerated transformations of the digital economy require a profound rethinking of higher education, especially in terms of preparing human capital for a future shaped by artificial intelligence (AI). The use of AI is no longer a peripheral technological option. Still, it has become a central vector in defining the skills required in the labour market, streamlining educational processes, and reshaping the relationship between learning and performance. Design/methodology/approach This paper aims to analyse, from a cross-border perspective, how AI is integrated into higher education in Romania, the Rep\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\n## Revision brief\n\n2026-10-24T02:10:37.324Z | Accepted | Faster AI adoption scenario selected\nProposed index: 60.68 → 63.08. Priority: Data quality & validation → SQL & data querying. 4 existing steps kept; 1 completed steps preserved.\n\n## Score explanation\nDeclared required skills: 40/100 × 0.45 = 18 points. 2 of 5 required skills are declared. No proficiency is inferred.\nTransferable strengths and potential: 100/100 × 0.3 = 30 points. Bridge skills earn 1 credit when declared, 0.6 for an experience-task keyword, and 0 otherwise.\nResearch and scenario context: 60.3/100 × 0.25 = 15.08 points. 50 is neutral. Each 1.0 increase in the mean required-skill weight adds 50 before clamping to 0–100. Sources affect a bounded metadata proxy, not employer demand.\n\n## Human review\nDiscuss your evidence, readiness and next step with an adviser. Learning time is estimated; this introductory plan does not establish professional qualification, employment or measured SDG impact. Matching, forecasts and learning plans come from the connected career API using explainable rules; no generative model is claimed.",
+    "capturedAt": "2026-10-24T02:10:38.463Z",
+    "liveEmbed": {
+      "url": "http://127.0.0.1:3201/#import",
+      "slideId": "slide-06-reviewable-change",
+      "localServerRequired": true,
+      "publicDeployment": false,
+      "profileSelection": "Choose the fictional Siti Rosli sample; review settings before the live demonstration.",
+      "continuity": "Native slide figures refer to the frozen capture. The interactive app uses its current workspace and cached evidence; live values may differ."
+    }
+  },
+  "handoff": {
+    "scope": "Deck and video source materials only. No chapter implementation, audio or finished video.",
+    "stage": {
+      "width": 1920,
+      "height": 1080,
+      "safeMargin": 80
+    },
+    "theme": "Nexus custom; preserve supplied tokens and fonts. Use one midnight stage surface throughout the video.",
+    "checkpoints": [
+      "Plan: confirm script, outline, Nexus theme, assets and development mode.",
+      "First chapter: main thread builds a complete chapter; user reviews before further chapter development.",
+      "Audio: ask whether to synthesize after the web chapters are complete."
+    ],
+    "narrationsTsIsImplementationSourceOfTruth": true,
+    "chapterBeatCountsAreProvisional": true
+  },
+  "requirementCoverage": [
+    {
+      "id": "problem",
+      "title": "Problem",
+      "slideNumbers": [
+        2
+      ],
+      "message": "A worker must choose what to learn with limited time and changing planning assumptions.",
+      "slideIds": [
+        "slide-02-workers-decision"
+      ],
+      "chapterIds": [
+        "workers-decision"
+      ],
+      "narrationRanges": [
+        {
+          "start": 3,
+          "end": 5
+        }
+      ]
+    },
+    {
+      "id": "solution",
+      "title": "Proposed solution",
+      "slideNumbers": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "message": "Review experience, explain role directions and evidence, build a practical plan, and revisit it while retaining completed learning.",
+      "slideIds": [
+        "slide-03-product-loop",
+        "slide-04-explainable-directions",
+        "slide-05-evidence-and-assumptions",
+        "slide-06-reviewable-change",
+        "slide-07-practical-next-step"
+      ],
+      "chapterIds": [
+        "product-loop",
+        "explainable-directions",
+        "evidence-and-assumptions",
+        "reviewable-change",
+        "practical-next-step"
+      ],
+      "narrationRanges": [
+        {
+          "start": 6,
+          "end": 9
+        },
+        {
+          "start": 10,
+          "end": 16
+        },
+        {
+          "start": 17,
+          "end": 21
+        },
+        {
+          "start": 22,
+          "end": 28
+        },
+        {
+          "start": 29,
+          "end": 34
+        }
+      ]
+    },
+    {
+      "id": "technical",
+      "title": "Technical approach",
+      "slideNumbers": [
+        8
+      ],
+      "message": "React/Vite browser workspace, Express career API, explainable CPU rules, Crossref metadata and device-local progress; slides 4–5 explain the scoring and evidence method.",
+      "slideIds": [
+        "slide-08-working-prototype"
+      ],
+      "chapterIds": [
+        "working-prototype"
+      ],
+      "narrationRanges": [
+        {
+          "start": 35,
+          "end": 39
+        }
+      ]
+    },
+    {
+      "id": "impact",
+      "title": "Expected impact",
+      "slideNumbers": [
+        9
+      ],
+      "message": "Intended clearer next steps, traceable advice, useful revisions and visible learning, tested through a proposed adviser pilot; no measured outcomes claimed.",
+      "slideIds": [
+        "slide-09-buyer-and-pilot"
+      ],
+      "chapterIds": [
+        "buyer-and-pilot"
+      ],
+      "narrationRanges": [
+        {
+          "start": 40,
+          "end": 47
+        }
+      ]
+    }
+  ],
+  "narrativePurpose": "The deck is the visual backbone of the same pitch delivered in the video. Its slide order, chapter messages, narration and limitations are aligned."
+}

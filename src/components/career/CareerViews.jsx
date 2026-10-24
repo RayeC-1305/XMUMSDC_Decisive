@@ -49,7 +49,16 @@ export function ScenarioControl({ scenario, onChange, expanded = false }) {
         <strong>Explore a different future</strong>
         <span>Planning scenarios, not predictions</span>
       </div>
-      <div className="c-scenario-tabs" aria-label="Future scenario">
+      <div
+        className="c-scenario-tabs"
+        aria-label="Future scenario"
+        role="group"
+        style={{
+          "--scenario-index": SCENARIOS.findIndex(
+            (item) => item.id === scenario,
+          ),
+        }}
+      >
         {SCENARIOS.map((item) => (
           <button
             key={item.id}
@@ -83,7 +92,12 @@ export function MatchBars({ role }) {
             </strong>
           </span>
           <div>
-            <i style={{ width: `${role.breakdown[i]}%` }} />
+            <i
+              style={{
+                width: "100%",
+                transform: `scaleX(${role.breakdown[i] / 100})`,
+              }}
+            />
           </div>
         </div>
       ))}
@@ -579,7 +593,24 @@ export function RoleExplorer({
               45% declared required skills + 30% transferable strengths + 25%
               research and scenario context.
             </p>
-            {selected.components && <div className="c-score-reasons">{selected.components.map(component => <p key={component.id}><strong>{component.label}: {component.points} points.</strong> {component.explanation}</p>)}<p>Evidence changed this index by {selected.evidenceImpact.scoreDelta >= 0 ? "+" : ""}{selected.evidenceImpact.scoreDelta} points against the same scenario without research.</p></div>}
+            {selected.components && (
+              <div className="c-score-reasons">
+                {selected.components.map((component) => (
+                  <p key={component.id}>
+                    <strong>
+                      {component.label}: {component.points} points.
+                    </strong>{" "}
+                    {component.explanation}
+                  </p>
+                ))}
+                <p>
+                  Evidence changed this index by{" "}
+                  {selected.evidenceImpact.scoreDelta >= 0 ? "+" : ""}
+                  {selected.evidenceImpact.scoreDelta} points against the same
+                  scenario without research.
+                </p>
+              </div>
+            )}
             <div className="c-detail-section">
               <h3>Your head start</h3>
               <p>Experience you can bring into this direction.</p>

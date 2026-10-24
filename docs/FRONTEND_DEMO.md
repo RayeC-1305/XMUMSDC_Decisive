@@ -2,6 +2,8 @@
 
 Start at `/#home` with **Plans evolve. Progress stays.** The pitch preview is labelled illustrative; the full career workspace uses the backend. A returning user can resume the device-local workspace.
 
+The pitch now uses the approved Patensify-inspired visual direction with a much stronger motion sequence. Watch experience connect to possible roles in the animated map, follow the sticky chapter navigation, then change a scenario in the revision preview. The proposed direction moves; the completed foundation stays. Pause motion at any time; a device's reduced-motion setting switches the page to a static experience immediately. The final chapter enters the actual intake.
+
 1. Start with a fictional sample or import/paste synthetic experience. Original files are read in the browser; extracted text and the reviewed form are processed in memory by `/api/intake`.
 2. Review skills, tasks, goals, interest and weekly learning time. Create the workspace and point out the connected-service/evidence receipt.
 3. Open **Future roles**, inspect the server's score components, known skills and full gap. Compare alternatives. Role profiles are authored directions, not verified vacancies.

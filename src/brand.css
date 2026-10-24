@@ -1,4 +1,4 @@
-/* NexusTalent — A way forward. Brand composition over the shared UI rules. */
+/* Nexus — editorial pitch / precise career workspace. */
 .c-live-evidence {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -213,7 +213,7 @@
   outline-color: #8c6b1f;
 }
 .c-sidebar {
-  background: var(--c-green-dark);
+  background: #10141e;
   color: #f3f6ff;
   padding-top: 33px;
 }
@@ -309,7 +309,7 @@
   background: #ffffff0c;
 }
 .c-sidebar nav > a.active {
-  background: #4355e7;
+  background: #273149;
   color: #fff;
   font-weight: 600;
 }
@@ -337,10 +337,10 @@
   padding-top: 30px;
 }
 .c-sidebar-purpose {
-  background: #ffffff06;
-  border-color: #ffffff17;
-  border-radius: 12px;
-  padding: 19px 15px 12px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 19px 12px 12px;
 }
 .c-sidebar-purpose > svg {
   color: var(--c-harvest);
@@ -381,13 +381,13 @@
 }
 .c-demo-mode {
   border: 1px solid var(--c-line);
-  border-radius: 20px;
+  border-radius: 6px;
   padding: 0 12px;
   min-height: 30px;
   font-size: 12px;
 }
 .c-demo-mode > span {
-  background: #789981;
+  background: var(--c-accent);
 }
 .c-topbar-avatar {
   background: #eaf0ff;
@@ -408,31 +408,28 @@
   margin: 22px 0 30px;
 }
 .c-intake-welcome .c-intake-intro {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-  gap: 25px;
-  align-items: center;
-  min-height: 245px;
-  margin-top: 16px;
+  display: block;
+  min-height: 0;
+  margin: 32px 0 28px;
 }
 .c-intake-heading {
   margin: 0;
 }
 .career-app .c-intake-heading h1 {
-  font-size: 44px;
+  font-size: 42px;
   line-height: 1.18;
-  letter-spacing: -1.8px;
+  letter-spacing: -0.035em;
   text-wrap: initial;
 }
 .career-app .c-intake-welcome h1 {
-  font-size: clamp(40px, 3.75vw, 60px);
-  letter-spacing: -2.4px;
+  font-size: clamp(36px, 3.3vw, 48px);
+  letter-spacing: -0.035em;
 }
 .c-intake-heading p {
   font-size: 15px;
   line-height: 1.8;
-  max-width: 48ch;
-  margin-top: 21px;
+  max-width: 65ch;
+  margin-top: 16px;
 }
 .c-intake-steps {
   margin-bottom: 28px;
@@ -550,12 +547,12 @@
   font-size: 11px;
 }
 .c-import-layout {
-  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 1fr);
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
   gap: 38px;
 }
 .c-import-main {
   padding: 26px;
-  box-shadow: 0 4px 15px -12px #111a3430;
+  box-shadow: none;
 }
 .c-import-card-heading {
   margin-bottom: 21px;
@@ -570,7 +567,7 @@
 .c-segment-control {
   width: 100%;
   margin-bottom: 17px;
-  background: #f0f3fb;
+  background: #f0f2f6;
 }
 .c-segment-control > button {
   flex: 1;
@@ -578,14 +575,14 @@
   min-height: 43px;
 }
 .c-dropzone {
-  background: #fafbff;
-  border-color: #aab8e6;
+  background: #fafbfc;
+  border-color: #adb8cb;
   padding: 31px 22px 25px;
 }
 .c-upload-symbol {
-  border-radius: 50%;
-  border-color: #d7e0ff;
-  background: #edf1ff;
+  border-radius: 12px;
+  border: 0;
+  background: #edf0fc;
   color: var(--c-green);
   width: 62px;
   height: 62px;
@@ -619,11 +616,12 @@
   margin-top: 18px;
 }
 .c-sample-item {
-  background: #fff;
-  border: 1px solid var(--c-line);
-  padding: 14px 16px 10px;
-  border-radius: 12px;
-  margin-bottom: 10px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--c-line);
+  padding: 14px 0;
+  border-radius: 0;
+  margin-bottom: 0;
 }
 .c-sample-item:hover {
   border-color: #a5b4e2;
@@ -674,15 +672,16 @@
   padding-top: 7px;
 }
 .c-opportunity-banner {
-  background: #e8edff;
+  background: #f0f3f9;
   color: var(--c-green-dark);
-  border: 1px solid #d5deff;
+  border: 1px solid var(--c-line);
   padding: 34px 36px;
   gap: 35px;
 }
 .c-opportunity-banner .c-status.light {
-  background: #d3ddff;
-  color: #4c60aa;
+  background: transparent;
+  color: #536482;
+  padding-left: 0;
   font-size: 12px;
 }
 .c-opportunity-banner h2 {
@@ -754,7 +753,7 @@
 .c-role-list-item.selected {
   border-color: var(--c-green);
   background: #f1f4ff;
-  box-shadow: inset 3px 0 0 var(--c-green);
+  box-shadow: none;
 }
 .c-role-sector > span {
   letter-spacing: 0;
@@ -768,7 +767,7 @@
   font-variant-numeric: tabular-nums;
 }
 .c-signal-summary {
-  background: #edf0ff;
+  background: #f0f3f9;
 }
 .c-signal-summary h2 {
   font-size: 25px;
@@ -779,8 +778,8 @@
   border-color: #96a8e2;
 }
 .c-plan-banner {
-  background: #edf0ff;
-  border-color: #d9e1ff;
+  background: #f0f3f9;
+  border-color: var(--c-line);
 }
 .c-review-callout {
   background: #edf2ff;
@@ -894,13 +893,11 @@
     width: 244px;
   }
   .c-intake-welcome .c-intake-intro {
-    min-height: 210px;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 15px;
+    min-height: 0;
   }
   .career-app .c-intake-welcome h1 {
     font-size: 39px;
-    letter-spacing: -1.8px;
+    letter-spacing: -0.035em;
   }
   .c-intake-heading p {
     font-size: 14px;
@@ -944,7 +941,7 @@
   .career-app .c-intake-heading h1,
   .career-app .c-intake-welcome h1 {
     font-size: 40px;
-    letter-spacing: -1.8px;
+    letter-spacing: -0.035em;
   }
   .c-intake-intro,
   .c-intake-welcome .c-intake-intro {

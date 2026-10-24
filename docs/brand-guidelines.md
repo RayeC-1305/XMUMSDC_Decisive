@@ -16,24 +16,25 @@ The intended initial buyer is a career centre or reskilling provider. This is a 
 | -------- | ------- | ----------------------------------------------- |
 | Cobalt   | #4355E7 | Actions, selected states, final demo invitation |
 | Midnight | #111A34 | Navigation and judging section                  |
+| Night    | #0B0D13 | Editorial pitch and moving product story        |
 
 ### Secondary Colors
 
 | Name          | Value   | Use                                                         |
 | ------------- | ------- | ----------------------------------------------------------- |
 | Electric cyan | #83F0E7 | Wordmark x, primary pitch action, signal accents; dark text |
-| Shift violet  | #9073FF | Scenario emphasis                                           |
+| Signal blue   | #8899FF | Secondary moving signal connections                         |
 | Ice           | #E3E8FF | Working panels and source context                           |
 
 ### Neutral Colors
 
 | Name        | Value   | Use                  |
 | ----------- | ------- | -------------------- |
-| Canvas      | #F4F6FB | Workspace background |
+| Canvas      | #F5F6F8 | Workspace background |
 | White       | #FFFFFF | Working surfaces     |
-| Ink         | #202B46 | Main text            |
-| Signal grey | #606C85 | Supporting text      |
-| Divider     | #DFE4F0 | Structure            |
+| Ink         | #202738 | Main text            |
+| Signal grey | #626D81 | Supporting text      |
+| Divider     | #DCE1EA | Structure            |
 
 The existing `--c-*` variables in `src/career.css` remain the implementation source. The Brand sync tool detected that source, the legacy stylesheet and Tailwind config; no competing generated token system was added. Legacy variable names such as `--c-green` now represent the refreshed interface colours; SDG colours retain semantic meaning.
 
@@ -49,7 +50,7 @@ Sora carries display and interface headings. DM Sans carries reading and control
 
 ## Identity
 
-The wordmark reads `nexus` in lowercase monospaced type with a cyan x. Use clear space of at least half a character. Preserve letter proportions and baseline. The favicon uses the same typographic x on cobalt. The large hero x is a quiet outline, paired with thin signal connections; it supports the product preview rather than competing with it.
+The wordmark reads `nexus` in lowercase monospaced type with a cyan x. Use clear space of at least half a character. Preserve letter proportions and baseline. The favicon uses the same typographic x on cobalt. The hero's main visual is now a native product diagram: a fictional person's experience connects to transferable skills and possible directions, with completed learning anchored below. Do not reinstate the stretched curved x or use a decorative symbol in place of the product mechanism.
 
 ## Voice
 
@@ -66,17 +67,19 @@ Use plain, confident language. Show how the product helps people act, without gu
 
 ## Motion
 
-- One coordinated hero entrance: masked title lines, supporting copy and preview, 500–850ms.
-- Signal paths draw once over 1.2 seconds; no endless decorative loops.
-- Sections reveal once on entry, 620ms; animate composition rather than every card.
-- Scenario revisions settle over 360ms; the next priority briefly highlights. Completed learning stays visibly stable.
-- Monospaced x hover uses transform only, 320ms, with no width/layout change.
-- Demo entry uses a short native view transition where supported. Other browsers navigate normally.
-- Reduced-motion preferences apply immediately: no hidden content, forced scroll animation or animated handoff. Keyboard focus remains visible.
+- The user explicitly requested a much more animated Patensify-inspired experience. The pitch motion intensity is 8/10; routine working UI remains 4/10.
+- Masked headline lines and the experience-to-role diagram form one coordinated first-view sequence. Signal packets and small skill movements express the connections; sample roles rotate every 4.8 seconds while visible.
+- The role cycle stops on hover, keyboard focus, pause, reduced motion, offscreen or hidden-tab state. Manual role controls remain available. The process ribbon also stops offscreen and when paused or hidden.
+- Native scrolling drives document positioning, evidence context and chapter progress. Ranked alternatives enter as a related list. No scroll hijacking or mandatory snap points.
+- Scenario selection slides. The proposed direction enters through a masked shared-element transition; completed learning remains anchored. Acceptance gives a short confirmation.
+- Navigation, intake and demo entry use interruptible native view transitions where supported, with normal functional fallbacks. Mobile uses the visible header wordmark in the handoff. Focus never scrolls the navigation out of view.
+- Disclosures, dialogs, toasts, active navigation and the learning meter give short, meaningful state feedback. Inputs and reading text do not loop.
+- The persistent pause control stops the pitch loops. On narrow screens it becomes an accessible icon in the header, away from content controls. Live reduced-motion changes expose the complete static state immediately. No hidden content or forced scroll animation.
+- `src/motion.css` owns motion tokens and keyframes; `CareerMotion.jsx` owns the diagram and frame-batched scroll inputs; `interfaceMotion.js` owns short view transitions and preference handling.
 
 ## Layout and assets
 
-The pitch progresses through problem, adaptive preview, Domain 1 capabilities, judging criteria, buyer hypothesis and demo. The workspace uses the same cobalt/midnight/cyan identity. All flows are browser-local and responsive.
+The pitch progresses through experience, evidence, alternatives, adaptive revision, Domain 1 capabilities, judging criteria, buyer hypothesis and the actual demo. The workspace uses the same cobalt/cyan identity on quieter light surfaces. Original-file reading and saved work are device-local; extracted profiles and career analysis use the connected service.
 
 - `public/nexus-mark.svg`: typographic x favicon.
 - `src/components/career/CareerPrimitives.jsx`: Wordmark, BrandMark and intake artwork.

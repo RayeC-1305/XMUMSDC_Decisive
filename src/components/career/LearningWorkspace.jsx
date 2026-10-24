@@ -93,26 +93,30 @@ function LearningStep({
               <p>{step.output}</p>
             </div>
           </div>
-          {step.resource && <><div className="c-resource-box">
-            <span className="c-resource-logo">
-              <Icon as={BookOpen} size={23} />
-            </span>
-            <div>
-              <small>{step.resource.provider}</small>
-              <h4>{step.resource.title}</h4>
-              <p>Free public resource · work at your own pace</p>
-            </div>
-            <a
-              className="c-button secondary"
-              href={step.resource.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Start learning
-              <Icon as={ExternalLink} size={14} />
-            </a>
-          </div>
-          <p className="c-resource-note">{step.resource.note}</p></>}
+          {step.resource && (
+            <>
+              <div className="c-resource-box">
+                <span className="c-resource-logo">
+                  <Icon as={BookOpen} size={23} />
+                </span>
+                <div>
+                  <small>{step.resource.provider}</small>
+                  <h4>{step.resource.title}</h4>
+                  <p>Free public resource · work at your own pace</p>
+                </div>
+                <a
+                  className="c-button secondary"
+                  href={step.resource.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Start learning
+                  <Icon as={ExternalLink} size={14} />
+                </a>
+              </div>
+              <p className="c-resource-note">{step.resource.note}</p>
+            </>
+          )}
           <SdgTags targets={step.targets} />
           <div className="c-reflection">
             <button
@@ -207,7 +211,8 @@ export default function LearningWorkspace({
     (step) => progress[progressKey(profile, role, step)],
   ).length;
   const totalHours = plan.reduce((sum, step) => sum + step.hours, 0);
-  const weeks = role.pathway?.estimatedWeeks ?? Math.ceil(totalHours / preferences.hours);
+  const weeks =
+    role.pathway?.estimatedWeeks ?? Math.ceil(totalHours / preferences.hours);
   const matchingSaved = saved.find(
     (item) => item.profileId === profile.id && item.roleId === role.id,
   );
@@ -422,11 +427,20 @@ export default function LearningWorkspace({
                 <span> / {plan.length}</span>
               </strong>
               <p>steps completed</p>
-              <progress
-                value={completed}
-                max={plan.length}
+              <div
+                className="c-progress-meter"
+                role="progressbar"
+                aria-valuemin={0}
+                aria-valuenow={completed}
+                aria-valuemax={plan.length}
                 aria-label="Learning steps completed"
-              />
+              >
+                <span
+                  style={{
+                    transform: `scaleX(${completed / Math.max(1, plan.length)})`,
+                  }}
+                />
+              </div>
             </div>
           </section>
           <details className="c-decision-trail">

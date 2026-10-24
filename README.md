@@ -25,7 +25,7 @@ This README follows the [official submission template](https://github.com/michae
 | Replit Project | TBD — no completed Replit usage or proof is claimed |
 | Live Demo | Public deployment: **TBD**. Local: [frontend development](http://localhost:5173), [built full-stack app](http://127.0.0.1:3001) |
 | RunPod Endpoint | Not used by the active application; no GPU endpoint is required |
-| Slide Deck | TBD |
+| Slide Deck | [Nexus HTML pitch deck](nexus-pitch.html) — download/open locally; [viewing instructions](docs/PITCH.md) |
 | Demo Video | TBD — Liew Jicson |
 | Submission Documents | [Required-file manifest](submission/README.md); final signed PDFs: TBD |
 
@@ -87,9 +87,15 @@ The active baseline uses **explainable rules**, not a generative model or claime
 ├── docs/                       # API, integration, verification and design notes
 ├── design-system/              # Existing interface specification
 ├── submission/                 # Required-document manifest; final PDFs pending
+├── nexus-pitch.html            # Self-contained 10-slide HTML pitch deck
+├── article.md                  # Detailed pitch narrative and source references
+├── script.md                   # Spoken pitch script
+├── outline.md                  # Aligned slide and demonstration plan
+├── output/pitch/               # Selected fictional demo records and embedded fonts
 ├── scripts/
 │   ├── demo-backend.js          # Real HTTP/evidence demonstration
-│   └── verify-integration.cjs   # Browser-to-API verification
+│   ├── verify-integration.cjs   # Browser-to-API verification
+│   └── build-pitch.mjs          # Rebuild the HTML pitch and source materials
 ├── tests/backend.test.js       # Offline unit and HTTP integration tests
 ├── .env.example
 ├── .gitignore
@@ -173,6 +179,12 @@ Backend tests use explicitly synthetic fixtures and local HTTP; they need no int
 5. Open the ordered **Learning plan**, inspect public resources and SDG links, record a completion, then change the scenario and show that progress remains.
 6. Save and download the brief with sources, score explanations, estimates and decision history.
 
+### Pitch Deck
+
+Download [nexus-pitch.html](nexus-pitch.html) and open it in a browser. Its ten slides, fonts, narration and source records are embedded. Use the arrow keys or Space to advance, Home/End to jump, and N for speaker notes. GitHub displays HTML source; download the file to present it.
+
+Slide 6 embeds the real app at `http://127.0.0.1:3201/#import`, so that slide's live demonstration needs a local server on port 3201. The other presentation content works offline. Captured example scores describe the fictional Siti profile and a dated evidence revision; current live results can differ. See [pitch viewing, rebuild and source instructions](docs/PITCH.md). The deck and script are available; a finished demo video and public deployment remain TBD.
+
 ## How We Use Replit (Required Template Section)
 
 **Status: TBD — no completed usage is claimed.** The intended use recorded by the team is slide generation, not application hosting. Add the actual project link and proof-of-use PDF after that work is completed. Optional repository configuration is not evidence of sponsor usage.
@@ -201,7 +213,7 @@ The hardest remaining risk is matching quality and local demand relevance. The n
 - [ ] Validate learning-resource depth, availability and prerequisite coverage with instructors.
 - [ ] Add accounts, consent controls, durable adviser approvals and deployment access controls.
 - [ ] Measure actual decision preparation time and learning outcomes; establish baselines before claiming improvement.
-- [ ] Complete public deployment, slides, demo video, official forms and verified sponsor declarations.
+- [ ] Complete public deployment, demo video, official forms and verified sponsor declarations.
 
 ## Team
 
@@ -217,7 +229,7 @@ The hardest remaining risk is matching quality and local demand relevance. The n
 - [x] Team name and Domain 1 stated
 - [ ] Final SDG track, university and team count confirmed
 - [ ] Public live-demo link added
-- [ ] Slide deck link added
+- [x] Slide deck link added (HTML deck; local live demonstration documented)
 - [ ] Demo video link added
 - [ ] Actual Replit usage and proof documented
 - [ ] RunPod requirement reconciled with actual usage and event rules

@@ -5,7 +5,6 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { flushSync } from "react-dom";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -66,8 +65,14 @@ import PitchLanding from "./PitchLanding";
 import { fetchLiveEvidence } from "../../utils/liveEvidence";
 import { submitProfile } from "../../utils/careerApi";
 import useCareerBackend from "../../utils/useCareerBackend";
+import {
+  afterInterfaceUpdate,
+  transitionInterface,
+  useWorkspaceEntrance,
+} from "../../utils/interfaceMotion";
 import "../../career.css";
 import "../../brand.css";
+import "../../motion.css";
 
 const NAV = [
   ["overview", "Overview", Home],
@@ -112,10 +117,12 @@ export default function CareerApplication() {
   const profile = state.profile || SAMPLE_CVS[0];
   const backend = useCareerBackend(state, setState);
   const latestAnalysis = useRef(null);
-  useEffect(() => { latestAnalysis.current = backend.data; }, [backend.data]);
+  useEffect(() => {
+    latestAnalysis.current = backend.data;
+  }, [backend.data]);
   const ranked = backend.data?.matches || [];
-  const selected =
-    ranked.find((role) => role.id === state.selectedRoleId) || ranked[0] || { id: "pending", gaps: [], plan: [] };
+  const selected = ranked.find((role) => role.id === state.selectedRoleId) ||
+    ranked[0] || { id: "pending", gaps: [], plan: [] };
   const plan = selected.plan;
   const previousSteps =
     pendingChange?.previousPlans?.[selected.id] ||
@@ -126,6 +133,7 @@ export default function CareerApplication() {
   ).length;
   const activeView =
     !state.profile && view !== "import" && view !== "home" ? "import" : view;
+  useWorkspaceEntrance(mainRef, activeView, Boolean(backend.data));
   const notify = useCallback((message) => setToast(message), []);
   const dismissToast = useCallback(() => setToast(""), []);
   const addActivity = (message) => {
@@ -211,20 +219,34 @@ export default function CareerApplication() {
   }
   function go(next, useDefault = true) {
     setToast("");
-    if (!state.profile && next !== "import" && next !== "home" && useDefault) {
-      setState((previous) => ({
-        ...previous,
-        profile: { ...SAMPLE_CVS[0], reviewed: true, synthetic: true, importedAt: new Date().toISOString() },
-      }));
-      notify(
-        "You’re exploring a fictional sample. Import a CV whenever you’re ready.",
-      );
-    }
-    setView(next);
-    location.hash = next;
-    setMenuOpen(false);
-    window.scrollTo(0, 0);
-    requestAnimationFrame(() => mainRef.current?.focus());
+    const transition = transitionInterface(() => {
+      if (
+        !state.profile &&
+        next !== "import" &&
+        next !== "home" &&
+        useDefault
+      ) {
+        setState((previous) => ({
+          ...previous,
+          profile: {
+            ...SAMPLE_CVS[0],
+            reviewed: true,
+            synthetic: true,
+            importedAt: new Date().toISOString(),
+          },
+        }));
+        notify(
+          "You’re exploring a fictional sample. Import a CV whenever you’re ready.",
+        );
+      }
+      setView(next);
+      location.hash = next;
+      setMenuOpen(false);
+      window.scrollTo(0, 0);
+    }, "workspace");
+    afterInterfaceUpdate(transition, () =>
+      mainRef.current?.focus({ preventScroll: true }),
+    );
   }
   async function completeIntake(nextProfile, preferences) {
     const reviewedProfile = await submitProfile(nextProfile, preferences);
@@ -243,7 +265,10 @@ export default function CareerApplication() {
     addActivity("Profile reviewed and workspace created");
   }
   function selectRole(id) {
-    setState((previous) => ({ ...previous, selectedRoleId: id }));
+    transitionInterface(
+      () => setState((previous) => ({ ...previous, selectedRoleId: id })),
+      "detail",
+    );
   }
   function toggleShortlist(id) {
     setState((previous) => ({
@@ -262,10 +287,21 @@ export default function CareerApplication() {
           : previous,
     );
   }
-  function captureChange(title, scenario, signals, baseline = state, evidenceRevision = baseline.evidenceRevision) {
+  function captureChange(
+    title,
+    scenario,
+    signals,
+    baseline = state,
+    evidenceRevision = baseline.evidenceRevision,
+  ) {
     const baselineRanked = latestAnalysis.current?.matches;
     if (!baselineRanked?.length) {
-      setState(previous => ({ ...previous, scenario, signals, evidenceRevision }));
+      setState((previous) => ({
+        ...previous,
+        scenario,
+        signals,
+        evidenceRevision,
+      }));
       return;
     }
     const baselineRole =
@@ -276,7 +312,10 @@ export default function CareerApplication() {
       previousScenario: baseline.scenario,
       previousSignals: baseline.signals,
       previousEvidenceRevision: latestAnalysis.current.evidence.revision,
-      previousPlan: baselineRole.plan.map((step) => ({ id: step.id, title: step.title })),
+      previousPlan: baselineRole.plan.map((step) => ({
+        id: step.id,
+        title: step.title,
+      })),
       previousPlans: Object.fromEntries(
         baselineRanked.map((role) => [
           role.id,
@@ -315,7 +354,10 @@ export default function CareerApplication() {
     try {
       const result = await fetchLiveEvidence(controller.signal);
       const baseline = latestState.current;
-      const signals = [...baseline.signals.filter(source => source.type === "Simulation"), ...result.sources];
+      const signals = [
+        ...baseline.signals.filter((source) => source.type === "Simulation"),
+        ...result.sources,
+      ];
       const signature = (items) =>
         JSON.stringify(
           items
@@ -354,7 +396,10 @@ export default function CareerApplication() {
       addActivity(
         `Crossref research refreshed: ${result.sources.length} relevant publications`,
       );
-      if (result.lastError) setEvidenceError(`Previous dated evidence retained: ${result.lastError}`);
+      if (result.lastError)
+        setEvidenceError(
+          `Previous dated evidence retained: ${result.lastError}`,
+        );
     } catch (error) {
       if (controller.signal.aborted && controller.signal.reason !== "timeout")
         return;
@@ -566,12 +611,7 @@ export default function CareerApplication() {
   const firstName = state.profile?.name.split(" ")[0] || "Your";
 
   function launchDemo() {
-    if (
-      document.startViewTransition &&
-      !matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      document.startViewTransition(() => flushSync(() => go("import", false)));
-    } else go("import", false);
+    go("import", false);
   }
 
   if (view === "home")
@@ -638,7 +678,18 @@ export default function CareerApplication() {
           <Icon as={ChevronDown} size={14} />
         </button>
         <span className="c-nav-label">Your career</span>
-        <nav>
+        <nav
+          style={{
+            "--navigation-index": Math.max(
+              0,
+              NAV.findIndex(
+                ([id]) =>
+                  id === (activeView === "compare" ? "roles" : activeView),
+              ),
+            ),
+          }}
+          data-highlight={activeView !== "import"}
+        >
           {NAV.map(([id, label, Glyph]) => (
             <a
               href={`#${id}`}
@@ -813,6 +864,7 @@ export default function CareerApplication() {
           id="career-content"
           className={`c-main ${activeView === "import" || activeView === "profile" ? "intake-mode" : ""}`}
           ref={mainRef}
+          data-view={activeView}
           tabIndex={-1}
         >
           {activeView === "import" || activeView === "profile" ? (
@@ -824,14 +876,65 @@ export default function CareerApplication() {
               onComplete={completeIntake}
               onExplore={() => go("overview")}
             />
+          ) : !backend.data ? (
+            <section
+              className="c-surface c-api-state"
+              role={backend.error ? "alert" : "status"}
+              aria-live="polite"
+              aria-busy={backend.loading}
+            >
+              <h1>
+                {backend.error
+                  ? "Your career plan needs a connection."
+                  : "Updating your career plan…"}
+              </h1>
+              <p>
+                {backend.error ||
+                  "Checking your profile, source evidence, role matches and learning steps."}
+              </p>
+              {backend.error && (
+                <div>
+                  <button className="c-button primary" onClick={backend.retry}>
+                    Try again
+                  </button>
+                  <button
+                    className="c-button secondary"
+                    onClick={() =>
+                      setState((previous) => ({
+                        ...previous,
+                        evidenceRevision: null,
+                      }))
+                    }
+                  >
+                    Use current evidence
+                  </button>
+                  <button
+                    className="c-button ghost"
+                    onClick={() => go("profile")}
+                  >
+                    Review profile
+                  </button>
+                </div>
+              )}
+            </section>
           ) : (
-            !backend.data ? <section className="c-surface c-api-state" role={backend.error ? "alert" : "status"} aria-live="polite" aria-busy={backend.loading}>
-              <h1>{backend.error ? "Your career plan needs a connection." : "Updating your career plan…"}</h1>
-              <p>{backend.error || "Checking your profile, source evidence, role matches and learning steps."}</p>
-              {backend.error && <div><button className="c-button primary" onClick={backend.retry}>Try again</button><button className="c-button secondary" onClick={() => setState(previous => ({ ...previous, evidenceRevision: null }))}>Use current evidence</button><button className="c-button ghost" onClick={() => go("profile")}>Review profile</button></div>}
-            </section> : (
             <>
-              <p className="c-api-receipt" role="status">Career service connected · {backend.data.modelVersion} · Evidence: {backend.data.evidence.status}{backend.data.evidence.retrievedAt ? ` · Retrieved ${new Date(backend.data.evidence.retrievedAt).toLocaleString("en-MY", { timeZone: "Asia/Kuala_Lumpur" })}` : " · Neutral research weights"}</p>
+              <details className="c-source-status c-api-receipt">
+                <summary>
+                  <Icon as={Radio} size={13} /> Evidence:{" "}
+                  {backend.data.evidence.status}
+                  {backend.data.evidence.retrievedAt
+                    ? ` · Updated ${new Date(backend.data.evidence.retrievedAt).toLocaleDateString("en-GB", { timeZone: "Asia/Kuala_Lumpur", day: "numeric", month: "short", year: "numeric" })}`
+                    : " · Research weights are neutral"}
+                  <Icon as={ChevronDown} size={13} />
+                </summary>
+                <p>
+                  Career service connected · {backend.data.modelVersion}
+                  {backend.data.evidence.retrievedAt
+                    ? ` · Retrieved ${new Date(backend.data.evidence.retrievedAt).toLocaleString("en-MY", { timeZone: "Asia/Kuala_Lumpur" })}`
+                    : " · No research-derived weighting is active."}
+                </p>
+              </details>
               {pendingChange && (
                 <div className="c-change-banner">
                   <span className="c-soft-icon">
@@ -1004,7 +1107,6 @@ export default function CareerApplication() {
                 />
               )}
             </>
-            )
           )}
           <footer className="c-footer">
             <span>
@@ -1052,8 +1154,8 @@ export default function CareerApplication() {
             <p>
               The original file is not uploaded or saved. Reviewed profile
               details are processed in memory by the career service. Plans,
-              notes and progress are saved in this browser. Use
-              fictional CVs for the hackathon demonstration.
+              notes and progress are saved in this browser. Use fictional CVs
+              for the hackathon demonstration.
             </p>
           </div>
           <div>
