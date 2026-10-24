@@ -26,7 +26,7 @@ This README follows the [official submission template](https://github.com/michae
 | Live Demo | [https://NexusTalent-Decisive.replit.app](https://NexusTalent-Decisive.replit.app) (Hosted on Replit); local: [frontend dev](http://localhost:5000), [built app](http://127.0.0.1:3001) |
 | RunPod Endpoint | Not used by the active application; CPU rules engine requires no GPU endpoint |
 | Slide Deck | [PDF](submission/SDC26_Decisive_PitchDeck.pdf) · [Interactive HTML](submission/SDC26_Decisive_PitchDeck.html) · [Viewing instructions](docs/PITCH.md) |
-| Demo Video | [Open/download the standalone video HTML](submission/SDC2026_Decisive_DemoVideo.html) — no local server. [Source](nexus-video/presentation/README.md) · [Script](nexus-video/script.md). Final recorded MP4 pending — Liew Jicson. |
+| Demo Video | [Open/download the standalone video HTML](submission/SDC2026_Decisive_DemoVideo.html) — no local server. Final recorded MP4 pending — Liew Jicson. |
 | Submission Documents | [submission/](submission/) — includes [SDC2026_Decisive_Preliminary.pdf](submission/SDC2026_Decisive_Preliminary.pdf), [SDC2026_Decisive_TechDeclaration.pdf](submission/SDC2026_Decisive_TechDeclaration.pdf), and Replit Proof of Use |
 
 ## Overview
@@ -95,19 +95,12 @@ HR can create an expiring, quota-limited `/survey/:token` link, copy it, extend 
 │   └── career_catalog.js       # Curated learning resources and SDG contributions
 ├── public/                     # Brand assets
 ├── docs/                       # API, integration, verification and design notes
-├── design-system/              # Existing interface specification
 ├── submission/                 # Completed proposal, tech declaration & Replit proof-of-use
-├── nexus-pitch.html            # Convenience copy of the submitted HTML deck
-├── nexus-video/presentation/   # Recordable seven-minute React presentation source
-├── article.md                  # Detailed pitch narrative and source references
-├── script.md                   # Spoken pitch script
-├── outline.md                  # Aligned slide and demonstration plan
-├── output/pitch/               # Selected fictional demo records and embedded fonts
 ├── scripts/
 │   ├── demo-backend.js          # Real HTTP/evidence demonstration
 │   ├── verify-integration.cjs   # Browser-to-API verification
-│   └── build-pitch.mjs          # Rebuild the HTML pitch and source materials
-├── tests/backend.test.js       # Offline unit and HTTP integration tests
+│   └── verify-workforce.mjs     # Isolated workforce verification
+├── tests/                      # Offline unit and HTTP integration tests
 ├── .env.example
 ├── .gitignore
 ├── .replit                     # Replit cloud deployment configuration
@@ -210,24 +203,15 @@ Backend tests use explicitly synthetic fixtures and local HTTP; they need no int
 
 ### Pitch Deck
 
-Download [nexus-pitch.html](nexus-pitch.html) and open it in a browser. Its ten slides, fonts, narration and source records are embedded. Use the arrow keys or Space to advance, Home/End to jump, and N for speaker notes. GitHub displays HTML source; download the file to present it.
+The pitch deck is provided as a standalone HTML presentation at [`submission/SDC26_Decisive_PitchDeck.html`](submission/SDC26_Decisive_PitchDeck.html) and as a PDF at [`submission/SDC26_Decisive_PitchDeck.pdf`](submission/SDC26_Decisive_PitchDeck.pdf). Its ten slides, fonts, narration and source records are embedded. Use arrow keys or Space to advance, Home/End to jump, and N for speaker notes.
 
-Slide 6 directly embeds the live hosted application at [`https://NexusTalent-Decisive.replit.app/#import`](https://NexusTalent-Decisive.replit.app/#import) (with an "Open demo in a new tab" shortcut), enabling judges to interact with the working system directly within the presentation deck. Slide 9 links to the employer introduction. To embed a local fallback instead, follow the rebuild instructions in [live-demo.md](output/pitch/live-demo.md). Captured example scores describe the fictional Siti profile and a dated evidence revision; current live results can differ. See [pitch viewing, rebuild and source instructions](docs/PITCH.md). The deck, script, and public Replit deployment are available; the demo video remains in production.
+Slide 6 directly embeds the live hosted application at [`https://NexusTalent-Decisive.replit.app/#import`](https://NexusTalent-Decisive.replit.app/#import) (with an "Open demo in a new tab" shortcut), enabling judges to interact with the working system directly within the presentation deck. Slide 9 links to the employer introduction. See [pitch viewing instructions](docs/PITCH.md).
 
 ### Demo Video HTML
 
 Download [SDC2026_Decisive_DemoVideo.html](submission/SDC2026_Decisive_DemoVideo.html) and open it directly in a browser. GitHub shows HTML source; use **Download raw file**, then open the downloaded file. No localhost or local server is needed. Fonts, presentation code and the career brief are embedded.
 
 The ten-chapter presentation has 66 narration beats and 420 planned seconds. Press P for silent playback. Its worker and employer demos always load the [live Replit application](https://NexusTalent-Decisive.replit.app); internet access is required for those demos. Actual product actions require an operator; playback advances cues, not the product. Narration audio and the final recorded MP4 remain pending.
-
-Developers can rebuild the standalone HTML with:
-
-```sh
-npm ci --prefix nexus-video/presentation
-npm run build --prefix nexus-video/presentation
-```
-
-See [presentation instructions](nexus-video/presentation/README.md) and [verification notes](nexus-video/verification.md).
 
 ## How We Use Replit (Required Template Section)
 

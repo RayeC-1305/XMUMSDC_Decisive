@@ -1,4 +1,0 @@
-.dm-demo{position:absolute;inset:0}.dm-guide{position:absolute;left:100px;top:80px;right:100px}.dm-guide>span{font:22px var(--font-mono);color:var(--text-mute)}.dm-guide h1{font-size:52px;margin-top:15px}.dm-guide>p{position:absolute;right:0;top:0;font-size:27px;color:var(--text-2)}.dm-browser{position:absolute;left:100px;top:224px;width:1720px;height:716px;overflow:hidden;border:1px solid var(--rule);border-radius:8px;background:var(--surface-2)}.dm-browser iframe{width:1146.6667px;height:477.3333px;transform:scale(1.5);transform-origin:0 0;border:0;display:block;background:var(--surface-2)}.dm-disclosure{position:absolute;left:100px;right:100px;bottom:80px;display:flex;justify-content:space-between;gap:40px;font-size:25px;color:var(--text-2)}.dm-disclosure a{color:var(--accent);text-underline-offset:6px;white-space:nowrap}
-
-
-/* Product interaction supplies the motion; the frame stays anchored. */

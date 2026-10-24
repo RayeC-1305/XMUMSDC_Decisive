@@ -7,19 +7,7 @@ node_modules/
 # Production build
 dist/
 build/
-output/playwright/
-output/backend/
-# Preserve only the pitch sources needed to reproduce the submitted HTML deck.
-output/*
-!output/pitch/
-output/pitch/*
-!output/pitch/demo-proof.json
-!output/pitch/pitch-data.json
-!output/pitch/siti-career-brief.md
-!output/pitch/live-demo.md
-!output/pitch/font-sources.json
-!output/pitch/fonts.css
-!output/pitch/font-*.ttf
+output/
 data/cache/
 data/workforce/
 .playwright-cli/
@@ -30,24 +18,10 @@ data/workforce/
 .env.development.local
 .env.test.local
 .env.production.local
-
-# Nested video project credentials and local recording diagnostics
 .env.*
 !.env.example
 *.log
 *.pid
-/scratch/*.cjs
-/nexus-video/preview*.jpg
-/nexus-video/opening-motion-preview.mp4
-/Domain 1.pdf
-
-# One-time local authoring/proof helpers; chapter sources are authoritative
-/scripts/build-nexus-chapters.mjs
-/scripts/init-nexus-presentation.mjs
-/scripts/refine-nexus-video.mjs
-/scripts/render-pitch-proof.mjs
-/scripts/rework-nexus-motion.mjs
-/scripts/verify-pitch.cjs
 
 # Python artifacts
 __pycache__/
