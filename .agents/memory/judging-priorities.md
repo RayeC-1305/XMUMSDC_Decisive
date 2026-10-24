@@ -14,3 +14,9 @@ The employer entry should introduce the complete workflow on an interactive, ani
 **Why:** The user repeatedly asked to deeply reference both the individual landing page and its demo for the same quality, interactivity and functionality, rather than opening HR into a dense dashboard.
 
 **How to apply:** Keep the introduction separate from the hands-on workflow, preserve real operations in each chapter, and retain department/campaign context between steps.
+
+For HR demo styling, closely match each individual demo page's fonts, sizes, card spacing and visual hierarchy. Split multiple features into focused sections, with icons and concise guidance.
+
+**Why:** The user emphatically repeated that the individual demo is the styling reference; a separate small-text dashboard interpretation does not meet their expectation.
+
+**How to apply:** Inspect the actual individual workspace components and computed typography before restyling HR. Preserve readability and spacing across every step, not just the first screen.

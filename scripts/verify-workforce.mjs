@@ -46,6 +46,16 @@ try {
   assert.equal(await page.getByRole("button", { name: "New campaign", exact: true }).count(), 0);
   await page.getByRole("link", { name: "Explore the guided demo", exact: true }).click();
   await page.getByRole("heading", { name: "Start with a department", exact: true }).waitFor();
+  const typography = await page.evaluate(() => ({
+    body: getComputedStyle(document.querySelector(".hr-demo")).fontSize,
+    heading: getComputedStyle(document.querySelector(".hr-heading h1")).fontSize,
+    section: getComputedStyle(document.querySelector(".hr-demo-setup h2")).fontSize,
+    field: getComputedStyle(document.querySelector("#hr-demo-department")).fontSize,
+  }));
+  assert.ok(parseFloat(typography.body) >= 14, "HR body should match the readable individual workspace scale");
+  assert.ok(parseFloat(typography.heading) >= 28, "HR page heading should use the individual workspace hierarchy");
+  assert.ok(parseFloat(typography.section) >= 20, "HR sections should not use miniature headings");
+  assert.ok(parseFloat(typography.field) >= 14, "HR form controls should match the individual workspace scale");
   assert.equal(await page.getByRole("button", { name: "Previous", exact: true }).isDisabled(), true);
   await page.getByLabel("Department", { exact: true }).selectOption({ label: "Operations & Admin" });
   await page.getByRole("button", { name: "Next", exact: true }).click();
@@ -114,7 +124,7 @@ try {
 
   const beforeHeatmap = await page.locator(".hr-heatmap").innerText();
   await step("scenarios");
-  await page.locator(".hr-demo-comparison > summary").click();
+  if (!await page.locator(".hr-demo-comparison").evaluate(el => el.open)) await page.locator(".hr-demo-comparison > summary").click();
   const comparisonBefore = await page.getByRole("table", { name: "Scenario planning results" }).innerText();
   const scenarioResponse = page.waitForResponse(r => r.url().includes("/api/hr/dashboard?") && r.url().includes("scenarioId=rapid"));
   await page.getByRole("button", { name: "Fast AI disruption · 1–2 years", exact: true }).click();
@@ -175,12 +185,18 @@ try {
   await page.waitForFunction(() => document.querySelector('.hr-scenario button:last-child').getAttribute("aria-pressed") === "true");
   await step("skills");
   await page.screenshot({ path: path.join(output, "hr-dashboard.png"), fullPage: true });
+  for (const id of stepIds) {
+    await step(id);
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), `${id} should fit a desktop viewport`);
+    await page.screenshot({ path: path.join(output, `step-${id}-desktop.png`), fullPage: true });
+  }
   await page.setViewportSize({ width: 390, height: 844 });
   await page.screenshot({ path: path.join(output, "hr-mobile.png"), fullPage: true });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), "HR should not overflow the phone viewport");
   for (const id of stepIds) {
     await step(id);
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), `${id} should fit a phone viewport`);
+    await page.screenshot({ path: path.join(output, `step-${id}-mobile.png`), fullPage: true });
   }
   await page.goto(`${base}/hr`);
   await page.getByRole("heading", { level: 1, name: /A better plan/ }).waitFor();

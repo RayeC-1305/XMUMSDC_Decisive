@@ -1,9 +1,14 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, Check, ExternalLink, LoaderCircle, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Check, Compass, ExternalLink, ListChecks, LoaderCircle, MessageSquare, ShieldCheck, Sparkles, UserRound } from "lucide-react";
 import {
   api, dateLabel, InlineError, numberLabel, SkillRadar, sourceDate, sourceName,
   SYNTHETIC_NOTICE,
 } from "./hrShared";
+import DemoSkillRadar from "./DemoSkillRadar";
+
+function DemoSection({ enabled, className, children }) {
+  return enabled ? <div className={className}>{children}</div> : <>{children}</>;
+}
 
 function Pathway({ pathway }) {
   const steps = pathway?.steps || pathway?.path || [];
@@ -36,7 +41,8 @@ function RoleResult({ role, pathway }) {
   </article>;
 }
 
-function SurveyResults({ result, skills }) {
+function SurveyResults({ result, skills, embedded }) {
+  const Radar = embedded ? DemoSkillRadar : SkillRadar;
   const analysis = result.analysis || {};
   const profile = result.profile || {};
   const proficiencies = result.proficiencies || profile.proficiencies || {};
@@ -58,7 +64,7 @@ function SurveyResults({ result, skills }) {
       <div className="survey-result-grid">
         <div className="survey-card" style={{ padding: 13, background: "#f8f9fd" }}>
           <h3 style={{ fontSize: 14 }}>Future Skills Radar</h3><p style={{ fontSize: 10, marginTop: 4 }}>Blue: self-reported proficiency 1–5; 0 means unknown. Dashed: an authored review target of 4 for the top role's skills, not a validated employer requirement.</p>
-          <SkillRadar skills={profileSkills} values={proficiencies} targetValues={Object.fromEntries((ranked[0]?.skills || []).map(id => [id, 4]))} label="Radar of employee-reported skill proficiencies and future-role review targets" />
+          <Radar skills={profileSkills} values={proficiencies} targetValues={Object.fromEntries((ranked[0]?.skills || []).map(id => [id, 4]))} label="Radar of employee-reported skill proficiencies and future-role review targets" />
           {result.customSkills?.length > 0 && <div className="hr-detail-row"><strong>Custom skills · for human review</strong><p>{result.customSkills.join(", ")}</p><small style={{ color: "var(--hr-muted)", fontSize: 10 }}>Custom entries are not matched as catalog skills.</small></div>}
         </div>
         <div>
@@ -204,16 +210,22 @@ export default function SurveyPage({ token, embedded = false, onSubmitted }) {
       {!loading && !closed && survey && <>
         {survey.notice && <div className="hr-notice"><ShieldCheck size={16} /><div>{survey.notice}</div></div>}
         <div className="survey-content">
-          <section className="survey-card">
-            <h2>Build your synthetic profile</h2><p>Use a fictional alias and fictional examples. A sample profile is available to fill the form in one click.</p>
+          <section className={`survey-card${embedded ? " survey-profile" : ""}`}>
+            <DemoSection enabled={embedded} className="survey-profile-intro"><h2>Build your synthetic profile</h2><p>Use a fictional alias and fictional examples. A sample profile is available to fill the form in one click.</p>
+              {embedded && <button className="hr-btn secondary" type="button" onClick={autofill} disabled={!sample}><Sparkles size={17} /> Fill sample profile</button>}
+            </DemoSection>
             <form className="survey-form" onSubmit={submitSurvey}>
+              <DemoSection enabled={embedded} className="survey-form-section">
+              {embedded && <h3><UserRound size={20} aria-hidden="true" />Your starting point</h3>}
               <div className="survey-grid">
                 <div className="survey-field"><label htmlFor="survey-alias">Synthetic alias</label><input id="survey-alias" required maxLength="60" value={profile.name} onChange={(event) => setProfile({ ...profile, name: event.target.value })} placeholder="e.g. Sample contributor 07" autoComplete="off" /></div>
                 <div className="survey-field"><label htmlFor="survey-role">Current role</label><input id="survey-role" required maxLength="100" value={profile.role} onChange={(event) => setProfile({ ...profile, role: event.target.value })} placeholder="Fictional role title" /></div>
                 <div className="survey-field"><label htmlFor="survey-goal">Career goal</label><input id="survey-goal" required maxLength="160" value={profile.goal} onChange={(event) => setProfile({ ...profile, goal: event.target.value })} placeholder="What would you like to explore?" /></div>
                 <div className="survey-field"><label htmlFor="survey-hours">Learning time each week</label><select id="survey-hours" value={profile.hoursPerWeek} onChange={(event) => setProfile({ ...profile, hoursPerWeek: event.target.value })}>{[1,2,3,4,6,8,10,12].map((hours) => <option value={hours} key={hours}>{hours} {hours === 1 ? "hour" : "hours"}</option>)}</select></div>
               </div>
-              <div className="survey-field">
+              </DemoSection>
+              <div className={`survey-field${embedded ? " survey-form-section" : ""}`}>
+                {embedded && <h3><ListChecks size={20} aria-hidden="true" />What you bring</h3>}
                 <fieldset><legend>Skills you want to include <small>Choose any that fit your fictional profile; set a self-rating from 1–5.</small></legend>
                   <div className="survey-skills">{safeSkills.map((skill) => {
                     const selected = selectedSkills.includes(skill.id);
@@ -225,28 +237,35 @@ export default function SurveyPage({ token, embedded = false, onSubmitted }) {
                   })}</div>
                 </fieldset>
               </div>
-              <div className="survey-field">
+              <div className={`survey-field${embedded ? " survey-form-section" : ""}`}>
+                {embedded && <h3><Compass size={20} aria-hidden="true" />Where you want to grow</h3>}
                 <fieldset><legend>Skills you are curious about</legend><div className="survey-skills">{safeSkills.map((skill) => <label className="survey-skill" key={`interest-${skill.id}`}><input type="checkbox" checked={profile.interests.includes(skill.id)} onChange={() => toggleValue("interests", skill.id)} /><span>{skill.name}</span></label>)}</div></fieldset>
               </div>
+              <DemoSection enabled={embedded} className="survey-form-section survey-experience">
+              {embedded && <h3><MessageSquare size={20} aria-hidden="true" />Your experience, in your words</h3>}
               <div className="survey-field"><label htmlFor="survey-tasks">Fictional tasks or experience</label><textarea id="survey-tasks" required value={profile.tasks} onChange={(event) => setProfile({ ...profile, tasks: event.target.value })} placeholder={"One task or experience per line\nExample: Reconcile fictional supplier invoices"} /><small>These examples may reveal transferable strengths. Do not include real employer or client details.</small></div>
               <div className="survey-field"><label htmlFor="survey-custom">Other skills to flag for human review</label><input id="survey-custom" value={customSkillsText} onChange={(event) => setCustomSkillsText(event.target.value)} placeholder="Separate fictional skill labels with commas" /><small>Custom skills are shown to HR for review and are not treated as matched catalog skills.</small></div>
               <details className="survey-field"><summary style={{ cursor: "pointer", fontWeight: 600, fontSize: 12 }}>Optional synthetic CV summary</summary>
                 <textarea aria-label="Optional synthetic CV summary" value={profile.cvText} onChange={(event) => setProfile({ ...profile, cvText: event.target.value })} placeholder="Only fictional text. The server may parse it to help identify catalog skills." />
               </details>
+              </DemoSection>
+              <DemoSection enabled={embedded} className="survey-form-section survey-submit">
+              {embedded && <h3><ShieldCheck size={20} aria-hidden="true" />Review before sharing</h3>}
               <label className="survey-check"><input type="checkbox" required checked={consent} onChange={(event) => setConsent(event.target.checked)} /><span>I understand this is a synthetic-only demo and consent to submit this fictional profile for immediate analysis.</span></label>
               <InlineError>{error}</InlineError>
               <div className="hr-actions"><button className="hr-btn" type="submit" disabled={submitting || !consent}>{submitting ? <LoaderCircle size={15} /> : <ArrowRight size={15} />} {submitting ? "Preparing your map…" : "Submit and see results"}</button>
-                <button className="hr-btn secondary" type="button" onClick={autofill} disabled={!sample}><Sparkles size={14} /> Fill sample profile</button></div>
+                {!embedded && <button className="hr-btn secondary" type="button" onClick={autofill} disabled={!sample}><Sparkles size={14} /> Fill sample profile</button>}</div>
+              </DemoSection>
             </form>
           </section>
           <aside className="survey-card">
-            <h2>What happens next</h2><p>Your response is matched against the same catalogued role pathways used in the worker workspace. The results appear here immediately after submission.</p>
+            <h2>{embedded && <BookOpen size={22} aria-hidden="true" />}What happens next</h2><p>Your response is matched against the same catalogued role pathways used in the worker workspace. The results appear here immediately after submission.</p>
             <div className="survey-sample"><h3>Built for reflection</h3><p>Role options are illustrative transition directions—not advertised vacancies. A missing skill means “not declared,” not “cannot do.”</p></div>
             <div className="survey-disclosure"><strong>Scoring in plain language</strong><br />45% required declared skills · 30% transferable strengths · 25% research/scenario context. Proficiency is displayed as self-reported and does not change the role score.</div>
             <div className="survey-disclosure"><strong>Data boundaries</strong><br />No demographic questions. No automated employment decisions. No LLM inference. Metadata and authored scenarios are not a jobs forecast.</div>
           </aside>
         </div>
-        {result && <SurveyResults result={result} skills={safeSkills} />}
+        {result && <SurveyResults result={result} skills={safeSkills} embedded={embedded} />}
       </>}
       {!embedded && <footer className="survey-bottom">NexusTalent public hackathon demo · Not a production-secured HR platform · Synthetic data only</footer>}
     </main>

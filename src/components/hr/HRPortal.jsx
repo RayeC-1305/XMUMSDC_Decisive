@@ -1,14 +1,16 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
-  Activity, ArrowLeft, ArrowRight, Check, Clipboard, ExternalLink,
-  LoaderCircle, RefreshCw, ShieldAlert, Sparkles, Users, X,
+  Activity, ArrowLeft, ArrowRight, BookOpen, Building2, Check, Clipboard,
+  Compass, ExternalLink, Leaf, LoaderCircle, Mail, MessageSquare,
+  Radio, RefreshCw, Route, ShieldAlert, ShieldCheck, Sparkles, Users, X,
 } from "lucide-react";
 import {
-  api, dateLabel, HUMAN_NOTICE, InlineError, Notice, numberLabel, SkillRadar,
+  api, dateLabel, HUMAN_NOTICE, InlineError, numberLabel,
   sourceDate, sourceName, statusClass,
   SYNTHETIC_NOTICE,
 } from "./hrShared";
 import SurveyPage from "./SurveyPage";
+import SkillRadar from "./DemoSkillRadar";
 import { CohortPlanner, EmployeeReview } from "./WorkforceActions";
 import "./hrDemo.css";
 
@@ -35,6 +37,7 @@ const DEMO_STEPS = [
   { id: "plan", label: "Learning plan", title: "Turn priorities into learning", purpose: "Review ordered cohorts, resources and estimated time.", outcome: "A plan to review together." },
   { id: "impact", label: "Review together", title: "Review outcomes together", purpose: "Explore SDG mappings, fairness and scenario records.", outcome: "A human-reviewed picture." },
 ];
+const STEP_ICONS = { setup: Building2, invite: Mail, respond: MessageSquare, skills: Radio, scenarios: Compass, plan: Route, impact: Leaf };
 const toInt = (value, fallback = 0) => Number.isFinite(Number(value)) ? Number(value) : fallback;
 const readDemoPreference = (key) => {
   try { return window.sessionStorage.getItem(`nexus-hr-demo-${key}`) || ""; }
@@ -43,6 +46,10 @@ const readDemoPreference = (key) => {
 
 function Metric({ label, value, note }) {
   return <div className="hr-metric"><small>{label}</small><strong>{value}</strong><span>{note}</span></div>;
+}
+
+function PlanningGuide({ icon: Icon, title, children }) {
+  return <aside className="hr-demo-guide"><Icon size={28} aria-hidden="true" /><h3>{title}</h3>{children}</aside>;
 }
 
 function useDialogAccessibility(open, close) {
@@ -143,9 +150,9 @@ function EmployeeDetails({ employee, skills, onClose }) {
               {step.resource?.url && <p><a href={step.resource.url} target="_blank" rel="noreferrer" style={{ color: "var(--hr-indigo-dark)" }}>{step.resource.title || "Open course or reading"} <ExternalLink size={11} /></a></p>}
             </div><small>{numberLabel(step.hours)} h · {(step.cataloguedOn || step.resource?.cataloguedOn) ? `Catalogued ${dateLabel(step.cataloguedOn || step.resource.cataloguedOn)}` : "Catalog date not supplied"}</small>
           </article>)}</div> : <div className="hr-empty"><strong>No learning steps returned</strong><p>Pathway details are not available for this profile yet.</p></div>}
-          <p style={{ marginTop: 10, fontSize: 10 }}>Public reading is curated, not verified as HRD-claimable. Check eligibility independently.</p>
-          {evidence.length > 0 && <div style={{ marginTop: 15 }}><strong style={{ fontSize: 12 }}>Analysis citations</strong>{evidence.slice(0, 4).map((item, index) => <p key={item.id || index} style={{ fontSize: 10, marginTop: 5 }}>{item.title || item.name} · {sourceName(item)} · {sourceDate(item) || "Date unavailable"}</p>)}</div>}
-          {analysis.disclosure && <p style={{ fontSize: 10, marginTop: 12 }}>{analysis.disclosure}</p>}
+          <p style={{ marginTop: 20 }}>Public reading is curated, not verified as HRD-claimable. Check eligibility independently.</p>
+          {evidence.length > 0 && <div className="hr-panel" style={{ marginTop: 24 }}><h3>Analysis citations</h3>{evidence.slice(0, 4).map((item, index) => <p key={item.id || index} style={{ marginTop: 12 }}>{item.title || item.name} · {sourceName(item)} · {sourceDate(item) || "Date unavailable"}</p>)}</div>}
+          {analysis.disclosure && <p style={{ marginTop: 20 }}>{analysis.disclosure}</p>}
         </div>
       </div>
     </section>
@@ -169,12 +176,12 @@ function ManageCampaign({ campaign, onClose, onSave, busy }) {
   return <div className="hr-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
     <section className="hr-modal" role="dialog" aria-modal="true" aria-labelledby="manage-title">
       <div className="hr-modal-head"><div><span className="hr-eyebrow">Survey link controls</span><h2 id="manage-title">{campaign.department}</h2></div><button className="hr-close" aria-label="Close management" onClick={onClose}><X size={18} /></button></div>
-      <p style={{ fontSize: 12, marginBottom: 15 }}>{campaign.focus} · Current status: <strong>{campaign.status}</strong></p>
+      <p style={{ marginBottom: 24 }}>{campaign.focus} · Current status: <strong>{campaign.status}</strong></p>
       <div className="hr-controls">
         <div className="hr-field"><label htmlFor="hr-extend-hours">New link duration</label><select id="hr-extend-hours" value={hours} onChange={(event) => setHours(event.target.value)}>{expiryChoices.map((item) => <option key={item.label} value={item.value}>{item.label}</option>)}</select></div>
         <div className="hr-field"><label htmlFor="hr-new-quota">Submission limit (1–500)</label><input id="hr-new-quota" type="number" min="1" max="500" value={quota} onChange={(event) => setQuota(event.target.value)} /></div>
       </div>
-      <p style={{ fontSize: 11, margin: "4px 0 15px" }}>Extending reopens a revoked or expired link. Increase the limit to reopen a quota-reached campaign.</p>
+      <p style={{ margin: "4px 0 24px" }}>Extending reopens a revoked or expired link. Increase the limit to reopen a quota-reached campaign.</p>
       {error && <InlineError>{error}</InlineError>}
       <div className="hr-actions">
         <button className="hr-btn" type="button" disabled={busy} onClick={() => submit("extend")}>{busy ? <LoaderCircle size={15} /> : <RefreshCw size={15} />} Extend / update quota</button>
@@ -439,8 +446,8 @@ export default function HRPortal() {
     <main className="hr-main">
       <div className="hr-heading">
         <div><span className="hr-eyebrow"><Activity size={14} /> Guided employer demo / {String(currentStepIndex + 1).padStart(2, "0")} of 07</span>
-          <h1>Plan with people.<br />Grow what comes next.</h1>
-          <p>Seven steps. Real workspace. Your choices stay with you.</p>
+          <h1 ref={stepHeadingRef} tabIndex={-1} aria-live="polite">{currentStep.title}</h1>
+          <p>{currentStep.purpose} Your choices stay with you as you move through the workspace.</p>
         </div>
         <div className="hr-scenario" role="group" aria-label="Planning scenario">
           {SCENARIOS.map((item) => <button key={item.id} type="button" aria-pressed={scenario === item.id} onClick={() => { setScenario(item.id); setNotice(`${item.label} planning view selected. Scenario weights are assumptions, not a forecast.`); }}>{item.label}</button>)}
@@ -457,12 +464,12 @@ export default function HRPortal() {
           </div>
         </details>
       </div>
-      <InlineError>{error}</InlineError>
+      <InlineError onRetry={() => { loadCampaigns(); refreshDashboard(true); }}>{error}</InlineError>
       {notice && <div className="hr-success" role="status">{notice}<button type="button" aria-label="Dismiss message" onClick={() => setNotice("")} style={{ float: "right", background: "transparent", border: 0, color: "inherit" }}><X size={14} /></button></div>}
 
       <section className="hr-demo-stepper" aria-label="Guided demo progress">
         <div className="hr-demo-stepper-head">
-          <div><span className="hr-eyebrow">STEP {String(currentStepIndex + 1).padStart(2, "0")} / 07</span><h2 ref={stepHeadingRef} tabIndex={-1} aria-live="polite">{currentStep.title}</h2></div>
+          <div><span className="hr-eyebrow">STEP {String(currentStepIndex + 1).padStart(2, "0")} / 07</span><h2>Your planning journey</h2></div>
           <div className="hr-demo-step-controls">
             <button className="hr-btn secondary" type="button" disabled={currentStepIndex === 0} onClick={() => goToStep(DEMO_STEPS[currentStepIndex - 1]?.id)}>Previous</button>
             <span className="hr-demo-count">{String(currentStepIndex + 1).padStart(2, "0")} <i>/</i> 07</span>
@@ -470,46 +477,57 @@ export default function HRPortal() {
           </div>
         </div>
         <nav className="hr-demo-step-nav" aria-label="Demo steps">
-          {DEMO_STEPS.map((step, index) => <button key={step.id} type="button" aria-label={`Step ${index + 1}: ${step.label}`} aria-current={step.id === activeStep ? "step" : undefined} onClick={() => goToStep(step.id)}><span>{String(index + 1).padStart(2, "0")}</span><span>{step.label}</span></button>)}
+          {DEMO_STEPS.map((step, index) => {
+            const StepIcon = STEP_ICONS[step.id];
+            return <button key={step.id} type="button" aria-label={`Step ${index + 1}: ${step.label}`} aria-current={step.id === activeStep ? "step" : undefined} onClick={() => goToStep(step.id)}><span>{String(index + 1).padStart(2, "0")}</span><StepIcon size={17} aria-hidden="true" /><span>{step.label}</span></button>;
+          })}
         </nav>
         <div className="hr-demo-progress" role="progressbar" aria-label="Demo progress" aria-valuemin="1" aria-valuemax="7" aria-valuenow={currentStepIndex + 1}><i style={{ width: `${((currentStepIndex + 1) / DEMO_STEPS.length) * 100}%` }} /></div>
         <div className="hr-demo-taskline"><span>TRY THIS</span><p>{currentStep.purpose}</p><small><b>OUTCOME</b> {currentStep.outcome}</small></div>
       </section>
 
-      <section className="hr-panel hr-demo-setup" data-demo-slide="setup" aria-labelledby="hr-setup-title">
-        <div className="hr-panel-head"><div><span className="hr-eyebrow">01 / Set up</span><h2 id="hr-setup-title">Choose a department to explore</h2><p>Select a seeded department. Reloading the sample is safe to repeat.</p></div></div>
+      <section className="hr-demo-page hr-demo-setup" data-demo-slide="setup" aria-labelledby="hr-setup-title">
+        <div className="hr-demo-two-column">
+        <div className="hr-panel">
+        <div className="hr-panel-head"><div><span className="hr-eyebrow">01 / Set up</span><h2 id="hr-setup-title"><Building2 aria-hidden="true" />Choose a department to explore</h2><p>Select a seeded department. Reloading the sample is safe to repeat.</p></div></div>
         <div className="hr-demo-setup-grid">
           <div className="hr-field"><label htmlFor="hr-demo-department">Department</label><select id="hr-demo-department" value={department} onChange={(event) => selectScope(campaigns.find(campaign => campaign.department === event.target.value)?.id || "")}>{departments.length ? departments.map((item) => <option key={item} value={item}>{item}</option>) : <option value="">Loading seeded departments…</option>}</select><small>This department stays selected for invitations, responses and planning.</small></div>
           <div className="hr-demo-seed-note"><span className="hr-status active">SYNTHETIC SAMPLE</span><p>Three departments · eight fictional profiles each.</p></div>
         </div>
         <div className="hr-actions"><button className="hr-btn" type="button" disabled={actionBusy} onClick={seedDemo}>{actionBusy ? <LoaderCircle size={15} /> : <RefreshCw size={15} />} Load synthetic demo set</button><button className="hr-btn secondary" type="button" onClick={() => goToStep("invite")}>Continue to invitation <ArrowRight size={14} /></button></div>
+        </div>
+        <PlanningGuide icon={Users} title="A shared starting point">
+          <p>The same career-planning approach, now viewed across a department. Start with fictional people, not a performance score.</p>
+          <ol><li>Choose the department you want to explore.</li><li>Load the sample if you need a fresh starting point.</li><li>Continue to manage its invitation links.</li></ol>
+        </PlanningGuide>
+        </div>
       </section>
 
       <div className="hr-grid">
         <div>
-          <section className="hr-panel" data-demo-slide="invite">
-            <div className="hr-panel-head"><div><span className="hr-eyebrow">01 / Link management</span><h2>Survey campaigns</h2><p>Create a synthetic survey link. Copy, extend or revoke it anytime.</p></div>
+          <section className="hr-demo-page" data-demo-slide="invite">
+            <div className="hr-panel-head"><div><span className="hr-eyebrow">02 / Link management</span><h2><Mail aria-hidden="true" />Survey campaigns</h2><p>Create a synthetic survey link. Copy, extend or revoke it anytime.</p></div>
               <button className="hr-btn" type="button" onClick={() => setFormOpen(true)}><Users size={15} /> New campaign</button>
             </div>
-            <div className="hr-controls">
+            <div className="hr-panel hr-demo-scope-card"><div className="hr-controls">
               <div className="hr-field"><label htmlFor="hr-department-filter">Department scope</label>
                 <select id="hr-department-filter" value={campaignFilter} onChange={(event) => selectScope(event.target.value)}>
                   <option value="">All departments</option>{campaigns.map((campaign) => <option key={campaign.id} value={campaign.id}>{campaign.department} · {campaign.focus}</option>)}
                 </select>
               </div>
-              <div className="hr-field"><label htmlFor="hr-refresh">Data status</label><div id="hr-refresh" style={{ minHeight: 42, display: "flex", alignItems: "center", gap: 8, color: "var(--hr-muted)", fontSize: 11 }}><span className="hr-status active">Live · 5 sec</span>Updated {dateLabel(dashboard?.generatedAt, true)}</div></div>
-            </div>
+              <div className="hr-field"><label htmlFor="hr-refresh">Data status</label><div id="hr-refresh" style={{ minHeight: 44, display: "flex", alignItems: "center", flexWrap: "wrap", gap: 12, color: "var(--hr-muted)" }}><span className="hr-status active">Live · 5 sec</span>Updated {dateLabel(dashboard?.generatedAt, true)}</div></div>
+            </div></div>
             {campaignLoading && !campaigns.length ? <div className="hr-skeleton" aria-label="Loading campaigns" /> :
               campaigns.length ? <div className="hr-campaign-list">{campaigns.map((campaign) => <CampaignCard key={campaign.id} campaign={campaign} onCopy={copyCampaign} onManage={setManageCampaign} busy={actionBusy} />)}</div> :
                 <div className="hr-empty"><strong>No campaigns yet</strong><p>Create a link when you are ready to invite synthetic participants.</p></div>}
-            <div className="hr-actions" style={{ marginTop: 13 }}>
+            <div className="hr-demo-library">
+              <div><strong>Need a sample to explore?</strong><p className="hr-panel-kicker">Repeatable seed · 3 departments × 8 synthetic profiles</p></div>
               <button className="hr-btn secondary" type="button" disabled={actionBusy} onClick={seedDemo}><RefreshCw size={14} /> Load synthetic demo set</button>
-              <span className="hr-panel-kicker">Repeatable seed · 3 departments × 8 synthetic profiles</span>
             </div>
           </section>
 
-          <section className="hr-panel hr-demo-response" data-demo-slide="respond">
-            <div className="hr-panel-head"><div><span className="hr-eyebrow">03 / Employee response</span><h2>Try the real synthetic survey</h2><p>Submit a fictional profile. Its planning map appears here.</p></div></div>
+          <section className="hr-demo-page hr-demo-response" data-demo-slide="respond">
+            <div className="hr-panel-head"><div><span className="hr-eyebrow">03 / Employee response</span><h2><MessageSquare aria-hidden="true" />Try the real synthetic survey</h2><p>Submit a fictional profile. Its planning map appears here.</p></div></div>
             {campaigns.length > 0 && <div className="hr-controls hr-demo-campaign-select">
               <div className="hr-field"><label htmlFor="hr-response-campaign">Campaign for this response</label>
                 <select id="hr-response-campaign" value={activeCampaign?.id || ""} onChange={(event) => selectScope(event.target.value)}>
@@ -530,15 +548,16 @@ export default function HRPortal() {
           </section>
 
           <section className="hr-panel" data-demo-slide="skills" data-demo-view="radar" role="region" aria-label="Skills radar view">
-            <div className="hr-panel-head"><div><span className="hr-eyebrow">Department outlook</span><h2>Future Skills Radar</h2><p>Average declared proficiency, 0–5. Missing means unknown, not inability.</p></div></div>
+            <div className="hr-panel-head"><div><span className="hr-eyebrow">Department outlook</span><h2><Radio aria-hidden="true" />Future Skills Radar</h2><p>Average declared proficiency, 0–5. Missing means unknown, not inability.</p></div></div>
             {employees.length > 0 ? <>
+              <div className="hr-demo-radar-layout"><div>
               <SkillRadar skills={skillList.slice(0, 8)} values={Object.fromEntries(skillList.map(skill => [skill.id, employees.reduce((sum, person) => sum + (person.proficiencies[skill.id] || 0), 0) / employees.length]))} label="Department Future Skills Radar: average declared proficiency across scenario-priority skills" />
-              <div className="hr-gap-chips">{skillList.slice(0, 8).map(skill => <span key={skill.id}>{skill.name}: {skill.direction} · {skill.weight}× priority</span>)}</div>
+              </div><div><h3>What deserves a conversation?</h3><p>Read the declared coverage alongside each skill’s scenario priority. A higher priority is a planning assumption, not a judgment about a person.</p><div className="hr-gap-chips">{skillList.slice(0, 8).map(skill => <span key={skill.id}>{skill.name}: {skill.direction} · {skill.weight}× priority</span>)}</div></div></div>
             </> : <p>Survey responses will populate the department radar.</p>}
           </section>
 
           <section className="hr-panel" data-demo-slide="skills" data-demo-view="heatmap" role="region" aria-label="Capability heatmap view">
-            <div className="hr-panel-head"><div><span className="hr-eyebrow">02 / Skill signals</span><h2>Capability heatmap</h2><p>Declared proficiency and planning urgency by person. A declining weight is not employee performance.</p></div><span className="hr-panel-kicker">{employees.length} profiles</span></div>
+            <div className="hr-panel-head"><div><span className="hr-eyebrow">Skill signals</span><h2><Activity aria-hidden="true" />Capability heatmap</h2><p>Declared proficiency and planning urgency by person. A declining weight is not employee performance.</p></div><span className="hr-panel-kicker">{employees.length} profiles</span></div>
             {loading && !dashboard ? <div className="hr-skeleton" /> : heatmapRows.length ? <>
               <div className="hr-heatmap-scroll" role="region" aria-label="Scrollable workforce capability heatmap" tabIndex="0">
                 <table className="hr-heatmap"><thead><tr><th scope="col">Skill / trend</th>{employees.map((person) => <th scope="col" key={person.id}>{person.alias || "Synthetic"}</th>)}</tr></thead>
@@ -546,76 +565,82 @@ export default function HRPortal() {
                     const entry = (person.heatmap || []).find((cell) => (cell.skillId || cell.id) === row.id);
                     const state = String(entry?.status || "").toLowerCase();
                     const kind = state.includes("critical") ? "critical" : state.includes("moderate") ? "moderate" : state.includes("declin") ? "declining" : state.includes("strong") ? "strong" : "";
-                    return <td key={`${row.id}-${person.id}`}><span className={`hr-cell ${kind}`} title={`${row.name}: ${entry?.status || "No status"} · urgency ${entry?.urgency} · ${entry?.direction}`} aria-label={`${person.alias}, ${row.name}: ${entry?.status}, proficiency ${entry?.proficiency}, urgency ${entry?.urgency}`}>{entry?.proficiency ?? "—"}<small style={{ display: "block", fontSize: 8 }}>U {entry?.urgency ?? "—"}</small></span></td>;
+                    return <td key={`${row.id}-${person.id}`}><span className={`hr-cell ${kind}`} title={`${row.name}: ${entry?.status || "No status"} · urgency ${entry?.urgency} · ${entry?.direction}`} aria-label={`${person.alias}, ${row.name}: ${entry?.status}, proficiency ${entry?.proficiency}, urgency ${entry?.urgency}`}>{entry?.proficiency ?? "—"}<small>U {entry?.urgency ?? "—"}</small></span></td>;
                   })}</tr>)}</tbody>
                 </table>
               </div>
               <div className="hr-legend"><span><i style={{ background: "#dcece2" }} /> Strong coverage</span><span><i style={{ background: "#f6e8c9" }} /> Moderate gap</span><span><i style={{ background: "#f0d9d5" }} /> Critical skill deficit</span><span><i style={{ background: "#e9ddf1" }} /> Declining / at-risk skill</span></div>
-              <p style={{ fontSize: 10, marginTop: 8 }}>Cell: self-rating 0–5 (0 = unknown) and U = scenario urgency index. {dashboard?.riskMethodology}</p>
+              <p style={{ marginTop: 16 }}>Cell: self-rating 0–5 (0 = unknown) and U = scenario urgency index. {dashboard?.riskMethodology}</p>
             </> : <div className="hr-empty"><strong>Waiting for survey responses</strong><p>Heatmap cells appear after employees submit their synthetic profile.</p></div>}
           </section>
 
           <section className="hr-panel" data-demo-slide="skills" data-demo-view="people" role="region" aria-label="Employee review view">
-            <div className="hr-panel-head"><div><span className="hr-eyebrow">03 / People, not scores</span><h2>Employee review</h2><p>Select a synthetic profile to inspect declared skills, score components and pathway.</p></div></div>
+            <div className="hr-panel-head"><div><span className="hr-eyebrow">People, not scores</span><h2><Users aria-hidden="true" />Employee review</h2><p>Select a synthetic profile to inspect declared skills, score components and pathway.</p></div></div>
             {loading && !dashboard ? <div className="hr-skeleton" /> : <EmployeeReview employees={employees} onInspect={setSelectedEmployee} />}
           </section>
         </div>
 
         <aside>
-          <section className="hr-panel" data-demo-slide="scenarios">
-            <div className="hr-panel-head"><div><span className="hr-eyebrow">04 / Replanning</span><h2>Refresh the picture</h2><p>Refresh dated sources or apply an authored simulation.</p></div><Sparkles size={18} color="var(--hr-indigo)" /></div>
+          <section className="hr-demo-page" data-demo-slide="scenarios">
+            <div className="hr-demo-action-grid"><div className="hr-panel">
+            <div className="hr-panel-head"><div><span className="hr-eyebrow">05 / Replanning</span><h2><Compass aria-hidden="true" />Refresh the picture</h2><p>Refresh dated sources or apply an authored simulation.</p></div><Sparkles size={18} color="var(--hr-indigo)" /></div>
             <div className="hr-actions">
               <button className="hr-btn secondary" type="button" disabled={Boolean(trendBusy)} onClick={() => trends("refresh")}>{trendBusy === "refresh" ? <LoaderCircle size={15} /> : <RefreshCw size={15} />} Refresh sources</button>
               <button className="hr-btn" type="button" disabled={Boolean(trendBusy)} onClick={() => trends("simulate")}>{trendBusy === "simulate" ? <LoaderCircle size={15} /> : <Activity size={15} />} Simulate scenario</button>
             </div>
             <p className="hr-demo-scenario-note">Authored weights only · not vacancies or a labour-market forecast.</p>
             <details className="hr-demo-help"><summary>How to read this change</summary><p>Compare match indices, planning proxies and learning timelines across scenarios. Fast AI assumes more protected weekly learning time, not faster learning ability.</p></details>
-            {employees.length > 0 && <details className="hr-demo-comparison">
+            </div><PlanningGuide icon={Compass} title="Change an assumption. Read the difference."><p>Use the scenario selector above to explore another future. Then compare role pathways and learning priorities below.</p><p>Refreshing sources retrieves dated research. Simulating a scenario changes authored weights. They are different inputs—not predictions.</p></PlanningGuide></div>
+            {employees.length > 0 && <details className="hr-panel hr-demo-comparison" open>
               <summary>Compare {employees.length} synthetic pathways</summary>
               <table className="hr-table" aria-label="Scenario planning results"><thead><tr><th>Profile</th><th>Top role</th><th>Match index</th><th>Exposure proxy</th><th>Learning time</th><th>Next priority</th></tr></thead><tbody>
                 {employees.map(employee => <tr key={employee.id}><td><button className="hr-person" onClick={() => setSelectedEmployee(employee)}>{employee.alias}</button></td><td>{employee.analysis.matches[0]?.title}</td><td>{employee.analysis.matches[0]?.score} / 100</td><td>{employee.risk.score} · {employee.risk.level}</td><td>{employee.timelineWeeks} weeks · {employee.pathway.hoursPerWeek} h/week</td><td>{employee.analysis.matches[0]?.gaps[0]?.name || "Review portfolio"}</td></tr>)}
               </tbody></table>
             </details>}
-            <div className="hr-detail-row" style={{ marginTop: 14 }}><strong>Evidence feed · {dashboard?.evidence?.status || "loading"}</strong><p>Retrieved {dateLabel(dashboard?.evidence?.retrievedAt, true)}{dashboard?.evidence?.lastError ? ` · Last error: ${dashboard.evidence.lastError}` : ""}</p></div>
+            <section className="hr-panel hr-demo-evidence" aria-label="Research evidence">
+            <div className="hr-panel-head"><div><h2><BookOpen aria-hidden="true" />Research behind the picture</h2><p>Inspect the publication, retrieval date and source before reviewing a planning change.</p></div></div>
+            <div className="hr-detail-row"><strong>Evidence feed · {dashboard?.evidence?.status || "loading"}</strong><p>Retrieved {dateLabel(dashboard?.evidence?.retrievedAt, true)}{dashboard?.evidence?.lastError ? ` · Last error: ${dashboard.evidence.lastError}` : ""}</p></div>
             {sources.length ? <details style={{ marginTop: 11 }}><summary>Inspect {sources.length} dated research sources</summary>{sources.map((source, index) => <article className="hr-source" key={source.id || source.url || index}>
               <a href={source.url} target="_blank" rel="noreferrer">{source.title || source.name || "Research record"} <ExternalLink size={11} /></a>
               <small>{sourceName(source)} · Published {sourceDate(source) ? dateLabel(sourceDate(source)) : "date unavailable"}</small>
               {source.retrievedAt && <small>Retrieved {dateLabel(source.retrievedAt, true)}</small>}
               {source.summary && <p>{source.summary}</p>}
             </article>)}</details> : <div className="hr-empty" style={{ marginTop: 14 }}><strong>No dated sources returned</strong><p>Keep the current plan under human review; no evidence is inferred.</p></div>}
+            </section>
           </section>
 
-          <section className="hr-panel" data-demo-slide="plan">
-            <div className="hr-panel-head"><div><span className="hr-eyebrow">05 / Learning capacity</span><h2>Ordered cohorts</h2><p>Review the next capability to build, then open its sequence and source.</p></div></div>
+          <section className="hr-demo-page" data-demo-slide="plan">
+            <div className="hr-panel-head"><div><span className="hr-eyebrow">06 / Learning capacity</span><h2><Route aria-hidden="true" />Ordered cohorts</h2><p>Review the next capability to build, then open its sequence and source.</p></div></div>
             <CohortPlanner key={`${campaignFilter}:${scenario}:${dashboard?.simulationActive}`} dashboard={dashboard} onInspect={setSelectedEmployee} />
-            <details className="hr-demo-help"><summary>About the learning estimates</summary><p>Public reading is curated; HRD Corp eligibility is not verified. Hours are planning estimates, not approved training claims.</p></details>
+            <details className="hr-panel hr-demo-help"><summary>About the learning estimates</summary><p>Public reading is curated; HRD Corp eligibility is not verified. Hours are planning estimates, not approved training claims.</p></details>
           </section>
 
-          <section className="hr-panel" data-demo-slide="impact">
-            <div className="hr-panel-head"><div><span className="hr-eyebrow">06 / Shared outcomes</span><h2>All 17 SDGs</h2><p>Open a mapped target to inspect its contribution note. Mappings are not measured impact.</p></div></div>
+          <section className="hr-demo-page" data-demo-slide="impact">
+            <div className="hr-panel-head"><div><span className="hr-eyebrow">07 / Shared outcomes</span><h2><Leaf aria-hidden="true" />All 17 SDGs</h2><p>Open a mapped target to inspect its contribution note. Mappings are not measured impact.</p></div></div>
             <div className="hr-sdgs">{GOALS.map((name, index) => {
               const number = index + 1;
               const records = sdgByNumber.get(number) || [];
               const count = records.length ? Math.max(...records.map(record => record.count)) : 0;
               const inclusion = number === 5 || number === 10;
               return <article className="hr-sdg" key={number}>
+                <span className="hr-sdg-number" aria-hidden="true">{String(number).padStart(2, "0")}</span>
                 <strong>Goal {number} · {name}</strong>
                 {records.length ? records.map(record => <div className="hr-demo-sdg-target" key={record.target}><small><a href={record.url} target="_blank" rel="noreferrer">Target {record.target} · {record.count} people</a></small><details><summary>Contribution note</summary><small>{record.contribution}</small></details></div>) : <small>No mapped target returned</small>}
                 {inclusion && <small style={{ color: "var(--hr-indigo-dark)" }}>Inclusion goal — no impact claim</small>}
                 <div className="hr-sdg-bar" aria-label={`${count} participants at the most covered target of this goal`}><i style={{ width: `${employees.length ? count / employees.length * 100 : 0}%` }} /></div>
               </article>;
             })}</div>
-            <p style={{ fontSize: 10, marginTop: 12 }}>Green-transition planning can reprioritise sustainability capabilities; an SDG mapping does not demonstrate contribution or impact.</p>
+            <p style={{ marginTop: 24 }}>Green-transition planning can reprioritise sustainability capabilities; an SDG mapping does not demonstrate contribution or impact.</p>
           </section>
         </aside>
       </div>
 
-      <section className="hr-panel" data-demo-slide="impact" style={{ marginTop: 16 }}>
-        <div className="hr-panel-head"><div><h2>Fairness Check Passed: Demographic-Blind Evaluation</h2><p>Role matching uses only declared skills, task-derived potential, and shared research/scenario signals. Alias, age, gender, background, and years of experience do not affect the match score. Self-ratings inform the reviewable heatmap, not role ranking. Missing skills are unknown, and workers should review results with HR.</p></div></div>
+      <section className="hr-panel" data-demo-slide="impact" style={{ marginTop: 24 }}>
+        <div className="hr-panel-head"><div><h2><ShieldCheck aria-hidden="true" />Fairness Check Passed: Demographic-Blind Evaluation</h2><p>Role matching uses only declared skills, task-derived potential, and shared research/scenario signals. Alias, age, gender, background, and years of experience do not affect the match score. Self-ratings inform the reviewable heatmap, not role ranking. Missing skills are unknown, and workers should review results with HR.</p></div></div>
       </section>
 
-      <section className="hr-panel" data-demo-slide="impact" style={{ marginTop: 16 }}>
-        <div className="hr-panel-head"><div><span className="hr-eyebrow">07 / Scenario record</span><h2>Authored simulations</h2><p>Relative learning-priority assumptions; these are not published growth statistics or forecasts.</p></div></div>
+      <section className="hr-panel" data-demo-slide="impact" style={{ marginTop: 24 }}>
+        <div className="hr-panel-head"><div><span className="hr-eyebrow">Scenario record</span><h2><Clipboard aria-hidden="true" />Authored simulations</h2><p>Relative learning-priority assumptions; these are not published growth statistics or forecasts.</p></div></div>
         {(dashboard?.simulations || []).length ? <div className="hr-table-wrap"><table className="hr-table"><thead><tr><th>Scenario</th><th>Publisher / author</th><th>Date</th><th>Interpretation</th><th>Reference</th></tr></thead><tbody>{dashboard.simulations.map((item, index) => <tr key={item.id || index}><td>{item.title || "Simulation"}</td><td>{item.publisher || item.author || "Not supplied"}</td><td>{dateLabel(item.date)}</td><td>{item.summary || item.interpretation || "Authored planning assumption."}</td><td>{item.url ? <a href={item.url} target="_blank" rel="noreferrer" style={{ color: "var(--hr-indigo-dark)" }}>Open <ExternalLink size={11} /></a> : "—"}</td></tr>)}</tbody></table></div> : <div className="hr-empty"><strong>No simulation records</strong><p>The current scenario contains no separate authored simulation.</p></div>}
       </section>
 
