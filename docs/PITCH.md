@@ -13,7 +13,9 @@ Download the repository or the HTML file and open `nexus-pitch.html` in a browse
 
 ## Run the live demonstration
 
-Slide 6 loads the actual application at `http://127.0.0.1:3201/#import`. From the repository root, install dependencies and build the app:
+Slide 6 loads the live hosted application at [`https://NexusTalent-Decisive.replit.app/#import`](https://NexusTalent-Decisive.replit.app/#import). When presenting with internet access, the slide loads directly without requiring a local development server.
+
+To run the application locally (e.g., for offline presentations or local verification):
 
 ```sh
 npm ci
@@ -28,7 +30,7 @@ $env:HOST = '127.0.0.1'
 npm start
 ```
 
-On macOS/Linux, use `PORT=3201 HOST=127.0.0.1 npm start`. Keep this terminal running while presenting. This address is local to the presenter's computer; no public deployment is claimed.
+On macOS/Linux, use `PORT=3201 HOST=127.0.0.1 npm start` for local offline testing.
 
 Choose the fictional Siti Rosli sample, review four hours/week and select Financial data analyst. Record a demo completion, propose Faster AI adoption, inspect the comparison, accept, then reload to show retained completion. Demonstrate Green transition and Keep previous view as a separate proposal/revert action. The app uses its current evidence; numbers can differ from the historical capture used in the slides.
 

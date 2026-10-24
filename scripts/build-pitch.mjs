@@ -7,7 +7,7 @@ const fonts=await fs.readFile(`${dir}/fonts.css`,'utf8');
 const fontSources=JSON.parse(await fs.readFile(`${dir}/font-sources.json`,'utf8'));
 const brief=await fs.readFile(`${dir}/siti-career-brief.md`,'utf8');
 const source=proof.initial.evidence.sources[3];
-const demoUrl='http://127.0.0.1:3201/#import';
+const demoUrl = process.env.DEMO_URL || 'https://NexusTalent-Decisive.replit.app/#import';
 const chapters=[
  {id:'opening',title:'Plans evolve. Progress stays.',seconds:15,beats:[
   'Plans evolve. Progress stays. Nexus is a reviewable reskilling workspace for workers and career advisers.',
@@ -142,7 +142,7 @@ const chapters=[
   'Liew Jicson appears with the verified role Video.',
   'The actual exported brief carries the completed data-quality step into the adviser-review invitation.',
   'The core message closes beside Local prototype available for demonstration.'
- ],durations:[6,3,3,12,6],refs:['R01','R07','D01','P01'],assets:['nexus-mark','siti-career-brief','completed-step-header'],pool:['Team: names and roles are verified in README.md — article §7.','Deployment: repository lists public demo TBD; no verified public URL or QR is supplied — article §7.','Invitation: validate a sample transition decision with an adviser team, carrying the completed step into the real brief — article §3, §5–7.']},
+ ],durations:[6,3,3,12,6],refs:['R01','R07','D01','P01'],assets:['nexus-mark','siti-career-brief','completed-step-header'],pool:['Team: names and roles are verified in README.md — article §7.','Deployment: hosted prototype deployed on Replit (https://NexusTalent-Decisive.replit.app) — article §7.','Invitation: validate a sample transition decision with an adviser team, carrying the completed step into the real brief — article §3, §5–7.']},
 ];
 // Product pixels are deliberately absent from this edition. These records are
 // data sources, not screenshot assets; slide 6 alone hosts the real application.
@@ -185,14 +185,14 @@ const logo=await fs.readFile('public/nexus-mark.svg','utf8');
 assets['nexus-mark']={id:'nexus-mark',path:'public/nexus-mark.svg',mime:'image/svg+xml',sha256:crypto.createHash('sha256').update(logo).digest('hex'),dataUri:'data:image/svg+xml;base64,'+Buffer.from(logo).toString('base64')};
 assets['siti-career-brief']={id:'siti-career-brief',path:`${dir}/siti-career-brief.md`,mime:'text/markdown',sha256:crypto.createHash('sha256').update(brief).digest('hex')};
 assets['demo-proof']={id:'demo-proof',path:`${dir}/demo-proof.json`,mime:'application/json'};
-assets['live-demo']={id:'live-demo',path:demoUrl,url:demoUrl,mime:'text/html',kind:'local_application',note:'The sole product embed is on slide 6. Requires the local frontend/API server; this is not a public deployment.'};
+assets['live-demo']={id:'live-demo',path:demoUrl,url:demoUrl,mime:'text/html',kind:'hosted_application',note:'The sole product embed is on slide 6. Hosted on Replit at https://NexusTalent-Decisive.replit.app.'};
 const wordmark=`<span class="c-wordmark" role="img" aria-label="Nexus"><span aria-hidden="true">ne</span><span class="c-wordmark-x" aria-hidden="true">x</span><span aria-hidden="true">us</span></span>`;
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const { slides, composition } = makePitchLayout({ chapters, wordmark, esc, source, demoUrl });
 const pitchData={presentationVersion:layoutVersion,composition,title:'Nexus — Plans evolve. Progress stays.',createdOn:'2026-10-24',timezone:'Asia/Kuala_Lumpur',canvas:{width:1280,height:720,ratio:'16:9',safeMargin:48},durationSeconds:360,spokenWords:chapters.flatMap(c=>c.beats).join(' ').split(/\s+/).length,slides:chapters,sources,assets,fontSources,demo:{fictional:true,profile:proof.initial.profile,roleId:'financial',roleTitle:'Financial data analyst',evidence:{revision:proof.initial.evidence.revision,status:proof.initial.evidence.status,retrievedAt:proof.initial.evidence.retrievedAt,sourceCount:proof.initial.evidence.sources.length},initialRole:proof.initial.matches.find(r=>r.id==='financial'),rapidRole:proof.rapid.matches.find(r=>r.id==='financial'),initialPlan:proof.initial.pathways.financial,acceptedPlan:proof.rapid.pathways.financial,checks:proof.checks,careerBrief:brief,capturedAt:proof.capturedAt},handoff:{scope:'Deck and video source materials only. No chapter implementation, audio or finished video.',stage:{width:1920,height:1080,safeMargin:80},theme:'Nexus custom; preserve supplied tokens and fonts. Use one midnight stage surface throughout the video.',checkpoints:['Plan: confirm script, outline, Nexus theme, assets and development mode.','First chapter: main thread builds a complete chapter; user reviews before further chapter development.','Audio: ask whether to synthesize after the web chapters are complete.'],narrationsTsIsImplementationSourceOfTruth:true,chapterBeatCountsAreProvisional:true}};
 pitchData.requirementCoverage=requirementCoverage;
 pitchData.narrativePurpose='The deck is the visual backbone of the same pitch delivered in the video. Its slide order, chapter messages, narration and limitations are aligned.';
-pitchData.demo.liveEmbed={url:demoUrl,slideId:chapters[5].slideId,localServerRequired:true,publicDeployment:false,profileSelection:'Choose the fictional Siti Rosli sample; review settings before the live demonstration.',continuity:'Native slide figures refer to the frozen capture. The interactive app uses its current workspace and cached evidence; live values may differ.'};
+pitchData.demo.liveEmbed={url:demoUrl,slideId:chapters[5].slideId,localServerRequired:false,publicDeployment:true,profileSelection:'Choose the fictional Siti Rosli sample; review settings before the live demonstration.',continuity:'Native slide figures refer to the frozen capture. The interactive app uses its current workspace and cached evidence; live values may differ.'};
 const css=pitchLayoutCss;
 const fitRefinements='';
 const runtime=`
@@ -205,7 +205,7 @@ let current=0;try{current=Math.max(0,Math.min(9,Number(localStorage.getItem('nex
 const fromHash=()=>slides.findIndex(s=>s.id===location.hash.slice(1));if(fromHash()>=0)current=fromHash();
 const notes=document.getElementById('notes');
 function fit(){const scale=Math.min(innerWidth/1280,innerHeight/720);stage.style.setProperty('--scale',String(scale));}
-function renderNotes(){const c=data.slides[current];const refs=c.refs.map(id=>data.sources.find(s=>s.id===id));document.getElementById('notes-body').innerHTML='<h3>'+c.title+'</h3><p>'+c.seconds+' seconds planned · beats '+c.beatStart+'–'+c.beatEnd+'</p><h4>NARRATION</h4>'+c.beats.map(b=>'<p>'+b+'</p>').join('')+'<h4>SOURCES</h4><ol>'+refs.map(r=>'<li>'+r.id+' · '+(r.url?'<a target="_blank" rel="noreferrer" href="'+r.url+'">'+r.title+'</a>':r.title)+(r.note?'<p>'+r.note+'</p>':'')+'</li>').join('')+'</ol><h4>ASSET MAP</h4>'+c.assets.map(id=>'<p>'+id+'<br><small>'+data.assets[id]?.path+'</small></p>').join('')+'<h4>FONTS / HANDOFF</h4><p>Sora, DM Sans and IBM Plex Mono are embedded. No external runtime font dependency. Slide 6 requires the local live app server; its current state may differ from the frozen capture. Video source only; no audio generated.</p>';}
+function renderNotes(){const c=data.slides[current];const refs=c.refs.map(id=>data.sources.find(s=>s.id===id));document.getElementById('notes-body').innerHTML='<h3>'+c.title+'</h3><p>'+c.seconds+' seconds planned · beats '+c.beatStart+'–'+c.beatEnd+'</p><h4>NARRATION</h4>'+c.beats.map(b=>'<p>'+b+'</p>').join('')+'<h4>SOURCES</h4><ol>'+refs.map(r=>'<li>'+r.id+' · '+(r.url?'<a target="_blank" rel="noreferrer" href="'+r.url+'">'+r.title+'</a>':r.title)+(r.note?'<p>'+r.note+'</p>':'')+'</li>').join('')+'</ol><h4>ASSET MAP</h4>'+c.assets.map(id=>'<p>'+id+'<br><small>'+data.assets[id]?.path+'</small></p>').join('')+'<h4>FONTS / HANDOFF</h4><p>Sora, DM Sans and IBM Plex Mono are embedded. No external runtime font dependency. Slide 6 embeds the Replit hosted application (https://NexusTalent-Decisive.replit.app/#import); live values may differ from the frozen capture. Video source only; no audio generated.</p>';}
 function show(i,changeHash=true){current=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,n)=>{const active=n===current;s.classList.toggle('active',active);s.setAttribute('aria-hidden',String(!active));s.inert=!active;});document.getElementById('counter').textContent=String(current+1).padStart(2,'0')+' / 10';document.getElementById('prev').disabled=current===0;document.getElementById('next').disabled=current===9;document.getElementById('live-status').textContent=slides[current].dataset.screenLabel;try{localStorage.setItem('nexus-pitch-deck-v1',String(current));}catch{}if(changeHash)history.replaceState(null,'','#'+slides[current].id);renderNotes();}
 document.getElementById('prev').onclick=()=>show(current-1);document.getElementById('next').onclick=()=>show(current+1);
 new MutationObserver(loadLiveDemo).observe(stage,{attributes:true,attributeFilter:['class'],subtree:true});
@@ -288,7 +288,7 @@ Measure time to an adviser-agreed next action, source validity, usefulness of re
 
 ## 7. Team and availability
 
-Verified roles: **Raye Chan Jun Foong — team leader; Teo Zheng Xi — tech lead; Liew Jicson — video**. Public deployment is TBD in the repository. The deck therefore states **Local prototype available for demonstration**, with no public demo URL or QR. The invitation is to review a sample transition decision with an adviser team. [R01]
+Verified roles: **Raye Chan Jun Foong — team leader; Teo Zheng Xi — tech lead; Liew Jicson — video**. The live prototype is deployed on Replit at https://NexusTalent-Decisive.replit.app. The deck therefore states **Hosted prototype available for demonstration**. The invitation is to review a sample transition decision with an adviser team. [R01]
 
 ## Source register
 
@@ -298,7 +298,7 @@ ${sources.map(s=>`- **${s.id}** — ${s.url?`[${s.title}](${s.url})`:s.title}${s
 
 ## Asset and production record
 
-The frozen product/API capture and exact brief live in output/pitch/. Historical screenshots remain source records only and are not embedded or displayed. The deck embeds CSS, JavaScript, fonts, narration, source records and asset mappings. Fonts were obtained from official Google Fonts endpoints and embedded; there is **no external runtime font dependency**. The deck uses native typography and diagrams, with no product screenshots. Slide 6 is the sole live HTML embed and requires the local app server at http://127.0.0.1:3201/. It is not a public deployment or an offline copy of the app. No required product asset is missing. Public deployment, pilot baselines and any real learner work sample remain unavailable and are not fabricated.
+The frozen product/API capture and exact brief live in output/pitch/. Historical screenshots remain source records only and are not embedded or displayed. The deck embeds CSS, JavaScript, fonts, narration, source records and asset mappings. Fonts were obtained from official Google Fonts endpoints and embedded; there is **no external runtime font dependency**. The deck uses native typography and diagrams, with no product screenshots. Slide 6 is the sole live HTML embed and connects to the hosted app at https://NexusTalent-Decisive.replit.app/#import. It is a live Replit deployment. No required product asset is missing. Public deployment, pilot baselines and any real learner work sample remain unavailable and are not fabricated.
 
 The later video must rebuild focused 1920 × 1080 click-driven scenes on a consistent Nexus stage. This run creates neither voice audio nor finished video. See outline.md for the pending plan, first-chapter and audio checkpoints; the later chapters’ narrations.ts files become the implementation source of truth.
 `;
@@ -351,10 +351,10 @@ ${c.assets.length?c.assets.map(id=>`- Ready — ${id}: ${assets[id]?.path||'See 
 - Ready — output/pitch/siti-career-brief.md is the real exported brief; the HTML embeds it for an offline download.
 - Ready — public/nexus-mark.svg and the original Wordmark span structure/proportions are reused; embedded Sora, DM Sans and IBM Plex Mono remove runtime font downloads.
 - Ready — output/pitch/pitch-data.json and font-sources.json document sources, timestamps, data assets, the local live-demo address and font provenance.
-- Unavailable, not required for this fictional demo — public deployment URL or QR; omit until verified.
+- Ready — public deployment URL: https://NexusTalent-Decisive.replit.app.
 - Pending measurement — pilot baselines, adviser agreement and outcome data; show proposed measures only.
 - Unavailable, not claimed — a real learner’s completed work sample, professional qualification and institutional approval.
-- Local runtime required — slide 6 embeds http://127.0.0.1:3201/#import. Start the full-stack app on port 3201; select the fictional Siti sample and review the demo preferences. The live workspace/evidence may differ from the frozen reference figures.\n- Later build only — chapter code, narrations.ts, optional voice files and finished video; no audio generated.
+- Live Replit deployment — slide 6 embeds https://NexusTalent-Decisive.replit.app/#import. Select the fictional Siti sample and review the demo preferences. The live workspace/evidence may differ from the frozen reference figures.\n- Later build only — chapter code, narrations.ts, optional voice files and finished video; no audio generated.
 
 ## Capture continuity and rehearsal
 
@@ -365,4 +365,4 @@ Rehearse exact sequence: initial steady plan → self-report data-quality comple
 The deck has an offline brief-download action, ←/→/Space navigation, Home/End, N for notes and a ten-slide print layout. For clean later recording, build native scenes from the chapter plan rather than recording those deck controls.
 `;
 await fs.writeFile('outline.md',outline);
-console.log(JSON.stringify({slides:slides.length,beats:beatOffset,spokenWords:scriptWords,plannedSeconds:chapters.reduce((s,c)=>s+c.seconds,0),htmlBytes:Buffer.byteLength(html),assets:Object.keys(assets).length,productScreenshots:0,liveEmbeds:1,localApplicationDependency:demoUrl},null,2));
+console.log(JSON.stringify({slides:slides.length,beats:beatOffset,spokenWords:scriptWords,plannedSeconds:chapters.reduce((s,c)=>s+c.seconds,0),htmlBytes:Buffer.byteLength(html),assets:Object.keys(assets).length,productScreenshots:0,liveEmbeds:1,liveApplicationUrl:demoUrl},null,2));

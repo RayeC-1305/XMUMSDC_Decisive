@@ -1,6 +1,6 @@
 # Nexus live demo in the pitch
 
-Slide 6 is the only product embed. It loads the real local application at `http://127.0.0.1:3201/#import` when the presenter enters that slide. Its new-tab link opens the same application at full size. All other slides use native HTML typography and diagrams; the deck contains no product screenshots.
+Slide 6 is the only product embed. It loads the live hosted application at [`https://NexusTalent-Decisive.replit.app/#import`](https://NexusTalent-Decisive.replit.app/#import) when the presenter enters that slide. Its new-tab link opens the same hosted application at full size. All other slides use native HTML typography and diagrams; the deck contains no product screenshots.
 
 The local server was built and started for this handoff. To restart it after closing the app or restarting the computer, run the following in PowerShell from `C:\XMUMSDC_Decisive`:
 

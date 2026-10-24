@@ -97,9 +97,9 @@ export function makePitchLayout({ chapters, wordmark, esc, source, demoUrl }) {
     `<section class="slide canvas s06" id="${chapters[5].slideId}">
       ${title('See the decision change')}
       <a class="demo-open" href="${esc(demoUrl)}" target="_blank" rel="noreferrer">Open demo in a new tab ${arrow('right', 20)}</a>
-      <div class="demo-stage" data-layout-box><iframe id="nexus-live-demo" title="Live Nexus local prototype" data-demo-src="${esc(demoUrl)}" referrerpolicy="no-referrer" allow="fullscreen"></iframe><p class="demo-print-note">Live Nexus prototype<br><span>${esc(demoUrl)}</span></p></div>
+      <div class="demo-stage" data-layout-box><iframe id="nexus-live-demo" title="Live Nexus hosted prototype" data-demo-src="${esc(demoUrl)}" referrerpolicy="no-referrer" allow="fullscreen"></iframe><p class="demo-print-note">Live Nexus prototype<br><span>${esc(demoUrl)}</span></p></div>
       <p class="demo-sequence" data-layout-box>Review a plan <span>→</span> Complete a step <span>→</span> Compare a scenario <span>→</span> Accept or keep the previous view</p>
-      ${foot(6, 'Live local prototype · Fictional profile · Self-reported completion · Scenarios are authored assumptions')}
+      ${foot(6, 'Live hosted prototype (Replit) · Fictional profile · Self-reported completion · Scenarios are authored assumptions')}
     </section>`,
 
     `<section class="slide s07" id="${chapters[6].slideId}">
@@ -139,7 +139,7 @@ export function makePitchLayout({ chapters, wordmark, esc, source, demoUrl }) {
       ${title('Make the next learning<br>decision reviewable')}
       <p class="closing-ask" data-layout-box>Bring one adviser team.<br>Review a transition brief with us.</p>
       <a class="demo-invitation" href="#${chapters[5].slideId}" data-layout-box>See Siti’s decision change ${arrow('right', 28)}</a>
-      <p class="local-prototype" data-layout-box>Local prototype available for demonstration.</p>
+      <p class="local-prototype" data-layout-box>Hosted prototype available for demonstration.</p>
       <p class="closing-promise" data-layout-box>Plans evolve.<br><span>Progress stays.</span></p>
       <div class="team-line" data-layout-box><div><strong>Raye Chan Jun Foong</strong><span>Team leader</span></div><div><strong>Teo Zheng Xi</strong><span>Tech lead</span></div><div><strong>Liew Jicson</strong><span>Video</span></div></div>
       ${foot(10, 'Domain 1 · Aiversecity Future-Ready Workforce · Advance with every shift.', true)}

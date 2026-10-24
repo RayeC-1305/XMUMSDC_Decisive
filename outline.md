@@ -178,7 +178,7 @@ The later chapter narrations.ts is the implementation source of truth for step c
 
 **Asset checklist:**
 
-- Ready — live-demo: http://127.0.0.1:3201/#import.
+- Ready — live-demo: https://NexusTalent-Decisive.replit.app/#import.
 - Ready — demo-proof: output/pitch/demo-proof.json.
 
 **Spoken excerpt:** “Here is the change we verified. Siti starts with a plan whose first priority is data quality and validation.”
@@ -274,7 +274,7 @@ The later chapter narrations.ts is the implementation source of truth for step c
 **Information pool:**
 
 - Team: names and roles are verified in README.md — article §7.
-- Deployment: repository lists public demo TBD; no verified public URL or QR is supplied — article §7.
+- Deployment: hosted prototype deployed on Replit (https://NexusTalent-Decisive.replit.app) — article §7.
 - Invitation: validate a sample transition decision with an adviser team, carrying the completed step into the real brief — article §3, §5–7.
 
 **Focused screen plan:**
@@ -301,10 +301,10 @@ The later chapter narrations.ts is the implementation source of truth for step c
 - Ready — output/pitch/siti-career-brief.md is the real exported brief; the HTML embeds it for an offline download.
 - Ready — public/nexus-mark.svg and the original Wordmark span structure/proportions are reused; embedded Sora, DM Sans and IBM Plex Mono remove runtime font downloads.
 - Ready — output/pitch/pitch-data.json and font-sources.json document sources, timestamps, data assets, the local live-demo address and font provenance.
-- Unavailable, not required for this fictional demo — public deployment URL or QR; omit until verified.
+- Ready — public deployment URL: https://NexusTalent-Decisive.replit.app.
 - Pending measurement — pilot baselines, adviser agreement and outcome data; show proposed measures only.
 - Unavailable, not claimed — a real learner’s completed work sample, professional qualification and institutional approval.
-- Local runtime required — slide 6 embeds http://127.0.0.1:3201/#import. Start the full-stack app on port 3201; select the fictional Siti sample and review the demo preferences. The live workspace/evidence may differ from the frozen reference figures.
+- Live Replit deployment — slide 6 embeds https://NexusTalent-Decisive.replit.app/#import. Select the fictional Siti sample and review the demo preferences. The live workspace/evidence may differ from the frozen reference figures.
 - Later build only — chapter code, narrations.ts, optional voice files and finished video; no audio generated.
 
 ## Capture continuity and rehearsal

@@ -67,7 +67,7 @@ Measure time to an adviser-agreed next action, source validity, usefulness of re
 
 ## 7. Team and availability
 
-Verified roles: **Raye Chan Jun Foong — team leader; Teo Zheng Xi — tech lead; Liew Jicson — video**. Public deployment is TBD in the repository. The deck therefore states **Local prototype available for demonstration**, with no public demo URL or QR. The invitation is to review a sample transition decision with an adviser team. [R01]
+Verified roles: **Raye Chan Jun Foong — team leader; Teo Zheng Xi — tech lead; Liew Jicson — video**. The live prototype is deployed on Replit at https://NexusTalent-Decisive.replit.app. The deck therefore states **Hosted prototype available for demonstration**. The invitation is to review a sample transition decision with an adviser team. [R01]
 
 ## Source register
 
@@ -90,6 +90,6 @@ Repository sources refer to the active files read on 24 October 2026; legacy str
 
 ## Asset and production record
 
-The frozen product/API capture and exact brief live in output/pitch/. Historical screenshots remain source records only and are not embedded or displayed. The deck embeds CSS, JavaScript, fonts, narration, source records and asset mappings. Fonts were obtained from official Google Fonts endpoints and embedded; there is **no external runtime font dependency**. The deck uses native typography and diagrams, with no product screenshots. Slide 6 is the sole live HTML embed and requires the local app server at http://127.0.0.1:3201/. It is not a public deployment or an offline copy of the app. No required product asset is missing. Public deployment, pilot baselines and any real learner work sample remain unavailable and are not fabricated.
+The frozen product/API capture and exact brief live in output/pitch/. Historical screenshots remain source records only and are not embedded or displayed. The deck embeds CSS, JavaScript, fonts, narration, source records and asset mappings. Fonts were obtained from official Google Fonts endpoints and embedded; there is **no external runtime font dependency**. The deck uses native typography and diagrams, with no product screenshots. Slide 6 is the sole live HTML embed and connects to the hosted app at https://NexusTalent-Decisive.replit.app/#import. It is a live Replit deployment. No required product asset is missing. Public deployment, pilot baselines and any real learner work sample remain unavailable and are not fabricated.
 
 The later video must rebuild focused 1920 × 1080 click-driven scenes on a consistent Nexus stage. This run creates neither voice audio nor finished video. See outline.md for the pending plan, first-chapter and audio checkpoints; the later chapters’ narrations.ts files become the implementation source of truth.

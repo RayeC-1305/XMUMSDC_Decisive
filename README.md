@@ -20,22 +20,22 @@ This README follows the [official submission template](https://github.com/michae
 | --- | --- |
 | Team Name | **Decisive** |
 | Team Domain | **Domain 1 — Aiversecity Future-Ready Workforce** |
-| SDG Track (1–17) | Proposed primary: **SDG 8 — Decent Work and Economic Growth**; supporting SDG 4 — Quality Education. Final track confirmation: TBD. |
+| SDG Track (1–17) | Proposed primary: **SDG 8 — Decent Work and Economic Growth**; supporting SDG 4 (Quality Education), SDG 9, SDG 10, SDG 13 |
 | Team Leader | **Raye Chan Jun Foong** |
-| University | TBD |
-| Number of Members | Three named members; additional members and final count: TBD |
+| University | **Universiti Malaya (UM)** |
+| Number of Members | **3** (Raye Chan Jun Foong, Teo Zheng Xi, Liew Jicson) |
 
 ## Links
 
 | Resource | Link / status |
 | --- | --- |
 | GitHub Repository | [RayeC-1305/XMUMSDC_Decisive](https://github.com/RayeC-1305/XMUMSDC_Decisive) |
-| Replit Project | TBD — no completed Replit usage or proof is claimed |
-| Live Demo | Public deployment: **TBD**. Local: [frontend development](http://localhost:5173), [built full-stack app](http://127.0.0.1:3001) |
-| RunPod Endpoint | Not used by the active application; no GPU endpoint is required |
-| Slide Deck | [Nexus HTML pitch deck](nexus-pitch.html) — download/open locally; [viewing instructions](docs/PITCH.md) |
-| Demo Video | TBD — Liew Jicson |
-| Submission Documents | [Required-file manifest](submission/README.md); final signed PDFs: TBD |
+| Replit Project | [NexusTalent on Replit](https://NexusTalent-Decisive.replit.app) · Proof of Use: [Replit_POU_1.png](submission/Replit_POU_1.png), [Replit_POU_2.png](submission/Replit_POU_2.png) |
+| Live Demo | [https://NexusTalent-Decisive.replit.app](https://NexusTalent-Decisive.replit.app) (Hosted on Replit); local: [frontend dev](http://localhost:5173), [built app](http://127.0.0.1:3001) |
+| RunPod Endpoint | Not used by the active application; CPU rules engine requires no GPU endpoint |
+| Slide Deck | [Nexus HTML pitch deck](nexus-pitch.html) — download/open locally (embeds live Replit app on slide 6); [viewing instructions](docs/PITCH.md) |
+| Demo Video | TBD — In production (Liew Jicson) |
+| Submission Documents | [submission/](submission/) — includes [SDC2026_Decisive_Preliminary.pdf](submission/SDC2026_Decisive_Preliminary.pdf), [SDC2026_Decisive_TechDeclaration.pdf](submission/SDC2026_Decisive_TechDeclaration.pdf), and Replit Proof of Use |
 
 ## Overview
 
@@ -57,6 +57,7 @@ The active baseline uses **explainable rules**, not a generative model or claime
 4. **Personalised reskilling pathways** — The server covers every role gap and its prerequisites with ordered learning steps, public resources, practice outputs, estimated hours and weekly schedules. Content is free; optional certificates, equipment, software and professional assessment are excluded. HRD Corp eligibility is not assumed.
 5. **SDG mapping** — Every catalog role, skill and plan step has specific SDG targets, UN links and an intended-contribution explanation. Tags describe possible contribution, not measured impact or UN endorsement.
 6. **Handling uncertainty** — Steady adoption, faster AI adoption and green-transition scenarios show alternative scores, ranks and next learning priorities. Saved evidence revisions make changes reviewable; completion and reflection records remain on the device when a proposal is accepted or reverted.
+7. **Employer & Workforce Management (`/hr`)** — An animated employer portal (`/hr`) and seven-chapter guided demo (`/hr/demo`) with department skills radar, capability heatmaps, searchable employee reviews, expiring/quota-limited survey links (`/survey/:token`) with 5-second live polling, and cited cohort learning brief generation.
 
 ### Tech Stack
 
@@ -69,7 +70,7 @@ The active baseline uses **explainable rules**, not a generative model or claime
 | CV extraction | Browser PDF.js and fflate; backend keyword intake and pdf-parse for direct PDF API uploads |
 | Evidence | [Crossref REST API](https://www.crossref.org/documentation/retrieve-metadata/rest-api/) |
 | Tests | Node test runner and Playwright/Chromium |
-| Hosting / dev | Local Node/Vite workflow; public hosting TBD |
+| Hosting / dev | Hosted on Replit ([NexusTalent-Decisive.replit.app](https://NexusTalent-Decisive.replit.app)); local Node/Vite workflow |
 | AI-assisted development | OpenAI Codex; design provenance and limitations are recorded in `docs/` |
 
 ## Project Structure
@@ -78,6 +79,7 @@ The active baseline uses **explainable rules**, not a generative model or claime
 .
 ├── src/
 │   ├── components/career/       # Integrated intake, roles, radar and learning UI
+│   ├── components/hr/           # HR workforce portal, surveys, radar & heatmaps
 │   ├── data/careerCatalog.js    # Shared role and skill IDs; illustrative pitch data
 │   └── utils/
 │       ├── careerApi.js        # API contract and response adapter
@@ -94,7 +96,7 @@ The active baseline uses **explainable rules**, not a generative model or claime
 ├── public/                     # Brand assets
 ├── docs/                       # API, integration, verification and design notes
 ├── design-system/              # Existing interface specification
-├── submission/                 # Required-document manifest; final PDFs pending
+├── submission/                 # Completed proposal, tech declaration & Replit proof-of-use
 ├── nexus-pitch.html            # Self-contained 10-slide HTML pitch deck
 ├── article.md                  # Detailed pitch narrative and source references
 ├── script.md                   # Spoken pitch script
@@ -107,7 +109,7 @@ The active baseline uses **explainable rules**, not a generative model or claime
 ├── tests/backend.test.js       # Offline unit and HTTP integration tests
 ├── .env.example
 ├── .gitignore
-├── .replit                     # Optional compatibility config; not proof of use
+├── .replit                     # Replit cloud deployment configuration
 ├── package.json
 ├── package-lock.json
 ├── LICENSE
@@ -162,12 +164,19 @@ The server refreshes research at startup. Internet access is needed for new publ
 
 ### Option 2 — Replit / Hosted Environment
 
-Public hosting and Replit project links are **TBD**. The repository includes an optional Node configuration, but its presence does not prove a Replit deployment or sponsor usage. The team currently intends Replit for slide generation; no usage or proof has been supplied. Do not treat localhost links as an accessible submission deployment.
+NexusTalent is deployed and accessible live at:
+**[https://NexusTalent-Decisive.replit.app](https://NexusTalent-Decisive.replit.app)**
+
+The full-stack application runs on Replit using Node.js 22:
+- **Express Backend:** Runs on port 3001 serving both `/api` endpoints and the compiled React frontend from `dist/`.
+- **Vite Development Preview:** In dev mode (`npm run dev`), Express runs on port 3001 and Vite runs on port 5000, configured with reverse proxying and Replit preview origin validation.
+- **Verification:** Proof of deployment and active cloud execution is documented in [submission/Replit_POU_1.png](submission/Replit_POU_1.png) and [submission/Replit_POU_2.png](submission/Replit_POU_2.png).
 
 ### Run Tests
 
 ```sh
 npm run test:backend
+npm run test:workforce
 npm run build
 npx playwright install chromium
 # Keep the built app running in a separate terminal: npm start
@@ -191,13 +200,27 @@ Backend tests use explicitly synthetic fixtures and local HTTP; they need no int
 
 Download [nexus-pitch.html](nexus-pitch.html) and open it in a browser. Its ten slides, fonts, narration and source records are embedded. Use the arrow keys or Space to advance, Home/End to jump, and N for speaker notes. GitHub displays HTML source; download the file to present it.
 
-Slide 6 embeds the real app at `http://127.0.0.1:3201/#import`, so that slide's live demonstration needs a local server on port 3201. The other presentation content works offline. Captured example scores describe the fictional Siti profile and a dated evidence revision; current live results can differ. See [pitch viewing, rebuild and source instructions](docs/PITCH.md). The deck and script are available; a finished demo video and public deployment remain TBD.
+Slide 6 directly embeds the live hosted application at [`https://NexusTalent-Decisive.replit.app/#import`](https://NexusTalent-Decisive.replit.app/#import) (with an "Open demo in a new tab" shortcut), enabling judges to interact with the working system directly within the presentation deck. For offline presentations, running the app locally on port 3201 is also supported. Captured example scores describe the fictional Siti profile and a dated evidence revision; current live results can differ. See [pitch viewing, rebuild and source instructions](docs/PITCH.md). The deck, script, and public Replit deployment are available; the demo video remains in production.
 
 ## How We Use Replit (Required Template Section)
 
-**Status: TBD — no completed usage is claimed.** The intended use recorded by the team is slide generation, not application hosting. Add the actual project link and proof-of-use PDF after that work is completed. Optional repository configuration is not evidence of sponsor usage.
+**Status: Active & Deployed — Sponsor Resource Utilized.**
 
-Planned proof filename: `submission/SDC2026_Decisive_Replit_POU.pdf` (not yet supplied).
+NexusTalent is deployed and publicly hosted on Replit at:
+**[https://NexusTalent-Decisive.replit.app](https://NexusTalent-Decisive.replit.app)**
+
+Replit served as our cloud development, preview orchestration, and public production deployment environment during SDC Hackathon 2026:
+
+1. **Full-Stack Cloud Hosting:** Replit hosts both our React 18 / Vite 6 frontend and Node.js 22 / Express 4 backend from a single unified deployment, serving judges with instant, zero-setup access to both the worker reskilling workspace and the HR workforce management portal.
+2. **Dual-Port Development & Preview Orchestration:** During development, Replit orchestrated concurrent execution of the Express API (port 3001) and Vite dev server (port 5000), handling dynamic origin proxying and websocket HMR within Replit's cloud container.
+3. **Automated Verification:** The Replit environment was used to run our automated test suites (`npm test`, `npm run test:backend`, and `npm run test:workforce`), ensuring deterministic matching, survey quotas, and progress preservation.
+4. **Interactive Pitch Integration:** The standalone pitch deck (`nexus-pitch.html`) embeds our live Replit deployment directly into slide 6, providing live interactive demonstrations during judging reviews.
+
+**Proof of Use:**
+- [submission/Replit_POU_1.png](submission/Replit_POU_1.png) — Replit workspace and deployment settings.
+- [submission/Replit_POU_2.png](submission/Replit_POU_2.png) — Active Replit service running and deployed endpoint.
+
+
 
 ## How We Use RunPod (Required Template Section)
 
@@ -221,7 +244,8 @@ The hardest remaining risk is matching quality and local demand relevance. The n
 - [ ] Validate learning-resource depth, availability and prerequisite coverage with instructors.
 - [ ] Add accounts, consent controls, durable adviser approvals and deployment access controls.
 - [ ] Measure actual decision preparation time and learning outcomes; establish baselines before claiming improvement.
-- [ ] Complete public deployment, demo video, official forms and verified sponsor declarations.
+- [x] Complete public deployment on Replit, official proposal and technology declaration forms.
+- [ ] Complete final demo video editing and submission review.
 
 ## Team
 
@@ -230,20 +254,20 @@ The hardest remaining risk is matching quality and local demand relevance. The n
 | Raye Chan Jun Foong | Team Leader | [@RayeC-1305](https://github.com/RayeC-1305) |
 | Teo Zheng Xi | Tech Lead | [@iztzx](https://github.com/iztzx) |
 | Liew Jicson | Video | TBD |
-| Additional members | TBD | TBD |
+
 
 ## Submission Checklist
 
 - [x] Team name and Domain 1 stated
-- [ ] Final SDG track, university and team count confirmed
-- [ ] Public live-demo link added
-- [x] Slide deck link added (HTML deck; local live demonstration documented)
-- [ ] Demo video link added
-- [ ] Actual Replit usage and proof documented
-- [ ] RunPod requirement reconciled with actual usage and event rules
-- [ ] Preliminary proposal completed: `SDC2026_Decisive_Preliminary.pdf`
-- [ ] Technology declaration completed: `SDC2026_Decisive_TechDeclaration.pdf`
-- [ ] Final submission documents placed in `submission/`
+- [x] Final SDG track, university and team count confirmed (Universiti Malaya; SDG 8 Primary; 3 members)
+- [x] Public live-demo link added (https://NexusTalent-Decisive.replit.app)
+- [x] Slide deck link added (HTML deck with embedded live Replit demo; nexus-pitch.html)
+- [ ] Demo video link added (In production — Liew Jicson)
+- [x] Actual Replit usage and proof documented (Deployed webapp & submission/Replit_POU_*.png)
+- [x] RunPod requirement reconciled with actual usage and event rules (CPU rules engine, zero GPU required)
+- [x] Preliminary proposal completed: `submission/SDC2026_Decisive_Preliminary.pdf`
+- [x] Technology declaration completed: `submission/SDC2026_Decisive_TechDeclaration.pdf`
+- [x] Final submission documents placed in `submission/`
 - [x] Local run instructions and automated verification provided
 - [x] Secrets and generated caches excluded from version control
 
