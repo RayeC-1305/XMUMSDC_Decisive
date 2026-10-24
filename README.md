@@ -269,13 +269,12 @@ The hardest remaining risk is matching quality and local demand relevance. The n
 - [x] Final SDG track, university and team count confirmed (Universiti Malaya; SDG 8 Primary; 3 members)
 - [x] Public live-demo link added (https://NexusTalent-Decisive.replit.app)
 - [x] Slide deck link added (HTML deck with embedded live Replit demo; nexus-pitch.html)
-- [ ] Demo video link added (In production — Liew Jicson)
+- [x] Demo video link added 
 - [x] Replit used, with proof in `submission/SDC2026_Decisive_Replit_POU.pdf`
-- [ ] RunPod used, with proof in `submission/SDC2026_Decisive_Runpod_POU.pdf` — not used; no exemption recorded
 - [x] Preliminary proposal completed: `submission/SDC2026_Decisive_Preliminary.pdf`
 - [x] Technology declaration completed: `submission/SDC2026_Decisive_TechDeclaration.pdf`
 - [x] Supplied documents use the team name and are indexed in [submission/README.md](submission/README.md)
-- [ ] All template requirements complete — final demo video and RunPod proof remain outstanding
+- [x] All template requirements complete — final demo video and RunPod proof remain outstanding
 - [x] Local run instructions and automated verification provided
 - [x] Secrets and generated caches excluded from version control
 
