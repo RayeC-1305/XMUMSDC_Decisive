@@ -14,12 +14,14 @@
 ## Routes and persistence
 
 - `/` and existing hash routes: unchanged worker application, with an HR audience link.
-- `/hr`: employer landing page introducing the workflow, with a **Start guided demo** link.
+- `/hr`: animated employer introduction with a synthetic scenario preview using the existing local career rules and an **Explore the guided demo** link.
 - `/hr/demo`: seven guided chapters for setup, invitations, real employee responses, skills analysis, scenario comparison, learning plans and SDG review. Chapters use URL hashes and Previous/Next controls; selected campaign, scope and scenario persist in session storage. The embedded survey reuses the public survey component and updates the real dashboard after submission.
 - `/survey/:token`: synthetic employee survey and immediate individual analysis.
 - `services/workforce_service.js` and `server/workforce_routes.js` extend the existing `/api` service. Matching and pathway generation reuse `services/career_engine.js`; they do not replace the worker engine.
 - Individual intake/match endpoints remain stateless. Existing worker profiles/progress remain in browser local storage.
 - Department campaigns, **synthetic** employee profiles, self-ratings, custom review skills and simulation state persist in `data/workforce/demo.json`, with atomic replacement. The store is seeded once with three departments and eight profiles each.
+- HR Skills has separate radar, capability map and searchable employee-review views. Learning cohorts can be selected for a downloadable Markdown brief; required prerequisites are automatically included and dependent learning is removed when a foundation is excluded. Brief selection is local UI state, not recorded training completion.
+- Origin checks allow the exact workspace development hostname on its public preview ports, explicit configured origins and the serving host. Never replace this with a wildcard or trust arbitrary forwarded-host headers. Regression tests cover public preview Origin headers against the loopback backend.
 - Research uses the existing dated Crossref metadata cache in `data/cache/`. A failed refresh never invents sources. Simulated weights remain separately labelled assumptions.
 
 ## Scope and safety

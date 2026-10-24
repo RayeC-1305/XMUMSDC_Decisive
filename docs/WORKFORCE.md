@@ -6,17 +6,21 @@ The app remains a single React 18 / Vite 6 frontend and Node 22 / Express 4 back
 
 ## Guided employer experience
 
-The employer landing page explains the complete workflow before inviting users into **Start guided demo**. The demo shows one chapter at a time:
+The employer landing page explains the complete workflow before inviting users into **Explore the guided demo**. Its synthetic scenario preview uses the same local catalog/ranking/pathway functions as the individual introduction, and is explicitly separate from the API-backed department results. Scroll reveals, chapter navigation and reduced-motion support make the introduction explorable. The demo shows one chapter at a time:
 
 1. `#setup` — choose a seeded department and optionally load the idempotent demo set;
 2. `#invite` — create, copy, extend or revoke an actual survey campaign;
 3. `#respond` — submit the real employee survey inside the demo and receive immediate personal results, or open the shareable public survey;
-4. `#skills` — inspect the radar, heatmap and individual employee details;
+4. `#skills` — switch between radar, heatmap and searchable employee review, filter by exposure proxy and inspect individual pathways;
 5. `#scenarios` — switch scenarios, refresh sources or simulate weights, with visible score/exposure/timeline results;
-6. `#plan` — review prerequisite-ordered learning cohorts and citations;
+6. `#plan` — select prerequisite-ordered learning cohorts, inspect participants/citations and download an actual department learning brief;
 7. `#impact` — inspect SDG mappings and discuss fairness, evidence and human-review boundaries.
 
 Each chapter explains its purpose and intended outcome. Numbered navigation, Previous/Next, deep links and browser back/forward work without resetting the selected campaign or scenario. Department setup, survey campaign and analysis scope are connected; preferences survive page reloads in session storage. Embedded submissions immediately request fresh dashboard data, in addition to the five-second polling interval. Reduced-motion preferences are respected.
+
+Guidance is compact and action-led; methodology, sources and further notes use expandable disclosure. Workforce summary metrics are available under Review rather than blocking the first task. Brief cohort selection is ephemeral UI state, not a saved or completed training plan. Selecting a dependent cohort includes its foundations; excluding a foundation excludes dependent learning. Exports include actual profiles, scenario, chosen cohorts, dated citations, department SDG mappings (not measured impact) and human-review guardrails.
+
+Origin regression checks cover the exact public preview hostname with `:5000` against a backend receiving a rewritten loopback Host header. Localhost-only browser tests are insufficient for mutation flows behind the development proxy. Unrelated origins remain blocked.
 
 Survey profiles pass through `normalizeProfile`, the existing `matchProfile` rules engine and `buildPathway`. Optional **synthetic** CV text uses the same `recogniseSkills` keyword rules, with text split into bounded task entries. Custom skills outside the catalog are retained only for human review, never treated as scored catalog skills. Employee self-rated proficiency is saved for the heatmap, not added to individual role scoring.
 

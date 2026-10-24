@@ -1,1 +1,2 @@
 - [Hackathon judging priorities](judging-priorities.md) — HR and worker journeys are equally important; judges need fast, synthetic-only end-to-end exploration.
+- [Preview mutation verification](preview-verification.md) — local browser tests can miss public-preview Origin failures; verify writes through the user's actual preview URL.

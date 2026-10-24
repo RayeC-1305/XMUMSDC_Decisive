@@ -1,142 +1,132 @@
-import React from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
-  ArrowDown,
-  ArrowRight,
-  ArrowUpRight,
-  BarChart3,
-  BookOpen,
-  Check,
-  CircleHelp,
-  Compass,
-  GitBranch,
-  Leaf,
-  ShieldCheck,
-  Users,
+  ArrowDown, ArrowRight, ArrowUpRight, Check, ChevronRight, GitBranch,
+  Leaf, Radio, ShieldCheck, Users,
 } from "lucide-react";
+import { DEFAULT_PREFERENCES, SAMPLE_CVS, SCENARIOS, SOURCES, SKILL_MAP } from "../../data/careerCatalog";
+import { planFor, rankRoles } from "../../utils/careerDemo";
 import "./hrLanding.css";
 
 const chapters = [
-  ["01", "Set a shared starting point", "Choose a department and load a fictional workforce sample. The same workspace is safe to revisit."],
-  ["02", "Invite with care", "Create a campaign link with a clear focus, response limit and expiry. Copy, extend or revoke it whenever needed."],
-  ["03", "Hear from people", "Complete a synthetic skills reflection. The submitted response appears in the same planning dashboard."],
-  ["04", "Make signals legible", "Read the Future Skills Radar and inspect individual self-ratings, skill gaps and explainable role pathways."],
-  ["05", "Compare possible futures", "Change authored scenarios, refresh dated research metadata and inspect the inputs before discussing a plan."],
-  ["06", "Turn insight into learning", "Review ordered learning cohorts and employee pathways, including prerequisites, hours and source citations."],
-  ["07", "Review outcomes together", "Explore all 17 SDG mappings and fairness disclosures. Human judgement stays in the loop."],
+  ["setup", "Choose a shared starting point", "Load a fictional department baseline."],
+  ["invite", "Invite with care", "Create, share and manage a real survey link."],
+  ["respond", "Hear from people", "Submit a synthetic skills reflection."],
+  ["skills", "Make signals legible", "Explore declared skills and role pathways."],
+  ["scenarios", "Compare possible futures", "Change assumptions; inspect the sources."],
+  ["plan", "Turn insight into learning", "Review cohorts and ordered pathways."],
+  ["impact", "Review outcomes together", "Explore SDG mappings and fairness limits."],
 ];
 
-export default function HRLanding() {
-  return (
-    <div className="hr-landing">
-      <a className="hrl-skip" href="#hrl-content">Skip to the introduction</a>
-      <header className="hrl-nav">
-        <a className="hrl-brand" href="/hr" aria-label="NexusTalent employer introduction">
-          <span className="hrl-mark">N</span>
-          <span>NexusTalent<small>People &amp; capability planning</small></span>
-        </a>
-        <nav aria-label="Employer introduction">
-          <a href="#workflow">The workflow</a>
-          <a href="#principles">How it works</a>
-          <a href="/">Individual workspace <ArrowUpRight size={14} /></a>
-        </nav>
-        <a className="hrl-nav-cta" href="/hr/demo">Start guided demo <ArrowRight size={15} /></a>
-      </header>
-
-      <main id="hrl-content">
-        <section className="hrl-hero">
-          <div className="hrl-hero-copy">
-            <span className="hrl-kicker"><span /> FOR PEOPLE &amp; CAPABILITY TEAMS</span>
-            <h1>Build capability.<br /><em>Make room</em> for people.</h1>
-            <p className="hrl-lede">A practical workspace for turning workforce skills into better learning conversations—not automated people decisions.</p>
-            <div className="hrl-actions">
-              <a className="hrl-primary" href="/hr/demo">Start guided demo <ArrowRight size={17} /></a>
-              <a className="hrl-secondary" href="#workflow"><ArrowDown size={15} /> See the workflow</a>
-            </div>
-            <div className="hrl-trustline"><ShieldCheck size={16} /> Public prototype · synthetic profiles only · human review throughout</div>
-          </div>
-          <div className="hrl-orbit" aria-label="Illustration of a connected workforce planning journey">
-            <div className="hrl-orbit-grid" />
-            <div className="hrl-orbit-ring ring-one" />
-            <div className="hrl-orbit-ring ring-two" />
-            <svg className="hrl-route" viewBox="0 0 520 420" fill="none" aria-hidden="true">
-              <path d="M91 294C120 294 126 200 190 200H233C269 200 259 112 321 112H367C404 112 395 261 452 261" stroke="#647389" strokeWidth="2" strokeDasharray="4 8" />
-              <path d="M91 294C120 294 126 200 190 200H233C269 200 259 112 321 112H367C404 112 395 261 452 261" stroke="#b6e7d8" strokeWidth="3" strokeDasharray="208 640" strokeLinecap="round" />
-            </svg>
-            <div className="hrl-node node-intake"><span className="hrl-node-icon"><Users size={17} /></span><small>01 / INVITE</small><strong>People, first</strong></div>
-            <div className="hrl-node node-signal"><span className="hrl-node-icon"><BarChart3 size={17} /></span><small>02 / UNDERSTAND</small><strong>Skills in context</strong></div>
-            <div className="hrl-node node-plan"><span className="hrl-node-icon"><GitBranch size={17} /></span><small>03 / PLAN</small><strong>Next steps</strong></div>
-            <div className="hrl-node node-outcome"><span className="hrl-node-icon"><Leaf size={17} /></span><small>04 / REVIEW</small><strong>Shared progress</strong></div>
-            <div className="hrl-orbit-caption"><span>WORKFORCE PLANNING</span><b>A living conversation, not a scorecard.</b></div>
-          </div>
-          <div className="hrl-hero-foot"><span>01—07</span><span>A guided path from setup to review</span><span>Use fictional data throughout</span></div>
-        </section>
-
-        <section className="hrl-intro-strip" aria-label="The planning approach">
-          <div><span className="hrl-strip-number">01</span><strong>Start with declared skills</strong><p>Self-reported experience—not assumptions about people.</p></div>
-          <div><span className="hrl-strip-number">02</span><strong>Make the reasoning visible</strong><p>Scores, evidence and authored weights stay inspectable.</p></div>
-          <div><span className="hrl-strip-number">03</span><strong>Keep decisions human</strong><p>Planning signals invite a conversation; they never decide one.</p></div>
-        </section>
-
-        <section className="hrl-workflow" id="workflow">
-          <div className="hrl-section-heading">
-            <div><span className="hrl-kicker">A connected seven-part journey</span><h2>From a department question<br />to a plan people can shape.</h2></div>
-            <p>Follow the guided demo at your own pace. Each chapter uses the same real workspace and carries your choices forward.</p>
-          </div>
-          <div className="hrl-workflow-layout">
-            <div className="hrl-chapter-list">
-              {chapters.map(([number, title, copy]) => (
-                <article className="hrl-chapter" key={number}>
-                  <span>{number}</span><div><h3>{title}</h3><p>{copy}</p></div><ArrowRight size={17} />
-                </article>
-              ))}
-            </div>
-            <aside className="hrl-preview">
-              <div className="hrl-preview-top"><span>WORKSPACE PREVIEW</span><span className="hrl-live-dot">LIVE DEMO</span></div>
-              <div className="hrl-preview-title"><div><small>PEOPLE PLANNING / OVERVIEW</small><h3>What can we grow next?</h3></div><span className="hrl-preview-stamp">SYNTHETIC<br />SAMPLE</span></div>
-              <div className="hrl-preview-metrics">
-                <div><small>INPUT</small><b>Declared skills</b><span>Self-ratings 0–5</span></div>
-                <div><small>METHOD</small><b>Explainable rules</b><span>45 / 30 / 25 weights</span></div>
-              </div>
-              <div className="hrl-preview-chart">
-                <div className="hrl-chart-label"><span>Capability signals</span><span>Illustrative layout</span></div>
-                {[["Digital fluency", 68], ["Process design", 45], ["Data confidence", 76], ["Sustainability", 37]].map(([label, value]) => <div className="hrl-bar-row" key={label}><span>{label}</span><i><b style={{ width: `${value}%` }} /></i></div>)}
-              </div>
-              <div className="hrl-preview-foot"><ShieldCheck size={14} /> Planning view · not a performance measure</div>
-            </aside>
-          </div>
-        </section>
-
-        <section className="hrl-principles" id="principles">
-          <div className="hrl-principles-art">
-            <div className="hrl-signal-card">
-              <div className="hrl-signal-head"><span><Compass size={15} /> A decision, with context</span><span>REVIEWABLE</span></div>
-              <div className="hrl-signal-result"><small>TOP ROLE PATHWAY</small><strong>Illustrative direction</strong><span>Strengths + skills to explore</span></div>
-              <div className="hrl-signal-weight"><div><span>Declared skills</span><b>45%</b></div><i><b style={{ width: "45%" }} /></i></div>
-              <div className="hrl-signal-weight"><div><span>Transferable strengths</span><b>30%</b></div><i><b style={{ width: "30%" }} /></i></div>
-              <div className="hrl-signal-weight"><div><span>Research / scenario context</span><b>25%</b></div><i><b style={{ width: "25%" }} /></i></div>
-              <div className="hrl-signal-note"><Check size={14} /> Fixed rules; no LLM inference</div>
-            </div>
-            <span className="hrl-orbit-label">NO DEMOGRAPHIC SCORING INPUTS</span>
-          </div>
-          <div className="hrl-principles-copy">
-            <span className="hrl-kicker">Built for a better conversation</span>
-            <h2>Useful insight.<br /><em>Human ownership.</em></h2>
-            <p>Explore learning priorities with people, not in place of them. The prototype makes its limits visible alongside the signals.</p>
-            <ul>
-              <li><ShieldCheck size={17} /><span><b>Planning, not performance</b><small>Self-ratings guide learning review. They do not change role scores or evaluate an employee.</small></span></li>
-              <li><BookOpen size={17} /><span><b>Evidence, not a vacancy forecast</b><small>Sources and authored scenario weights are separate; neither claims observed hiring demand.</small></span></li>
-              <li><CircleHelp size={17} /><span><b>Review, don't automate</b><small>Human judgement stays central. No hiring, firing or performance decisions are made here.</small></span></li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="hrl-cta">
-          <div><span className="hrl-kicker">TAKE THE TOUR</span><h2>See the whole workflow<br /><em>in a guided demo.</em></h2><p>Seven manageable steps. Your pace. Real campaign, survey and planning features—using synthetic data only.</p></div>
-          <a className="hrl-primary" href="/hr/demo">Start guided demo <ArrowRight size={17} /></a>
-          <div className="hrl-cta-index"><span>01</span><i /><span>07</span></div>
-        </section>
-      </main>
-      <footer className="hrl-footer"><a className="hrl-brand" href="/hr"><span className="hrl-mark">N</span><span>NexusTalent<small>People &amp; capability planning</small></span></a><span>Prototype only · Synthetic data · Human review</span><a href="/hr/demo">Enter guided demo <ArrowUpRight size={14} /></a></footer>
+function ScenarioPreview() {
+  const [scenario, setScenario] = useState("steady");
+  const profile = SAMPLE_CVS[0];
+  const roles = useMemo(() => rankRoles(profile, SOURCES, scenario), [profile, scenario]);
+  const selected = roles[0];
+  const pathway = useMemo(() => planFor(profile, selected, DEFAULT_PREFERENCES), [profile, selected]);
+  const currentScenario = SCENARIOS.find((item) => item.id === scenario) || SCENARIOS[0];
+  return <div className="hrl-live-preview" aria-label="Interactive synthetic career pathway preview">
+    <div className="hrl-preview-head"><span><i /> INTERACTIVE PREVIEW</span><span>CAREER ENGINE</span></div>
+    <div className="hrl-preview-profile"><span className="hrl-avatar">SR</span><span><small>FICTIONAL PROFILE · SYNTHETIC</small><strong>{profile.name}</strong><em>{profile.role}</em></span><span className="hrl-preview-arrow"><ArrowUpRight size={16} /></span></div>
+    <div className="hrl-preview-question"><span>ONE QUESTION</span><strong>Where could this experience travel?</strong></div>
+    <div className="hrl-preview-controls">
+      <span>Planning assumption</span>
+      <div className="hrl-scenario-tabs" role="group" aria-label="Choose synthetic preview scenario">
+        {SCENARIOS.map((item) => <button key={item.id} type="button" aria-pressed={scenario === item.id} onClick={() => setScenario(item.id)}>{item.short || item.title}</button>)}
+      </div>
     </div>
-  );
+    <div className="hrl-preview-result" key={scenario}>
+      <div className="hrl-result-index"><small>TOP DIRECTION</small><b>{selected.score}<i>/100</i></b><span>comparison index</span></div>
+      <div className="hrl-result-copy"><small>{currentScenario.title}</small><strong>{selected.title}</strong><span>{selected.known.length} declared strengths <i>·</i> {selected.gaps.length} skills to explore</span></div>
+    </div>
+    <div className="hrl-preview-next"><span><GitBranch size={14} /> NEXT LEARNING PRIORITY</span><strong>{pathway[0]?.title || "Review experience with a person"}</strong><small>{pathway[0]?.hours || 0} estimated hours · sample plan only</small></div>
+    <div className="hrl-preview-skills">{profile.skills.slice(0, 4).map((id) => <span key={id}><Check size={11} />{SKILL_MAP[id]?.name || id}</span>)}</div>
+    <p className="hrl-preview-disclosure"><ShieldCheck size={14} /> Example uses the real career catalog and local matching rules. It is not workforce data, a vacancy, or an employee assessment.</p>
+  </div>;
+}
+
+export default function HRLanding() {
+  const [activeChapter, setActiveChapter] = useState(0);
+  const rootRef = useRef(null);
+  useEffect(() => {
+    const nodes = [...document.querySelectorAll("[data-hr-reveal]")];
+    if (!("IntersectionObserver" in window)) {
+      nodes.forEach((node) => node.classList.add("is-visible"));
+      return undefined;
+    }
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); }
+    }), { threshold: 0.12 });
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    const items = chapters.map(([id]) => document.getElementById(`hrl-${id}`)).filter(Boolean);
+    if (!("IntersectionObserver" in window)) return undefined;
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActiveChapter(items.indexOf(visible.target));
+    }, { rootMargin: "-25% 0px -58% 0px", threshold: [0, .2, .5] });
+    items.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+  function jumpTo(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+    target.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
+  }
+  return <div className="hr-landing" ref={rootRef}>
+    <a className="hrl-skip" href="#hrl-content">Skip to the introduction</a>
+    <header className="hrl-nav">
+      <a className="hrl-brand" href="/hr" aria-label="NexusTalent employer introduction"><span className="hrl-mark">N</span><span>NexusTalent<small>People &amp; capability planning</small></span></a>
+      <nav aria-label="Employer introduction"><a href="#hrl-workflow">The journey</a><a href="#hrl-principles">Our boundaries</a><a href="/">Individual workspace <ArrowUpRight size={14} /></a></nav>
+      <a className="hrl-nav-cta" href="/hr/demo#setup">Explore the demo <ArrowRight size={15} /></a>
+    </header>
+    <main id="hrl-content">
+      <section className="hrl-hero" aria-labelledby="hrl-title">
+        <div className="hrl-hero-copy">
+          <span className="hrl-kicker"><i /> FOR PEOPLE &amp; CAPABILITY TEAMS</span>
+          <h1 id="hrl-title">A better plan<br />starts with <em>people.</em></h1>
+          <p className="hrl-lede">Make workforce skills easier to understand—and learning conversations easier to start.</p>
+          <div className="hrl-actions"><a className="hrl-primary" href="/hr/demo#setup">Explore the guided demo <ArrowRight size={17} /></a><button className="hrl-secondary" type="button" onClick={() => jumpTo("hrl-workflow")}><ArrowDown size={15} /> Explore how it works</button></div>
+          <div className="hrl-trustline"><ShieldCheck size={16} /> Public prototype · synthetic profiles only · human review throughout</div>
+          <div className="hrl-hero-index"><span>PEOPLE</span><i /><span>SKILLS</span><i /><span>SHARED PLAN</span></div>
+        </div>
+        <ScenarioPreview />
+        <div className="hrl-hero-foot"><span>AN EMPLOYER WORKSPACE</span><span>Alongside an equally important individual career workspace</span><span>01—07 / Guided tour</span></div>
+      </section>
+
+      <nav className="hrl-story-nav" aria-label="Employer journey chapters">
+        {chapters.map(([id, label], index) => <button key={id} type="button" aria-current={activeChapter === index ? "step" : undefined} onClick={() => jumpTo(`hrl-${id}`)}><span>{String(index + 1).padStart(2, "0")}</span><span>{label}</span></button>)}
+      </nav>
+      <section className="hrl-intro-strip" data-hr-reveal>
+        <div><span className="hrl-strip-number">01</span><strong>Start with what people say</strong><p>Declared experience. Not assumptions.</p></div>
+        <div><span className="hrl-strip-number">02</span><strong>Show how a signal was made</strong><p>Inputs and authored weights stay visible.</p></div>
+        <div><span className="hrl-strip-number">03</span><strong>Leave the decision with people</strong><p>Planning prompts a conversation; it does not make one.</p></div>
+      </section>
+
+      <section className="hrl-workflow" id="hrl-workflow" data-hr-reveal>
+        <div className="hrl-section-heading"><div><span className="hrl-kicker">A guided seven-part journey</span><h2>From a department question<br />to a plan people can shape.</h2></div><p>Take one step or the whole tour. Your choices carry through the same working demo.</p></div>
+        <div className="hrl-workflow-layout">
+          <div className="hrl-chapter-list">{chapters.map(([id, title, copy], index) => <a className="hrl-chapter" href={`/hr/demo#${id}`} id={`hrl-${id}`} key={id} style={{ "--chapter-order": index }}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{copy}</p></div><ChevronRight size={18} /></a>)}</div>
+          <aside className="hrl-workflow-aside"><span className="hrl-aside-marker"><Users size={17} /></span><span className="hrl-kicker">THE WORKFLOW, CONNECTED</span><h3>Not a dashboard to decode alone.</h3><p>Move from a department baseline to a real campaign, then follow a fictional response through skills, scenarios and learning.</p><div className="hrl-route-steps"><span><b>01</b> Invite with a clear purpose</span><span><b>02</b> Review declared skill signals</span><span><b>03</b> Agree what to explore next</span></div><a href="/hr/demo#setup">Take the first step <ArrowRight size={15} /></a></aside>
+        </div>
+      </section>
+
+      <section className="hrl-principles" id="hrl-principles" data-hr-reveal>
+        <div className="hrl-principles-art">
+          <div className="hrl-signal-card"><div className="hrl-signal-head"><span><Radio size={15} /> A signal, with context</span><span>REVIEWABLE</span></div><div className="hrl-signal-result"><small>ROLE PATHWAY EXAMPLE</small><strong>Illustrative direction</strong><span>Strengths plus skills to explore</span></div>
+            {[["Declared skills", "45%"], ["Transferable strengths", "30%"], ["Research / scenario context", "25%"]].map(([label, value]) => <div className="hrl-signal-weight" key={label}><div><span>{label}</span><b>{value}</b></div><i><b style={{ width: value }} /></i></div>)}
+            <div className="hrl-signal-note"><Check size={14} /> Explainable rules · no LLM inference</div>
+          </div><span className="hrl-orbit-label">NO DEMOGRAPHIC SCORING INPUTS</span>
+        </div>
+        <div className="hrl-principles-copy"><span className="hrl-kicker">Useful insight. Human ownership.</span><h2>Planning, not<br /><em>performance.</em></h2><p>Explore learning priorities with people, not in place of them. The prototype keeps its limits beside its signals.</p>
+          <details><summary><ShieldCheck size={16} /><span><b>Not a people decision</b><small>No hiring, firing or performance decisions are made here.</small></span></summary><p>Self-ratings are for learning review. Missing skills mean “not declared,” not inability.</p></details>
+          <details><summary><GitBranch size={16} /><span><b>Not a vacancy forecast</b><small>Role pathways and scenario weights are planning assumptions.</small></span></summary><p>Research metadata is shown as context; it does not represent observed hiring demand.</p></details>
+          <details><summary><Leaf size={16} /><span><b>Not measured impact</b><small>SDG mappings describe intended contribution only.</small></span></summary><p>Review every mapping with the people affected before drawing conclusions.</p></details>
+        </div>
+      </section>
+      <section className="hrl-cta" data-hr-reveal><div><span className="hrl-kicker">SEVEN STEPS · REAL OPERATIONS</span><h2>See what a better<br /><em>conversation can start.</em></h2><p>Create a campaign, submit a synthetic reflection, and follow its planning signals.</p></div><a className="hrl-primary" href="/hr/demo#setup">Begin with a department <ArrowRight size={17} /></a><div className="hrl-cta-index"><span>01</span><i /><span>07</span></div></section>
+    </main>
+    <footer className="hrl-footer"><a className="hrl-brand" href="/hr"><span className="hrl-mark">N</span><span>NexusTalent<small>People &amp; capability planning</small></span></a><span>Prototype only · Synthetic data · Human review</span><a href="/">Explore the individual workspace <ArrowUpRight size={14} /></a></footer>
+  </div>;
 }

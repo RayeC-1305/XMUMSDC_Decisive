@@ -9,6 +9,7 @@ import { EvidenceService } from "../services/evidence_service.js";
 import { InputError, object, normalizeProfile, parseProfileText, extractUpload } from "../services/profile_intake.js";
 import { matchProfile, buildPathway, scenarioFor, normalizeSimulations } from "../services/career_engine.js";
 import { registerWorkforceRoutes } from "./workforce_routes.js";
+import { isAllowedOrigin } from "./origin_policy.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const asyncRoute = handler => (req, res, next) => Promise.resolve(handler(req, res)).catch(next);
@@ -16,11 +17,15 @@ const asyncRoute = handler => (req, res, next) => Promise.resolve(handler(req, r
 export function createApp({ evidence = new EvidenceService({ cacheFile: path.join(root, "data", "cache", "research.json") }), serveFrontend = true, workforceStore } = {}) {
   const app = express();
   app.disable("x-powered-by");
-  const extraOrigins = new Set((process.env.CORS_ORIGINS || "").split(",").map(s => s.trim()).filter(Boolean));
-  app.use(cors({ origin(origin, callback) {
-    if (!origin || /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin) || extraOrigins.has(origin) || (process.env.REPLIT_DEV_DOMAIN && origin === `https://${process.env.REPLIT_DEV_DOMAIN}`)) callback(null, true);
-    else callback(new InputError("This browser origin is not allowed.", 403));
-  }, methods: ["GET", "POST", "OPTIONS"] }));
+  const originPolicy = {
+    developmentDomain: process.env.REPLIT_DEV_DOMAIN,
+    extraOrigins: (process.env.CORS_ORIGINS || "").split(",").map(s => s.trim()).filter(Boolean),
+  };
+  app.use(cors((req, callback) => {
+    if (isAllowedOrigin(req.get("Origin"), req.get("Host"), originPolicy)) {
+      callback(null, { origin: true, methods: ["GET", "POST", "OPTIONS"] });
+    } else callback(new InputError("This browser origin is not allowed.", 403));
+  }));
   app.use((req, res, next) => {
     res.set("X-Content-Type-Options", "nosniff");
     if (req.path.startsWith("/api/")) res.set("Cache-Control", "no-store");

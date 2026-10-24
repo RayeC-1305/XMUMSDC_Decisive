@@ -36,9 +36,15 @@ const step = async id => {
 };
 try {
   await page.goto(`${base}/hr`);
-  await page.getByRole("heading", { level: 1, name: /Build capability/ }).waitFor();
+  await page.getByRole("heading", { level: 1, name: /A better plan/ }).waitFor();
+  const preview = page.getByLabel("Interactive synthetic career pathway preview", { exact: true });
+  const previewBefore = await preview.locator(".hrl-preview-result").innerText();
+  await preview.getByRole("button", { name: "Faster AI", exact: true }).click();
+  assert.notEqual(await preview.locator(".hrl-preview-result").innerText(), previewBefore);
+  await page.getByRole("navigation", { name: "Employer journey chapters" }).getByRole("button").nth(4).click();
+  assert.ok(await page.locator("#hrl-scenarios").isVisible());
   assert.equal(await page.getByRole("button", { name: "New campaign", exact: true }).count(), 0);
-  await page.getByRole("link", { name: "Start guided demo", exact: true }).first().click();
+  await page.getByRole("link", { name: "Explore the guided demo", exact: true }).click();
   await page.getByRole("heading", { name: "Start with a department", exact: true }).waitFor();
   assert.equal(await page.getByRole("button", { name: "Previous", exact: true }).isDisabled(), true);
   await page.getByLabel("Department", { exact: true }).selectOption({ label: "Operations & Admin" });
@@ -49,7 +55,9 @@ try {
   await page.getByRole("heading", { name: "Start with a department", exact: true }).waitFor();
   assert.equal(await page.getByLabel("Department", { exact: true }).inputValue(), "Operations & Admin");
   await step("skills");
+  await page.getByRole("button", { name: "Capability map", exact: true }).click();
   await page.getByRole("heading", { name: "Capability heatmap" }).waitFor();
+  await page.getByRole("button", { name: "Employee review", exact: true }).click();
   await page.locator(".hr-person").first().waitFor();
   assert.equal(await page.locator('[data-demo-slide="skills"] .hr-person').count(), 8);
   assert.equal(await page.locator(".hr-heatmap thead th").count(), 9);
@@ -81,7 +89,14 @@ try {
   assert.ok(await page.getByRole("img", { name: /Radar of employee-reported/ }).isVisible());
   await page.screenshot({ path: path.join(output, "employee-results.png"), fullPage: true });
   await step("skills");
+  await page.getByRole("button", { name: "Employee review", exact: true }).click();
   await page.locator('[data-demo-slide="skills"]').getByRole("button", { name: "DEMO-JOURNEY-01", exact: true }).waitFor({ timeout: 12000 });
+  await page.getByLabel("Find a profile", { exact: true }).fill("nonexistent profile");
+  await page.getByText("No matching profiles", { exact: true }).waitFor();
+  await page.getByRole("button", { name: "Clear filters", exact: true }).click();
+  await page.getByLabel("Find a profile", { exact: true }).fill("DEMO-JOURNEY-01");
+  assert.equal(await page.getByRole("table", { name: "Employee review", exact: true }).locator("tbody tr").count(), 1);
+  await page.getByLabel("Find a profile", { exact: true }).fill("");
   await step("invite");
   await card.getByText("1 / 1 responses", { exact: true }).waitFor();
   await card.getByText("Quota Reached", { exact: true }).waitFor();
@@ -99,6 +114,7 @@ try {
 
   const beforeHeatmap = await page.locator(".hr-heatmap").innerText();
   await step("scenarios");
+  await page.locator(".hr-demo-comparison > summary").click();
   const comparisonBefore = await page.getByRole("table", { name: "Scenario planning results" }).innerText();
   const scenarioResponse = page.waitForResponse(r => r.url().includes("/api/hr/dashboard?") && r.url().includes("scenarioId=rapid"));
   await page.getByRole("button", { name: "Fast AI disruption · 1–2 years", exact: true }).click();
@@ -115,6 +131,23 @@ try {
   await step("plan");
   await page.getByRole("heading", { name: "Ordered cohorts", exact: true }).waitFor();
   assert.ok(await page.locator('[data-demo-slide="plan"] .hr-step a[href^="https://"]').count() > 0);
+  const cohortChecks = page.getByRole("checkbox", { name: /^Include .+ in brief$/ });
+  const cohortCount = await cohortChecks.count();
+  const excludedTitle = (await cohortChecks.last().getAttribute("aria-label")).replace(/^Include | in brief$/g, "");
+  await cohortChecks.last().uncheck();
+  assert.equal(await cohortChecks.last().isChecked(), false);
+  assert.equal(await page.getByRole("button", { name: "Download learning brief", exact: true }).isDisabled(), cohortCount === 1);
+  if (cohortCount === 1) await cohortChecks.last().check();
+  const downloadEvent = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Download learning brief", exact: true }).click();
+  const brief = await downloadEvent;
+  const briefPath = path.join(output, brief.suggestedFilename());
+  await brief.saveAs(briefPath);
+  const content = await fs.readFile(briefPath, "utf8");
+  assert.ok(content.includes("DEMO-JOURNEY-01"));
+  assert.ok(content.includes("Source: https://"));
+  assert.ok(content.includes("not measured impact"));
+  if (cohortCount > 1) assert.ok(!content.match(/^### \d+\..+$/gm).some(line => line.endsWith(excludedTitle)));
   await step("impact");
   assert.equal(await page.locator('[data-demo-slide="impact"] .hr-sdg').count(), 17);
   assert.ok(await page.getByText("Simulated accelerated AI workflow adoption", { exact: true }).isVisible());
@@ -150,7 +183,7 @@ try {
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), `${id} should fit a phone viewport`);
   }
   await page.goto(`${base}/hr`);
-  await page.getByRole("heading", { level: 1, name: /Build capability/ }).waitFor();
+  await page.getByRole("heading", { level: 1, name: /A better plan/ }).waitFor();
   await page.screenshot({ path: path.join(output, "hr-landing-mobile.png"), fullPage: true });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), "Landing page should fit a phone viewport");
   // Check active survey layout on a separate seeded campaign.
@@ -163,7 +196,7 @@ try {
   await page.getByRole("link", { name: /HR & Employers/ }).waitFor();
   await page.getByRole("button", { name: "Paste experience", exact: true }).waitFor();
   assert.deepEqual(errors, []);
-  console.log(JSON.stringify({ passed: true, syntheticParticipants: 24, tested: ["HR landing + CTA", "seven guided slides", "Previous/Next", "hash navigation and browser back/forward", "department selection carries through", "create + copy", "embedded survey autofill + consent", "immediate results", "dashboard updates", "quota", "visible scenario comparison", "simulation replanning", "refresh", "cited learning cohorts", "17 SDGs", "drilldown", "extend", "revoke", "closed + invalid links", "all slides + landing mobile layouts", "worker route"], output }, null, 2));
+  console.log(JSON.stringify({ passed: true, syntheticParticipants: 24, tested: ["interactive landing scenario preview + chapter navigation", "seven guided slides", "Previous/Next", "hash navigation and browser back/forward", "department selection carries through", "create + copy", "embedded survey autofill + consent", "immediate results", "dashboard updates", "employee search", "quota", "visible scenario comparison", "simulation replanning", "refresh", "cohort selection + real downloadable cited brief", "17 SDGs", "drilldown", "extend", "revoke", "closed + invalid links", "all slides + landing mobile layouts", "worker route"], output }, null, 2));
 } catch (error) {
   await page.screenshot({ path: path.join(output, "failure.png"), fullPage: true }).catch(() => {});
   throw error;

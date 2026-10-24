@@ -6,7 +6,7 @@
 
 ## Employer / HR workflow
 
-The individual worker experience is preserved. Open **`/hr`** (or **HR & Employers** in the audience navigation) for an introduction to the employer workflow, then choose **Start guided demo** to enter **`/hr/demo`**. Seven guided chapters cover department setup, invitations, a real embedded survey, Future Skills Radar and heatmap, scenario comparison, cohort learning plans and SDG review. Three departments with eight synthetic profiles each are seeded automatically.
+The individual worker experience is preserved. Open **`/hr`** (or **HR & Employers** in the audience navigation) for an animated introduction with an interactive synthetic scenario preview, then choose **Explore the guided demo** to enter **`/hr/demo`**. Seven focused chapters cover setup, working survey campaigns, a real embedded survey, radar/heatmap/searchable employee review, scenario comparison, selectable learning cohorts with a downloadable cited brief, and SDG review. Three departments with eight synthetic profiles each are seeded automatically.
 
 HR can create an expiring, quota-limited `/survey/:token` link, copy it, extend it or revoke it. Employees can autofill a synthetic profile and immediately receive explainable roles and cited pathways from the **same existing matching engine**. HR updates every five seconds. Moderate, fast-AI and green-transition scenarios and separately labelled trend simulations trigger replanning.
 

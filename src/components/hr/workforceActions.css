@@ -1,0 +1,17 @@
+.hr-demo .hr-review-filters { display:grid; grid-template-columns:minmax(0,1fr) minmax(140px,.4fr); gap:12px; }
+.hr-demo .hr-review-filters label { display:flex; align-items:center; gap:6px; }
+.hr-demo .hr-review-count,.hr-demo .hr-brief-message { margin:10px 0; font-size:12px; }
+.hr-demo .hr-brief-toolbar { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; padding:12px 0 4px; }
+.hr-demo .hr-brief-toolbar strong { display:block; font-size:14px; }
+.hr-demo .hr-brief-toolbar small { display:block; margin-top:4px; color:var(--hr-muted); }
+.hr-demo .hr-cohort-step { display:flex; align-items:start; justify-content:start; gap:12px; }
+.hr-demo .hr-cohort-check { display:flex; padding:3px 0; cursor:pointer; }
+.hr-demo .hr-cohort-check input { width:19px; height:19px; accent-color:var(--hr-indigo); }
+.hr-demo .hr-cohort-body { min-width:0; flex:1; }
+.hr-demo .hr-cohort-body details { margin-top:9px; font-size:12px; }
+.hr-demo .hr-cohort-body summary { cursor:pointer; padding:5px 0; color:var(--hr-indigo-dark); }
+.hr-demo .hr-cohort-body a { color:var(--hr-indigo-dark); text-decoration:underline; overflow-wrap:anywhere; }
+.hr-demo .hr-cohort-people { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0; }
+.hr-demo .hr-cohort-people button { padding:3px 8px; border:1px solid var(--hr-line); border-radius:5px; }
+.hr-demo .hr-sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@media (max-width:600px) { .hr-demo .hr-review-filters { grid-template-columns:1fr; } .hr-demo .hr-brief-toolbar .hr-btn { width:100%; } }
