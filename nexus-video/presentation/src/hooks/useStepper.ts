@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import {flushSync} from 'react-dom';
+import { flushSync } from 'react-dom';
 import type { ChapterDef } from "../registry/types";
 
 /**
@@ -45,11 +45,11 @@ export function useStepper(chapters: ChapterDef[], keyboardEnabled = true): Step
     if (typeof window === "undefined") return fallback;
     try {
       const query = new URLSearchParams(location.search);
-      if(query.has("step")||query.has("chapter")){
-        const requested=query.get("chapter")||"opening";
-        const byId=chapters.findIndex(c=>c.id===requested);
-        const chapter=byId>=0?byId:Number(requested)||0;
-        return sanitize({chapter,step:Number(query.get("step"))||0},chapters);
+      if (query.has("step") || query.has("chapter")) {
+        const requested = query.get("chapter") || "opening";
+        const byId = chapters.findIndex(c => c.id === requested);
+        const chapter = byId >= 0 ? byId : Number(requested) || 0;
+        return sanitize({ chapter, step: Number(query.get("step")) || 0 }, chapters);
       }
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw) return sanitize(JSON.parse(raw), chapters);
@@ -59,30 +59,30 @@ export function useStepper(chapters: ChapterDef[], keyboardEnabled = true): Step
     return fallback;
   });
 
-  const cursorRef=useRef(cursor);
-  const transitionRef=useRef<{skipTransition():void;finished:Promise<void>}|null>(null);
-  const generationRef=useRef(0);
+  const cursorRef = useRef(cursor);
+  const transitionRef = useRef<{ skipTransition(): void; finished: Promise<void> } | null>(null);
+  const generationRef = useRef(0);
   // One interruptible navigation transition. Animation never decides semantic state.
-  const move=useCallback((update:Cursor|((value:Cursor)=>Cursor))=>{
-    const previous=cursorRef.current;
-    const target=sanitize(typeof update==='function'?update(previous):update,chapters);
-    if(previous.chapter===target.chapter&&previous.step===target.step)return;
-    cursorRef.current=target;
-    const generation=++generationRef.current;
+  const move = useCallback((update: Cursor | ((value: Cursor) => Cursor)) => {
+    const previous = cursorRef.current;
+    const target = sanitize(typeof update === 'function' ? update(previous) : update, chapters);
+    if (previous.chapter === target.chapter && previous.step === target.step) return;
+    cursorRef.current = target;
+    const generation = ++generationRef.current;
     transitionRef.current?.skipTransition();
-    const doc=document as Document&{startViewTransition?:(update:()=>void)=>{skipTransition():void;finished:Promise<void>;ready:Promise<void>}};
-    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(!doc.startViewTransition||reduce){setCursor(target);return;}
-    document.documentElement.dataset.motionKind=previous.chapter===target.chapter?'beat':'chapter';
-    document.documentElement.dataset.motionDirection=target.chapter<previous.chapter||(target.chapter===previous.chapter&&target.step<previous.step)?'back':'forward';
-    const transition=doc.startViewTransition(()=>{
-      if(generation!==generationRef.current)return;
-      flushSync(()=>setCursor(target));
+    const doc = document as Document & { startViewTransition?: (update: () => void) => { skipTransition(): void; finished: Promise<void>; ready: Promise<void> } };
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!doc.startViewTransition || reduce) { setCursor(target); return; }
+    document.documentElement.dataset.motionKind = previous.chapter === target.chapter ? 'beat' : 'chapter';
+    document.documentElement.dataset.motionDirection = target.chapter < previous.chapter || (target.chapter === previous.chapter && target.step < previous.step) ? 'back' : 'forward';
+    const transition = doc.startViewTransition(() => {
+      if (generation !== generationRef.current) return;
+      flushSync(() => setCursor(target));
     });
-    transitionRef.current=transition;
-    void transition.ready.catch(()=>{/* Cancellation rejects ready; it must not become an unhandled error. */});
-    void transition.finished.catch(()=>{/* Superseded or unsupported capture: state is already correct. */});
-  },[chapters]);
+    transitionRef.current = transition;
+    void transition.ready.catch(() => {/* Cancellation rejects ready; it must not become an unhandled error. */ });
+    void transition.finished.catch(() => {/* Superseded or unsupported capture: state is already correct. */ });
+  }, [chapters]);
 
   // Re-sanitize if the chapter list shape changes after mount (e.g. HMR
   // updates `chapters.ts`) — keeps a stale persisted cursor from leaking
@@ -94,7 +94,7 @@ export function useStepper(chapters: ChapterDef[], keyboardEnabled = true): Step
         ? cur
         : next;
     });
-  }, [chapters,move]);
+  }, [chapters, move]);
 
   useEffect(() => {
     try {
@@ -128,7 +128,7 @@ export function useStepper(chapters: ChapterDef[], keyboardEnabled = true): Step
         return { chapter: cur.chapter + 1, step: 0 };
       return cur;
     });
-  }, [chapters,move]);
+  }, [chapters, move]);
 
   const prev = useCallback(() => {
     move((cur) => {
@@ -139,7 +139,7 @@ export function useStepper(chapters: ChapterDef[], keyboardEnabled = true): Step
       }
       return cur;
     });
-  }, [chapters,move]);
+  }, [chapters, move]);
 
   const jumpToChapter = useCallback(
     (idx: number, step = 0) => {
@@ -150,7 +150,7 @@ export function useStepper(chapters: ChapterDef[], keyboardEnabled = true): Step
         step: clamp(step, 0, c.narrations.length - 1),
       });
     },
-    [chapters,move],
+    [chapters, move],
   );
 
   const jumpToGlobal = useCallback(
@@ -166,15 +166,15 @@ export function useStepper(chapters: ChapterDef[], keyboardEnabled = true): Step
         acc += t;
       }
     },
-    [chapters, totalGlobal,move],
+    [chapters, totalGlobal, move],
   );
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (!keyboardEnabled || e.altKey || e.ctrlKey || e.metaKey) return;
-      if(e.target instanceof HTMLElement){
-        if(e.target.closest("input,textarea,select,[contenteditable=true]"))return;
-        if(e.key===" "&&e.target.closest("button,a"))return;
+      if (e.target instanceof HTMLElement) {
+        if (e.target.closest("input,textarea,select,[contenteditable=true]")) return;
+        if (e.key === " " && e.target.closest("button,a")) return;
       }
       if (e.key === "ArrowRight" || e.key === " ") {
         e.preventDefault();
@@ -190,8 +190,8 @@ export function useStepper(chapters: ChapterDef[], keyboardEnabled = true): Step
       } else if (e.key >= "1" && e.key <= "9") {
         const n = Number(e.key) - 1;
         if (n < chapters.length) jumpToChapter(n, 0);
-      } else if(e.key === "0" && chapters.length>=10){
-        jumpToChapter(9,0);
+      } else if (e.key === "0" && chapters.length >= 10) {
+        jumpToChapter(9, 0);
       }
     };
     window.addEventListener("keydown", onKey);

@@ -4,7 +4,10 @@ Ten chapters, 66 narration beats, 420 seconds of planned playback. The standalon
 
 Open [SDC2026_Decisive_DemoVideo.html](../../submission/SDC2026_Decisive_DemoVideo.html) directly in your browser. No local server is required. From GitHub, download the raw HTML file first; the GitHub file viewer displays source. Fonts, JavaScript, styles and the career-brief download are embedded.
 
-- P restarts the seven-minute silent preview; Escape stops it.
+- P starts or stops the timer at the current slide; Escape stops it.
+- Choose any specific slide from the Slide dropdown (or type the slide number) and click "Start timer at slide X" to run the timer at that exact slide.
+- Toggle "Auto-run" to start running the timer immediately upon selecting a slide.
+- Click "Pin" to keep review controls visible during rehearsal without fading.
 - Click empty stage space, Space or → advances; ← returns. Home/End select the first/last beat.
 - Keys 1–9, then 0, select chapters. Hidden bottom controls also select chapters and show narration (N).
 - ?chapter=working-prototype&step=2&clean=1 opens a focused beat without controls. ?preview=1&clean=1 starts silent playback after fonts load.
