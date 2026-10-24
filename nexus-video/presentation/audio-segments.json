@@ -1,0 +1,398 @@
+[
+  {
+    "chapter": "opening",
+    "step": 1,
+    "text": "What should you learn next, and what would make you change that choice?",
+    "audio": "opening/1.mp3"
+  },
+  {
+    "chapter": "opening",
+    "step": 2,
+    "text": "Nexus helps workers, employers and advisers turn experience into a learning decision they can review.",
+    "audio": "opening/2.mp3"
+  },
+  {
+    "chapter": "opening",
+    "step": 3,
+    "text": "Plans evolve. Progress stays.",
+    "audio": "opening/3.mp3"
+  },
+  {
+    "chapter": "workers-decision",
+    "step": 1,
+    "text": "The problem is choosing a worthwhile next learning step when time is limited and career-planning assumptions can change.",
+    "audio": "workers-decision/1.mp3"
+  },
+  {
+    "chapter": "workers-decision",
+    "step": 2,
+    "text": "Siti Rosli is our fictional operations coordinator. She brings spreadsheet reporting, supplier coordination and document processing.",
+    "audio": "workers-decision/2.mp3"
+  },
+  {
+    "chapter": "workers-decision",
+    "step": 3,
+    "text": "For this demonstration, she has four learning hours a week.",
+    "audio": "workers-decision/3.mp3"
+  },
+  {
+    "chapter": "workers-decision",
+    "step": 4,
+    "text": "Which strengths transfer? Which gaps deserve that time? And what would justify a different direction?",
+    "audio": "workers-decision/4.mp3"
+  },
+  {
+    "chapter": "product-loop",
+    "step": 1,
+    "text": "Our solution starts with reviewed experience. Siti can edit her profile before choosing a direction.",
+    "audio": "product-loop/1.mp3"
+  },
+  {
+    "chapter": "product-loop",
+    "step": 2,
+    "text": "She compares six authored role directions, with inspectable reasons behind each match.",
+    "audio": "product-loop/2.mp3"
+  },
+  {
+    "chapter": "product-loop",
+    "step": 3,
+    "text": "Source links, dates and mapping assumptions remain visible.",
+    "audio": "product-loop/3.mp3"
+  },
+  {
+    "chapter": "product-loop",
+    "step": 4,
+    "text": "A selected direction becomes an ordered plan with prerequisites, resources and practice outputs.",
+    "audio": "product-loop/4.mp3"
+  },
+  {
+    "chapter": "product-loop",
+    "step": 5,
+    "text": "When assumptions change, she can inspect a proposed revision and accept it, or keep the previous view.",
+    "audio": "product-loop/5.mp3"
+  },
+  {
+    "chapter": "product-loop",
+    "step": 6,
+    "text": "Completed learning stays recorded. The next decision can build on the work already done.",
+    "audio": "product-loop/6.mp3"
+  },
+  {
+    "chapter": "explainable-directions",
+    "step": 1,
+    "text": "We select Financial data analyst, one direction for discussion. It ranks second in this captured steady-adoption result, with a match index of sixty point seven eight.",
+    "audio": "explainable-directions/1.mp3"
+  },
+  {
+    "chapter": "explainable-directions",
+    "step": 2,
+    "text": "The explanation shows two of five required skills declared: spreadsheets and stakeholder communication.",
+    "audio": "explainable-directions/2.mp3"
+  },
+  {
+    "chapter": "explainable-directions",
+    "step": 3,
+    "text": "The scoring weights begin with forty-five percent for declared required-skill coverage.",
+    "audio": "explainable-directions/3.mp3"
+  },
+  {
+    "chapter": "explainable-directions",
+    "step": 4,
+    "text": "Thirty percent comes from transferable strengths.",
+    "audio": "explainable-directions/4.mp3"
+  },
+  {
+    "chapter": "explainable-directions",
+    "step": 5,
+    "text": "Twenty-five percent comes from research and scenario context.",
+    "audio": "explainable-directions/5.mp3"
+  },
+  {
+    "chapter": "explainable-directions",
+    "step": 6,
+    "text": "They contribute eighteen, thirty and twelve point seven eight index points here.",
+    "audio": "explainable-directions/6.mp3"
+  },
+  {
+    "chapter": "explainable-directions",
+    "step": 7,
+    "text": "The match result is an index, not an employment probability. Missing skills are prompts for review, not proof of inability.",
+    "audio": "explainable-directions/7.mp3"
+  },
+  {
+    "chapter": "evidence-and-assumptions",
+    "step": 1,
+    "text": "This source receipt identifies the title, publisher, publication date and retrieval time for a record in the same evidence revision.",
+    "audio": "evidence-and-assumptions/1.mp3"
+  },
+  {
+    "chapter": "evidence-and-assumptions",
+    "step": 2,
+    "text": "The cache keeps its original dates visible.",
+    "audio": "evidence-and-assumptions/2.mp3"
+  },
+  {
+    "chapter": "evidence-and-assumptions",
+    "step": 3,
+    "text": "Nexus maps a metadata keyword to a small planning weight. Here, the data-quality factor is one point zero four.",
+    "audio": "evidence-and-assumptions/3.mp3"
+  },
+  {
+    "chapter": "evidence-and-assumptions",
+    "step": 4,
+    "text": "That mapping is our assumption. It is not a finding published by the paper.",
+    "audio": "evidence-and-assumptions/4.mp3"
+  },
+  {
+    "chapter": "evidence-and-assumptions",
+    "step": 5,
+    "text": "Metadata does not verify research quality or establish Malaysian hiring demand.",
+    "audio": "evidence-and-assumptions/5.mp3"
+  },
+  {
+    "chapter": "evidence-and-assumptions",
+    "step": 6,
+    "text": "A refresh can return the same inputs and leave the ranking unchanged.",
+    "audio": "evidence-and-assumptions/6.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 1,
+    "text": "Here is the change we verified. Siti’s selected direction is Financial data analyst. Under Steady adoption, her first learning priority is data quality and validation.",
+    "audio": "reviewable-change/1.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 2,
+    "text": "We mark that step complete for this demonstration. It is a self-reported state. No actual study is claimed.",
+    "audio": "reviewable-change/2.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 3,
+    "text": "Now we compare Faster AI adoption. This is an authored planning scenario, rather than a published forecast.",
+    "audio": "reviewable-change/3.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 4,
+    "text": "The proposed priority becomes SQL and data querying. In our verified capture, the index moves from sixty point seven eight to sixty-three point two zero.",
+    "audio": "reviewable-change/4.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 5,
+    "text": "The review keeps the same four learning steps and preserves the completed data-quality step.",
+    "audio": "reviewable-change/5.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 6,
+    "text": "We inspect the proposal and choose Accept and update my plan.",
+    "audio": "reviewable-change/6.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 7,
+    "text": "After a reload, that completed step remains recorded. A changed priority has not erased it.",
+    "audio": "reviewable-change/7.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 8,
+    "text": "We test the other review option on a separate Green transition proposal. Keep previous view returns us to the accepted Faster AI adoption plan.",
+    "audio": "reviewable-change/8.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 9,
+    "text": "The completion is still there. Siti can revise her decision while retaining a record of useful progress.",
+    "audio": "reviewable-change/9.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 10,
+    "text": "Employers enter through their own Replit-hosted introduction and guided demo. Here is a synthetic campaign prepared before recording.",
+    "audio": "reviewable-change/10.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 11,
+    "text": "The employee survey returns personal roles and pathways through the same engine. Only synthetic profiles belong in this public demo.",
+    "audio": "reviewable-change/11.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 12,
+    "text": "HR inspects one capability-map gap and its pathway, then compares an authored scenario.",
+    "audio": "reviewable-change/12.mp3"
+  },
+  {
+    "chapter": "reviewable-change",
+    "step": 13,
+    "text": "Selected learning cohorts respect prerequisites and export a cited brief for human review.",
+    "audio": "reviewable-change/13.mp3"
+  },
+  {
+    "chapter": "practical-next-step",
+    "step": 1,
+    "text": "The next step is concrete: practise SQL and data querying.",
+    "audio": "practical-next-step/1.mp3"
+  },
+  {
+    "chapter": "practical-next-step",
+    "step": 2,
+    "text": "Siti’s declared spreadsheet experience satisfies the authored prerequisite. That declaration is still something an adviser can review.",
+    "audio": "practical-next-step/2.mp3"
+  },
+  {
+    "chapter": "practical-next-step",
+    "step": 3,
+    "text": "The public resource is Microsoft Learn’s Query and modify data with Transact-SQL.",
+    "audio": "practical-next-step/3.mp3"
+  },
+  {
+    "chapter": "practical-next-step",
+    "step": 4,
+    "text": "The practice output is queries, joins and checks on synthetic tables. Nexus estimates sixteen hours including practice, across four weeks.",
+    "audio": "practical-next-step/4.mp3"
+  },
+  {
+    "chapter": "practical-next-step",
+    "step": 5,
+    "text": "After the demo completion, forty estimated hours remain over ten weeks. Analytics follows SQL, then a work sample and review.",
+    "audio": "practical-next-step/5.mp3"
+  },
+  {
+    "chapter": "practical-next-step",
+    "step": 6,
+    "text": "The career brief brings plan, sources and progress together. SDGs describe intended contribution.",
+    "audio": "practical-next-step/6.mp3"
+  },
+  {
+    "chapter": "practical-next-step",
+    "step": 7,
+    "text": "Public resource content is free. Optional costs may apply. Introductory practice does not establish professional qualification.",
+    "audio": "practical-next-step/7.mp3"
+  },
+  {
+    "chapter": "working-prototype",
+    "step": 1,
+    "text": "The working prototype connects a React workspace to an Express career API.",
+    "audio": "working-prototype/1.mp3"
+  },
+  {
+    "chapter": "working-prototype",
+    "step": 2,
+    "text": "CPU rules rank directions using cached public Crossref research metadata.",
+    "audio": "working-prototype/2.mp3"
+  },
+  {
+    "chapter": "working-prototype",
+    "step": 3,
+    "text": "Original CV files stay in the browser. The API processes extracted text and the reviewed profile in memory.",
+    "audio": "working-prototype/3.mp3"
+  },
+  {
+    "chapter": "working-prototype",
+    "step": 4,
+    "text": "Worker progress stays on the device. Synthetic employer campaigns and profiles use a single-process server JSON store.",
+    "audio": "working-prototype/4.mp3"
+  },
+  {
+    "chapter": "working-prototype",
+    "step": 5,
+    "text": "Replit hosts the app. No employer login, LLM or GPU inference is active.",
+    "audio": "working-prototype/5.mp3"
+  },
+  {
+    "chapter": "working-prototype",
+    "step": 6,
+    "text": "Engineering checks do not establish forecast accuracy, fairness or employment outcomes.",
+    "audio": "working-prototype/6.mp3"
+  },
+  {
+    "chapter": "buyer-and-pilot",
+    "step": 1,
+    "text": "We want clearer learning decisions for people and teams.",
+    "audio": "buyer-and-pilot/1.mp3"
+  },
+  {
+    "chapter": "buyer-and-pilot",
+    "step": 2,
+    "text": "We propose one adviser team and two review sessions.",
+    "audio": "buyer-and-pilot/2.mp3"
+  },
+  {
+    "chapter": "buyer-and-pilot",
+    "step": 3,
+    "text": "Measure time to an adviser-agreed next action.",
+    "audio": "buyer-and-pilot/3.mp3"
+  },
+  {
+    "chapter": "buyer-and-pilot",
+    "step": 4,
+    "text": "Check the validity of each source used.",
+    "audio": "buyer-and-pilot/4.mp3"
+  },
+  {
+    "chapter": "buyer-and-pilot",
+    "step": 5,
+    "text": "Ask whether accepting or reverting a revision helped.",
+    "audio": "buyer-and-pilot/5.mp3"
+  },
+  {
+    "chapter": "buyer-and-pilot",
+    "step": 6,
+    "text": "Review completed practice work with the adviser.",
+    "audio": "buyer-and-pilot/6.mp3"
+  },
+  {
+    "chapter": "buyer-and-pilot",
+    "step": 7,
+    "text": "Employers, Malaysian career centres and reskilling providers are buyer hypotheses.",
+    "audio": "buyer-and-pilot/7.mp3"
+  },
+  {
+    "chapter": "buyer-and-pilot",
+    "step": 8,
+    "text": "An organisational subscription is possible. Pricing remains unvalidated.",
+    "audio": "buyer-and-pilot/8.mp3"
+  },
+  {
+    "chapter": "buyer-and-pilot",
+    "step": 9,
+    "text": "These are expected benefits. Baselines and employment outcomes remain unmeasured.",
+    "audio": "buyer-and-pilot/9.mp3"
+  },
+  {
+    "chapter": "team-and-invitation",
+    "step": 1,
+    "text": "We are Team Decisive. Raye Chan Jun Foong is our team leader.",
+    "audio": "team-and-invitation/1.mp3"
+  },
+  {
+    "chapter": "team-and-invitation",
+    "step": 2,
+    "text": "Teo Zheng Xi is our tech lead.",
+    "audio": "team-and-invitation/2.mp3"
+  },
+  {
+    "chapter": "team-and-invitation",
+    "step": 3,
+    "text": "Liew Jicson handles video.",
+    "audio": "team-and-invitation/3.mp3"
+  },
+  {
+    "chapter": "team-and-invitation",
+    "step": 4,
+    "text": "We invite an employer or adviser team to help validate this workflow. Bring a sample transition decision, and review Siti’s changing plan with us.",
+    "audio": "team-and-invitation/4.mp3"
+  },
+  {
+    "chapter": "team-and-invitation",
+    "step": 5,
+    "text": "Try the worker and employer demos on Replit. Plans evolve. Progress stays.",
+    "audio": "team-and-invitation/5.mp3"
+  }
+]

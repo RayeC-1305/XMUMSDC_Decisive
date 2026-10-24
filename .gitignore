@@ -31,6 +31,24 @@ data/workforce/
 .env.test.local
 .env.production.local
 
+# Nested video project credentials and local recording diagnostics
+.env.*
+!.env.example
+*.log
+*.pid
+/scratch/*.cjs
+/nexus-video/preview*.jpg
+/nexus-video/opening-motion-preview.mp4
+/Domain 1.pdf
+
+# One-time local authoring/proof helpers; chapter sources are authoritative
+/scripts/build-nexus-chapters.mjs
+/scripts/init-nexus-presentation.mjs
+/scripts/refine-nexus-video.mjs
+/scripts/render-pitch-proof.mjs
+/scripts/rework-nexus-motion.mjs
+/scripts/verify-pitch.cjs
+
 # Python artifacts
 __pycache__/
 *.py[cod]

@@ -13,7 +13,7 @@ The deck is the visual backbone of the pitching video. Both follow the same prob
 | Problem | 02 | A worker must choose what to learn with limited time and changing planning assumptions. |
 | Proposed solution | 03, 04, 05, 06, 07 | Review experience, explain role directions and evidence, build a practical plan, and revisit it while retaining completed learning. |
 | Technical approach | 08 | React/Vite browser workspace, Express career API, explainable CPU rules, Crossref metadata and device-local progress; slides 4–5 explain the scoring and evidence method. |
-| Expected impact | 09 | Intended clearer next steps, traceable advice, useful revisions and visible learning, tested through a proposed adviser pilot; no measured outcomes claimed. |
+| Expected impact | 09 | Intended clearer next steps, traceable advice, useful revisions and visible learning, tested through a proposed employer/adviser pilot; no measured outcomes claimed. |
 
 Expected impact is framed as intended benefit to test, with proposed measures and pending baselines. It is not evidence of employment, productivity or social-impact outcomes. [P01]
 
@@ -23,7 +23,13 @@ NexusTalent, branded **nexus**, is Team Decisive’s SDC Hackathon 2026 Domain 1
 
 The active application supports text-based PDF, DOCX and TXT CVs, pasted experience and fictional samples. Users review skills, tasks, goals and weekly time before comparing six authored roles. The connected loop produces score explanations, source receipts, ordered gap-and-prerequisite learning plans, proposed revisions, accept/revert controls, device-local completion and reflections, saved decisions and an exported Markdown brief. [R01–R05]
 
-Implementation is React/Vite → Express career API → explainable CPU rules and public Crossref research, with a public research revision cache. The normal UI reads the original CV file in the browser and sends extracted text and the reviewed profile to the API for in-memory processing. Personal workspaces remain in browser local storage. There are no active LLM/GPU calls, cloud accounts, institutional approval records or cross-device sync. [R01–R03, R05–R06]
+Implementation is React/Vite → Express career API → explainable CPU rules and public Crossref research, with a public research revision cache. The normal UI reads the original CV file in the browser and sends extracted text and the reviewed profile to the API for in-memory processing. Worker personal workspaces remain in browser local storage. Employer synthetic surveys and campaigns are saved separately to a single-process server JSON store. There are no active LLM/GPU calls, cloud accounts, institutional approval records or cross-device sync. [R01–R03, R05–R06]
+
+## 1a. Employer workflow and deployment
+
+The employer introduction at /hr opens the seven-part functional /hr/demo. HR creates expiring, quota-limited survey links; synthetic employee submissions receive roles and cited pathways through the existing matching engine. Department review includes radar, capability heatmaps, searchable profiles and individual pathways. Authored scenarios and separately labelled trend simulations support comparison. Selected learning cohorts respect prerequisites and export a cited department learning brief. Three departments with eight seeded synthetic profiles each are fixtures, not adoption or traction. Review-together checks prepare discussion; they are not consent or training assignment. [R08]
+
+The public employer prototype is **synthetic-only and has no employer authentication**. Its atomic JSON persistence is designed for one Node process, not a production multi-tenant database or durable horizontally scaled deployment. Worker progress remains device-local. The full-stack application is hosted on Replit at https://NexusTalent-Decisive.replit.app; /hr returned HTTP 200 during verification on 24 October 2026. No automated personnel decisions, verified HRD Corp claimability or measured SDG impact are claimed. [R01, R08]
 
 ## 2. Fictional inputs and explainable direction
 
@@ -61,13 +67,13 @@ The SQL step’s SDG 4.4 and 8.2 mappings describe intended contribution through
 
 The expected impact is clearer next learning choices for workers and more reviewable advice for advisers, while useful learning remains recorded as plans change. Intended benefits are clearer next steps, traceable advice, useful revisions and visible learning. The proposed pilot connects each benefit to a measure: time to an adviser-agreed action, source validity, acceptance/reversion usefulness and adviser review of a practice work sample. These are hypotheses to validate; no improvement, employment effect or measured social impact is asserted. [P01]
 
-Malaysian career centres and reskilling providers are the initial buyer hypothesis. The proposed value is preparing and revisiting an explainable transition brief. An organisational subscription per active advised learner is a possible model; pricing remains unvalidated. A proposed first pilot invites **one adviser team and two review sessions**. This scope is a pitch proposal, not an agreed partnership. [R01, P01]
+Malaysian employers, career centres and reskilling providers are buyer hypotheses. The proposed value is preparing and revisiting an explainable transition brief. An organisational subscription per active advised learner is a possible model; pricing remains unvalidated. A proposed first pilot invites **one adviser team and two review sessions**. This scope is a pitch proposal, not an agreed partnership. [R01, P01]
 
 Measure time to an adviser-agreed next action, source validity, usefulness of revisions and review of completed work samples. Proposed targets are recording an agreed action, checking each source used, explaining acceptance/reversion and reviewing practice outputs. **Baselines are pending measurement.** No market size, revenue, customers, traction or outcomes are claimed. Adviser matching validation, resource/prerequisite review, an appropriate Malaysian job-demand source, accounts and deployment controls remain future work. Engineering checks do not establish career accuracy, general fairness or employment outcomes. [R01–R03, P01]
 
 ## 7. Team and availability
 
-Verified roles: **Raye Chan Jun Foong — team leader; Teo Zheng Xi — tech lead; Liew Jicson — video**. The live prototype is deployed on Replit at https://NexusTalent-Decisive.replit.app. The deck therefore states **Hosted prototype available for demonstration**. The invitation is to review a sample transition decision with an adviser team. [R01]
+Verified roles: **Raye Chan Jun Foong — team leader; Teo Zheng Xi — tech lead; Liew Jicson — video**. The live prototype is deployed on Replit at https://NexusTalent-Decisive.replit.app. The deck therefore states **Hosted prototype available for demonstration**. The invitation is to review a sample transition decision with an employer or adviser team. [R01]
 
 ## Source register
 
@@ -79,6 +85,7 @@ Repository sources refer to the active files read on 24 October 2026; legacy str
 - **R04** — [Authored sample, role and learning catalogs](src/data/careerCatalog.js); also `services/career_catalog.js`.
 - **R05** — [Active workspace and learning components](src/components/career/CareerApplication.jsx); also `src/components/career/LearningWorkspace.jsx`, `src/components/career/CareerViews.jsx`, `src/utils/careerApi.js`, `src/utils/careerDemo.js`.
 - **R06** — [Public evidence retrieval, mappings and stale status](services/evidence_service.js).
+- **R08** — [Employer workflow, shared matching and synthetic persistence](docs/WORKFORCE.md); also `services/workforce_service.js`, `src/components/hr/HRPortal.jsx`, `src/utils/workforceBrief.js`.
 - **R07** — [Nexus brand preservation contract](docs/brand-guidelines.md); also `brand-spec.md`, `src/career.css`, `src/landing.css`, `src/components/career/CareerPrimitives.jsx`, `public/nexus-mark.svg`.
 - **D01** — [Verified Siti browser/API capture and export](output/pitch/demo-proof.json).
 - **X01** — [Crossref REST API documentation](https://www.crossref.org/documentation/retrieve-metadata/rest-api/).
@@ -90,6 +97,6 @@ Repository sources refer to the active files read on 24 October 2026; legacy str
 
 ## Asset and production record
 
-The frozen product/API capture and exact brief live in output/pitch/. Historical screenshots remain source records only and are not embedded or displayed. The deck embeds CSS, JavaScript, fonts, narration, source records and asset mappings. Fonts were obtained from official Google Fonts endpoints and embedded; there is **no external runtime font dependency**. The deck uses native typography and diagrams, with no product screenshots. Slide 6 is the sole live HTML embed and connects to the hosted app at https://NexusTalent-Decisive.replit.app/#import. It is a live Replit deployment. No required product asset is missing. Public deployment, pilot baselines and any real learner work sample remain unavailable and are not fabricated.
+The frozen product/API capture and exact brief live in output/pitch/. Historical screenshots remain source records only and are not embedded or displayed. The deck embeds CSS, JavaScript, fonts, narration, source records and asset mappings. Fonts were obtained from official Google Fonts endpoints and embedded; there is **no external runtime font dependency**. The deck uses native typography and diagrams, with no product screenshots. Slide 6 is the sole live HTML embed and connects to the hosted app at https://NexusTalent-Decisive.replit.app/#import. It is a live Replit deployment. No required product asset is missing. Pilot baselines and any real learner work sample remain unavailable and are not fabricated.
 
 The later video must rebuild focused 1920 × 1080 click-driven scenes on a consistent Nexus stage. This run creates neither voice audio nor finished video. See outline.md for the pending plan, first-chapter and audio checkpoints; the later chapters’ narrations.ts files become the implementation source of truth.

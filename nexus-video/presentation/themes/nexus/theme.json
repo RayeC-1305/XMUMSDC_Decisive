@@ -1,0 +1,24 @@
+{
+  "id": "nexus",
+  "name": "Nexus",
+  "nameZh": "Nexus",
+  "description": "The established Nexus identity: midnight stage, cyan continuity, cobalt action and restrained violet scenario change.",
+  "descriptionZh": "沿用 Nexus 品牌：午夜蓝舞台、青色进展、钴蓝行动、少量紫色情景变化。",
+  "mood": [
+    "technical",
+    "editorial",
+    "precise",
+    "calm"
+  ],
+  "bestFor": [
+    "Nexus product pitch",
+    "Explainable reskilling decisions"
+  ],
+  "preview": {
+    "shell": "#0A1022",
+    "surface": "#111A34",
+    "text": "#FFFFFF",
+    "accent": "#83F0E7"
+  },
+  "source": "Existing user-specified Nexus brand. No screenshots, gradients or shadows."
+}

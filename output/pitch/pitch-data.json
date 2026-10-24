@@ -1,7 +1,7 @@
 {
-  "presentationVersion": 4,
+  "presentationVersion": 5,
   "composition": {
-    "version": 4,
+    "version": 5,
     "mode": "Redesign · Preserve Nexus identity",
     "concept": "The worker’s decision, the evidence behind it, and the learning that survives it.",
     "typeRoles": {
@@ -32,14 +32,14 @@
     "safeMargin": 48
   },
   "durationSeconds": 360,
-  "spokenWords": 724,
+  "spokenWords": 753,
   "slides": [
     {
       "id": "opening",
       "title": "Plans evolve. Progress stays.",
       "seconds": 15,
       "beats": [
-        "Plans evolve. Progress stays. Nexus is a reviewable reskilling workspace for workers and career advisers.",
+        "Plans evolve. Progress stays. Nexus is a reviewable reskilling workspace for workers, employers and career advisers.",
         "It helps you choose what to learn next, and see what would make that decision change."
       ],
       "steps": [
@@ -353,7 +353,7 @@
         "This prototype links a React workspace to an Express career API.",
         "CPU rules rank directions; public Crossref metadata is held in a revision cache.",
         "Original CV files stay in the browser. Extracted text and reviewed profiles are processed by the API in memory.",
-        "Saved decisions and progress stay on this device. No LLM or GPU is active.",
+        "Worker progress stays on-device; employer demo data uses server JSON. Replit hosts the CPU rules app.",
         "Engineering checks do not validate forecasts, fairness or employment outcomes."
       ],
       "steps": [
@@ -375,7 +375,8 @@
         "R02",
         "R03",
         "R05",
-        "R06"
+        "R06",
+        "R08"
       ],
       "assets": [
         "demo-proof"
@@ -393,57 +394,51 @@
     },
     {
       "id": "buyer-and-pilot",
-      "title": "Expected impact, measured in a pilot",
+      "title": "From employee skills to a team learning plan",
       "seconds": 40,
       "beats": [
-        "We expect Nexus to support clearer choices, reviewable advice and continuity of learning.",
-        "Those benefits need testing with workers and advisers.",
-        "A proposed pilot would measure time to an adviser-agreed next action.",
-        "It would check the sources used.",
-        "It would test whether revisions help.",
-        "And it would review completed work samples.",
-        "Malaysian career centres and reskilling providers are our buyer hypothesis; subscription pricing remains unvalidated.",
-        "These are intended benefits, not measured outcomes. Baselines are pending."
+        "Employers now have their own introduction and guided workflow, using the same explainable matching engine.",
+        "Create an expiring survey link. A synthetic employee submits a reviewed profile and receives personal roles and pathways.",
+        "HR reviews departmental radar, heatmaps and individual pathways, then compares authored scenarios.",
+        "Select prerequisite-aware learning cohorts and download a cited department brief for human review.",
+        "This public demo accepts synthetic data only. It has no employer login and uses a single-process JSON store.",
+        "Our pilot would test time to an agreed learning action, source validity, revision usefulness and work-sample review. Baselines and pricing remain unvalidated."
       ],
       "steps": [
-        "The expected-impact headline connects clearer choices, reviewable advice and retained progress as intended benefits.",
-        "Workers and advisers are identified beside the proposed one-team, two-session pilot scope.",
-        "Clearer next steps connect to time until an adviser-agreed action.",
-        "Traceable advice connects to checking the validity of each source used.",
-        "Useful revisions connect to reasons for accepting or reverting a change.",
-        "Visible learning connects to an adviser reviewing a completed practice work sample.",
-        "The initial Malaysian career-centre/provider buyer hypothesis and unvalidated subscription model remain subordinate.",
-        "The expected-benefit limitation stays visible: baselines pending and no measured employment or impact results."
+        "Employer introduction at /hr leads to the working /hr/demo; the native workflow names actual capabilities, not a recreated dashboard.",
+        "An expiring, quota-limited survey link connects a synthetic profile to immediate roles and pathways.",
+        "Department radar, heatmap and individual review connect declared skills to scenario assumptions.",
+        "Prerequisite-aware cohorts produce a real downloadable cited department learning brief.",
+        "Synthetic-only, no employer authentication and single-process server JSON restrictions stay beside the workflow.",
+        "Proposed employer/adviser pilot measures and unvalidated pricing are clearly distinct from implemented features."
       ],
       "durations": [
-        6,
-        4,
-        6,
-        4,
-        4,
-        4,
+        5,
         7,
-        5
+        6,
+        6,
+        7,
+        9
       ],
       "refs": [
         "R01",
-        "R07",
+        "R08",
         "P01"
       ],
       "assets": [
         "demo-proof"
       ],
       "pool": [
-        "Expected impact: intended clearer next actions, traceable advice, useful revisions and reviewable learning — article §6.",
-        "Buyer/model: hypothesis only, organisational subscription per active advised learner, price unvalidated — article §6.",
-        "Measurement: time to agreed action, source validity, revision usefulness and completed work samples — article §6.",
-        "Proposed scope: one adviser team, two review sessions; baselines pending, no customers or outcomes claimed — article §6."
+        "Employer workflow: /hr → /hr/demo → survey → skills review → scenarios → cohorts/brief — article §1a.",
+        "Three departments / 24 seeded synthetic profiles are test fixtures, not customer traction — article §1a.",
+        "Scope: no employer authentication; synthetic-only single-process server JSON, no production database — article §1a.",
+        "Expected benefits and pilot measures are proposals, not measured outcomes — article §6."
       ],
       "section": "Expected impact",
       "slideId": "slide-09-buyer-and-pilot",
       "number": 9,
       "beatStart": 40,
-      "beatEnd": 47
+      "beatEnd": 45
     },
     {
       "id": "team-and-invitation",
@@ -454,14 +449,14 @@
         "Teo Zheng Xi is our tech lead.",
         "Liew Jicson handles video.",
         "We invite one adviser team to help validate this workflow. Bring a sample transition decision, and review Siti’s changing plan with us.",
-        "Local prototype available for demonstration. Plans evolve. Progress stays."
+        "Try the worker and employer demos on Replit. Plans evolve. Progress stays."
       ],
       "steps": [
         "Raye Chan Jun Foong appears with the verified role Team leader.",
         "Teo Zheng Xi appears with the verified role Tech lead.",
         "Liew Jicson appears with the verified role Video.",
         "The actual exported brief carries the completed data-quality step into the adviser-review invitation.",
-        "The core message closes beside Local prototype available for demonstration."
+        "The core message closes beside Try the worker and employer demos on Replit."
       ],
       "durations": [
         6,
@@ -488,8 +483,8 @@
       "section": "Invitation",
       "slideId": "slide-10-team-and-invitation",
       "number": 10,
-      "beatStart": 48,
-      "beatEnd": 52
+      "beatStart": 46,
+      "beatEnd": 50
     }
   ],
   "sources": [
@@ -546,6 +541,18 @@
       "url": "services/evidence_service.js",
       "kind": "repository",
       "path": "services/evidence_service.js"
+    },
+    {
+      "id": "R08",
+      "title": "Employer workflow, shared matching and synthetic persistence",
+      "url": "docs/WORKFORCE.md",
+      "kind": "repository",
+      "path": "docs/WORKFORCE.md",
+      "also": [
+        "services/workforce_service.js",
+        "src/components/hr/HRPortal.jsx",
+        "src/utils/workforceBrief.js"
+      ]
     },
     {
       "id": "R07",
@@ -645,13 +652,13 @@
       "id": "nexus-mark",
       "path": "public/nexus-mark.svg",
       "mime": "image/svg+xml",
-      "sha256": "d6e8a122ff612495b1d803cbee6c9a2b3a1f53a0c08441095890e466638111bb"
+      "sha256": "a033044886f6df8483af90ff775ab079aa530a1f090b2d682a9ae74e08ea4eb9"
     },
     "siti-career-brief": {
       "id": "siti-career-brief",
       "path": "output/pitch/siti-career-brief.md",
       "mime": "text/markdown",
-      "sha256": "bfed70b8e68df07da6fb8f165e9fe49bce4d733b6997d68d2b37b19c1b976b82"
+      "sha256": "ac652e1a98c65c056ea2495daaac1593f79e4913337cb038873dabed15f7b262"
     },
     "demo-proof": {
       "id": "demo-proof",
@@ -2348,7 +2355,7 @@
       "reloadPreserved": true,
       "revertPreserved": true
     },
-    "careerBrief": "# Siti Rosli — career transition plan\r\n\r\nCurrent role: Operations coordinator\r\nDirection: Financial data analyst\r\nGoal: Explore a new direction\r\nLearning focus: Build on my experience\r\nScenario: Faster AI adoption\r\nWeekly pace: 4 hours\r\n\r\nPrototype match index: 63.08/100. Illustrative scenario output, not a probability of employment.\r\n\r\n## 1. Practise SQL & data querying\r\n16 estimated hours · Week 1–4\r\nCovers a missing role skill, ordered by scenario priority after prerequisites.\r\n\r\nOutput: Write and explain queries, joins and checks on synthetic tables.\r\nResource: Query and modify data with Transact-SQL — https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/\r\nFree public learning material; optional certificates and cloud usage are excluded.\r\nSDG targets: 4.4, 8.2\r\nSelf-reported completion: pending\r\n\r\n## 2. Practise Data quality & validation\r\n8 estimated hours · Completed\r\nCovers a missing role skill, ordered by scenario priority after prerequisites.\r\n\r\nOutput: Audit a synthetic dataset for completeness, validity and consistency.\r\nResource: The Government Data Quality Framework — https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework\r\nFree public reading and project practice; no qualification or certificate is implied.\r\nSDG targets: 8.2, 12.6\r\nSelf-reported completion: complete\r\n\r\n## 3. Practise Data analysis & visualisation\r\n16 estimated hours · Week 5–8\r\nCovers a missing role skill, ordered by scenario priority after prerequisites.\r\n\r\nOutput: Build a chart from synthetic data with limitations and a decision note.\r\nResource: Get started with Microsoft data analytics — https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/\r\nFree public learning material; optional certificates and cloud usage are excluded.\r\nSDG targets: 8.2, 9.5\r\nSelf-reported completion: pending\r\n\r\n## 4. Build a financial data analyst work sample\r\n8 estimated hours · Week 9–10\r\nConnect the work sample to your goal: Explore a new direction.\r\n\r\nOutput: Turn a fictional invoice dataset into a dashboard with a short quality-review note. Ask an adviser to review the result, your assumptions and your chosen next step.\r\nWork sample and adviser review; no additional course required.\r\nSDG targets: 4.4, 8.2, 9.5\r\nSelf-reported completion: pending\r\n\r\n## Evidence & assumptions\r\n\r\nHow and When Artificial Intelligence Awareness Fosters Proactive Career Behaviors: The Role of Workplace Impostor Thoughts and Future Work Self Salience | SAGE Publications | 2026-10-23 | https://doi.org/10.1177%2F10690727261499377\r\nDrawing on self-discrepancy theory, this study examined how and when artificial intelligence (AI) awareness promotes proactive career behaviors. We collected three-wave, time-lagged data from 329 full-time employees in the United Kingdom. Results showed that AI awareness was positively related to proactive career behaviors. The indirect effect of AI awareness on proactive career behaviors through workplace impostor thoughts was significant when future work self salience was high but not when it was low. Future work self salience also strengthened both the relationship between AI awareness and workplace impostor t\r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\nThe strategic transformation of Human Resource Management through generative Artificial Intelligence: A bibliometric analysis (2023–2025) | Global Cooperation and Analytical Research Center Public Union | 2026-10-23 | https://doi.org/10.30546%2F2523-4331.2026.10.2.74\r\nNo abstract supplied. Open the DOI to inspect the source.\r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\nTransforming Global Early Childhood Education Through Artificial Intelligence: Addressing Teacher Shortages, Inequality, and Quality Gaps in Early Learning Systems | Scholar Cave | 2026-10-23 | https://doi.org/10.63539%2Fisrn.2026027\r\nThis study examines the potential of artificial intelligence (AI) to support early childhood education (ECE) in addressing workforce pressures, inequality, and quality-related challenges, while identifying the organisational, pedagogical, and ethical conditions required for responsible AI use. An interpretivist qualitative design was used with 22 participants (8 head teachers and 14 early childhood teachers) from ECE institutions in Sydney, Australia, who took part in semi-structured face-to-face interviews. Six interconnected themes emerged from inductive thematic analysis: workforce and operational challenges; \r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\nTowards Responsible Artificial Intelligence (AI): An Analysis of AI Policies in Selected Low- and Middle-Income Countries | Oxford University Press (OUP) | 2026-10-23 | https://doi.org/10.1093%2Fhaschl%2Fqxag295\r\nAbstract Introduction: This study examines artificial intelligence (AI) policies in low- and middle-income countries (LMICs) and their implications for health systems and public health. Methods: We searched and reviewed 59 official AI-related policies from 27 Asian and African LMICs issued up to December 2025. An inductive codebook was developed to analyze policy patterns. Results: Policy development has accelerated since 2020, yet healthcare-specific AI regulation remains rare, with most policy documents emphasizing the general AI governance. Across regions, policies consistently prioritize data, ethics, institu\r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\nThe Role of Artificial Intelligence in Modern Business Management: A Conceptual Study of Opportunities and Challenges | Researcher Connect Innovation and Impact Private Limited and MRI | 2026-10-23 | https://doi.org/10.65521%2Fijrdmr.v15i2.4736\r\nArtificial intelligence (AI) has moved from the periphery of experimental computing to the centre of managerial practice, reshaping how organisations make decisions, allocate resources, engage customers and manage people. Despite the rapid growth of scholarship on the subject, the literature remains fragmented across functional silos, and the opportunities and risks of AI are frequently examined in isolation from one another. This conceptual study synthesises existing literature to examine the role of AI in modern business management and to articulate an integrated understanding of its opportunities and challenge\r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\nEthical Labor and Workforce Transformation in the Age of AI | IGI Global Scientific Publishing | 2026-10-23 | https://doi.org/10.4018%2F979-8-2600-4609-8\r\nNo abstract supplied. Open the DOI to inspect the source.\r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\nVirtual education and artificial intelligence in public health and health professions training: a scoping review | Springer Science and Business Media LLC | 2026-10-23 | https://doi.org/10.1186%2Fs12909-026-10592-1\r\nAbstract Introduction: In recent decades, information and communication technology (ICT) has significantly impacted the health sector, necessitating constant evolution in the way knowledge is taught and imparted through these platforms. This implementation includes virtual simulations, virtual campuses, and chatbots, among others. However, there is uncertainty about how public health is being taught using technology. Objective: To map and describe the available evidence on virtual education and artificial intelligence-enabled tools in public health and health professions, with emphasis on their educational uses, \r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\nPemanfaatan Artificial Intelligence untuk Penguatan Branding Digital UMKM dalam Meningkatkan Daya Saing Produk Lokal | PT. Riset Press International | 2026-10-23 | https://doi.org/10.59653%2Fjcsse.v4i03.2977\r\nMicro, Small and Medium Enterprises (MSMEs) are the main pillars of the Indonesian economy, but most micro-scale business actors face limited resources in managing their businesses. The main problem faced by the service partners, namely Sahabat Genggam Teman Indonesia (GTI), which facilitates MSME administrators in Bekasi City, is low literacy. Branding is digital, with less-than-optimal brand identity elements, minimal use of Artificial Intelligence (AI), and limited resources to obtain professional assistance. This Community Service (PKM) activity aims to improve partners' literacy and skills in using AI techno\r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\nGeospatial AI, Workforce Displacement, and CSR in India's Public Sector | IGI Global Scientific Publishing | 2026-10-23 | https://doi.org/10.4018%2F979-8-2600-4609-8.ch011\r\nThis chapter examines how rapid integration of artificial intelligence and automation into geospatial technology workflows is reshaping employment structures across India's public sector, while highlighting that existing corporate social responsibility (CSR) frameworks remain unprepared to address these shifts. Drawing on practitioner evidence from four key sectors—urban governance, defence and national mapping, utilities, and environmental management—the chapter offers three contributions. First, a Sector-wise AI Displacement Risk Diagnostic maps workforce vulnerability across GIS roles. Second, the GEAR-CSR Fra\r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\nInteligência artificial generativa na graduação em enfermagem: um relato de inovação andragógica | Escola de Enfoermagem Aurora de Afonso Costa | 2026-10-23 | https://doi.org/10.17665%2F1676-4285.20267206\r\nObjective: To report the experience of integrating Generative Artificial Intelligence (GenAI) as an instructional design strategy in the Diversity, Equity, and Health Care (DEHC) course of an undergraduate nursing program, focusing on the development of structural clinical competence and culturally sensitive care for populations historically affected by oppressive ideologies. Method: A descriptive experience report on the implementation of a “GenAI Laboratory,” built on the Playlab.ai platform through prompt engineering, with a virtual assistant (“Iaiá”) based on a persona and clinical case files. The laboratory \r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\nStudent Perceptions of Artificial Intelligence and Metaverse-Enabled Remote Learning in New Zealand Tertiary Education | Sciedu Press | 2026-10-23 | https://doi.org/10.5430%2Fijhe.v15n5p73\r\nThe increasing development of emerging digital technologies is creating new possibilities for remote tertiary education. Artificial Intelligence and Metaverse technologies offer potential for personalised learning, intelligent support, immersive interaction, and collaboration; however, their educational value depends partly on how students perceive their usefulness, accessibility, supporting conditions, and motivational potential. This study examined New Zealand tertiary students’ perceptions of prospective Artificial Intelligence- and Metaverse-enabled remote learning environments and investigated whether select\r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\nEducation in the era of artificial intelligence from a cross-border perspective regarding student perceptions, meta-competences and institutional integration | Emerald | 2026-10-23 | https://doi.org/10.1108%2Fk-12-2025-3180\r\nPurpose The accelerated transformations of the digital economy require a profound rethinking of higher education, especially in terms of preparing human capital for a future shaped by artificial intelligence (AI). The use of AI is no longer a peripheral technological option. Still, it has become a central vector in defining the skills required in the labour market, streamlining educational processes, and reshaping the relationship between learning and performance. Design/methodology/approach This paper aims to analyse, from a cross-border perspective, how AI is integrated into higher education in Romania, the Rep\r\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\r\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\r\n\r\n## Revision brief\r\n\r\n2026-10-24T02:10:37.324Z | Accepted | Faster AI adoption scenario selected\r\nProposed index: 60.68 → 63.08. Priority: Data quality & validation → SQL & data querying. 4 existing steps kept; 1 completed steps preserved.\r\n\r\n## Score explanation\r\nDeclared required skills: 40/100 × 0.45 = 18 points. 2 of 5 required skills are declared. No proficiency is inferred.\r\nTransferable strengths and potential: 100/100 × 0.3 = 30 points. Bridge skills earn 1 credit when declared, 0.6 for an experience-task keyword, and 0 otherwise.\r\nResearch and scenario context: 60.3/100 × 0.25 = 15.08 points. 50 is neutral. Each 1.0 increase in the mean required-skill weight adds 50 before clamping to 0–100. Sources affect a bounded metadata proxy, not employer demand.\r\n\r\n## Human review\r\nDiscuss your evidence, readiness and next step with an adviser. Learning time is estimated; this introductory plan does not establish professional qualification, employment or measured SDG impact. Matching, forecasts and learning plans come from the connected career API using explainable rules; no generative model is claimed.",
+    "careerBrief": "# Siti Rosli — career transition plan\n\nCurrent role: Operations coordinator\nDirection: Financial data analyst\nGoal: Explore a new direction\nLearning focus: Build on my experience\nScenario: Faster AI adoption\nWeekly pace: 4 hours\n\nPrototype match index: 63.08/100. Illustrative scenario output, not a probability of employment.\n\n## 1. Practise SQL & data querying\n16 estimated hours · Week 1–4\nCovers a missing role skill, ordered by scenario priority after prerequisites.\n\nOutput: Write and explain queries, joins and checks on synthetic tables.\nResource: Query and modify data with Transact-SQL — https://learn.microsoft.com/en-us/training/paths/get-started-querying-with-transact-sql/\nFree public learning material; optional certificates and cloud usage are excluded.\nSDG targets: 4.4, 8.2\nSelf-reported completion: pending\n\n## 2. Practise Data quality & validation\n8 estimated hours · Completed\nCovers a missing role skill, ordered by scenario priority after prerequisites.\n\nOutput: Audit a synthetic dataset for completeness, validity and consistency.\nResource: The Government Data Quality Framework — https://www.gov.uk/government/publications/the-government-data-quality-framework/the-government-data-quality-framework\nFree public reading and project practice; no qualification or certificate is implied.\nSDG targets: 8.2, 12.6\nSelf-reported completion: complete\n\n## 3. Practise Data analysis & visualisation\n16 estimated hours · Week 5–8\nCovers a missing role skill, ordered by scenario priority after prerequisites.\n\nOutput: Build a chart from synthetic data with limitations and a decision note.\nResource: Get started with Microsoft data analytics — https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/\nFree public learning material; optional certificates and cloud usage are excluded.\nSDG targets: 8.2, 9.5\nSelf-reported completion: pending\n\n## 4. Build a financial data analyst work sample\n8 estimated hours · Week 9–10\nConnect the work sample to your goal: Explore a new direction.\n\nOutput: Turn a fictional invoice dataset into a dashboard with a short quality-review note. Ask an adviser to review the result, your assumptions and your chosen next step.\nWork sample and adviser review; no additional course required.\nSDG targets: 4.4, 8.2, 9.5\nSelf-reported completion: pending\n\n## Evidence & assumptions\n\nHow and When Artificial Intelligence Awareness Fosters Proactive Career Behaviors: The Role of Workplace Impostor Thoughts and Future Work Self Salience | SAGE Publications | 2026-10-23 | https://doi.org/10.1177%2F10690727261499377\nDrawing on self-discrepancy theory, this study examined how and when artificial intelligence (AI) awareness promotes proactive career behaviors. We collected three-wave, time-lagged data from 329 full-time employees in the United Kingdom. Results showed that AI awareness was positively related to proactive career behaviors. The indirect effect of AI awareness on proactive career behaviors through workplace impostor thoughts was significant when future work self salience was high but not when it was low. Future work self salience also strengthened both the relationship between AI awareness and workplace impostor t\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nThe strategic transformation of Human Resource Management through generative Artificial Intelligence: A bibliometric analysis (2023–2025) | Global Cooperation and Analytical Research Center Public Union | 2026-10-23 | https://doi.org/10.30546%2F2523-4331.2026.10.2.74\nNo abstract supplied. Open the DOI to inspect the source.\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nTransforming Global Early Childhood Education Through Artificial Intelligence: Addressing Teacher Shortages, Inequality, and Quality Gaps in Early Learning Systems | Scholar Cave | 2026-10-23 | https://doi.org/10.63539%2Fisrn.2026027\nThis study examines the potential of artificial intelligence (AI) to support early childhood education (ECE) in addressing workforce pressures, inequality, and quality-related challenges, while identifying the organisational, pedagogical, and ethical conditions required for responsible AI use. An interpretivist qualitative design was used with 22 participants (8 head teachers and 14 early childhood teachers) from ECE institutions in Sydney, Australia, who took part in semi-structured face-to-face interviews. Six interconnected themes emerged from inductive thematic analysis: workforce and operational challenges; \nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nTowards Responsible Artificial Intelligence (AI): An Analysis of AI Policies in Selected Low- and Middle-Income Countries | Oxford University Press (OUP) | 2026-10-23 | https://doi.org/10.1093%2Fhaschl%2Fqxag295\nAbstract Introduction: This study examines artificial intelligence (AI) policies in low- and middle-income countries (LMICs) and their implications for health systems and public health. Methods: We searched and reviewed 59 official AI-related policies from 27 Asian and African LMICs issued up to December 2025. An inductive codebook was developed to analyze policy patterns. Results: Policy development has accelerated since 2020, yet healthcare-specific AI regulation remains rare, with most policy documents emphasizing the general AI governance. Across regions, policies consistently prioritize data, ethics, institu\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nThe Role of Artificial Intelligence in Modern Business Management: A Conceptual Study of Opportunities and Challenges | Researcher Connect Innovation and Impact Private Limited and MRI | 2026-10-23 | https://doi.org/10.65521%2Fijrdmr.v15i2.4736\nArtificial intelligence (AI) has moved from the periphery of experimental computing to the centre of managerial practice, reshaping how organisations make decisions, allocate resources, engage customers and manage people. Despite the rapid growth of scholarship on the subject, the literature remains fragmented across functional silos, and the opportunities and risks of AI are frequently examined in isolation from one another. This conceptual study synthesises existing literature to examine the role of AI in modern business management and to articulate an integrated understanding of its opportunities and challenge\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nEthical Labor and Workforce Transformation in the Age of AI | IGI Global Scientific Publishing | 2026-10-23 | https://doi.org/10.4018%2F979-8-2600-4609-8\nNo abstract supplied. Open the DOI to inspect the source.\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nVirtual education and artificial intelligence in public health and health professions training: a scoping review | Springer Science and Business Media LLC | 2026-10-23 | https://doi.org/10.1186%2Fs12909-026-10592-1\nAbstract Introduction: In recent decades, information and communication technology (ICT) has significantly impacted the health sector, necessitating constant evolution in the way knowledge is taught and imparted through these platforms. This implementation includes virtual simulations, virtual campuses, and chatbots, among others. However, there is uncertainty about how public health is being taught using technology. Objective: To map and describe the available evidence on virtual education and artificial intelligence-enabled tools in public health and health professions, with emphasis on their educational uses, \nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nPemanfaatan Artificial Intelligence untuk Penguatan Branding Digital UMKM dalam Meningkatkan Daya Saing Produk Lokal | PT. Riset Press International | 2026-10-23 | https://doi.org/10.59653%2Fjcsse.v4i03.2977\nMicro, Small and Medium Enterprises (MSMEs) are the main pillars of the Indonesian economy, but most micro-scale business actors face limited resources in managing their businesses. The main problem faced by the service partners, namely Sahabat Genggam Teman Indonesia (GTI), which facilitates MSME administrators in Bekasi City, is low literacy. Branding is digital, with less-than-optimal brand identity elements, minimal use of Artificial Intelligence (AI), and limited resources to obtain professional assistance. This Community Service (PKM) activity aims to improve partners' literacy and skills in using AI techno\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nGeospatial AI, Workforce Displacement, and CSR in India's Public Sector | IGI Global Scientific Publishing | 2026-10-23 | https://doi.org/10.4018%2F979-8-2600-4609-8.ch011\nThis chapter examines how rapid integration of artificial intelligence and automation into geospatial technology workflows is reshaping employment structures across India's public sector, while highlighting that existing corporate social responsibility (CSR) frameworks remain unprepared to address these shifts. Drawing on practitioner evidence from four key sectors—urban governance, defence and national mapping, utilities, and environmental management—the chapter offers three contributions. First, a Sector-wise AI Displacement Risk Diagnostic maps workforce vulnerability across GIS roles. Second, the GEAR-CSR Fra\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nInteligência artificial generativa na graduação em enfermagem: um relato de inovação andragógica | Escola de Enfoermagem Aurora de Afonso Costa | 2026-10-23 | https://doi.org/10.17665%2F1676-4285.20267206\nObjective: To report the experience of integrating Generative Artificial Intelligence (GenAI) as an instructional design strategy in the Diversity, Equity, and Health Care (DEHC) course of an undergraduate nursing program, focusing on the development of structural clinical competence and culturally sensitive care for populations historically affected by oppressive ideologies. Method: A descriptive experience report on the implementation of a “GenAI Laboratory,” built on the Playlab.ai platform through prompt engineering, with a virtual assistant (“Iaiá”) based on a persona and clinical case files. The laboratory \nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nStudent Perceptions of Artificial Intelligence and Metaverse-Enabled Remote Learning in New Zealand Tertiary Education | Sciedu Press | 2026-10-23 | https://doi.org/10.5430%2Fijhe.v15n5p73\nThe increasing development of emerging digital technologies is creating new possibilities for remote tertiary education. Artificial Intelligence and Metaverse technologies offer potential for personalised learning, intelligent support, immersive interaction, and collaboration; however, their educational value depends partly on how students perceive their usefulness, accessibility, supporting conditions, and motivational potential. This study examined New Zealand tertiary students’ perceptions of prospective Artificial Intelligence- and Metaverse-enabled remote learning environments and investigated whether select\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\nEducation in the era of artificial intelligence from a cross-border perspective regarding student perceptions, meta-competences and institutional integration | Emerald | 2026-10-23 | https://doi.org/10.1108%2Fk-12-2025-3180\nPurpose The accelerated transformations of the digital economy require a profound rethinking of higher education, especially in terms of preparing human capital for a future shaped by artificial intelligence (AI). The use of AI is no longer a peripheral technological option. Still, it has become a central vector in defining the skills required in the labour market, streamlining educational processes, and reshaping the relationship between learning and performance. Design/methodology/approach This paper aims to analyse, from a cross-border perspective, how AI is integrated into higher education in Romania, the Rep\nRetrieved: 2026-10-23T16:03:29.729Z via Crossref REST API\nKeyword rules convert research metadata into small, bounded planning weights. These are Nexus assumptions, not paper findings, vacancy counts, growth rates or evidence of Malaysian employer demand. Metadata retrieval does not verify research quality.\n\n## Revision brief\n\n2026-10-24T02:10:37.324Z | Accepted | Faster AI adoption scenario selected\nProposed index: 60.68 → 63.08. Priority: Data quality & validation → SQL & data querying. 4 existing steps kept; 1 completed steps preserved.\n\n## Score explanation\nDeclared required skills: 40/100 × 0.45 = 18 points. 2 of 5 required skills are declared. No proficiency is inferred.\nTransferable strengths and potential: 100/100 × 0.3 = 30 points. Bridge skills earn 1 credit when declared, 0.6 for an experience-task keyword, and 0 otherwise.\nResearch and scenario context: 60.3/100 × 0.25 = 15.08 points. 50 is neutral. Each 1.0 increase in the mean required-skill weight adds 50 before clamping to 0–100. Sources affect a bounded metadata proxy, not employer demand.\n\n## Human review\nDiscuss your evidence, readiness and next step with an adviser. Learning time is estimated; this introductory plan does not establish professional qualification, employment or measured SDG impact. Matching, forecasts and learning plans come from the connected career API using explainable rules; no generative model is claimed.",
     "capturedAt": "2026-10-24T02:10:38.463Z",
     "liveEmbed": {
       "url": "https://NexusTalent-Decisive.replit.app/#import",
@@ -2470,7 +2477,7 @@
       "slideNumbers": [
         9
       ],
-      "message": "Intended clearer next steps, traceable advice, useful revisions and visible learning, tested through a proposed adviser pilot; no measured outcomes claimed.",
+      "message": "Intended clearer next steps, traceable advice, useful revisions and visible learning, tested through a proposed employer/adviser pilot; no measured outcomes claimed.",
       "slideIds": [
         "slide-09-buyer-and-pilot"
       ],
@@ -2480,10 +2487,10 @@
       "narrationRanges": [
         {
           "start": 40,
-          "end": 47
+          "end": 45
         }
       ]
     }
   ],
-  "narrativePurpose": "The deck is the visual backbone of the same pitch delivered in the video. Its slide order, chapter messages, narration and limitations are aligned."
+  "narrativePurpose": "The worker and employer deck is the visual backbone of the same pitch delivered in the video. Its slide order, chapter messages, narration and limitations are aligned."
 }

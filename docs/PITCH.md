@@ -1,6 +1,6 @@
 # Nexus pitch deck
 
-The submission includes a ten-slide HTML deck at [nexus-pitch.html](../nexus-pitch.html), the [spoken script](../script.md), [detailed narrative](../article.md) and [slide outline](../outline.md). The deck plans approximately six minutes of narration and demonstration. A finished video has not been produced.
+The submission includes a ten-slide HTML deck at [SDC26_Decisive_PitchDeck.html](../submission/SDC26_Decisive_PitchDeck.html), with a root convenience copy at [nexus-pitch.html](../nexus-pitch.html), the [spoken script](../script.md), [detailed narrative](../article.md) and [slide outline](../outline.md). The deck plans approximately six minutes of narration and demonstration. A finished video has not been produced.
 
 ## Present the deck
 
@@ -32,6 +32,8 @@ npm start
 
 On macOS/Linux, use `PORT=3201 HOST=127.0.0.1 npm start` for local offline testing.
 
+The default deck still points to Replit. To embed that local server, rebuild with `DEMO_URL=http://127.0.0.1:3201/#import` set in the environment, then reopen the deck. Rebuild without that override to restore the hosted version.
+
 Choose the fictional Siti Rosli sample, review four hours/week and select Financial data analyst. Record a demo completion, propose Faster AI adoption, inspect the comparison, accept, then reload to show retained completion. Demonstrate Green transition and Keep previous view as a separate proposal/revert action. The app uses its current evidence; numbers can differ from the historical capture used in the slides.
 
 ## Sources and rebuild
@@ -48,4 +50,4 @@ node scripts/build-pitch.mjs
 
 `scripts/capture-pitch.cjs` can capture another fictional demonstration against port 3201. It overwrites the frozen capture and brief; rebuilding afterwards can change the pitch's reference values. `scripts/prepare-pitch-assets.mjs` downloads fonts again and requires internet. Neither command is needed to open the submitted HTML.
 
-Official preliminary, technology declaration and sponsor proof PDFs remain pending in the [submission manifest](../submission/README.md). The HTML deck does not replace them.
+The submission folder contains the preliminary proposal, technology declaration and Replit proof PDFs. The HTML deck and its matching PDF include the employer workflow and hosted demo links.

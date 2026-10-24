@@ -1,8 +1,8 @@
 // Nexus pitch v4: problem → solution → technical approach → expected impact.
 // Captured API values remain source material; product screenshots are not used.
-export const layoutVersion = 4;
+export const layoutVersion = 5;
 
-export function makePitchLayout({ chapters, wordmark, esc, source, demoUrl }) {
+export function makePitchLayout({ chapters, wordmark, esc, source, demoUrl, employerUrl }) {
   const arrow = (direction = 'right', size = 28) => `<svg class="direction-icon ${direction}" width="${size}" height="${size}" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M5 16h21M18 8l8 8-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const foot = (n, text, dark = false) => `<footer class="deck-footer ${dark ? 'on-dark' : ''}"><span class="footer-brand">${wordmark}</span><span class="footer-section">${esc(chapters[n - 1].section)}</span><span class="footer-source">${text}</span><span class="folio">${String(n).padStart(2, '0')} / 10</span></footer>`;
   const title = (text, cls = '') => `<h2 class="slide-title ${cls}" data-layout-box>${text}</h2>`;
@@ -20,7 +20,7 @@ export function makePitchLayout({ chapters, wordmark, esc, source, demoUrl }) {
       <div class="hero-wordmark" data-layout-box>${wordmark}</div>
       <p class="event-credit" data-layout-box>Team Decisive<br>SDC Hackathon 2026</p>
       <h1 data-layout-box>Plans evolve.<br><span>Progress stays.</span></h1>
-      <p class="hero-description" data-layout-box>A reviewable reskilling workspace<br>for workers and career advisers.</p>
+      <p class="hero-description" data-layout-box>A reviewable reskilling workspace<br>for workers, employers and advisers.</p>
       <div class="hero-principle" data-layout-box>
         <div><p>What changes</p><h3>Your next<br>learning priority.</h3></div>
         <div><p>What stays</p><h3>The progress<br>you’ve already made.</h3></div>
@@ -48,12 +48,12 @@ export function makePitchLayout({ chapters, wordmark, esc, source, demoUrl }) {
 
     `<section class="slide canvas s03" id="${chapters[2].slideId}">
       ${title('A reviewable reskilling<br>workspace')}
-      <p class="loop-dek" data-layout-box>Every stage leaves something<br>a worker and adviser can inspect.</p>
+      <p class="loop-dek" data-layout-box>Every stage leaves something<br>workers and teams can inspect.</p>
       <div class="journey" data-layout-box>
         ${steps.map((s, i) => `<div class="journey-stage"><span class="journey-index">${String(i + 1).padStart(2, '0')}</span><h3>${s[0]}</h3><p>${s[1]}</p>${i < 5 ? arrow('right', 22) : ''}</div>`).join('')}
       </div>
       <svg class="return-path" viewBox="0 0 1184 60" fill="none" aria-hidden="true"><path d="M1085 0v22c0 14-10 24-24 24H100c-14 0-24-10-24-24V0m-7 9 7-9 7 9" stroke="currentColor" stroke-width="1.5"/></svg>
-      <div class="loop-progress" data-layout-box><h3>A new priority can build<br>on the work already done.</h3><p>Completed learning stays recorded across accepted revisions.</p></div>
+      <div class="loop-progress" data-layout-box><h3>A new priority can build<br>on the work already done.</h3><p>Worker progress stays recorded. Employers can plan learning cohorts.</p></div>
       <p class="loop-return" data-layout-box>Keep the learning.<br><span>Revisit the decision.</span></p>
       ${foot(3, 'Connected product outputs · Stable learning-step ID: skill:dataQuality · D01')}
     </section>`,
@@ -114,11 +114,11 @@ export function makePitchLayout({ chapters, wordmark, esc, source, demoUrl }) {
 
     `<section class="slide s08" id="${chapters[7].slideId}">
       ${title('From CV to decision,<br>with explainable rules')}
-      <p class="architecture-dek" data-layout-box>Original files stay in the browser.<br>Saved work stays on this device.</p>
+      <p class="architecture-dek" data-layout-box>Hosted on Replit.<br>Worker progress stays on the device.</p>
       <svg class="system-connectors" viewBox="0 0 1280 720" fill="none" aria-hidden="true"><path d="M408 350h176m-12-8 12 8-12 8M584 420H408m12-8-12 8 12 8M944 350h96m-12-8 12 8-12 8M1040 392h-96m12-8-12 8 12 8" stroke="currentColor" stroke-width="1.5"/></svg>
-      <div class="system-browser" data-layout-box><span class="meta">React / Vite</span><h3>Worker workspace</h3><p>Read the original CV file<br>Review experience and plan</p><div class="local-storage"><h4>Saved on this device</h4><p>Decisions · completion · reflections</p></div></div>
+      <div class="system-browser" data-layout-box><span class="meta">React / Vite</span><h3>Worker + HR views</h3><p>Read the original CV file<br>Review experience and plan</p><div class="local-storage"><h4>Saved on this device</h4><p>Decisions · completion · reflections</p></div></div>
       <div class="system-request" data-layout-box><p>Extracted text +<br>reviewed profile</p><p>Roles, sources<br>and learning plans</p></div>
-      <div class="system-api" data-layout-box><span class="meta">Express / CPU rules</span><h3>Career API</h3><p>Explain scores and gaps<br>Order learning steps</p><div><p>Text/profile processed in memory.<br>Public research revision cache.</p></div></div>
+      <div class="system-api" data-layout-box><span class="meta">Express / CPU rules</span><h3>Career API</h3><p>Explain scores and gaps<br>Order learning steps</p><div><p>Worker text processed in memory.<br>HR demo: server JSON store.</p></div></div>
       <div class="system-research" data-layout-box><span class="meta">Public research</span><h3>Crossref</h3><p>Metadata<br>Source links<br>Publication dates</p></div>
       <div class="validation-strip" data-layout-box><div><span class="meta">Implemented baseline</span><p>Explainable rules. No active LLM or GPU.</p></div><div><span class="meta">Next validation</span><p>Adviser matching quality + Malaysian demand relevance.</p></div></div>
       <p class="engineering-limit" data-layout-box>Engineering checks do not establish forecast accuracy, general fairness or employment outcomes.</p>
@@ -126,20 +126,24 @@ export function makePitchLayout({ chapters, wordmark, esc, source, demoUrl }) {
     </section>`,
 
     `<section class="slide s09" id="${chapters[8].slideId}">
-      ${title('Expected impact,<br>measured in a pilot')}
-      <div class="pilot-scope" data-layout-box><span class="meta">Proposed scope</span><p>One adviser team.<br>Two review sessions.</p></div>
-      <div class="pilot-evaluation" data-layout-box><div class="pilot-table-title"><h3>Expected benefits to test</h3><span>Intended benefits · baselines pending</span></div><table><thead><tr><th>Intended benefit</th><th>Proposed pilot measure</th></tr></thead><tbody><tr><td>Clearer next steps</td><td>Time to an adviser-agreed action</td></tr><tr><td>Traceable advice</td><td>Validity of each source used</td></tr><tr><td>Useful revisions</td><td>Why a change was accepted or reverted</td></tr><tr><td>Visible learning</td><td>Adviser review of a work sample</td></tr></tbody></table></div>
-      <aside class="buyer-model" data-layout-box><span class="meta">For workers and advisers</span><h3>A clearer next step.<br>A decision worth revisiting.</h3><p>Keep useful learning while reviewing a new direction.</p><div><span class="meta">Buyer hypothesis</span><p>Malaysian career centres<br>& reskilling providers.</p><small>Subscription per active advised learner.<br>Pricing remains to validate.</small></div></aside>
-      <p class="pilot-boundary" data-layout-box>Expected benefits, not measured outcomes. No employment or impact results are claimed.</p>
-      ${foot(9, 'Intended benefits, buyer model and pilot scope are proposals · P01')}
+      ${title('From employee skills<br>to a team learning plan')}
+      <a class="hr-deck-link" data-layout-box href="${esc(employerUrl)}" target="_blank" rel="noreferrer">Explore HR & Employers ↗</a>
+      <div class="hr-deck-flow" data-layout-box>
+        <div><span class="meta">01 · Invite</span><h3>Share a survey</h3><p>Expiry + response quota.<br>Immediate personal pathways.</p></div>
+        <div><span class="meta">02 · Understand</span><h3>Review team skills</h3><p>Radar, heatmap + profiles.<br>Compare authored scenarios.</p></div>
+        <div><span class="meta">03 · Plan</span><h3>Build learning cohorts</h3><p>Respect prerequisites.<br>Export a cited team brief.</p></div>
+      </div>
+      <div class="hr-deck-boundary" data-layout-box><b>Synthetic demo only</b><p>No employer login. Single-process server JSON store.<br>Prepare human review; never automate personnel decisions.</p></div>
+      <div class="hr-deck-pilot" data-layout-box><span class="meta">Expected impact · proposed pilot</span><h3>Clearer next steps for teams.</h3><p>Measure agreed actions, source validity,<br>revision usefulness and practice work.</p><small>Baselines and subscription pricing unvalidated.</small></div>
+      ${foot(9, 'Implemented employer workflow: R08 · Expected benefits and pilot measures: P01')}
     </section>`,
 
     `<section class="slide dark s10" id="${chapters[9].slideId}">
       <div class="closing-wordmark" data-layout-box>${wordmark}</div><p class="event-credit" data-layout-box>Team Decisive<br>SDC Hackathon 2026</p>
       ${title('Make the next learning<br>decision reviewable')}
-      <p class="closing-ask" data-layout-box>Bring one adviser team.<br>Review a transition brief with us.</p>
+      <p class="closing-ask" data-layout-box>Bring an employer or adviser team.<br>Review a learning decision with us.</p>
       <a class="demo-invitation" href="#${chapters[5].slideId}" data-layout-box>See Siti’s decision change ${arrow('right', 28)}</a>
-      <p class="local-prototype" data-layout-box>Hosted prototype available for demonstration.</p>
+      <p class="local-prototype" data-layout-box>Worker + employer demos · Hosted on Replit.</p>
       <p class="closing-promise" data-layout-box>Plans evolve.<br><span>Progress stays.</span></p>
       <div class="team-line" data-layout-box><div><strong>Raye Chan Jun Foong</strong><span>Team leader</span></div><div><strong>Teo Zheng Xi</strong><span>Tech lead</span></div><div><strong>Liew Jicson</strong><span>Video</span></div></div>
       ${foot(10, 'Domain 1 · Aiversecity Future-Ready Workforce · Advance with every shift.', true)}
@@ -160,6 +164,15 @@ export function makePitchLayout({ chapters, wordmark, esc, source, demoUrl }) {
 }
 
 export const pitchLayoutCss = `
+.hr-deck-link{position:absolute;right:48px;top:200px;font-size:20px;color:var(--cobalt)}
+.hr-deck-flow{position:absolute;left:48px;right:48px;top:264px;display:flex;border-top:2px solid var(--cobalt)}
+.hr-deck-flow>div{width:33.333%;padding:24px 20px 0 0}
+.hr-deck-flow h3{font-size:26px;margin:12px 0}
+.hr-deck-flow p{font-size:21px;line-height:1.5;color:var(--muted)}
+.hr-deck-boundary{position:absolute;left:48px;top:468px;width:565px;border-top:1px solid var(--divider);padding-top:20px}
+.hr-deck-boundary b{font-size:23px}.hr-deck-boundary p{font-size:19px;line-height:1.5;color:var(--muted);margin-top:12px}
+.hr-deck-pilot{position:absolute;left:686px;top:468px;width:546px}.hr-deck-pilot h3{font-size:26px;margin:12px 0;line-height:1.3}.hr-deck-pilot p{font-size:19px;line-height:1.4}.hr-deck-pilot small{display:block;font-size:14px;color:var(--muted);margin-top:8px}
+
 :root {
   --cobalt:#4355E7; --midnight:#111A34; --cyan:#83F0E7;
   --violet:#9073FF; --ice:#E3E8FF; --canvas:#F4F6FB;

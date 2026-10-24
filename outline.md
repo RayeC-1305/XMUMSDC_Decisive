@@ -2,7 +2,7 @@
 
 > **Theme:** custom Nexus identity specified by the user; Sora / DM Sans / IBM Plex Mono, supplied colour tokens.
 > **Stage:** fixed 1920 × 1080, proportionally scaled; at least 80px safe margins; one consistent midnight stage surface across all chapters. Paper/ice are evidence surfaces inside the stage.
-> **Timing:** approximately six minutes, including demonstration pauses; 724 English words across 10 chapters / 52 initial beats. Planned chapter time totals 360 seconds. Rehearsal should use roughly 129 words/minute plus about 24 seconds of demo dwell; this is a working estimate, not an event rule.
+> **Timing:** approximately six minutes, including demonstration pauses; 753 English words across 10 chapters / 50 initial beats. Planned chapter time totals 360 seconds. Rehearsal should use roughly 134 words/minute plus about 24 seconds of demo dwell; this is a working estimate, not an event rule.
 > **Sources:** script.md sets spoken order; article.md supplies detail; output/pitch/pitch-data.json and the HTML’s nexus-pitch-data contain aligned narration, source IDs, asset records and captured values.
 > **Scope:** source preparation complete; later chapter build, voice audio and finished video are outside this run.
 
@@ -15,7 +15,7 @@ The deck and video tell the same pitch. The deck supplies the visual backbone; v
 | Problem | 02 | A worker must choose what to learn with limited time and changing planning assumptions. |
 | Proposed solution | 03, 04, 05, 06, 07 | Review experience, explain role directions and evidence, build a practical plan, and revisit it while retaining completed learning. |
 | Technical approach | 08 | React/Vite browser workspace, Express career API, explainable CPU rules, Crossref metadata and device-local progress; slides 4–5 explain the scoring and evidence method. |
-| Expected impact | 09 | Intended clearer next steps, traceable advice, useful revisions and visible learning, tested through a proposed adviser pilot; no measured outcomes claimed. |
+| Expected impact | 09 | Intended clearer next steps, traceable advice, useful revisions and visible learning, tested through a proposed employer/adviser pilot; no measured outcomes claimed. |
 
 Rebuild the story as full-screen click-driven scenes using native typography and diagrams. Use one dedicated scene for the live HTML demo. Do not use product screenshots or animate deck captures. One spoken beat equals one focused step. Lists must be revealed one item per step; the scoring weights and pilot measures already have separate beats. Remove deck headers, footers, page numbers and persistent brand bars from recording scenes. Keep relevant evidence/status labels readable when needed. Every chapter needs a meaningful visual demonstration using the verified relationships: score contributions, metadata mapping, changed priority and retained completion. Do not invent figures or imitate unavailable product states. This plan defines content and pacing, leaving animation choices to chapter development.
 
@@ -48,7 +48,7 @@ The later chapter narrations.ts is the implementation source of truth for step c
 
 - Ready — demo-proof: output/pitch/demo-proof.json.
 
-**Spoken excerpt:** “Plans evolve. Progress stays. Nexus is a reviewable reskilling workspace for workers and career advisers.”
+**Spoken excerpt:** “Plans evolve. Progress stays. Nexus is a reviewable reskilling workspace for workers, employers and career advisers.”
 
 ## 2. workers-decision — The problem is choosing what to learn next (3 steps · ~30s)
 
@@ -213,7 +213,7 @@ The later chapter narrations.ts is the implementation source of truth for step c
 
 ## 8. working-prototype — From CV to decision, with explainable rules (5 steps · ~30s)
 
-**Deck mapping:** slide-08-working-prototype. **Narrative role:** Technical approach. **Narration mapping:** script beats 35–39, in order. **Source IDs:** R01, R02, R03, R05, R06.
+**Deck mapping:** slide-08-working-prototype. **Narrative role:** Technical approach. **Narration mapping:** script beats 35–39, in order. **Source IDs:** R01, R02, R03, R05, R06, R08.
 
 **Information pool:**
 
@@ -237,27 +237,25 @@ The later chapter narrations.ts is the implementation source of truth for step c
 
 **Spoken excerpt:** “This prototype links a React workspace to an Express career API.”
 
-## 9. buyer-and-pilot — Expected impact, measured in a pilot (8 steps · ~40s)
+## 9. buyer-and-pilot — From employee skills to a team learning plan (6 steps · ~40s)
 
-**Deck mapping:** slide-09-buyer-and-pilot. **Narrative role:** Expected impact. **Narration mapping:** script beats 40–47, in order. **Source IDs:** R01, R07, P01.
+**Deck mapping:** slide-09-buyer-and-pilot. **Narrative role:** Expected impact. **Narration mapping:** script beats 40–45, in order. **Source IDs:** R01, R08, P01.
 
 **Information pool:**
 
-- Expected impact: intended clearer next actions, traceable advice, useful revisions and reviewable learning — article §6.
-- Buyer/model: hypothesis only, organisational subscription per active advised learner, price unvalidated — article §6.
-- Measurement: time to agreed action, source validity, revision usefulness and completed work samples — article §6.
-- Proposed scope: one adviser team, two review sessions; baselines pending, no customers or outcomes claimed — article §6.
+- Employer workflow: /hr → /hr/demo → survey → skills review → scenarios → cohorts/brief — article §1a.
+- Three departments / 24 seeded synthetic profiles are test fixtures, not customer traction — article §1a.
+- Scope: no employer authentication; synthetic-only single-process server JSON, no production database — article §1a.
+- Expected benefits and pilot measures are proposals, not measured outcomes — article §6.
 
 **Focused screen plan:**
 
-- Step 1 (~6s; beat 40) — The expected-impact headline connects clearer choices, reviewable advice and retained progress as intended benefits.
-- Step 2 (~4s; beat 41) — Workers and advisers are identified beside the proposed one-team, two-session pilot scope.
-- Step 3 (~6s; beat 42) — Clearer next steps connect to time until an adviser-agreed action.
-- Step 4 (~4s; beat 43) — Traceable advice connects to checking the validity of each source used.
-- Step 5 (~4s; beat 44) — Useful revisions connect to reasons for accepting or reverting a change.
-- Step 6 (~4s; beat 45) — Visible learning connects to an adviser reviewing a completed practice work sample.
-- Step 7 (~7s; beat 46) — The initial Malaysian career-centre/provider buyer hypothesis and unvalidated subscription model remain subordinate.
-- Step 8 (~5s; beat 47) — The expected-benefit limitation stays visible: baselines pending and no measured employment or impact results.
+- Step 1 (~5s; beat 40) — Employer introduction at /hr leads to the working /hr/demo; the native workflow names actual capabilities, not a recreated dashboard.
+- Step 2 (~7s; beat 41) — An expiring, quota-limited survey link connects a synthetic profile to immediate roles and pathways.
+- Step 3 (~6s; beat 42) — Department radar, heatmap and individual review connect declared skills to scenario assumptions.
+- Step 4 (~6s; beat 43) — Prerequisite-aware cohorts produce a real downloadable cited department learning brief.
+- Step 5 (~7s; beat 44) — Synthetic-only, no employer authentication and single-process server JSON restrictions stay beside the workflow.
+- Step 6 (~9s; beat 45) — Proposed employer/adviser pilot measures and unvalidated pricing are clearly distinct from implemented features.
 
 **Production pacing:** Each pilot measure has its own beat. All targets remain proposed; no baseline is invented.
 
@@ -265,11 +263,11 @@ The later chapter narrations.ts is the implementation source of truth for step c
 
 - Ready — demo-proof: output/pitch/demo-proof.json.
 
-**Spoken excerpt:** “We expect Nexus to support clearer choices, reviewable advice and continuity of learning.”
+**Spoken excerpt:** “Employers now have their own introduction and guided workflow, using the same explainable matching engine.”
 
 ## 10. team-and-invitation — Make the next learning decision reviewable (5 steps · ~30s)
 
-**Deck mapping:** slide-10-team-and-invitation. **Narrative role:** Invitation. **Narration mapping:** script beats 48–52, in order. **Source IDs:** R01, R07, D01, P01.
+**Deck mapping:** slide-10-team-and-invitation. **Narrative role:** Invitation. **Narration mapping:** script beats 46–50, in order. **Source IDs:** R01, R07, D01, P01.
 
 **Information pool:**
 
@@ -279,11 +277,11 @@ The later chapter narrations.ts is the implementation source of truth for step c
 
 **Focused screen plan:**
 
-- Step 1 (~6s; beat 48) — Raye Chan Jun Foong appears with the verified role Team leader.
-- Step 2 (~3s; beat 49) — Teo Zheng Xi appears with the verified role Tech lead.
-- Step 3 (~3s; beat 50) — Liew Jicson appears with the verified role Video.
-- Step 4 (~12s; beat 51) — The actual exported brief carries the completed data-quality step into the adviser-review invitation.
-- Step 5 (~6s; beat 52) — The core message closes beside Local prototype available for demonstration.
+- Step 1 (~6s; beat 46) — Raye Chan Jun Foong appears with the verified role Team leader.
+- Step 2 (~3s; beat 47) — Teo Zheng Xi appears with the verified role Tech lead.
+- Step 3 (~3s; beat 48) — Liew Jicson appears with the verified role Video.
+- Step 4 (~12s; beat 49) — The actual exported brief carries the completed data-quality step into the adviser-review invitation.
+- Step 5 (~6s; beat 50) — The core message closes beside Try the worker and employer demos on Replit.
 
 **Production pacing:** Let the main relationship settle before the next beat; keep annotations subordinate to the spoken point.
 
@@ -300,7 +298,7 @@ The later chapter narrations.ts is the implementation source of truth for step c
 - Ready — output/pitch/demo-proof.json holds initial, completed, rapid, green and reverted API responses plus the final local state and preservation checks.
 - Ready — output/pitch/siti-career-brief.md is the real exported brief; the HTML embeds it for an offline download.
 - Ready — public/nexus-mark.svg and the original Wordmark span structure/proportions are reused; embedded Sora, DM Sans and IBM Plex Mono remove runtime font downloads.
-- Ready — output/pitch/pitch-data.json and font-sources.json document sources, timestamps, data assets, the local live-demo address and font provenance.
+- Ready — output/pitch/pitch-data.json and font-sources.json document sources, timestamps, data assets, the hosted live-demo address and font provenance.
 - Ready — public deployment URL: https://NexusTalent-Decisive.replit.app.
 - Pending measurement — pilot baselines, adviser agreement and outcome data; show proposed measures only.
 - Unavailable, not claimed — a real learner’s completed work sample, professional qualification and institutional approval.

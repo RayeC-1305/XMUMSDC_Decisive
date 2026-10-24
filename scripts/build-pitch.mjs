@@ -8,9 +8,10 @@ const fontSources=JSON.parse(await fs.readFile(`${dir}/font-sources.json`,'utf8'
 const brief=await fs.readFile(`${dir}/siti-career-brief.md`,'utf8');
 const source=proof.initial.evidence.sources[3];
 const demoUrl = process.env.DEMO_URL || 'https://NexusTalent-Decisive.replit.app/#import';
+const employerUrl=new URL('/hr',demoUrl).href;
 const chapters=[
  {id:'opening',title:'Plans evolve. Progress stays.',seconds:15,beats:[
-  'Plans evolve. Progress stays. Nexus is a reviewable reskilling workspace for workers and career advisers.',
+  'Plans evolve. Progress stays. Nexus is a reviewable reskilling workspace for workers, employers and career advisers.',
   'It helps you choose what to learn next, and see what would make that decision change.'
  ],steps:[
   'The Nexus wordmark and core message share the stage with the real revision comparison.',
@@ -102,7 +103,7 @@ const chapters=[
   'This prototype links a React workspace to an Express career API.',
   'CPU rules rank directions; public Crossref metadata is held in a revision cache.',
   'Original CV files stay in the browser. Extracted text and reviewed profiles are processed by the API in memory.',
-  'Saved decisions and progress stay on this device. No LLM or GPU is active.',
+  'Worker progress stays on-device; employer demo data uses server JSON. Replit hosts the CPU rules app.',
   'Engineering checks do not validate forecasts, fairness or employment outcomes.'
  ],steps:[
   'A single architecture view connects the React/Vite browser workspace to the Express career API.',
@@ -110,38 +111,34 @@ const chapters=[
   'Original CV bytes remain in the browser while extracted text and the reviewed profile cross the API boundary.',
   'Saved decisions and progress remain in device-local storage, with no active LLM or GPU.',
   'The working flow remains distinct from next validation of forecast accuracy, fairness and outcomes.'
- ],durations:[4,6,9,6,5],refs:['R01','R02','R03','R05','R06'],assets:['demo-proof'],pool:['Implemented: React/Vite, Express API, CPU rules, public cache and browser local storage — article §1.','Privacy boundary: UI files in browser; extracted text/profile in API memory; no cloud workspace — article §1.','Validation boundary: working engineering flow does not prove forecasting accuracy, fairness or employment outcomes — article §6.']},
- {id:'buyer-and-pilot',title:'Expected impact, measured in a pilot',seconds:40,beats:[
-  'We expect Nexus to support clearer choices, reviewable advice and continuity of learning.',
-  'Those benefits need testing with workers and advisers.',
-  'A proposed pilot would measure time to an adviser-agreed next action.',
-  'It would check the sources used.',
-  'It would test whether revisions help.',
-  'And it would review completed work samples.',
-  'Malaysian career centres and reskilling providers are our buyer hypothesis; subscription pricing remains unvalidated.',
-  'These are intended benefits, not measured outcomes. Baselines are pending.'
+ ],durations:[4,6,9,6,5],refs:['R01','R02','R03','R05','R06','R08'],assets:['demo-proof'],pool:['Implemented: React/Vite, Express API, CPU rules, public cache and browser local storage — article §1.','Privacy boundary: UI files in browser; extracted text/profile in API memory; no cloud workspace — article §1.','Validation boundary: working engineering flow does not prove forecasting accuracy, fairness or employment outcomes — article §6.']},
+ {id:'buyer-and-pilot',title:'From employee skills to a team learning plan',seconds:40,beats:[
+ 'Employers now have their own introduction and guided workflow, using the same explainable matching engine.',
+ 'Create an expiring survey link. A synthetic employee submits a reviewed profile and receives personal roles and pathways.',
+ 'HR reviews departmental radar, heatmaps and individual pathways, then compares authored scenarios.',
+ 'Select prerequisite-aware learning cohorts and download a cited department brief for human review.',
+ 'This public demo accepts synthetic data only. It has no employer login and uses a single-process JSON store.',
+ 'Our pilot would test time to an agreed learning action, source validity, revision usefulness and work-sample review. Baselines and pricing remain unvalidated.'
  ],steps:[
-  'The expected-impact headline connects clearer choices, reviewable advice and retained progress as intended benefits.',
-  'Workers and advisers are identified beside the proposed one-team, two-session pilot scope.',
-  'Clearer next steps connect to time until an adviser-agreed action.',
-  'Traceable advice connects to checking the validity of each source used.',
-  'Useful revisions connect to reasons for accepting or reverting a change.',
-  'Visible learning connects to an adviser reviewing a completed practice work sample.',
-  'The initial Malaysian career-centre/provider buyer hypothesis and unvalidated subscription model remain subordinate.',
-  'The expected-benefit limitation stays visible: baselines pending and no measured employment or impact results.'
- ],durations:[6,4,6,4,4,4,7,5],refs:['R01','R07','P01'],assets:[],pool:['Expected impact: intended clearer next actions, traceable advice, useful revisions and reviewable learning — article §6.','Buyer/model: hypothesis only, organisational subscription per active advised learner, price unvalidated — article §6.','Measurement: time to agreed action, source validity, revision usefulness and completed work samples — article §6.','Proposed scope: one adviser team, two review sessions; baselines pending, no customers or outcomes claimed — article §6.']},
+ 'Employer introduction at /hr leads to the working /hr/demo; the native workflow names actual capabilities, not a recreated dashboard.',
+ 'An expiring, quota-limited survey link connects a synthetic profile to immediate roles and pathways.',
+ 'Department radar, heatmap and individual review connect declared skills to scenario assumptions.',
+ 'Prerequisite-aware cohorts produce a real downloadable cited department learning brief.',
+ 'Synthetic-only, no employer authentication and single-process server JSON restrictions stay beside the workflow.',
+ 'Proposed employer/adviser pilot measures and unvalidated pricing are clearly distinct from implemented features.'
+ ],durations:[5,7,6,6,7,9],refs:['R01','R08','P01'],assets:[],pool:['Employer workflow: /hr → /hr/demo → survey → skills review → scenarios → cohorts/brief — article §1a.','Three departments / 24 seeded synthetic profiles are test fixtures, not customer traction — article §1a.','Scope: no employer authentication; synthetic-only single-process server JSON, no production database — article §1a.','Expected benefits and pilot measures are proposals, not measured outcomes — article §6.']},
  {id:'team-and-invitation',title:'Make the next learning decision reviewable',seconds:30,beats:[
   'We are Team Decisive. Raye Chan Jun Foong is our team leader.',
   'Teo Zheng Xi is our tech lead.',
   'Liew Jicson handles video.',
   'We invite one adviser team to help validate this workflow. Bring a sample transition decision, and review Siti’s changing plan with us.',
-  'Local prototype available for demonstration. Plans evolve. Progress stays.'
+  'Try the worker and employer demos on Replit. Plans evolve. Progress stays.'
  ],steps:[
   'Raye Chan Jun Foong appears with the verified role Team leader.',
   'Teo Zheng Xi appears with the verified role Tech lead.',
   'Liew Jicson appears with the verified role Video.',
   'The actual exported brief carries the completed data-quality step into the adviser-review invitation.',
-  'The core message closes beside Local prototype available for demonstration.'
+  'The core message closes beside Try the worker and employer demos on Replit.'
  ],durations:[6,3,3,12,6],refs:['R01','R07','D01','P01'],assets:['nexus-mark','siti-career-brief','completed-step-header'],pool:['Team: names and roles are verified in README.md — article §7.','Deployment: hosted prototype deployed on Replit (https://NexusTalent-Decisive.replit.app) — article §7.','Invitation: validate a sample transition decision with an adviser team, carrying the completed step into the real brief — article §3, §5–7.']},
 ];
 // Product pixels are deliberately absent from this edition. These records are
@@ -161,7 +158,7 @@ const requirementCoverage=[
  {id:'problem',title:'Problem',slideNumbers:[2],message:'A worker must choose what to learn with limited time and changing planning assumptions.'},
  {id:'solution',title:'Proposed solution',slideNumbers:[3,4,5,6,7],message:'Review experience, explain role directions and evidence, build a practical plan, and revisit it while retaining completed learning.'},
  {id:'technical',title:'Technical approach',slideNumbers:[8],message:'React/Vite browser workspace, Express career API, explainable CPU rules, Crossref metadata and device-local progress; slides 4–5 explain the scoring and evidence method.'},
- {id:'impact',title:'Expected impact',slideNumbers:[9],message:'Intended clearer next steps, traceable advice, useful revisions and visible learning, tested through a proposed adviser pilot; no measured outcomes claimed.'},
+ {id:'impact',title:'Expected impact',slideNumbers:[9],message:'Intended clearer next steps, traceable advice, useful revisions and visible learning, tested through a proposed employer/adviser pilot; no measured outcomes claimed.'},
 ].map(r=>({...r,slideIds:r.slideNumbers.map(n=>chapters[n-1].slideId),chapterIds:r.slideNumbers.map(n=>chapters[n-1].id),narrationRanges:r.slideNumbers.map(n=>({start:chapters[n-1].beatStart,end:chapters[n-1].beatEnd}))}));
 const coverageMarkdown='| Requirement | Deck / video chapters | Narrative role |\n| --- | --- | --- |\n'+requirementCoverage.map(r=>'| '+r.title+' | '+r.slideNumbers.map(n=>String(n).padStart(2,'0')).join(', ')+' | '+r.message+' |').join('\n');
 const sources=[
@@ -171,6 +168,7 @@ const sources=[
  {id:'R04',title:'Authored sample, role and learning catalogs',url:'src/data/careerCatalog.js',kind:'repository',path:'src/data/careerCatalog.js',also:['services/career_catalog.js']},
  {id:'R05',title:'Active workspace and learning components',url:'src/components/career/CareerApplication.jsx',kind:'repository',path:'src/components/career/CareerApplication.jsx',also:['src/components/career/LearningWorkspace.jsx','src/components/career/CareerViews.jsx','src/utils/careerApi.js','src/utils/careerDemo.js']},
  {id:'R06',title:'Public evidence retrieval, mappings and stale status',url:'services/evidence_service.js',kind:'repository',path:'services/evidence_service.js'},
+ {id:'R08',title:'Employer workflow, shared matching and synthetic persistence',url:'docs/WORKFORCE.md',kind:'repository',path:'docs/WORKFORCE.md',also:['services/workforce_service.js','src/components/hr/HRPortal.jsx','src/utils/workforceBrief.js']},
  {id:'R07',title:'Nexus brand preservation contract',url:'docs/brand-guidelines.md',kind:'repository',path:'docs/brand-guidelines.md',also:['brand-spec.md','src/career.css','src/landing.css','src/components/career/CareerPrimitives.jsx','public/nexus-mark.svg']},
  {id:'D01',title:'Verified Siti browser/API capture and export',url:'output/pitch/demo-proof.json',kind:'capture',path:'output/pitch/demo-proof.json',capturedAt:proof.capturedAt,evidenceRevision:proof.initial.evidence.revision,status:proof.initial.evidence.status},
  {id:'X01',title:'Crossref REST API documentation',url:'https://www.crossref.org/documentation/retrieve-metadata/rest-api/',kind:'external',accessedOn:'2026-10-24'},
@@ -188,10 +186,10 @@ assets['demo-proof']={id:'demo-proof',path:`${dir}/demo-proof.json`,mime:'applic
 assets['live-demo']={id:'live-demo',path:demoUrl,url:demoUrl,mime:'text/html',kind:'hosted_application',note:'The sole product embed is on slide 6. Hosted on Replit at https://NexusTalent-Decisive.replit.app.'};
 const wordmark=`<span class="c-wordmark" role="img" aria-label="Nexus"><span aria-hidden="true">ne</span><span class="c-wordmark-x" aria-hidden="true">x</span><span aria-hidden="true">us</span></span>`;
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const { slides, composition } = makePitchLayout({ chapters, wordmark, esc, source, demoUrl });
+const { slides, composition } = makePitchLayout({ chapters, wordmark, esc, source, demoUrl, employerUrl });
 const pitchData={presentationVersion:layoutVersion,composition,title:'Nexus — Plans evolve. Progress stays.',createdOn:'2026-10-24',timezone:'Asia/Kuala_Lumpur',canvas:{width:1280,height:720,ratio:'16:9',safeMargin:48},durationSeconds:360,spokenWords:chapters.flatMap(c=>c.beats).join(' ').split(/\s+/).length,slides:chapters,sources,assets,fontSources,demo:{fictional:true,profile:proof.initial.profile,roleId:'financial',roleTitle:'Financial data analyst',evidence:{revision:proof.initial.evidence.revision,status:proof.initial.evidence.status,retrievedAt:proof.initial.evidence.retrievedAt,sourceCount:proof.initial.evidence.sources.length},initialRole:proof.initial.matches.find(r=>r.id==='financial'),rapidRole:proof.rapid.matches.find(r=>r.id==='financial'),initialPlan:proof.initial.pathways.financial,acceptedPlan:proof.rapid.pathways.financial,checks:proof.checks,careerBrief:brief,capturedAt:proof.capturedAt},handoff:{scope:'Deck and video source materials only. No chapter implementation, audio or finished video.',stage:{width:1920,height:1080,safeMargin:80},theme:'Nexus custom; preserve supplied tokens and fonts. Use one midnight stage surface throughout the video.',checkpoints:['Plan: confirm script, outline, Nexus theme, assets and development mode.','First chapter: main thread builds a complete chapter; user reviews before further chapter development.','Audio: ask whether to synthesize after the web chapters are complete.'],narrationsTsIsImplementationSourceOfTruth:true,chapterBeatCountsAreProvisional:true}};
 pitchData.requirementCoverage=requirementCoverage;
-pitchData.narrativePurpose='The deck is the visual backbone of the same pitch delivered in the video. Its slide order, chapter messages, narration and limitations are aligned.';
+pitchData.narrativePurpose='The worker and employer deck is the visual backbone of the same pitch delivered in the video. Its slide order, chapter messages, narration and limitations are aligned.';
 pitchData.demo.liveEmbed={url:demoUrl,slideId:chapters[5].slideId,localServerRequired:false,publicDeployment:true,profileSelection:'Choose the fictional Siti Rosli sample; review settings before the live demonstration.',continuity:'Native slide figures refer to the frozen capture. The interactive app uses its current workspace and cached evidence; live values may differ.'};
 const css=pitchLayoutCss;
 const fitRefinements='';
@@ -221,6 +219,7 @@ fit();show(current,false);loadLiveDemo();window.pitchReady=document.fonts.ready;
 const json=JSON.stringify(pitchData).replaceAll('<','\\u003c');
 const html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="description" content="Nexus by Team Decisive — a reviewable reskilling decision. Ten-slide pitch and verified video source handoff."><title>Nexus — Plans evolve. Progress stays.</title><link rel="icon" href="${assets['nexus-mark'].dataUri}"><style>${fonts}\n${css}\n${fitRefinements}</style></head><body><main id="viewport" aria-label="Nexus pitch deck"><div id="stage">${slides.join('\n')}</div></main><nav id="toolbar" aria-label="Presentation controls"><button id="prev" aria-label="Previous slide">←</button><span id="counter">01 / 10</span><button id="next" aria-label="Next slide">→</button><button id="notes-toggle" aria-controls="notes" aria-expanded="false">Notes & sources</button><button id="print">Print all slides</button><button id="fullscreen">Fullscreen</button></nav><aside id="notes" aria-label="Narration, sources and assets" hidden><button id="close-notes">Close notes</button> <button id="download-data">Download source data</button><div id="notes-body"></div></aside><div id="live-status" class="sr-only" aria-live="polite"></div><script id="nexus-pitch-data" type="application/json">${json}</script><script>${runtime}</script></body></html>`;
 await fs.writeFile('nexus-pitch.html',html);
+await fs.writeFile('submission/SDC26_Decisive_PitchDeck.html',html);
 const withoutUris={...pitchData,assets:Object.fromEntries(Object.entries(assets).map(([k,{dataUri,...v}])=>[k,v]))};
 await fs.writeFile(`${dir}/pitch-data.json`,JSON.stringify(withoutUris,null,2));
 await fs.writeFile('script.md',chapters.flatMap(c=>c.beats).join('\n\n---\n\n')+'\n');
@@ -244,7 +243,13 @@ NexusTalent, branded **nexus**, is Team Decisive’s SDC Hackathon 2026 Domain 1
 
 The active application supports text-based PDF, DOCX and TXT CVs, pasted experience and fictional samples. Users review skills, tasks, goals and weekly time before comparing six authored roles. The connected loop produces score explanations, source receipts, ordered gap-and-prerequisite learning plans, proposed revisions, accept/revert controls, device-local completion and reflections, saved decisions and an exported Markdown brief. [R01–R05]
 
-Implementation is React/Vite → Express career API → explainable CPU rules and public Crossref research, with a public research revision cache. The normal UI reads the original CV file in the browser and sends extracted text and the reviewed profile to the API for in-memory processing. Personal workspaces remain in browser local storage. There are no active LLM/GPU calls, cloud accounts, institutional approval records or cross-device sync. [R01–R03, R05–R06]
+Implementation is React/Vite → Express career API → explainable CPU rules and public Crossref research, with a public research revision cache. The normal UI reads the original CV file in the browser and sends extracted text and the reviewed profile to the API for in-memory processing. Worker personal workspaces remain in browser local storage. Employer synthetic surveys and campaigns are saved separately to a single-process server JSON store. There are no active LLM/GPU calls, cloud accounts, institutional approval records or cross-device sync. [R01–R03, R05–R06]
+
+## 1a. Employer workflow and deployment
+
+The employer introduction at /hr opens the seven-part functional /hr/demo. HR creates expiring, quota-limited survey links; synthetic employee submissions receive roles and cited pathways through the existing matching engine. Department review includes radar, capability heatmaps, searchable profiles and individual pathways. Authored scenarios and separately labelled trend simulations support comparison. Selected learning cohorts respect prerequisites and export a cited department learning brief. Three departments with eight seeded synthetic profiles each are fixtures, not adoption or traction. Review-together checks prepare discussion; they are not consent or training assignment. [R08]
+
+The public employer prototype is **synthetic-only and has no employer authentication**. Its atomic JSON persistence is designed for one Node process, not a production multi-tenant database or durable horizontally scaled deployment. Worker progress remains device-local. The full-stack application is hosted on Replit at https://NexusTalent-Decisive.replit.app; /hr returned HTTP 200 during verification on 24 October 2026. No automated personnel decisions, verified HRD Corp claimability or measured SDG impact are claimed. [R01, R08]
 
 ## 2. Fictional inputs and explainable direction
 
@@ -282,13 +287,13 @@ The SQL step’s SDG 4.4 and 8.2 mappings describe intended contribution through
 
 The expected impact is clearer next learning choices for workers and more reviewable advice for advisers, while useful learning remains recorded as plans change. Intended benefits are clearer next steps, traceable advice, useful revisions and visible learning. The proposed pilot connects each benefit to a measure: time to an adviser-agreed action, source validity, acceptance/reversion usefulness and adviser review of a practice work sample. These are hypotheses to validate; no improvement, employment effect or measured social impact is asserted. [P01]
 
-Malaysian career centres and reskilling providers are the initial buyer hypothesis. The proposed value is preparing and revisiting an explainable transition brief. An organisational subscription per active advised learner is a possible model; pricing remains unvalidated. A proposed first pilot invites **one adviser team and two review sessions**. This scope is a pitch proposal, not an agreed partnership. [R01, P01]
+Malaysian employers, career centres and reskilling providers are buyer hypotheses. The proposed value is preparing and revisiting an explainable transition brief. An organisational subscription per active advised learner is a possible model; pricing remains unvalidated. A proposed first pilot invites **one adviser team and two review sessions**. This scope is a pitch proposal, not an agreed partnership. [R01, P01]
 
 Measure time to an adviser-agreed next action, source validity, usefulness of revisions and review of completed work samples. Proposed targets are recording an agreed action, checking each source used, explaining acceptance/reversion and reviewing practice outputs. **Baselines are pending measurement.** No market size, revenue, customers, traction or outcomes are claimed. Adviser matching validation, resource/prerequisite review, an appropriate Malaysian job-demand source, accounts and deployment controls remain future work. Engineering checks do not establish career accuracy, general fairness or employment outcomes. [R01–R03, P01]
 
 ## 7. Team and availability
 
-Verified roles: **Raye Chan Jun Foong — team leader; Teo Zheng Xi — tech lead; Liew Jicson — video**. The live prototype is deployed on Replit at https://NexusTalent-Decisive.replit.app. The deck therefore states **Hosted prototype available for demonstration**. The invitation is to review a sample transition decision with an adviser team. [R01]
+Verified roles: **Raye Chan Jun Foong — team leader; Teo Zheng Xi — tech lead; Liew Jicson — video**. The live prototype is deployed on Replit at https://NexusTalent-Decisive.replit.app. The deck therefore states **Hosted prototype available for demonstration**. The invitation is to review a sample transition decision with an employer or adviser team. [R01]
 
 ## Source register
 
@@ -298,7 +303,7 @@ ${sources.map(s=>`- **${s.id}** — ${s.url?`[${s.title}](${s.url})`:s.title}${s
 
 ## Asset and production record
 
-The frozen product/API capture and exact brief live in output/pitch/. Historical screenshots remain source records only and are not embedded or displayed. The deck embeds CSS, JavaScript, fonts, narration, source records and asset mappings. Fonts were obtained from official Google Fonts endpoints and embedded; there is **no external runtime font dependency**. The deck uses native typography and diagrams, with no product screenshots. Slide 6 is the sole live HTML embed and connects to the hosted app at https://NexusTalent-Decisive.replit.app/#import. It is a live Replit deployment. No required product asset is missing. Public deployment, pilot baselines and any real learner work sample remain unavailable and are not fabricated.
+The frozen product/API capture and exact brief live in output/pitch/. Historical screenshots remain source records only and are not embedded or displayed. The deck embeds CSS, JavaScript, fonts, narration, source records and asset mappings. Fonts were obtained from official Google Fonts endpoints and embedded; there is **no external runtime font dependency**. The deck uses native typography and diagrams, with no product screenshots. Slide 6 is the sole live HTML embed and connects to the hosted app at https://NexusTalent-Decisive.replit.app/#import. It is a live Replit deployment. No required product asset is missing. Pilot baselines and any real learner work sample remain unavailable and are not fabricated.
 
 The later video must rebuild focused 1920 × 1080 click-driven scenes on a consistent Nexus stage. This run creates neither voice audio nor finished video. See outline.md for the pending plan, first-chapter and audio checkpoints; the later chapters’ narrations.ts files become the implementation source of truth.
 `;
@@ -350,7 +355,7 @@ ${c.assets.length?c.assets.map(id=>`- Ready — ${id}: ${assets[id]?.path||'See 
 - Ready — output/pitch/demo-proof.json holds initial, completed, rapid, green and reverted API responses plus the final local state and preservation checks.
 - Ready — output/pitch/siti-career-brief.md is the real exported brief; the HTML embeds it for an offline download.
 - Ready — public/nexus-mark.svg and the original Wordmark span structure/proportions are reused; embedded Sora, DM Sans and IBM Plex Mono remove runtime font downloads.
-- Ready — output/pitch/pitch-data.json and font-sources.json document sources, timestamps, data assets, the local live-demo address and font provenance.
+- Ready — output/pitch/pitch-data.json and font-sources.json document sources, timestamps, data assets, the hosted live-demo address and font provenance.
 - Ready — public deployment URL: https://NexusTalent-Decisive.replit.app.
 - Pending measurement — pilot baselines, adviser agreement and outcome data; show proposed measures only.
 - Unavailable, not claimed — a real learner’s completed work sample, professional qualification and institutional approval.

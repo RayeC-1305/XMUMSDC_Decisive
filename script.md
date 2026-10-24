@@ -1,4 +1,4 @@
-Plans evolve. Progress stays. Nexus is a reviewable reskilling workspace for workers and career advisers.
+Plans evolve. Progress stays. Nexus is a reviewable reskilling workspace for workers, employers and career advisers.
 
 ---
 
@@ -146,7 +146,7 @@ Original CV files stay in the browser. Extracted text and reviewed profiles are 
 
 ---
 
-Saved decisions and progress stay on this device. No LLM or GPU is active.
+Worker progress stays on-device; employer demo data uses server JSON. Replit hosts the CPU rules app.
 
 ---
 
@@ -154,35 +154,27 @@ Engineering checks do not validate forecasts, fairness or employment outcomes.
 
 ---
 
-We expect Nexus to support clearer choices, reviewable advice and continuity of learning.
+Employers now have their own introduction and guided workflow, using the same explainable matching engine.
 
 ---
 
-Those benefits need testing with workers and advisers.
+Create an expiring survey link. A synthetic employee submits a reviewed profile and receives personal roles and pathways.
 
 ---
 
-A proposed pilot would measure time to an adviser-agreed next action.
+HR reviews departmental radar, heatmaps and individual pathways, then compares authored scenarios.
 
 ---
 
-It would check the sources used.
+Select prerequisite-aware learning cohorts and download a cited department brief for human review.
 
 ---
 
-It would test whether revisions help.
+This public demo accepts synthetic data only. It has no employer login and uses a single-process JSON store.
 
 ---
 
-And it would review completed work samples.
-
----
-
-Malaysian career centres and reskilling providers are our buyer hypothesis; subscription pricing remains unvalidated.
-
----
-
-These are intended benefits, not measured outcomes. Baselines are pending.
+Our pilot would test time to an agreed learning action, source validity, revision usefulness and work-sample review. Baselines and pricing remain unvalidated.
 
 ---
 
@@ -202,4 +194,4 @@ We invite one adviser team to help validate this workflow. Bring a sample transi
 
 ---
 
-Local prototype available for demonstration. Plans evolve. Progress stays.
+Try the worker and employer demos on Replit. Plans evolve. Progress stays.

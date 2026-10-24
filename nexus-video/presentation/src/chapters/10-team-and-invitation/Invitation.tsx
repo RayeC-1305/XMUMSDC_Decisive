@@ -1,0 +1,9 @@
+import type {ChapterStepProps} from '../../registry/types';
+import './Invitation.css';
+
+const team=[['Raye Chan Jun Foong','Team leader'],['Teo Zheng Xi','Tech lead'],['Liew Jicson','Video']];
+export default function Invitation({step}:ChapterStepProps){return <div className={'iv-invitation iv-step-'+step}>
+ <section className={'iv-layer '+(step<3?'iv-active':'')} aria-hidden={step>=3}><p className="iv-team">TEAM DECISIVE</p><h1>Building the next<br/><em>reviewable decision.</em></h1><div className="iv-people">{team.map(([name,role],i)=><div key={name} className={(i<=step?'iv-seen ':'')+(i===step?'iv-current':'')}><strong>{i<=step?name:' '}</strong><span>{i<=step?role:' '}</span></div>)}</div><p className="iv-event">SDC Hackathon 2026 · Domain 1: Aiversecity Future-Ready Workforce</p></section>
+ <section className={'iv-layer '+(step===3?'iv-active':'')} aria-hidden={step!==3}><h1>Bring a transition decision.<br/><em>Review it with us.</em></h1><div className="iv-brief"><span>THE VERIFIED DEMO BRIEF</span><strong>Siti Rosli · Financial data analyst</strong><p>Faster AI adoption → next SQL practice</p><b>✓ Data quality & validation retained</b><small>Fictional profile · self-reported demo completion</small></div><div className="iv-invite"><b className="hero-num">1</b><p>employer or adviser team<br/>to validate the workflow</p></div></section>
+ <section className={'iv-layer '+(step===4?'iv-active':'')} aria-hidden={step!==4}><div className="iv-wordmark" aria-label="nexus">ne<span>x</span>us</div><h1>Plans evolve.<br/><em>Progress stays.</em></h1><p className="iv-close"><a href="https://NexusTalent-Decisive.replit.app" target="_blank" rel="noreferrer" data-no-advance>NexusTalent-Decisive.replit.app ↗</a><br/><span>Worker + employer demos · Hosted on Replit</span></p><p className="iv-support">Advance with every shift.</p></section>
+ </div>;}

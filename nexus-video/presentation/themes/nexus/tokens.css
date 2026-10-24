@@ -1,0 +1,16 @@
+:root {
+  --shell:#0A1022; --surface:#111A34; --surface-2:#172342; --surface-3:#202F54;
+  --text:#FFFFFF; --text-2:#D4DCF3; --text-mute:#B7C3E2; --text-faint:#B7C3E2;
+  --rule:#405070; --accent:#83F0E7; --accent-soft:#203C4C; --accent-glow:transparent;
+  --action:#4355E7; --scenario:#9073FF; --ice:#E3E8FF; --ink:#202B46;
+  --font-display-cn:'Sora',system-ui,sans-serif;
+  --font-display-en:'Sora',system-ui,sans-serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono','Cascadia Code',monospace;
+  --font-features:'tnum'; --stage-pad-x:120px; --stage-pad-y:96px;
+  --r-card:8px; --r-stage:0; --rule-w:2px; --rule-style:solid;
+  --hero-num-font:var(--font-display-en); --hero-num-style:normal;
+  --hero-num-weight:600; --hero-num-track:-.035em;
+  --shadow-stage:none; --card-shadow:none; --surface-pattern:none; --surface-vignette:none;
+  --ease-precise:cubic-bezier(.16,1,.3,1);
+}

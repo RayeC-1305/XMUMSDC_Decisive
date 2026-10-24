@@ -1,16 +1,8 @@
 # NexusTalent — Decisive
 
-> NexusTalent helps workers and career advisers turn existing experience and changing AI evidence into a practical, reviewable reskilling decision.
+> NexusTalent helps workers, employers and career advisers turn experience and changing AI research context into practical, reviewable learning decisions.
 
 **Plans evolve. Progress stays.** SDC Hackathon 2026 · Domain 1: Aiversecity Future-Ready Workforce.
-
-## Employer / HR workflow
-
-The individual worker experience is preserved. Open **`/hr`** (or **HR & Employers** in the audience navigation) for an animated introduction with an interactive synthetic scenario preview, then choose **Explore the guided demo** to enter **`/hr/demo`**. Seven focused chapters cover setup, working survey campaigns, a real embedded survey, radar/heatmap/searchable employee review, scenario comparison, selectable learning cohorts with a downloadable cited brief, and SDG review. Three departments with eight synthetic profiles each are seeded automatically.
-
-HR can create an expiring, quota-limited `/survey/:token` link, copy it, extend it or revoke it. Employees can autofill a synthetic profile and immediately receive explainable roles and cited pathways from the **same existing matching engine**. HR updates every five seconds. Moderate, fast-AI and green-transition scenarios and separately labelled trend simulations trigger replanning.
-
-**Demo Mode: Use synthetic data only. Do not enter real personal data or real CVs.** This public prototype has no employer authentication. Department data is saved to a local, single-process JSON store, not a production database. No LLM is used; HRD Corp claimability and measured SDG impact are not asserted. See [workforce architecture, endpoints and limitations](docs/WORKFORCE.md), and [Replit run instructions](replit.md).
 
 This README follows the [official submission template](https://github.com/michaelzhngg/SDC_Hackathon_Submission_Template). Official forms are available in the [submission documents folder](https://drive.google.com/drive/folders/1xw7c2aN8N-at8hPEULzkcU76e_FFb0Ef). Unprovided submission details are marked **TBD** rather than presented as completed.
 
@@ -30,11 +22,11 @@ This README follows the [official submission template](https://github.com/michae
 | Resource | Link / status |
 | --- | --- |
 | GitHub Repository | [RayeC-1305/XMUMSDC_Decisive](https://github.com/RayeC-1305/XMUMSDC_Decisive) |
-| Replit Project | [NexusTalent on Replit](https://NexusTalent-Decisive.replit.app) · Proof of Use: [Replit_POU_1.png](submission/Replit_POU_1.png), [Replit_POU_2.png](submission/Replit_POU_2.png) |
-| Live Demo | [https://NexusTalent-Decisive.replit.app](https://NexusTalent-Decisive.replit.app) (Hosted on Replit); local: [frontend dev](http://localhost:5173), [built app](http://127.0.0.1:3001) |
+| Replit Project | Workspace/editor URL not supplied. [Replit deployment](https://NexusTalent-Decisive.replit.app) · [Proof of use PDF](submission/SDC2026_Decisive_Replit_POU.pdf) |
+| Live Demo | [https://NexusTalent-Decisive.replit.app](https://NexusTalent-Decisive.replit.app) (Hosted on Replit); local: [frontend dev](http://localhost:5000), [built app](http://127.0.0.1:3001) |
 | RunPod Endpoint | Not used by the active application; CPU rules engine requires no GPU endpoint |
-| Slide Deck | [Nexus HTML pitch deck](nexus-pitch.html) — download/open locally (embeds live Replit app on slide 6); [viewing instructions](docs/PITCH.md) |
-| Demo Video | TBD — In production (Liew Jicson) |
+| Slide Deck | [PDF](submission/SDC26_Decisive_PitchDeck.pdf) · [Interactive HTML](submission/SDC26_Decisive_PitchDeck.html) · [Viewing instructions](docs/PITCH.md) |
+| Demo Video | Final video URL pending — Liew Jicson. [Seven-minute web presentation source](nexus-video/presentation/README.md) · [Script](nexus-video/script.md) |
 | Submission Documents | [submission/](submission/) — includes [SDC2026_Decisive_Preliminary.pdf](submission/SDC2026_Decisive_Preliminary.pdf), [SDC2026_Decisive_TechDeclaration.pdf](submission/SDC2026_Decisive_TechDeclaration.pdf), and Replit Proof of Use |
 
 ## Overview
@@ -59,13 +51,21 @@ The active baseline uses **explainable rules**, not a generative model or claime
 6. **Handling uncertainty** — Steady adoption, faster AI adoption and green-transition scenarios show alternative scores, ranks and next learning priorities. Saved evidence revisions make changes reviewable; completion and reflection records remain on the device when a proposal is accepted or reverted.
 7. **Employer & Workforce Management (`/hr`)** — An animated employer portal (`/hr`) and seven-chapter guided demo (`/hr/demo`) with department skills radar, capability heatmaps, searchable employee reviews, expiring/quota-limited survey links (`/survey/:token`) with 5-second live polling, and cited cohort learning brief generation.
 
+### Employer / HR workflow
+
+The individual worker experience is preserved. Open **`/hr`** (or **HR & Employers** in the audience navigation) for an animated introduction with an interactive synthetic scenario preview, then choose **Explore the guided demo** to enter **`/hr/demo`**. Seven focused chapters cover setup, working survey campaigns, a real embedded survey, radar/heatmap/searchable employee review, scenario comparison, selectable learning cohorts with a downloadable cited brief, and SDG review. Three departments with eight synthetic profiles each are seeded automatically.
+
+HR can create an expiring, quota-limited `/survey/:token` link, copy it, extend it or revoke it. Employees can autofill a synthetic profile and immediately receive explainable roles and cited pathways from the **same existing matching engine**. HR updates every five seconds. Moderate, fast-AI and green-transition scenarios and separately labelled trend simulations trigger replanning.
+
+**Demo Mode: Use synthetic data only. Do not enter real personal data or real CVs.** This public prototype has no employer authentication. Department data is saved to a server-side, single-process JSON store, not a production database. No LLM is used; HRD Corp claimability and measured SDG impact are not asserted. See [workforce architecture, endpoints and limitations](docs/WORKFORCE.md), and [Replit run instructions](replit.md).
+
 ### Tech Stack
 
 | Layer | Technology |
 | --- | --- |
 | Frontend | React 18, Vite 6, Tailwind CSS, Lucide; existing Sora/DM Sans/IBM Plex Mono identity |
 | Backend | Node.js 22.16+, Express 4, validated stateless JSON API, bounded PDF upload support |
-| Data / persistence | Shared authored role/skill catalog; public research revision cache on disk; browser local storage for reviewed profiles, saved decisions, notes and progress |
+| Data / persistence | Shared authored role/skill catalog; public research revision cache on disk; browser local storage for worker profiles, decisions and progress; a single-process JSON store for synthetic employer campaigns and submissions |
 | AI / compute | CPU rules baseline and public AI/workforce research; no active LLM, learned embedding model or GPU workload |
 | CV extraction | Browser PDF.js and fflate; backend keyword intake and pdf-parse for direct PDF API uploads |
 | Evidence | [Crossref REST API](https://www.crossref.org/documentation/retrieve-metadata/rest-api/) |
@@ -97,7 +97,8 @@ The active baseline uses **explainable rules**, not a generative model or claime
 ├── docs/                       # API, integration, verification and design notes
 ├── design-system/              # Existing interface specification
 ├── submission/                 # Completed proposal, tech declaration & Replit proof-of-use
-├── nexus-pitch.html            # Self-contained 10-slide HTML pitch deck
+├── nexus-pitch.html            # Convenience copy of the submitted HTML deck
+├── nexus-video/presentation/   # Recordable seven-minute React presentation source
 ├── article.md                  # Detailed pitch narrative and source references
 ├── script.md                   # Spoken pitch script
 ├── outline.md                  # Aligned slide and demonstration plan
@@ -116,7 +117,7 @@ The active baseline uses **explainable rules**, not a generative model or claime
 └── README.md
 ```
 
-Old HR/TVET components, RunPod adapters and legacy datasets remain outside the active application. Legacy mutation routes return 410; they are not a second source of production evidence. See the [API contract](docs/BACKEND.md).
+The employer components in `src/components/hr/` are active. Older TVET components, unused RunPod adapters and legacy datasets remain outside the active application. Legacy mutation routes return 410; they are not a second source of production evidence. See the [API contract](docs/BACKEND.md).
 
 ### Architecture
 
@@ -131,10 +132,13 @@ flowchart LR
   E --> M
   M --> L[Gap and prerequisite pathway]
   L -->|Roles / sources / SDGs / scenario comparison| UI
-  UI --> S[Device-local plans and completion]
+  UI --> S[Device-local worker plans and completion]
+  HR[Employer demo / employee survey] --> UI
+  API --> H[Synthetic campaigns and submissions / server JSON]
+  HOST[Replit hosts frontend and API] -.-> UI
 ```
 
-The active workspace takes its scores, forecasts and learning steps from the server. A separate local preview on the pitch page is labelled illustrative. Browser requests go to `/api`; only the server contacts Crossref. Public evidence is the only server-side disk cache. Raw files stay in the browser in the normal UI flow; extracted CV text and reviewed profiles are sent to the backend without being persisted or forwarded to an AI provider.
+The active workspace takes its scores, forecasts and learning steps from the server. A separate local preview on the pitch page is labelled illustrative. Browser requests go to `/api`; only the server contacts Crossref. Public research uses a server-side revision cache; the synthetic employer demo separately persists campaigns and submissions to JSON. Raw files stay in the browser in the normal UI flow; extracted CV text and reviewed profiles are sent to the backend without being persisted or forwarded to an AI provider.
 
 ## How to Run
 
@@ -149,7 +153,7 @@ npm ci
 npm run dev
 ```
 
-`npm run dev` starts Express and Vite together. Open the Vite URL, normally [localhost:5173](http://localhost:5173). The API normally runs at [127.0.0.1:3001](http://127.0.0.1:3001/api/health). If 3001 is occupied, copy `.env.example` to `.env` and change `PORT`; Vite uses that port for its proxy. `VITE_API_URL` should normally remain blank for same-origin requests. `VITE_PROXY_TARGET` can select a separately running API.
+`npm run dev` starts Express and Vite together. Open the Vite URL, normally [localhost:5000](http://localhost:5000). The API normally runs at [127.0.0.1:3001](http://127.0.0.1:3001/api/health). If 3001 is occupied, copy `.env.example` to `.env` and change `PORT`; Vite uses that port for its proxy. `VITE_API_URL` should normally remain blank for same-origin requests. `VITE_PROXY_TARGET` can select a separately running API.
 
 To run the built full-stack app:
 
@@ -170,7 +174,7 @@ NexusTalent is deployed and accessible live at:
 The full-stack application runs on Replit using Node.js 22:
 - **Express Backend:** Runs on port 3001 serving both `/api` endpoints and the compiled React frontend from `dist/`.
 - **Vite Development Preview:** In dev mode (`npm run dev`), Express runs on port 3001 and Vite runs on port 5000, configured with reverse proxying and Replit preview origin validation.
-- **Verification:** Proof of deployment and active cloud execution is documented in [submission/Replit_POU_1.png](submission/Replit_POU_1.png) and [submission/Replit_POU_2.png](submission/Replit_POU_2.png).
+- **Proof of use:** [SDC2026_Decisive_Replit_POU.pdf](submission/SDC2026_Decisive_Replit_POU.pdf).
 
 ### Run Tests
 
@@ -196,11 +200,30 @@ Backend tests use explicitly synthetic fixtures and local HTTP; they need no int
 5. Open the ordered **Learning plan**, inspect public resources and SDG links, record a completion, then change the scenario and show that progress remains.
 6. Save and download the brief with sources, score explanations, estimates and decision history.
 
+### Employer Demo Walkthrough
+
+1. Open [HR & Employers](https://NexusTalent-Decisive.replit.app/hr), then **Explore the guided demo**.
+2. Select a synthetic department and create an expiring, quota-limited survey link.
+3. Autofill and submit the synthetic employee survey; inspect its personal roles and cited pathways.
+4. Review the department radar, capability map and individual pathways; compare authored scenarios.
+5. Select prerequisite-aware learning cohorts and download the cited department brief. Revoke test survey links after use.
+
 ### Pitch Deck
 
 Download [nexus-pitch.html](nexus-pitch.html) and open it in a browser. Its ten slides, fonts, narration and source records are embedded. Use the arrow keys or Space to advance, Home/End to jump, and N for speaker notes. GitHub displays HTML source; download the file to present it.
 
-Slide 6 directly embeds the live hosted application at [`https://NexusTalent-Decisive.replit.app/#import`](https://NexusTalent-Decisive.replit.app/#import) (with an "Open demo in a new tab" shortcut), enabling judges to interact with the working system directly within the presentation deck. For offline presentations, running the app locally on port 3201 is also supported. Captured example scores describe the fictional Siti profile and a dated evidence revision; current live results can differ. See [pitch viewing, rebuild and source instructions](docs/PITCH.md). The deck, script, and public Replit deployment are available; the demo video remains in production.
+Slide 6 directly embeds the live hosted application at [`https://NexusTalent-Decisive.replit.app/#import`](https://NexusTalent-Decisive.replit.app/#import) (with an "Open demo in a new tab" shortcut), enabling judges to interact with the working system directly within the presentation deck. Slide 9 links to the employer introduction. To embed a local fallback instead, follow the rebuild instructions in [live-demo.md](output/pitch/live-demo.md). Captured example scores describe the fictional Siti profile and a dated evidence revision; current live results can differ. See [pitch viewing, rebuild and source instructions](docs/PITCH.md). The deck, script, and public Replit deployment are available; the demo video remains in production.
+
+### Video Presentation Source
+
+The ten-chapter web presentation has 66 narration beats and 420 planned seconds. It includes the worker and employer demonstrations and preserves the reviewed motion. To run it from the repository root:
+
+```sh
+npm ci --prefix nexus-video/presentation
+npm run dev --prefix nexus-video/presentation
+```
+
+Open [localhost:5186](http://127.0.0.1:5186/?chapter=opening&step=0). Press P for silent playback. Actual product actions require an operator; the preview advances cues, not the product. Audio and the final MP4/video URL are pending. See [presentation instructions](nexus-video/presentation/README.md) and [verification notes](nexus-video/verification.md).
 
 ## How We Use Replit (Required Template Section)
 
@@ -213,18 +236,14 @@ Replit served as our cloud development, preview orchestration, and public produc
 
 1. **Full-Stack Cloud Hosting:** Replit hosts both our React 18 / Vite 6 frontend and Node.js 22 / Express 4 backend from a single unified deployment, serving judges with instant, zero-setup access to both the worker reskilling workspace and the HR workforce management portal.
 2. **Dual-Port Development & Preview Orchestration:** During development, Replit orchestrated concurrent execution of the Express API (port 3001) and Vite dev server (port 5000), handling dynamic origin proxying and websocket HMR within Replit's cloud container.
-3. **Automated Verification:** The Replit environment was used to run our automated test suites (`npm test`, `npm run test:backend`, and `npm run test:workforce`), ensuring deterministic matching, survey quotas, and progress preservation.
+3. **Verification:** The repository includes automated checks for shared matching, surveys, quotas and progress preservation. The latest local update passed 34 backend tests and the isolated employer browser journey; a browser check against the hosted deployment also verified synthetic survey submission and campaign revocation.
 4. **Interactive Pitch Integration:** The standalone pitch deck (`nexus-pitch.html`) embeds our live Replit deployment directly into slide 6, providing live interactive demonstrations during judging reviews.
 
-**Proof of Use:**
-- [submission/Replit_POU_1.png](submission/Replit_POU_1.png) — Replit workspace and deployment settings.
-- [submission/Replit_POU_2.png](submission/Replit_POU_2.png) — Active Replit service running and deployed endpoint.
-
-
+**Proof of Use:** [SDC2026_Decisive_Replit_POU.pdf](submission/SDC2026_Decisive_Replit_POU.pdf).
 
 ## How We Use RunPod (Required Template Section)
 
-**Status: not used in the active implementation.** Matching, metadata mapping and pathways run on the CPU. No BAAI/Llama inference or GPU endpoint is claimed. Legacy adapters are preserved outside the active server, and no mock credential is required by the app. The team must reconcile any sponsor requirements with the current event rules before submission; no proof-of-use document has been fabricated.
+**Status: not used; the template’s RunPod use/proof requirement remains outstanding.** Matching, metadata mapping and pathways run on the CPU. No BAAI/Llama inference or GPU endpoint is claimed. Legacy adapters are preserved outside the active server, and no mock credential is required by the app. The official template asks for RunPod use and a proof-of-use PDF. No organizer exemption is recorded. This repository discloses the gap and does not claim compliance or fabricate proof.
 
 Proof of use: not supplied. A future actual workload would require its own verified declaration and `submission/SDC2026_Decisive_Runpod_POU.pdf`.
 
@@ -263,11 +282,12 @@ The hardest remaining risk is matching quality and local demand relevance. The n
 - [x] Public live-demo link added (https://NexusTalent-Decisive.replit.app)
 - [x] Slide deck link added (HTML deck with embedded live Replit demo; nexus-pitch.html)
 - [ ] Demo video link added (In production — Liew Jicson)
-- [x] Actual Replit usage and proof documented (Deployed webapp & submission/Replit_POU_*.png)
-- [x] RunPod requirement reconciled with actual usage and event rules (CPU rules engine, zero GPU required)
+- [x] Replit used, with proof in `submission/SDC2026_Decisive_Replit_POU.pdf`
+- [ ] RunPod used, with proof in `submission/SDC2026_Decisive_Runpod_POU.pdf` — not used; no exemption recorded
 - [x] Preliminary proposal completed: `submission/SDC2026_Decisive_Preliminary.pdf`
 - [x] Technology declaration completed: `submission/SDC2026_Decisive_TechDeclaration.pdf`
-- [x] Final submission documents placed in `submission/`
+- [x] Supplied documents use the team name and are indexed in [submission/README.md](submission/README.md)
+- [ ] All template requirements complete — final demo video and RunPod proof remain outstanding
 - [x] Local run instructions and automated verification provided
 - [x] Secrets and generated caches excluded from version control
 
