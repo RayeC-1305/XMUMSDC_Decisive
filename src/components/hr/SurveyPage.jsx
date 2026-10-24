@@ -91,7 +91,7 @@ function SurveyResults({ result, skills }) {
   </section>;
 }
 
-export default function SurveyPage({ token }) {
+export default function SurveyPage({ token, embedded = false, onSubmitted }) {
   const [survey, setSurvey] = useState(null);
   const [skills, setSkills] = useState([]);
   const [profile, setProfile] = useState({ name: "", role: "", goal: "", tasks: "", interests: [], hoursPerWeek: "4", cvText: "" });
@@ -175,7 +175,10 @@ export default function SurveyPage({ token }) {
         }),
       });
       setResult({ ...payload, customSkills, proficiencies: payload.proficiencies });
-      window.scrollTo({ top: document.querySelector(".survey-results")?.offsetTop || 0, behavior: "smooth" });
+      onSubmitted?.(payload);
+      window.setTimeout(() => document.querySelector(".survey-results")?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start",
+      }), 0);
     } catch (failure) {
       setError(failure.status === 410 || failure.status === 404
         ? "This survey link is closed or has reached its response limit. Contact the campaign owner for an active link."
@@ -184,17 +187,17 @@ export default function SurveyPage({ token }) {
     } finally { setSubmitting(false); }
   }
 
-  return <div className="survey-app">
-    <header className="survey-top">
+  return <div className={`survey-app${embedded ? " survey-embedded" : ""}`}>
+    {!embedded && <header className="survey-top">
       <a href="/" className="hr-brand" aria-label="Return to Nexus worker workspace"><span className="hr-brand-mark">N</span><span>NexusTalent<small>People & capability planning</small></span></a>
-      <a href="/hr"><ArrowLeft size={14} /> HR dashboard</a>
-    </header>
+      <nav className="survey-nav-links" aria-label="Employer navigation"><a href="/hr"><ArrowLeft size={14} /> Employer introduction</a><a href="/hr/demo">Guided demo <ArrowRight size={14} /></a></nav>
+    </header>}
     <main className="survey-main">
-      <section className="survey-banner">
+      {!embedded && <section className="survey-banner">
         <span className="hr-eyebrow"><Sparkles size={14} /> Your next-step map</span>
         <h1>A survey about skills you want to grow.</h1>
         <p>Share a synthetic profile and get an immediate, transparent view of possible learning directions. Nothing here decides your job or your future.</p>
-      </section>
+      </section>}
       <div className="hr-notice warning" role="alert"><ShieldCheck size={17} /><strong>{SYNTHETIC_NOTICE}</strong></div>
       {loading && <div className="survey-card" aria-label="Loading survey"><div className="hr-skeleton" /><p style={{ marginTop: 12 }}>Checking this survey link…</p></div>}
       {!loading && closed && <section className="survey-error" role="alert"><h2>Survey link unavailable</h2><p>{error || "This link is invalid, closed, revoked or has reached its response limit."}</p><p style={{ marginTop: 10 }}>Ask the campaign owner for a current synthetic-demo link.</p><a className="hr-btn secondary" href="/hr" style={{ marginTop: 14, display: "inline-flex" }}><ArrowLeft size={14} /> HR dashboard</a></section>}
@@ -245,7 +248,7 @@ export default function SurveyPage({ token }) {
         </div>
         {result && <SurveyResults result={result} skills={safeSkills} />}
       </>}
-      <footer className="survey-bottom">NexusTalent public hackathon demo · Not a production-secured HR platform · Synthetic data only</footer>
+      {!embedded && <footer className="survey-bottom">NexusTalent public hackathon demo · Not a production-secured HR platform · Synthetic data only</footer>}
     </main>
   </div>;
 }

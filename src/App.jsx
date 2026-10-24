@@ -1,5 +1,6 @@
 import React from "react";
 import TransitionWorkspace from "./components/TransitionWorkspace";
+import HRLanding from "./components/hr/HRLanding";
 import HRPortal from "./components/hr/HRPortal";
 import SurveyPage from "./components/hr/SurveyPage";
 import "./hr.css";
@@ -7,7 +8,8 @@ import "./audience.css";
 
 export default function App() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
-  if (path === "/hr") return <HRPortal />;
+  if (path === "/hr") return <HRLanding />;
+  if (path === "/hr/demo") return <HRPortal />;
   const survey = path.match(/^\/survey\/([^/]+)$/);
   if (survey) return <SurveyPage token={survey[1]} />;
   if (path === "/survey") return <SurveyPage token="" />;

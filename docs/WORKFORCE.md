@@ -2,7 +2,21 @@
 
 ## Architecture integration
 
-The app remains a single React 18 / Vite 6 frontend and Node 22 / Express 4 backend. Existing worker navigation is hash-based inside `CareerApplication`; pathname entry points in `App.jsx` add `/hr` and `/survey/:token` without replacing it. There is no existing SQL database or central frontend state library. Worker decisions remain in browser local storage; HR UI state uses React hooks and refreshes analysis every five seconds.
+The app remains a single React 18 / Vite 6 frontend and Node 22 / Express 4 backend. Existing worker navigation is hash-based inside `CareerApplication`; pathname entry points in `App.jsx` add the employer introduction at `/hr`, guided demo at `/hr/demo` and public employee survey at `/survey/:token` without replacing it. There is no existing SQL database or central frontend state library. Worker decisions remain in browser local storage; HR UI state uses React hooks and refreshes analysis every five seconds.
+
+## Guided employer experience
+
+The employer landing page explains the complete workflow before inviting users into **Start guided demo**. The demo shows one chapter at a time:
+
+1. `#setup` — choose a seeded department and optionally load the idempotent demo set;
+2. `#invite` — create, copy, extend or revoke an actual survey campaign;
+3. `#respond` — submit the real employee survey inside the demo and receive immediate personal results, or open the shareable public survey;
+4. `#skills` — inspect the radar, heatmap and individual employee details;
+5. `#scenarios` — switch scenarios, refresh sources or simulate weights, with visible score/exposure/timeline results;
+6. `#plan` — review prerequisite-ordered learning cohorts and citations;
+7. `#impact` — inspect SDG mappings and discuss fairness, evidence and human-review boundaries.
+
+Each chapter explains its purpose and intended outcome. Numbered navigation, Previous/Next, deep links and browser back/forward work without resetting the selected campaign or scenario. Department setup, survey campaign and analysis scope are connected; preferences survive page reloads in session storage. Embedded submissions immediately request fresh dashboard data, in addition to the five-second polling interval. Reduced-motion preferences are respected.
 
 Survey profiles pass through `normalizeProfile`, the existing `matchProfile` rules engine and `buildPathway`. Optional **synthetic** CV text uses the same `recogniseSkills` keyword rules, with text split into bounded task entries. Custom skills outside the catalog are retained only for human review, never treated as scored catalog skills. Employee self-rated proficiency is saved for the heatmap, not added to individual role scoring.
 

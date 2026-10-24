@@ -14,7 +14,8 @@
 ## Routes and persistence
 
 - `/` and existing hash routes: unchanged worker application, with an HR audience link.
-- `/hr`: department survey campaigns, workforce analysis, cohort plans, evidence, scenarios, and SDG target mappings.
+- `/hr`: employer landing page introducing the workflow, with a **Start guided demo** link.
+- `/hr/demo`: seven guided chapters for setup, invitations, real employee responses, skills analysis, scenario comparison, learning plans and SDG review. Chapters use URL hashes and Previous/Next controls; selected campaign, scope and scenario persist in session storage. The embedded survey reuses the public survey component and updates the real dashboard after submission.
 - `/survey/:token`: synthetic employee survey and immediate individual analysis.
 - `services/workforce_service.js` and `server/workforce_routes.js` extend the existing `/api` service. Matching and pathway generation reuse `services/career_engine.js`; they do not replace the worker engine.
 - Individual intake/match endpoints remain stateless. Existing worker profiles/progress remain in browser local storage.
