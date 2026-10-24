@@ -1,0 +1,1 @@
+- [Hackathon judging priorities](judging-priorities.md) — HR and worker journeys are equally important; judges need fast, synthetic-only end-to-end exploration.

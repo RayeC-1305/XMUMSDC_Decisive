@@ -1,6 +1,6 @@
 # Optional Replit compatibility configuration. Deployment and proof of use are TBD.
 entrypoint = "server/server.js"
-modules = ["nodejs-20", "web", "python-3.12"]
+modules = ["web", "python-3.12", "nodejs-22"]
 run = "npm run dev"
 
 [env]
@@ -16,8 +16,36 @@ localPort = 3001
 externalPort = 80
 
 [[ports]]
+localPort = 5000
+externalPort = 5000
+
+[[ports]]
 localPort = 5173
 externalPort = 5173
 
 [nix]
 channel = "stable-25_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"

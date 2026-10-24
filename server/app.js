@@ -8,16 +8,17 @@ import { catalog, ROLES, SKILLS, LEARNING, MODEL_VERSION, DISCLOSURE, publicRole
 import { EvidenceService } from "../services/evidence_service.js";
 import { InputError, object, normalizeProfile, parseProfileText, extractUpload } from "../services/profile_intake.js";
 import { matchProfile, buildPathway, scenarioFor, normalizeSimulations } from "../services/career_engine.js";
+import { registerWorkforceRoutes } from "./workforce_routes.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const asyncRoute = handler => (req, res, next) => Promise.resolve(handler(req, res)).catch(next);
 
-export function createApp({ evidence = new EvidenceService({ cacheFile: path.join(root, "data", "cache", "research.json") }), serveFrontend = true } = {}) {
+export function createApp({ evidence = new EvidenceService({ cacheFile: path.join(root, "data", "cache", "research.json") }), serveFrontend = true, workforceStore } = {}) {
   const app = express();
   app.disable("x-powered-by");
   const extraOrigins = new Set((process.env.CORS_ORIGINS || "").split(",").map(s => s.trim()).filter(Boolean));
   app.use(cors({ origin(origin, callback) {
-    if (!origin || /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin) || extraOrigins.has(origin)) callback(null, true);
+    if (!origin || /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin) || extraOrigins.has(origin) || (process.env.REPLIT_DEV_DOMAIN && origin === `https://${process.env.REPLIT_DEV_DOMAIN}`)) callback(null, true);
     else callback(new InputError("This browser origin is not allowed.", 403));
   }, methods: ["GET", "POST", "OPTIONS"] }));
   app.use((req, res, next) => {
@@ -30,7 +31,7 @@ export function createApp({ evidence = new EvidenceService({ cacheFile: path.joi
 
   app.get("/api/health", asyncRoute(async (_req, res) => {
     const state = await evidence.get();
-    res.json({ status: "healthy", app: "NexusTalent", apiVersion: 1, modelVersion: MODEL_VERSION, disclosure: DISCLOSURE, evidence: { status: state.status, retrievedAt: state.retrievedAt, sourceCount: state.sources.length, lastError: state.lastError }, privacy: "Stateless profile processing. No CV text or worker profiles are stored.", timestamp: new Date().toISOString() });
+    res.json({ status: "healthy", app: "NexusTalent", apiVersion: 1, modelVersion: MODEL_VERSION, disclosure: DISCLOSURE, evidence: { status: state.status, retrievedAt: state.retrievedAt, sourceCount: state.sources.length, lastError: state.lastError }, privacy: "Individual profile APIs remain stateless. Synthetic-only department survey profiles are saved to the local demo store. Never enter real personal data.", timestamp: new Date().toISOString() });
   }));
   app.get("/api/catalog", (_req, res) => res.json(catalog()));
   app.get("/api/roles", (_req, res) => res.json({ roles: ROLES.map(publicRole), disclosure: DISCLOSURE }));
@@ -73,6 +74,8 @@ export function createApp({ evidence = new EvidenceService({ cacheFile: path.joi
   };
   app.post("/api/transition", asyncRoute(async (req, res) => res.json(await transition(req.body, true))));
   app.post("/api/reskilling-pathway", asyncRoute(async (req, res) => res.json(await transition(req.body, false))));
+
+  registerWorkforceRoutes(app, evidence, { store: workforceStore });
 
   // Retire shared mutable demo state and unverifiable evidence injection explicitly.
   app.all(["/api/trends/inject", "/api/trends/ingest-custom", "/api/scenario", "/api/hr/broadcast", "/api/tvet/endorse", "/api/fairness-audit", "/api/personas"], (_req, res) => res.status(410).json({ error: "This legacy demo endpoint has been retired. Use /api/catalog, /api/trends/refresh and a per-request scenarioId with /api/transition.", code: "LEGACY_ENDPOINT_RETIRED" }));

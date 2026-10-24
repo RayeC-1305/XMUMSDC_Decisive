@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   const proxy = { "/api": { target, changeOrigin: true } };
   return {
     plugins: [react()],
-    server: { port: 5173, watch: { ignored: ["**/output/**"] }, proxy },
+    server: { host: "0.0.0.0", port: 5000, allowedHosts: true, watch: { ignored: ["**/output/**", "**/data/workforce/**"] }, proxy },
     preview: { proxy },
   };
 });

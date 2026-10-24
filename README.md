@@ -4,6 +4,14 @@
 
 **Plans evolve. Progress stays.** SDC Hackathon 2026 · Domain 1: Aiversecity Future-Ready Workforce.
 
+## Employer / HR workflow
+
+The individual worker experience is preserved. Open **`/hr`** (or **HR & Employers** in the audience navigation) for synthetic department survey campaigns, a Future Skills Radar, employee skills-gap heatmap, scenario-based cohort learning plans and aggregated SDG targets. Three departments with eight synthetic profiles each are seeded automatically.
+
+HR can create an expiring, quota-limited `/survey/:token` link, copy it, extend it or revoke it. Employees can autofill a synthetic profile and immediately receive explainable roles and cited pathways from the **same existing matching engine**. HR updates every five seconds. Moderate, fast-AI and green-transition scenarios and separately labelled trend simulations trigger replanning.
+
+**Demo Mode: Use synthetic data only. Do not enter real personal data or real CVs.** This public prototype has no employer authentication. Department data is saved to a local, single-process JSON store, not a production database. No LLM is used; HRD Corp claimability and measured SDG impact are not asserted. See [workforce architecture, endpoints and limitations](docs/WORKFORCE.md), and [Replit run instructions](replit.md).
+
 This README follows the [official submission template](https://github.com/michaelzhngg/SDC_Hackathon_Submission_Template). Official forms are available in the [submission documents folder](https://drive.google.com/drive/folders/1xw7c2aN8N-at8hPEULzkcU76e_FFb0Ef). Unprovided submission details are marked **TBD** rather than presented as completed.
 
 ## Team Information

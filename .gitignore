@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+.cache/ms-playwright/
 /.pnp
 .pnp.js
 
@@ -20,6 +21,7 @@ output/pitch/*
 !output/pitch/fonts.css
 !output/pitch/font-*.ttf
 data/cache/
+data/workforce/
 .playwright-cli/
 
 # Environment files
